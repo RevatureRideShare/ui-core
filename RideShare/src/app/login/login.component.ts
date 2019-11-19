@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 
-
+/**
+ * Login page
+ */
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,24 +12,39 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 })
 export class LoginComponent implements OnInit {
 
+  /**
+   * Title of the page
+   */
   title = 'Welcome to RideShare';
-  username: ""
+
+  /** 
+   * Email to log in with
+   */
+  email: ""
+
+  /**
+   * Password to log in with
+   */
   password: ""
+
+
   response: string;
 
   /*
-  elemResources = document.getElementById('resources-link');
-  elemForum = document.getElementById('forum-link');
-  elemQuiz = document.getElementById('quiz-link');
-  elemHome = document.getElementById('home-link');
-  elemProfile = document.getElementById('profile');
-  elemSearch = document.getElementById('search'); 
+  elemProfile = document.getElementById('profile'); 
   elemLogout = document.getElementById('logout');
   */
 
+  /** 
+   * Takes user to registration page
+   */
   onRegister(): void {
     this.router.navigate(['registration']);
   }
+
+  /**
+   * Logs user in
+   */
   onLogin(): void {
     /*
     let url = 'http://localhost:8080/LightHouse/login';
@@ -61,15 +78,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     /*
-    sessionStorage.setItem('token', '');
-    this.elemResources.style.visibility = "hidden";
-    this.elemForum.style.visibility = "hidden";
-    this.elemQuiz.style.visibility = "hidden";
-    this.elemHome.style.visibility = "hidden";
-     this.elemSearch.style.visibility = "hidden"; 
     this.elemProfile.style.visibility = "hidden";
     this.elemLogout.style.visibility = "hidden";
-    sessionStorage.clear();
     */
   }
 

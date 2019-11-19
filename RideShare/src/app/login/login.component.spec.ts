@@ -2,8 +2,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoginComponent } from './login.component';
 import { FormsModule } from '@angular/forms';
-import { RouterTestingModule} from '@angular/router/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { NavbarOuterComponent } from '../navbar-outer/navbar-outer.component';
 
 
 describe('LoginComponent', () => {
@@ -16,11 +17,12 @@ describe('LoginComponent', () => {
         FormsModule,
         RouterTestingModule,
         HttpClientModule
-        ],
-      declarations: [ LoginComponent ],
+      ],
+      declarations: [LoginComponent,
+        NavbarOuterComponent],
       providers: [HttpClient]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -37,14 +39,14 @@ describe('LoginComponent', () => {
     //const fixture = TestBed.createComponent(AppComponent);
     //fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to LightHouse');
+    expect(compiled.querySelector('h1').textContent).toContain('Welcome to RideShare');
   });
 
-  it('should contain username input', () => {
+  it('should contain email input', () => {
     //const fixture = TestBed.createComponent(AppComponent);
     //fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('#username').name).toContain("username");
+    expect(compiled.querySelector('#email').name).toContain("email");
   });
 
   it('should contain password input', () => {
@@ -54,14 +56,14 @@ describe('LoginComponent', () => {
     expect(compiled.querySelector('#password').name).toContain("password");
   });
 
-  it('should call onLogin method', ()=>{
+  it('should call onLogin method', () => {
     const compiled = fixture.debugElement.nativeElement.querySelector('#login');
     spyOn(component, "onLogin");
     compiled.click();
     expect(component.onLogin).toHaveBeenCalled();
   });
-  
-  it('should call onRegister method', ()=>{
+
+  it('should call onRegister method', () => {
     const compiled = fixture.debugElement.nativeElement.querySelector('#register');
     spyOn(component, "onRegister");
     compiled.click();

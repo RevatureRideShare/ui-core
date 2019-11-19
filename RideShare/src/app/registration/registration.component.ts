@@ -3,7 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 
 
-
+/**
+ * This component is responsible for registering new users
+ */
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -11,42 +13,54 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 })
 export class RegistrationComponent implements OnInit {
 
+  /** 
+   * The email to be used to log in
+   */
   email: ""
+
+  /**
+   * User's password 
+   */
   password: ""
   //fullName: ""
   
+  /** 
+   * String used for string interpolation 
+   */
   backtologin = "Back to login";
+
+  /** 
+   * String used for string interpolation 
+   */
   register = "register";
   response: string;
+
   constructor(
     private route: ActivatedRoute,
   private router: Router,
   private http: HttpClient
   ) { }
     /*
-  elemResources = document.getElementById('resources-link');
-  elemForum = document.getElementById('forum-link');
-  elemQuiz = document.getElementById('quiz-link');
-  elemHome = document.getElementById('home-link');
-  elemSearch = document.getElementById('search');
   elemProfile = document.getElementById('profile');
   elemLogout = document.getElementById('logout');
     */
   ngOnInit() {
     /*
-    sessionStorage.setItem('token', '');
-    this.elemResources.style.visibility = "hidden";
-    this.elemForum.style.visibility = "hidden";
-    this.elemQuiz.style.visibility = "hidden";
-    this.elemHome.style.visibility = "hidden";
-    this.elemSearch.style.visibility = "hidden";
     this.elemProfile.style.visibility = "hidden";
     this.elemLogout.style.visibility = "hidden";
     */
   }
+
+  /**
+   * Takes user back to login
+   */
   onBack(): void {
     this.router.navigate(['']);
   }
+
+  /**
+   * Registers user in the system
+   */
   onRegister(): void {
     /*
     let url = 'http://localhost:8080/LightHouse/register';
