@@ -16,9 +16,9 @@ node {
         stage('EC2 Setup'){
             withEnv(["NVM_DIR=/var/jenkins_home/.nvm"]) {
                 sh 'cd ~'
-                sh 'env'
                 sh 'ls -alh'
                 sh 'export PATH=$PATH:~/.nvm/versions/node/v13.1.0/bin/'
+                sh 'env'                
                 sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash'
                 sh '. ~/.nvm/nvm.sh'
                 sh ' ~/.nvm/versions/node/v13.1.0/bin/nvm install node' 
