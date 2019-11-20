@@ -13,15 +13,10 @@ properties(
     ]
 )
 node {
-        stage('Create new nvm dir'){
-                sh 'cd ~'
-                sh 'mkdir .nvm'
-                sh 'ls -alh'
-        }
-
         stage('EC2 Setup'){
             withEnv(["NVM_DIR=/var/jenkins_home/.nvm"]) {
                 sh 'cd ~'
+                sh 'ls -alh'
                 sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash'
                 sh '. ~/.nvm/nvm.sh'
                 sh ' nvm install node'
