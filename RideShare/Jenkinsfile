@@ -4,7 +4,7 @@ pipeline {
         stage('Checkout'){
             steps{
                 sh '''
-                cd /home/ec2-user/.jenkins/workspace/Headless_testing/
+                cd /home/ec2-user/.jenkins/workspace/ui-core/
                 deleteDir()
                 '''
             }
@@ -14,25 +14,27 @@ pipeline {
                 sh '''
                 wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
                 sudo yum install ./google-chrome-stable_current_x86_64.rpm
-                npm i
+                sudo ln -s /usr/bin/google-chrome-stable /usr/bin/chromium
                 '''
             }
         }
-        stage('Npm install'){
-            steps{
-                sh '''
+        stage('NPM Install') {
+        withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
+            sh '''
                 cd /home/ec2-user/.jenkins/workspace/ui-core/RideShare
-                npm i
-                '''
+                npm install
+            '''
             }
         }
-        stage('Test'){
+
+        stage('Test') {
             withEnv(["CHROME_BIN=/usr/bin/chromium"]) {
-              sh '''
+            sh '''
                     cd /home/ec2-user/.jenkins/workspace/ui-core/RideShare
                     npm run test-headless
                 '''
             }
+            junit '**/test-results.xml'
         }
         // stage('Build') { 
         //   steps {
