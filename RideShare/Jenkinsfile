@@ -27,7 +27,7 @@ node {
         //stage('Chromium install'){
            // steps{
             //    sh '''
-              //  cd /home/ec2-user/
+              //  cd /jenkins_home/
                // wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
                 //sudo yum install ./google-chrome-stable_current_x86_64.rpm
                 //sudo ln -s /usr/bin/google-chrome-stable /usr/bin/chromium
@@ -37,7 +37,7 @@ node {
         stage('NPM Install') {
         withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
             sh '''
-                cd ~/.jenkins/workspace/ui-core/RideShare
+                cd /jenkins_home/workspace/ui-core
                 npm install
             '''
             }
@@ -46,7 +46,7 @@ node {
         stage('Test') {
             withEnv(["CHROME_BIN=/usr/bin/chromium"]) {
             sh '''
-                    cd ~/.jenkins/workspace/ui-core/RideShare
+                    cd /jenkins_home/workspace/ui-core
                     npm run test-headless
                 '''
             }
@@ -55,7 +55,7 @@ node {
         // stage('Build') { 
         //   steps {
         //         sh '''
-        //         cd ~/.jenkins/workspace/ui-core/RideShare
+        //         cd /jenkins_home/.jenkins/workspace/ui-core/RideShare
         //         ng build
         //         '''
         //   }
@@ -63,7 +63,7 @@ node {
         // stage('Deploy'){
         //     steps{
         //         sh '''
-        //         cd /home/ec2-user/.jenkins/workspace/ui-core/RideShare
+        //         cd /jenkins_home/.jenkins/workspace/ui-core/RideShare
         //          aws2 s3 cp --recursive ./dist s3://ui-core/angular
         //         '''
         //     }
