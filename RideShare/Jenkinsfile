@@ -18,6 +18,7 @@ node {
                 sh 'cd ~'
                 sh 'env'
                 sh 'ls -alh'
+                sh 'export PATH=$PATH:~/.nvm/versions/node/v13.1.0/bin/'
                 sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash'
                 sh '. ~/.nvm/nvm.sh'
                 sh ' ~/.nvm/versions/node/v13.1.0/bin/nvm install node' 
