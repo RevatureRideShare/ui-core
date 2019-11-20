@@ -21,7 +21,7 @@ node {
                 sh 'env'                
                 sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash'
                 sh 'export NVM_DIR="$HOME/.nvm"'
-                sh '[ -s "$NVM_DIR/nvm.sh" ]'
+                sh '$NVM_DIR/nvm.sh'
                 sh 'nvm install node' 
                 sh '''
                     wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
