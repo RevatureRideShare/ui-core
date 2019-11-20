@@ -13,6 +13,7 @@ properties(
     ]
 )
 node {
+    stages{
         stage('Checkout') {
         //disable to recycle workspace data to save time/bandwidth
         deleteDir()
@@ -77,4 +78,5 @@ node {
         //         '''
         //     }
         // }
+    }
 }
