@@ -31,11 +31,10 @@ node {
                 // curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
                 // . ~/.nvm/nvm.sh
         stage('EC2 Setup'){
+            sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash'
+            sh '. ~/.nvm/nvm.sh'
+            sh ' nvm install node'
             sh '''
-                curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
-                . ~/.nvm/nvm.sh
-                nvm use --delete-prefix v13.1.0
-                nvm install node
                 wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
                 sudo yum install ./google-chrome-stable_current_x86_64.rpm
                 sudo ln -s /usr/bin/google-chrome-stable /usr/bin/chromium
