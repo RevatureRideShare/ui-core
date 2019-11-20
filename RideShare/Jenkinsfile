@@ -24,16 +24,24 @@ node {
         //currentBuild.displayName = "#${currentBuild.number}-${env.git_commit_id_short}"
         }
 
-        //stage('Chromium install'){
-           // steps{
-            //    sh '''
-              //  cd /jenkins_home/
-               // wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
-                //sudo yum install ./google-chrome-stable_current_x86_64.rpm
-                //sudo ln -s /usr/bin/google-chrome-stable /usr/bin/chromium
-               // '''
-           // }
-       // }
+        stage('Chromium install'){
+            steps{
+            sh '''
+                node -v
+                npm -v
+                ng --version
+
+                curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+                . ~/.nvm/nvm.sh
+                nvm install node
+
+                cd ~
+                wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+                sudo yum install ./google-chrome-stable_current_x86_64.rpm
+                sudo ln -s /usr/bin/google-chrome-stable /usr/bin/chromium
+               '''
+           }
+       }
         stage('NPM Install') {
         withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
             sh '''
