@@ -20,7 +20,7 @@ node {
                 sh 'ls -alh'
                 sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash'
                 sh '. ~/.nvm/nvm.sh'
-                sh ' $NVM_DIR/nvm install node' 
+                sh ' ~/.nvm/versions/node/v13.1.0/bin/nvm install node' 
                 sh '''
                     wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
                     sudo yum install ./google-chrome-stable_current_x86_64.rpm
