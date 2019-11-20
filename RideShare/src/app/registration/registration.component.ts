@@ -40,15 +40,15 @@ export class RegistrationComponent implements OnInit {
   private router: Router,
   private http: HttpClient
   ) { }
-    /*
+  
   elemProfile = document.getElementById('profile');
   elemLogout = document.getElementById('logout');
-    */
+    
   ngOnInit() {
-    /*
+    
     this.elemProfile.style.visibility = "hidden";
     this.elemLogout.style.visibility = "hidden";
-    */
+    
   }
 
   /**
@@ -62,29 +62,7 @@ export class RegistrationComponent implements OnInit {
    * Registers user in the system
    */
   onRegister(): void {
-    /*
-    let url = 'http://localhost:8080/LightHouse/register';
-    let result = this.http.post<ControllerResponse>(url, {
-      username: this.username,
-      password: this.password,
-      fullName: this.fullName,
-      emailName: this.emailName
-      
-    }).subscribe(cr => {
-      if (cr.response === "registered") {
-        console.log("Response: " + cr.response);
-        sessionStorage.setItem(
-          'token',
-          btoa(this.username + ":" + this.password)
-        );
-        this.router.navigate(['home']);
-      } else {
-        console.log("Response: " + cr.response);
-        this.response = cr.response;
-        //alert("Registration failed.");
-      }
-    });
-    */
+    
   }
   
 }

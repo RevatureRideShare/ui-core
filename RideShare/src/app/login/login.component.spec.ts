@@ -36,22 +36,16 @@ describe('LoginComponent', () => {
   });
 
   it('should render title in a h1 tag', () => {
-    //const fixture = TestBed.createComponent(AppComponent);
-    //fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain('Welcome to RideShare');
   });
 
   it('should contain email input', () => {
-    //const fixture = TestBed.createComponent(AppComponent);
-    //fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('#email').name).toContain("email");
   });
 
   it('should contain password input', () => {
-    //const fixture = TestBed.createComponent(AppComponent);
-    //fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('#password').name).toContain("password");
   });

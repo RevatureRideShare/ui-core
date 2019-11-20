@@ -28,12 +28,12 @@ export class LoginComponent implements OnInit {
   password: ""
 
 
-  response: string;
+  
 
-  /*
+  
   elemProfile = document.getElementById('profile'); 
   elemLogout = document.getElementById('logout');
-  */
+  
 
   /** 
    * Takes user to registration page
@@ -46,26 +46,7 @@ export class LoginComponent implements OnInit {
    * Logs user in
    */
   onLogin(): void {
-    /*
-    let url = 'http://localhost:8080/LightHouse/login';
-    let result = this.http.post<ControllerResponse>(url, {
-      username: this.username,
-      password: this.password
-    }).subscribe(cr => {
-      if (cr.response === "success") {
-        console.log("Response" + cr.response);
-        sessionStorage.setItem(
-          'user', this.username
-        ); 
-        console.log("User: " + sessionStorage.getItem('user'));
-        this.router.navigate(['home']);
-      } else {
-        console.log("Response" + cr.response);
-        this.response = cr.response;
-        //alert("Authentication failed.");
-      }
-    });
-    */
+    
   }
 
   constructor(
@@ -77,10 +58,10 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    /*
+    
     this.elemProfile.style.visibility = "hidden";
     this.elemLogout.style.visibility = "hidden";
-    */
+    
   }
 
 }
