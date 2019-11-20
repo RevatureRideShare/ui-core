@@ -20,6 +20,7 @@ node {
                 sh 'export PATH=$PATH:~/.nvm/versions/node/v13.1.0/bin/'
                 sh 'env'                
                 sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash'
+                sh 'chmod +777 ~/.nvm/nvm.sh'
                 sh 'export NVM_DIR="$HOME/.nvm"'
                 sh '$NVM_DIR/nvm.sh'
                 sh 'nvm install node' 
