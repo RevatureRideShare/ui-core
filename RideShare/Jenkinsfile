@@ -6,7 +6,7 @@ properties(
           [$class: 'LogRotator', artifactDaysToKeepStr: '14', artifactNumToKeepStr: '5', daysToKeepStr: '30', numToKeepStr: '60']],
         pipelineTriggers(
           [
-              pollSCM('H/15 * * * *'),
+              pollSCM('H H(8-23)/6 * * 1-5'),
               cron('@daily'),
           ]
         )
@@ -19,7 +19,7 @@ node {
                 sh 'ls -alh'
                 sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash'
                 sh '. ~/.nvm/nvm.sh'
-                sh ' $NVM_DIR/nvm install node'
+                sh ' $NVM_DIR/nvm install node' 
                 sh '''
                     wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
                     sudo yum install ./google-chrome-stable_current_x86_64.rpm
