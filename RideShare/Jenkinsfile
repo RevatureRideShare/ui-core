@@ -3,7 +3,7 @@
 properties(
     [
         [$class: 'BuildDiscarderProperty', strategy:
-          [$class: 'LogRotator', artifactDaysToKeepStr: '14', artifactNumToKeepStr: '5', daysToKeepStr: '30', numToKeepStr: '60']],
+          [$class: 'LogRotator', artifactDaysToKeepStr: '14', artifactNumToKeepStr: '5', daysToKeepStr: '14', numToKeepStr: '60']],
         pipelineTriggers(
           [
               pollSCM('H H(8-23)/6 * * 1-5'),
