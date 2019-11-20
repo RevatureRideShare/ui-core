@@ -14,10 +14,8 @@ properties(
 )
 node {
         stage('EC2 Setup'){
-            withEnv(["NVM_DIR=/var/jenkins_home/.nvm"]) {
                 sh 'cd ~'
                 sh 'ls -alh'
-                sh 'export PATH=$PATH:~/.nvm/versions/node/v13.1.0/bin/'
                 sh 'env'                
                 sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash'
                 sh 'chmod +777 ~/.nvm/nvm.sh'
@@ -29,7 +27,7 @@ node {
                     sudo yum install ./google-chrome-stable_current_x86_64.rpm
                     sudo ln -s /usr/bin/google-chrome-stable /usr/bin/chromium
                 '''
-            }    
+            
        }
         stage('NPM Install') {
         withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
