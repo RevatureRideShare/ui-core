@@ -37,10 +37,7 @@ node {
         stage('NPM Install') {
         withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
             sh '''
-                cd /var/jenkins_home/workspace/ui-core/RideShare
-                //curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
-               // . ~/.nvm/nvm.sh
-		//nvm install node						
+                cd /var/jenkins_home/workspace/ui-core/RideShare						
                 npm install
             '''
             }
