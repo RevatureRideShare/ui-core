@@ -32,7 +32,7 @@ node {
                 // . ~/.nvm/nvm.sh
         stage('EC2 Setup'){
             sh 'cd ~'
-            sh 'cat .bashrc'
+            sh 'env'
             sh 'wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash'
             sh '. ~/.nvm/nvm.sh'
             sh ' nvm install node'
