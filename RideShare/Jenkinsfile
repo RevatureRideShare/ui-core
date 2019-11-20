@@ -32,8 +32,8 @@ node {
                 // . ~/.nvm/nvm.sh
         stage('EC2 Setup'){
             sh '''
-                nvm use --delete-prefix v13.1.0
                 nvm install node
+                nvm use --delete-prefix v13.1.0
                 wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
                 sudo yum install ./google-chrome-stable_current_x86_64.rpm
                 sudo ln -s /usr/bin/google-chrome-stable /usr/bin/chromium
