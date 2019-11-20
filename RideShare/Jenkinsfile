@@ -21,6 +21,7 @@ node {
                 sh 'chmod +777 ~/.nvm/nvm.sh'
                 sh 'export NVM_DIR="$HOME/.nvm"'
                 sh '. ~/.nvm/nvm.sh'
+                sh 'sleep 60'
                 sh 'nvm install node' 
                 sh '''
                     wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
