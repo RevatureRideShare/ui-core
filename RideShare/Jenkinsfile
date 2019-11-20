@@ -24,16 +24,16 @@ node {
         //currentBuild.displayName = "#${currentBuild.number}-${env.git_commit_id_short}"
         }
 
-        stage('Chromium install'){
-            steps{
-                sh '''
-                cd /home/ec2-user/
-                wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
-                sudo yum install ./google-chrome-stable_current_x86_64.rpm
-                sudo ln -s /usr/bin/google-chrome-stable /usr/bin/chromium
-                '''
-            }
-        }
+        //stage('Chromium install'){
+           // steps{
+            //    sh '''
+              //  cd /home/ec2-user/
+               // wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+                //sudo yum install ./google-chrome-stable_current_x86_64.rpm
+                //sudo ln -s /usr/bin/google-chrome-stable /usr/bin/chromium
+               // '''
+           // }
+       // }
         stage('NPM Install') {
         withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
             sh '''
