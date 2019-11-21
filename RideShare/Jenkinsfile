@@ -22,7 +22,7 @@ node {
                 sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash'
                 sh 'chmod +777 ~/.nvm/nvm.sh'
                 sh 'export NVM_DIR="$HOME/.nvm"'
-                sh '$NVM_DIR/nvm.sh'
+                sh '~/.nvm/nvm.sh'
                 sh 'cd ~'
                 sh 'sleep 2'
                 sh 'pwd'
