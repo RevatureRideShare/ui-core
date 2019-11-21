@@ -24,19 +24,24 @@ node {
         //currentBuild.displayName = "#${currentBuild.number}-${env.git_commit_id_short}"
     }
 
-    stage('NPM Install') {
-            sh '''
-                cd /var/jenkins_home/workspace/ui-core/RideShare
-                sudo rm -rf /usr/local/lib/node_modules
-                sudo rm /usr/local/bin/node
-                cd /usr/local/bin && ls -l | grep "../lib/node_modules/" | awk '{print $9}'| xargs rm
-                curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
-                . ~/.nvm/nvm.sh
-		        nvm install node						
-                npm install
-            '''
+    
+        nvm('v13.1.0'){
+                sh 'cd ~'
+                sh 'nvm -v'
+                sh 'npm -v'
+                sh 'node -v'
+        }
+
+    // stage('NPM Install') {
+    //         sh '''
+    //             cd /var/jenkins_home/workspace/ui-core/RideShare
+    //             curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+    //             . ~/.nvm/nvm.sh
+	// 	        nvm install node						
+    //             npm install
+    //         '''
         
-    }
+    // }
 
     // stage('basic node install'){
     //     sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash'
