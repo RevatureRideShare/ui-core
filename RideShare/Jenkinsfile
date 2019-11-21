@@ -25,15 +25,16 @@ node {
     }
 
     stage('NPM Install') {
-        withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
             sh '''
                 cd /var/jenkins_home/workspace/ui-core/RideShare
                 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+                npm config delete prefix 
+                npm config set prefix $NVM_DIR/versions/node/v13.1.0
                 . ~/.nvm/nvm.sh
 		        nvm install node						
                 npm install
             '''
-        }
+        
     }
 
     // stage('basic node install'){
