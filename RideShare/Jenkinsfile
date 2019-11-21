@@ -25,7 +25,7 @@ node {
     }
 
     
-        nvm(){
+        nvm('v13.1.0'){
                 sh 'cd ~'
                 sh 'nvm -v'
                 sh 'npm -v'
