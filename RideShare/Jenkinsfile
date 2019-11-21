@@ -28,10 +28,9 @@ node {
         withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
             sh '''
                 cd /var/jenkins_home/workspace/ui-core/RideShare
-                which npm
-                which node
                 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
                 . ~/.nvm/nvm.sh
+                export $NVM_DIR="~/.nvm"
 		        nvm install node						
                 npm install
             '''
