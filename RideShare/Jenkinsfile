@@ -15,25 +15,31 @@ properties(
 node {
 
 
-        stage('EC2 Setup'){
-                sh 'cd ~'
-                sh 'ls -alh'
-                sh 'env'                
-                sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash'
-                sh 'chmod +777 ~/.nvm/nvm.sh'
-                sh 'export NVM_DIR="$HOME/.nvm"'
-                sh '~/.nvm/nvm.sh'
-                sh 'cd ~'
-                sh 'sleep 2'
-                sh 'pwd'
-                sh 'nvm install node' 
-                sh '''
-                    wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
-                    sudo yum install ./google-chrome-stable_current_x86_64.rpm
-                    sudo ln -s /usr/bin/google-chrome-stable /usr/bin/chromium
-                '''
+    stage('basic node install'){
+        sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash'
+        sh '. ~/.nvm/nvm.sh'
+        sh 'nvm install node'
+    }
+
+    //     stage('EC2 Setup'){
+    //             sh 'cd ~'
+    //             sh 'ls -alh'
+    //             sh 'env'                
+    //             sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash'
+    //             sh 'chmod +777 ~/.nvm/nvm.sh'
+    //             sh 'export NVM_DIR="$HOME/.nvm"'
+    //             sh '~/.nvm/nvm.sh'
+    //             sh 'cd ~'
+    //             sh 'sleep 2'
+    //             sh 'pwd'
+    //             sh 'nvm install node' 
+    //             sh '''
+    //                 wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+    //                 sudo yum install ./google-chrome-stable_current_x86_64.rpm
+    //                 sudo ln -s /usr/bin/google-chrome-stable /usr/bin/chromium
+    //             '''
             
-       }
+    //    }
         stage('NPM Install') {
         withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
             sh '''
