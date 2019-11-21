@@ -13,31 +13,39 @@ properties(
     ]
 )
 node {
-        stage('EC2 Setup'){
+
+        nvm('v13.1.0'){
                 sh 'cd ~'
-                sh 'ls -alh'
-                sh 'env'                
-                sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash'
-                sh 'chmod +777 ~/.nvm/nvm.sh'
-                sh 'export NVM_DIR="$HOME/.nvm"'
-                sh '. ~/.nvm/nvm.sh'
-                sh 'sleep 60'
-                sh 'nvm install node' 
-                sh '''
-                    wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
-                    sudo yum install ./google-chrome-stable_current_x86_64.rpm
-                    sudo ln -s /usr/bin/google-chrome-stable /usr/bin/chromium
-                '''
-            
-       }
-        stage('NPM Install') {
-        withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
-            sh '''
-                cd /var/jenkins_home/workspace/ui-core/RideShare						
-                npm install
-            '''
-            }
+                sh 'nvm -v'
+                sh 'npm -v'
+                sh 'node -v'
         }
+    
+
+    //     stage('EC2 Setup'){
+    //             sh 'cd ~'
+    //             sh 'ls -alh'
+    //             sh 'env'                
+    //             sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash'
+    //             sh 'chmod +777 ~/.nvm/nvm.sh'
+    //             sh 'export NVM_DIR="$HOME/.nvm"'
+    //             sh '$NVM_DIR/nvm.sh'
+    //             sh 'nvm install node' 
+    //             sh '''
+    //                 wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+    //                 sudo yum install ./google-chrome-stable_current_x86_64.rpm
+    //                 sudo ln -s /usr/bin/google-chrome-stable /usr/bin/chromium
+    //             '''
+            
+    //    }
+    //     stage('NPM Install') {
+    //     withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
+    //         sh '''
+    //             cd /var/jenkins_home/workspace/ui-core/RideShare						
+    //             npm install
+    //         '''
+    //         }
+    //     }
 
         stage('Test') {
             withEnv(["CHROME_BIN=/usr/bin/chromium"]) {
