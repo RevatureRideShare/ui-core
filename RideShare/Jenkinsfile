@@ -20,7 +20,7 @@ pipeline {
 )*/
 
 
-tools {nodejs "node"}
+//tools {nodejs "node"}
 
 stages {
 //    agent any
@@ -33,6 +33,13 @@ stages {
                 sh 'sh install.sh'
             
         } */
+        stage ('Install dependencies') {
+      steps {
+        sh "apk add nodejs"
+        sh "echo $PATH"
+        sh "npm install"
+      }
+    }
         stage('NPM Install') {
         //withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
             steps {
