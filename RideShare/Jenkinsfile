@@ -6,7 +6,7 @@ pipeline {
 
     agent any
 
-    options(
+/*     options(
     [
         [$class: 'BuildDiscarderProperty', strategy:
           [$class: 'LogRotator', artifactDaysToKeepStr: '14', artifactNumToKeepStr: '5', daysToKeepStr: '14', numToKeepStr: '60']],
@@ -16,13 +16,13 @@ pipeline {
               cron('@daily'),
           ]
         )
-    ]
-)
+    ] 
+)*/
 
 
 tools {nodejs "node"}
 
-steps {
+stages {
 //    agent any
 
 /*         stage('EC2 Setup'){
@@ -35,6 +35,7 @@ steps {
         } */
         stage('NPM Install') {
         withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
+            steps {
             sh '''
                 npm -v
                 cd /var/jenkins_home/workspace/ui-core/RideShare						
@@ -42,13 +43,16 @@ steps {
             '''
             }
         }
+        }
 
         stage('Test') {
             withEnv(["CHROME_BIN=/usr/bin/chromium"]) {
+                steps {
             sh '''
                     cd /var/jenkins_home/workspace/ui-core/RideShare
                     npm run test-headless
                 '''
+            }
             }
             junit '**/test-results.xml'
         }
