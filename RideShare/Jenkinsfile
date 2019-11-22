@@ -34,7 +34,7 @@ stages {
             
         } */
         stage('NPM Install') {
-        withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
+        //withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
             steps {
             sh '''
                 npm -v
@@ -42,18 +42,18 @@ stages {
                 npm install
             '''
             }
-        }
+        //}
         }
 
         stage('Test') {
-            withEnv(["CHROME_BIN=/usr/bin/chromium"]) {
+            //withEnv(["CHROME_BIN=/usr/bin/chromium"]) {
                 steps {
             sh '''
                     cd /var/jenkins_home/workspace/ui-core/RideShare
                     npm run test-headless
                 '''
             }
-            }
+            //}
             junit '**/test-results.xml'
         }
         // stage('Build') { 
