@@ -13,7 +13,7 @@ properties(
     ]
 )
 node {
-    agent any
+//    agent any
 
     tools {nodejs "node"}
 
@@ -28,7 +28,7 @@ node {
         stage('NPM Install') {
         withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
             sh '''
-                
+                npm -v
                 cd /var/jenkins_home/workspace/ui-core/RideShare						
                 npm install
             '''
