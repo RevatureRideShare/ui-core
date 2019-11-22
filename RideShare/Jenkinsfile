@@ -45,17 +45,17 @@ stages {
         //}
         }
 
-        stage('Test') {
+/*         stage('Test') {
             //withEnv(["CHROME_BIN=/usr/bin/chromium"]) {
                 steps {
             sh '''
                     cd /var/jenkins_home/workspace/ui-core/RideShare
                     npm run test-headless
                 '''
-            }
+            } */
             //}
-            junit '**/test-results.xml'
-        }
+            //junit '**/test-results.xml'
+       // }
         // stage('Build') { 
         //   steps {
         //         sh '''
