@@ -1,84 +1,12 @@
-#!groovy
-
-
-
-pipeline {
-
-    agent any
-
-/*     options(
-    [
-        [$class: 'BuildDiscarderProperty', strategy:
-          [$class: 'LogRotator', artifactDaysToKeepStr: '14', artifactNumToKeepStr: '5', daysToKeepStr: '14', numToKeepStr: '60']],
-        pipelineTriggers(
-          [
-              pollSCM('H H(8-23)/6 * * 1-5'),
-              cron('@daily'),
-          ]
-        )
-    ] 
-)*/
-
-
-//tools {nodejs "node"}
-
-stages {
-//    agent any
-
-/*         stage('EC2 Setup'){
-                sh 'cd ~'
-                sh 'ls -alh'
-                sh 'env'                
-                sh 'curl -O https://npmjs.org/install.sh'
-                sh 'sh install.sh'
-            
-        } */
-        stage ('Install dependencies') {
-      steps {
-        sh "apk add nodejs"
-        sh "echo $PATH"
-        sh "npm install"
-      }
-    }
-        stage('NPM Install') {
-        //withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
-            steps {
-            sh '''
-                npm -v
-                cd /var/jenkins_home/workspace/ui-core/RideShare						
-                npm install
-            '''
-            }
-        //}
-        }
-
-/*         stage('Test') {
-            //withEnv(["CHROME_BIN=/usr/bin/chromium"]) {
-                steps {
-            sh '''
-                    cd /var/jenkins_home/workspace/ui-core/RideShare
-                    npm run test-headless
-                '''
-            } */
-            //}
-            //junit '**/test-results.xml'
-       // }
-        // stage('Build') { 
-        //   steps {
-        //         sh '''
-        //         cd /jenkins_home/.jenkins/workspace/ui-core/RideShare
-        //         ng build
-        //         '''
-        //   }
-        // }
-        // stage('Deploy'){
-        //     steps{
-        //         sh '''
-        //         cd /jenkins_home/.jenkins/workspace/ui-core/RideShare
-        //          aws2 s3 cp --recursive ./dist s3://ui-core/angular
-        //         '''
-        //     }
-        // }
-    
+stage 'Init'
+node {
+  checkout scm
+  sh 'echo $BRANCH_NAME'
 }
+if (env.BRANCH_NAME == 'master') {
+  stage 'Only on master'
+  println 'This happens only on master'
+} else {
+  stage 'Other branches'
+  println "Current branch ${env.BRANCH_NAME}"
 }
