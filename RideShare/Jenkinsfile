@@ -12,10 +12,11 @@ properties(
         )
     ]
 )
+
+tools {nodejs "node"}
+
 node {
 //    agent any
-
-    tools {nodejs "node"}
 
 /*         stage('EC2 Setup'){
                 sh 'cd ~'
