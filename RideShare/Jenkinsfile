@@ -13,19 +13,23 @@ properties(
     ]
 )
 node {
-        stage('EC2 Setup'){
+    agent any
+
+    tools {nodejs "node"}
+
+/*         stage('EC2 Setup'){
                 sh 'cd ~'
                 sh 'ls -alh'
                 sh 'env'                
                 sh 'curl -O https://npmjs.org/install.sh'
                 sh 'sh install.sh'
             
-        }
+        } */
         stage('NPM Install') {
         withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
             sh '''
                 cd /var/jenkins_home/workspace/ui-core/RideShare						
-                ./npm install
+                npm install
             '''
             }
         }
