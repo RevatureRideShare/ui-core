@@ -17,8 +17,8 @@ node {
                 sh 'cd ~'
                 sh 'ls -alh'
                 sh 'env'                
-                sh curl -O https://npmjs.org/install.sh
-                sh sudo sh install.sh
+                sh 'curl -O https://npmjs.org/install.sh'
+                sh 'sudo sh install.sh'
             
         }
         stage('NPM Install') {
