@@ -6,7 +6,7 @@ pipeline {
 
     agent any
 
-    properties(
+    options(
     [
         [$class: 'BuildDiscarderProperty', strategy:
           [$class: 'LogRotator', artifactDaysToKeepStr: '14', artifactNumToKeepStr: '5', daysToKeepStr: '14', numToKeepStr: '60']],
@@ -22,7 +22,7 @@ pipeline {
 
 tools {nodejs "node"}
 
-stages {
+steps {
 //    agent any
 
 /*         stage('EC2 Setup'){
