@@ -25,9 +25,10 @@ node {
   }
   stage('NPM Install') {
       withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
-        sh 'cd /home/ec2-user/.jenkins/workspace/ore_chore_1-PhantomJS-dependency'
-        sh '. ~/.nvm/nvm.sh'
-        sh 'npm install'
+       sh '. ~/.nvm/nvm.sh'
+       sh 'node -v'
+       sh 'npm -v'
+       sh 'npm i'
       }
     }
     stage('Build') {
