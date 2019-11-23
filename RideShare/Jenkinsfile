@@ -2,10 +2,10 @@
 
 pipeline {
     agent any
+    triggers {
+      cron('H H/6 * * 1-5')
+    }    
     stages {
-        triggers {
-          cron('H H/6 * * 1-5')
-        }
         stage('build') {
             steps {
                 sh '''
