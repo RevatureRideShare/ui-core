@@ -36,14 +36,16 @@ pipeline {
         }
         
         stage('Deploy') {
-              
-                if(env.BRANCH_NAME == 'chore/1-PhantomJS-dependency'){
-                  sh '''
-                      cd /home/ec2-user/.jenkins/workspace/ore_chore_1-PhantomJS-dependency/RideShare
-                      aws s3 cp --recursive ./dist/Project3 s3://rideshare-client
-                  '''
+              steps {
+                script{
+                  if(env.BRANCH_NAME == 'chore/1-PhantomJS-dependency'){
+                    sh '''
+                        cd /home/ec2-user/.jenkins/workspace/ore_chore_1-PhantomJS-dependency/RideShare
+                        aws s3 cp --recursive ./dist/Project3 s3://rideshare-client
+                    '''
+                  }
                 }
-            
+            }
         }
     }
 }
