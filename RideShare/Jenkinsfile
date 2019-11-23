@@ -71,8 +71,11 @@ else {
   println "Current branch ${env.BRANCH_NAME}"
   stage('NPM Install') {
       withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
-        sh 'cd /home/ec2-user/.jenkins/workspace/ore_chore_1-PhantomJS-dependency'
-        sh 'npm install'
+        sh '''
+        cd /home/ec2-user/.jenkins/workspace/ore_chore_1-PhantomJS-dependency \
+        . ~/nvm.sh \
+        npm install
+        '''
       }
     }
     stage('Build') {
