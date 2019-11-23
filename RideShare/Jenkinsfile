@@ -1,9 +1,9 @@
 #!/bin/bash
 
 echo "hello, today is $(date)"
-. ~/.nvm/nvm.sh
-pwd
-echo "Where is node"
-nvm which node
-node -v
-npm -v
+sh '. ~/.nvm/nvm.sh'
+sh 'pwd'
+sh 'echo "Where is node"'
+sh 'nvm which node'
+sh 'node -v'
+sh 'npm -v'
