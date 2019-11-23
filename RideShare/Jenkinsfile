@@ -29,6 +29,7 @@ pipeline {
         stage('Build') {
               steps {
                 sh '''
+                    . ~/.nvm/nvm.sh
                     cd /home/ec2-user/.jenkins/workspace/ore_chore_1-PhantomJS-dependency/RideShare
 		                ng build
                 '''
