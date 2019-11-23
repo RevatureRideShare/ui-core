@@ -28,6 +28,10 @@ node {
        sh '. ~/.nvm/nvm.sh'
        sh 'pwd'
        sh 'ls -alh'
+       sh 'cd /home/ec2-user/.'
+       sh 'ls -alh'
+       sh 'cd /home/ec2-user/..'
+       sh 'ls -alh'
       }
     }
     stage('Build') {
