@@ -1,4 +1,4 @@
-#!/bin/bash
+#!groovy
 
 pipeline {
     agent any
@@ -9,26 +9,26 @@ pipeline {
                 sh '''
                     . ~/.nvm/nvm.sh
                     echo "I am building RideShare Angular"
-		    pwd
+		                pwd
                     echo "Where is node"
                     nvm which node
                     node -v
                     npm -v
                     cd /home/ec2-user/.jenkins/workspace/ore_chore_1-PhantomJS-dependency/RideShare
-		    npm install
+		                npm install
                     #ng build
-		    cd /home/ec2-user/.jenkins/workspace
+		                cd /home/ec2-user/.jenkins/workspace
                     ls -alh
                 '''
             }
          }
- stage('test') {
-            steps {
+        stage('test') {
+              steps {
                 sh 'echo "Full Stack"'
                 sh '''
                     . ~/.nvm/nvm.sh
                     cd /home/ec2-user/.jenkins/workspace/ore_chore_1-PhantomJS-dependency/RideShare
-		    npm install
+		                npm install
                     npm run test-headless
                 '''
             }
