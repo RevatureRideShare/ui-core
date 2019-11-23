@@ -28,6 +28,7 @@ node {
       withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
         sh '''
         cd /home/ec2-user/.jenkins/workspace/ore_chore_1-PhantomJS-dependency \
+        . ~/nvm.sh \
         npm install
         '''
       }
