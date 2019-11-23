@@ -27,12 +27,7 @@ node {
       withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
        sh '. ~/.nvm/nvm.sh'
        sh 'pwd'
-       sh 'ls -alh'
-       sh 'cd /home'
-       sh 'ls -alh'
-       sh 'cd /home/ec2-user/RideShare'
-       sh 'ls -alh'
-       sh 'cd /home/ec2-user/.jenkins'
+       sh 'cd /home/ec2-user/.jenkins/workspace'
        sh 'ls -alh'
       }
     }
