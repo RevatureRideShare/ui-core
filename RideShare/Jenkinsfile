@@ -18,6 +18,7 @@ node {
     deleteDir()
     checkout scm
     sh 'echo $BRANCH_NAME'
+    sh 'echo TEST'
     //enable for commit id in build number
     //env.git_commit_id = sh returnStdout: true, script: 'git rev-parse HEAD'
     //env.git_commit_id_short = env.git_commit_id.take(7)
