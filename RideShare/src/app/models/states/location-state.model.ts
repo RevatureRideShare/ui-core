@@ -6,6 +6,7 @@ import { HouseLocation } from '../houselocation.model';
  *
  * Imported by:
  * app-state.model.ts
+ * location.action.ts
  */
 export interface ILocationState{
   readonly allTrainingLocations: Array<TrainingLocation>;
