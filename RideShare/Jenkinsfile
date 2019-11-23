@@ -27,6 +27,7 @@ node {
       withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
        sh '. ~/.nvm/nvm.sh'
        sh 'cd /home/ec2-user'
+       sh 'nvm which node'
        sh 'ls -alh'
       }
     }
