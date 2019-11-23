@@ -1,8 +1,10 @@
 #!/bin/bash
 
-sh '. ~/.nvm/nvm.sh'
-sh 'pwd'
-sh 'echo "Where is node"'
-sh 'nvm which node'
-sh 'node -v'
-sh 'npm -v'
+node('master') {
+  stage("Get dir size") {
+    script {
+      DIR_SIZE = sh(returnStdout: true, script: 'ls -la /var | grep jenkins_home | cut -d " " -f5')
+    }
+    echo "dir size = ${DIR_SIZE}"
+  }
+}
