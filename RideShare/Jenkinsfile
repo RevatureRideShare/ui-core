@@ -28,9 +28,11 @@ node {
        sh '. ~/.nvm/nvm.sh'
        sh 'pwd'
        sh 'ls -alh'
-       sh 'cd /home/ec2-user/.'
+       sh 'cd /home'
        sh 'ls -alh'
-       sh 'cd /home/ec2-user/..'
+       sh 'cd /home/ec2-user/RideShare'
+       sh 'ls -alh'
+       sh 'cd /home/ec2-user/.jenkins'
        sh 'ls -alh'
       }
     }
