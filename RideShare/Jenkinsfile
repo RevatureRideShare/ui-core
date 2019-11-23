@@ -27,7 +27,6 @@ node {
       withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
        sh '. ~/.nvm/nvm.sh'
        sh 'pwd'
-       sh 'nvm which node'
        sh 'ls -alh'
       }
     }
