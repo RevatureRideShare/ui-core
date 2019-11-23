@@ -5,9 +5,9 @@ import { HouseLocation } from '../../models/houselocation.model';
  * All the actions types related to the allHouseLocations state in ILocationState of location-state.model.ts
  */
 export enum HouseLocationsActionTypes {
-  LOAD_ALL_HOUSE_LOCATIONS = '[ALL_HOUSE_LOCATIONS] Load All House Locations',
-  LOAD_ALL_HOUSE_LOCATIONS_SUCCESS = '[ALL_HOUSE_LOCATIONS] Load All House Locations Success',
-  LOAD_ALL_HOUSE_LOCATIONS_FAIL = '[ALL_HOUSE_LOCATIONS] Load All House Locations Fail'
+  LOAD_ALL_HOUSE_LOCATIONS = '[HOUSE_LOCATIONS] Load All House Locations',
+  LOAD_ALL_HOUSE_LOCATIONS_SUCCESS = '[HOUSE_LOCATIONS] Load All House Locations Success',
+  LOAD_ALL_HOUSE_LOCATIONS_FAIL = '[HOUSE_LOCATIONS] Load All House Locations Fail'
 }
 
 /**
