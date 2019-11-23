@@ -26,9 +26,8 @@ node {
   stage('NPM Install') {
       withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
        sh '. ~/.nvm/nvm.sh'
-       sh 'node -v'
-       sh 'pwd'
-       sh 'npm i'
+       sh 'cd /home/ec2-user/.nvm/versions/node'
+       sh 'which npm'
       }
     }
     stage('Build') {
