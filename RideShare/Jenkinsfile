@@ -3,11 +3,17 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('Debugging') {
             steps {
                 sh 'echo "Hello World"'
                 sh '''
                     echo "Multiline shell steps works too"
+		    . ~/.nvm/nvm.sh
+                    pwd
+                    echo "Where is node"
+                    nvm which node
+                    node -v
+                    npm -v
                     ls -lah
                 '''
             }
