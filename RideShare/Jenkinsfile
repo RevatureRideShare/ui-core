@@ -25,7 +25,7 @@ pipeline {
                 '''
             }
         }
-        
+        */
         stage('Build') {
               steps {
                 sh '''
@@ -34,15 +34,15 @@ pipeline {
                 '''
             }
         }
-        */
+        
         stage('Deploy') {
               steps {
                 echo "Branch name: "
                 echo env.BRANCH_NAME
+                if(env.BRANCH_NAME == 'chore/1-PhantomJS-dependency')
                 sh '''
-                    . ~/.nvm/nvm.sh
                     cd /home/ec2-user/.jenkins/workspace/ore_chore_1-PhantomJS-dependency/RideShare
-		                ng build
+                    aws s3 cp --recursive ./dist/Project3 s3://ui-core/RideShare
                 '''
             }
         }
