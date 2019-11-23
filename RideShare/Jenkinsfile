@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'echo "Hello World"'
+                sh 'echo "Full Stack"'
                 sh '''
                     . ~/.nvm/nvm.sh
                     echo "I am building RideShare Angular"
@@ -21,6 +21,17 @@ pipeline {
                     ls -alh
                 '''
             }
+ stage('test') {
+            steps {
+                sh 'echo "Full Stack"'
+                sh '''
+                    . ~/.nvm/nvm.sh
+                    cd /home/ec2-user/.jenkins/workspace/ore_chore_1-PhantomJS-dependency/RideShare
+		    npm install
+                    npm run test-headless
+                '''
+            }
+
         }
     }
 }
