@@ -1,6 +1,5 @@
 #!/bin/bash
 
-echo "hello, today is $(date)"
 sh '. ~/.nvm/nvm.sh'
 sh 'pwd'
 sh 'echo "Where is node"'
