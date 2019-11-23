@@ -1,5 +1,8 @@
 pipeline{
     agent any
+    triggers {
+        cron('H H/6 * * 1-5')
+    }
     stages{
         stage('View package versions'){
             steps{
