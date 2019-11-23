@@ -25,12 +25,8 @@ node {
   }
   if(env.BRANCH_NAME == 'master'){
     stage('NPM Install') {
-      withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
-        sh '''
-        cd /home/ec2-user/.jenkins/workspace/ore_chore_1-PhantomJS-dependency \
-        npm install
-        '''
-      }
+        sh 'cd /home/ec2-user/.jenkins/workspace/ore_chore_1-PhantomJS-dependency'
+        sh 'npm install'
     }
     stage('Build') {
       milestone()
