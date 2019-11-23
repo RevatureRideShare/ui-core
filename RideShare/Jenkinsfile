@@ -8,7 +8,12 @@ pipeline {
                 sh 'echo "Hello World"'
                 sh '''
                     echo "I am building RideShare Angular"
-		    . ~/.nvm/nvm.sh
+		    pwd
+                    echo "Where is node"
+                    nvm which node
+                    node -v
+                    npm -v
+		    npm install
                     ng build
                 '''
             }
