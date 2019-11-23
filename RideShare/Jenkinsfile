@@ -6,10 +6,12 @@ pipeline{
     stages{
         stage('View package versions'){
             steps{
+                sh '''
                 pwd
                 node -v
                 npm -v
                 mvn -v
+                '''
             }
         }
     }
