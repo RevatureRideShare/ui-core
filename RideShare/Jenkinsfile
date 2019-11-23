@@ -3,17 +3,13 @@
 pipeline {
     agent any
     stages {
-        stage('Debugging') {
+        stage('build') {
             steps {
                 sh 'echo "Hello World"'
                 sh '''
-                    echo "Multiline shell steps works too"
+                    echo "I am building RideShare Angular"
 		    . ~/.nvm/nvm.sh
-                    pwd
-                    echo "Where is node"
-                    nvm which node
-                    node -v
-                    npm -v
+                    ng build
                 '''
             }
         }
