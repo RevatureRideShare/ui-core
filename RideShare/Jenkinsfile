@@ -26,7 +26,7 @@ node {
   stage('NPM Install') {
       withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
        sh 'pwd'
-       sh 'which nvm'
+       sh 'node -v'
        sh 'npm i'
       }
     }
