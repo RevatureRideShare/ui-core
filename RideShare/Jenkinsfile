@@ -16,11 +16,12 @@ pipeline {
                     npm -v
                     cd /home/ec2-user/.jenkins/workspace/ore_chore_1-PhantomJS-dependency/RideShare
 		    npm install
-                    ng build
+                    #ng build
 		    cd /home/ec2-user/.jenkins/workspace
                     ls -alh
                 '''
             }
+         }
  stage('test') {
             steps {
                 sh 'echo "Full Stack"'
@@ -31,7 +32,6 @@ pipeline {
                     npm run test-headless
                 '''
             }
-
         }
     }
 }
