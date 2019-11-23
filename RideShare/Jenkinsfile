@@ -6,13 +6,12 @@ pipeline {
       cron('H H/8 * * 1-5')
     }    
     stages {
-        stage('build') {
+        stage('Install') {
             steps {
                 sh '''
                     . ~/.nvm/nvm.sh
                     cd /home/ec2-user/.jenkins/workspace/ore_chore_1-PhantomJS-dependency/RideShare
 		                npm install
-                    #ng build
                 '''
             }
          }
@@ -20,16 +19,26 @@ pipeline {
         stage('test') {
               steps {
                 sh '''
-                    . ~/.nvm/nvm.sh
                     cd /home/ec2-user/.jenkins/workspace/ore_chore_1-PhantomJS-dependency/RideShare
 		                npm install
                     npm run test-headless
                 '''
             }
         }
-        */
+        
         stage('Build') {
               steps {
+                sh '''
+                    cd /home/ec2-user/.jenkins/workspace/ore_chore_1-PhantomJS-dependency/RideShare
+		                ng build
+                '''
+            }
+        }
+        */
+        stage('Deploy') {
+              steps {
+                echo "Branch name: "
+                echo env.BRANCH_NAME
                 sh '''
                     . ~/.nvm/nvm.sh
                     cd /home/ec2-user/.jenkins/workspace/ore_chore_1-PhantomJS-dependency/RideShare
