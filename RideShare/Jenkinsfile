@@ -1,18 +1,9 @@
-pipeline{
-    agent any
-    triggers {
-        cron('H H/6 * * 1-5')
-    }
-    stages{
-        stage('View package versions'){
-            steps{
-                sh '''
-                pwd
-                node -v
-                npm -v
-                mvn -v
-                '''
-            }
-        }
-    }
-}
+#!/bin/bash
+
+echo "hello, today is $(date)"
+. ~/.nvm/nvm.sh
+pwd
+echo "Where is node"
+nvm which node
+node -v
+npm -v
