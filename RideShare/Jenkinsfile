@@ -23,8 +23,7 @@ node {
     //env.git_commit_id_short = env.git_commit_id.take(7)
     //currentBuild.displayName = "#${currentBuild.number}-${env.git_commit_id_short}"
   }
-  if(env.BRANCH_NAME == 'master'){
-    stage('NPM Install') {
+  stage('NPM Install') {
       withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
         sh '''
         cd /home/ec2-user/.jenkins/workspace/ore_chore_1-PhantomJS-dependency \
@@ -37,27 +36,27 @@ node {
       milestone()
       sh '''
       cd /home/ec2-user/.jenkins/workspace/ore_chore_1-PhantomJS-dependency \
+       . ~/nvm.sh \
       ng build --prod --aot --sm --progress=false
       ''' 
     }
     stage('Test') {
       withEnv(["CHROME_BIN=/usr/bin/chromium"]) {
         sh '''
-        cd /home/ec2-user/.jenkins/workspace/ore_chore_1-PhantomJS-dependency
+        cd /home/ec2-user/.jenkins/workspace/ore_chore_1-PhantomJS-dependency \
+        . ~/nvm.sh \
         npm run test-headless
         '''
       }
     }
     stage('Lint') {
       sh '''
-        cd /home/ec2-user/.jenkins/workspace/ore_chore_1-PhantomJS-dependency
+        cd /home/ec2-user/.jenkins/workspace/ore_chore_1-PhantomJS-dependency \
+        . ~/nvm.sh \
         ng lint
         '''
     }
-    stage('Archive') {
-      sh 'tar -cvzf dist.tar.gz --strip-components=1 dist'
-      archive 'dist.tar.gz'
-    }
+  if(env.BRANCH_NAME == 'master'){
     stage('Deploy'){
       steps{
       sh '''
@@ -69,34 +68,5 @@ node {
   }
 else {
   println "Current branch ${env.BRANCH_NAME}"
-  stage('NPM Install') {
-      withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
-        sh '''
-        cd /home/ec2-user/.jenkins/workspace/ore_chore_1-PhantomJS-dependency \
-        . ~/nvm.sh \
-        npm install
-        '''
-      }
-    }
-    stage('Build') {
-      sh '''
-      cd /home/ec2-user/.jenkins/workspace/ore_chore_1-PhantomJS-dependency \
-      ng build --prod --aot --sm --progress=false
-      ''' 
-    }
-    stage('Test') {
-      withEnv(["CHROME_BIN=/usr/bin/chromium"]) {
-        sh '''
-        cd /home/ec2-user/.jenkins/workspace/ore_chore_1-PhantomJS-dependency
-        npm run test-headless
-        '''
-      }
-    }
-    stage('Lint') {
-      sh '''
-        cd /home/ec2-user/.jenkins/workspace/ore_chore_1-PhantomJS-dependency
-        ng lint
-        '''
-    }
   }
 }
