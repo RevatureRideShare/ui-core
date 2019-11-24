@@ -21,6 +21,7 @@ pipeline {
               steps {
                 sh '''
                     . ~/.nvm/nvm.sh
+                    cd RideShare
                     npm run test-headless
                 '''
             }
@@ -30,7 +31,8 @@ pipeline {
               steps {
                 
                 sh '''
-                    . ~/.nvm/nvm.sh                    
+                    . ~/.nvm/nvm.sh 
+                    cd RideShare                   
 		            ng build
                 '''
             }
