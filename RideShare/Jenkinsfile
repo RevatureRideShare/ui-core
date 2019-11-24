@@ -20,7 +20,7 @@ pipeline {
         stage('test') {
               steps {
                 sh '''
-                    pwd
+                    . ~/.nvm/nvm.sh
                     npm run test-headless
                 '''
             }
@@ -30,8 +30,7 @@ pipeline {
               steps {
                 
                 sh '''
-                    . ~/.nvm/nvm.sh
-                    pwd
+                    . ~/.nvm/nvm.sh                    
 		            ng build
                 '''
             }
