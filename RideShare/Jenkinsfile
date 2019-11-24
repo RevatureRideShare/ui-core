@@ -13,13 +13,13 @@ pipeline {
             steps {
                 sh '''
                     . ~/.nvm/nvm.sh
-                    pwd
+                    ls -alh
                     cd RideShare
 		            npm install
                 '''
             }
          }
-         /*
+         
         stage('test') {
               steps {
                 sh '''
@@ -29,7 +29,7 @@ pipeline {
                 '''
             }
         }
-        */
+        
         stage('Build') {
               steps {
                 
@@ -46,12 +46,18 @@ pipeline {
                 script{
                   if(env.BRANCH_NAME == 'chore/master'){
                     sh '''
-                        cd /home/ec2-user/.jenkins/workspace/master/RideShare
+                        cd RideShare
                         aws s3 cp --recursive ./dist/Project3 s3://rideshare-client
                     '''
                   }
                 }
             }
+        }
+    }
+    post{
+        failure{
+            echo 'Deleting from workspace: ' + env.BRANCH_NAME
+            pwd
         }
     }
 }
