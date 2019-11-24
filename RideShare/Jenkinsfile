@@ -58,7 +58,7 @@ pipeline {
         failure{
             echo 'Deleting from workspace: ' + env.BRANCH_NAME
             sh 'pwd'
-            deletedir()
+            deleteDir()
         }
     }
 }
