@@ -10,6 +10,8 @@ pipeline {
             steps {
                 sh '''
                     . ~/.nvm/nvm.sh
+                    pwd
+                    cd RideShare
 		            npm install
                 '''
             }
@@ -18,6 +20,7 @@ pipeline {
         stage('test') {
               steps {
                 sh '''
+                    pwd
                     npm run test-headless
                 '''
             }
@@ -28,6 +31,7 @@ pipeline {
                 
                 sh '''
                     . ~/.nvm/nvm.sh
+                    pwd
 		            ng build
                 '''
             }
