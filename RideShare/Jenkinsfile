@@ -9,34 +9,25 @@ pipeline {
         stage('Install') {
             steps {
                 sh '''
-                    echo FirstDir
-                    pwd
                     . ~/.nvm/nvm.sh
-                    echo SecondDir
-                    pwd
-                    cd /home/ec2-user/.jenkins/workspace/ore_chore_1-PhantomJS-dependency/RideShare
 		            npm install
                 '''
             }
          }
-         /*
+         
         stage('test') {
               steps {
                 sh '''
-                    cd /home/ec2-user/.jenkins/workspace/ore_chore_1-PhantomJS-dependency/RideShare
-		                npm install
                     npm run test-headless
                 '''
             }
         }
-        */
+        
         stage('Build') {
               steps {
                 
                 sh '''
-                    echo ThirdDir
-                    pwd
-                    cd /home/ec2-user/.jenkins/workspace/ore_chore_1-PhantomJS-dependency/RideShare
+                    . ~/.nvm/nvm.sh
 		            ng build
                 '''
             }
