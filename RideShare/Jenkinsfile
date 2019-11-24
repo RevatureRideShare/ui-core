@@ -3,7 +3,7 @@
 pipeline {
     agent any
     triggers {
-      cron('H H/8 * * 1-5')
+        pollSCM('H H/8 * * *')
     }    
     stages {
         stage('Install') {
@@ -28,10 +28,11 @@ pipeline {
         */
         stage('Build') {
               steps {
+                
                 sh '''
                     . ~/.nvm/nvm.sh
                     cd /home/ec2-user/.jenkins/workspace/ore_chore_1-PhantomJS-dependency/RideShare
-		                ng build
+		            ng build
                 '''
             }
         }
