@@ -6,7 +6,7 @@ pipeline {
         pollSCM('H H/8 * * *')
     }    
     options { 
-        checkoutToSubdirectory('RideShare'),
+        checkoutToSubdirectory('RideShare')
         disableConcurrentBuilds()
     }
     stages {
