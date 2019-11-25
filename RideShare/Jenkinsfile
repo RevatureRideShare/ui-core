@@ -16,7 +16,6 @@ pipeline {
                 sh 'pwd'
                 sh 'ls'
                 deleteDir()
-                checkout scm
             }
         }
         stage('Install') {
