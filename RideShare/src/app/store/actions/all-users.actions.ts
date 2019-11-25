@@ -139,3 +139,23 @@ export class RegisterUserFailAction implements Action {
   readonly type = AllUsersActionTypes.REGISTER_USER_FAIL;
   constructor(public payload: Error) {}
 }
+
+/**
+ * Exporting all-user actions classes
+ */
+export type AllUserAction =
+  | LoadAllUsersAction
+  | LoadAllUsersSuccessAction
+  | LoadAllUsersFailAction
+  | UpdateUserAction
+  | UpdateUserSuccessAction
+  | UpdateUserFailAction
+  | LoadAllDriversAction
+  | LoadAllDriversSuccessAction
+  | LoadAllDriversFailAction
+  | LoginUserAction
+  | LoginUserSuccessAction
+  | LoginUserFailAction
+  | RegisterUserAction
+  | RegisterUserSuccessAction
+  | RegisterUserFailAction;

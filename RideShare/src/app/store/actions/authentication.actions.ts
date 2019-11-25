@@ -18,3 +18,10 @@ export class LoadAuthenticationAction implements Action {
 export class AuthenticationExpiredAction implements Action {
   readonly type = AuthenticationActionTypes.AUTHENTICATION_EXPIRED;
 }
+
+/**
+ * Exporting authentication actions classes
+ */
+export type AuthenticationAction =
+  | LoadAuthenticationAction
+  | AuthenticationExpiredAction;

@@ -32,3 +32,11 @@ export class LoadAllHouseLocationsFailAction implements Action {
   readonly type = HouseLocationsActionTypes.LOAD_ALL_HOUSE_LOCATIONS_FAIL;
   constructor(public payload: Error) {}
 }
+
+/**
+ * Exporting house location action classes
+ */
+export type HouseLocationsAction =
+  | LoadAllHouseLocationsAction
+  | LoadAllHouseLocationsSuccessAction
+  | LoadAllHouseLocationsFailAction;

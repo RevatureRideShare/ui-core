@@ -33,3 +33,11 @@ export class LoadAllTrainingFailLocationsAction implements Action {
   readonly type = TrainingLocationsActionTypes.LOAD_ALL_TRAINING_LOCATIONS_FAIL;
   constructor(public payload: Error) {}
 }
+
+/**
+ * Exporting training location action classes
+ */
+export type TrainingLocationsAction =
+  | LoadAllTrainingFailLocationsAction
+  | LoadAllTrainingSuccessLocationsAction
+  | LoadAllTrainingLocationsAction;
