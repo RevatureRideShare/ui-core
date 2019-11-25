@@ -53,7 +53,7 @@ export class UpdateUserAction implements Action {
   constructor(public payload: User) {}
 }
 
-/** 
+/**
  * The action class of successfully updated a particular user
  */
 export class UpdateUserSuccessAction implements Action {
@@ -92,31 +92,49 @@ export class LoadAllDriversFailAction implements Action {
   constructor(public payload: Error) {}
 }
 
+/**
+ * The action class of trying to load login user
+ */
 export class LoginUserAction implements Action {
   readonly type = AllUsersActionTypes.LOGIN_USER;
-  constructor(public payload: {username: string, password: string}) {}
+  constructor(public payload: { username: string; password: string }) {}
 }
 
+/**
+ * The action class of successfully loaded login user
+ */
 export class LoginUserSuccessAction implements Action {
   readonly type = AllUsersActionTypes.LOGIN_USER_SUCCESS;
   constructor(public payload: User) {}
 }
 
+/**
+ * The action class of failed to load login user
+ */
 export class LoginUserFailAction implements Action {
   readonly type = AllUsersActionTypes.LOGIN_USER_FAIL;
   constructor(public payload: Error) {}
 }
 
+/**
+ * The action of trying to register a new user
+ */
 export class RegisterUserAction implements Action {
   readonly type = AllUsersActionTypes.REGISTER_USER;
-  constructor(public payload: {user:User, password: string}) {}
+  constructor(public payload: { user: User; password: string }) {}
 }
 
+/**
+ * The action of successfully registered a new user
+ */
 export class RegisterUserSuccessAction implements Action {
   readonly type = AllUsersActionTypes.REGISTER_USER_SUCCESS;
   constructor(public payload: User) {}
 }
 
+/**
+ * The action of failed to register a new user
+ */
 export class RegisterUserFailAction implements Action {
   readonly type = AllUsersActionTypes.REGISTER_USER_FAIL;
   constructor(public payload: Error) {}

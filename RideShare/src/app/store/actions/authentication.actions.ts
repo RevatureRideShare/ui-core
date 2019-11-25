@@ -5,10 +5,16 @@ export enum AuthenticationActionTypes {
   AUTHENTICATION_EXPIRED = '[AUTH] Authentication Expired'
 }
 
+/**
+ * The action class of trying to load authentication token
+ */
 export class LoadAuthenticationAction implements Action {
   readonly type = AuthenticationActionTypes.LOAD_AUTHENTICATION;
 }
 
+/**
+ * The action class of detected token expired
+ */
 export class AuthenticationExpiredAction implements Action {
   readonly type = AuthenticationActionTypes.AUTHENTICATION_EXPIRED;
 }
