@@ -1,61 +1,66 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient, HttpResponse } from '@angular/common/http';
+import { UserRegistrationService } from '../user-registration.service'
 
-/**
- * This component is responsible for registering new users
- */
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.css']
 })
+
 export class RegistrationComponent implements OnInit {
-  /**
-   * The email to be used to log in
-   */
-  email: '';
+  userFirstName: string;
+  userLastName: string;
+  userEmail: string;
+  userPassword: string;
+  userTelephone: string;
+  userAccessLevel: string;
+  userCode: string;
+  userBiography: string;
+  workType: string;
+  result: any;
 
-  /**
-   * User's password
-   */
-  password: '';
-  //fullName: ""
-
-  /**
-   * String used for string interpolation
-   */
-  backtologin = 'Back to login';
-
-  /**
-   * String used for string interpolation
-   */
-  register = 'register';
-  response: string;
-
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private http: HttpClient
-  ) {}
-
-  elemProfile = document.getElementById('profile');
-  elemLogout = document.getElementById('logout');
+  public containers = [0];
+  public counter: number = 1;
+  svc: UserRegistrationService;
+  constructor(svc: UserRegistrationService, private router: Router, private http: HttpClient) { 
+    this.svc = svc;
+  }
 
   ngOnInit() {
-    this.elemProfile.style.visibility = 'hidden';
-    this.elemLogout.style.visibility = 'hidden';
   }
 
-  /**
-   * Takes user back to login
-   */
-  onBack(): void {
-    this.router.navigate(['']);
+  register() {
+    this.result = this.svc.registerUser(this.userFirstName, this.userLastName, this.userEmail, this.userPassword, this.userTelephone, this.userAccessLevel, this.userCode, this.userBiography, this.workType)
+    if (this.result == true) {
+      alert("registration successful");
+      this.router.navigateByUrl('login');
+      return true;
+    } else {
+      alert("registration failed");
+      this.router.navigateByUrl('login');
+      return false;
+    }
   }
 
-  /**
-   * Registers user in the system
-   */
-  onRegister(): void {}
+  add() {
+    if (this.containers.length < 5) {
+      this.containers.push(this.counter);
+      this.counter++;
+    }
+  }
+
+
+  remove() {
+    let element = document.getElementsByClassName('company-code');
+    if (this.containers.length > 1) {
+      element[this.containers.length - 1].parentNode.removeChild(element[this.containers.length - 1]);
+      const index = this.containers.indexOf(this.containers.length - 1, 0);
+      if (index > -1) {
+        this.containers.splice(index, 1);
+        this.counter--;
+      }
+    }
+  }
 }
