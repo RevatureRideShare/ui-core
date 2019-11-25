@@ -26,7 +26,7 @@ export enum AllUsersActionTypes {
  * The action class of trying to load all users
  */
 export class LoadAllUsersAction implements Action {
-  readonly type = AllUsersActionTypes.REGISTER_USER;
+  readonly type = AllUsersActionTypes.LOAD_ALL_USERS;
 }
 
 /**
@@ -144,18 +144,18 @@ export class RegisterUserFailAction implements Action {
  * Exporting all-user actions classes
  */
 export type AllUserAction =
-  | LoadAllUsersAction
-  | LoadAllUsersSuccessAction
-  | LoadAllUsersFailAction
-  | UpdateUserAction
-  | UpdateUserSuccessAction
-  | UpdateUserFailAction
-  | LoadAllDriversAction
-  | LoadAllDriversSuccessAction
-  | LoadAllDriversFailAction
-  | LoginUserAction
-  | LoginUserSuccessAction
-  | LoginUserFailAction
-  | RegisterUserAction
-  | RegisterUserSuccessAction
-  | RegisterUserFailAction;
+  LoadAllUsersAction |
+  LoadAllUsersSuccessAction |
+  LoadAllUsersFailAction |
+  UpdateUserAction |
+  UpdateUserSuccessAction |
+  UpdateUserFailAction |
+  LoadAllDriversAction |
+  LoadAllDriversSuccessAction |
+  LoadAllDriversFailAction |
+  LoginUserAction |
+  LoginUserSuccessAction |
+  LoginUserFailAction |
+  RegisterUserAction |
+  RegisterUserSuccessAction |
+  RegisterUserFailAction;

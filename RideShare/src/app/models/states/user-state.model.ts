@@ -6,19 +6,29 @@ import { User } from '../user.model';
  * Imported by:
  * app-state.model.ts
  */
-export interface IUserState{
+export interface IUserState {
   /**
    * currentUser: User - contains information for the current user in this session
    */
-  currentUser: User;
+  readonly currentUser: User;
 
   /**
    * allDrivers: Array<User> - contains all of the drivers known in the database
    */
-  allDrivers: Array<User>;
+  readonly allDrivers: Array<User>;
 
   /**
    * allUsers: Array<User> - contains all of the users known in the database
    */
-  allUsers: Array<User>;
+  readonly allUsers: Array<User>;
+
+  /**
+   * loading: boolean - indicates the current loading state of user-state
+   */
+  loading: boolean;
+
+  /**
+   * error: Error - store the error message for user-state if any
+   */
+  error: Error;
 }
