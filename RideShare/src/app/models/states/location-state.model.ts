@@ -10,21 +10,22 @@ import { HouseLocation } from '../houselocation.model';
  */
 export interface ILocationState {
   /**
-   * allTrainingLocations: Array<TrainingLocation> - contains all the training locations known in the database
+   * allTrainingLocations: Array<TrainingLocation> - contains all of the training locations known in the database
    */
   readonly allTrainingLocations: Array<TrainingLocation>;
+
   /**
-   * allHousingLocations: Array<HouseLocation> - contains all the known housing locations in the database
+   * allHousingLocations: Array<HouseLocation> - contains all of the housing locations known in the database
    */
   readonly allHousingLocations: Array<HouseLocation>;
 
   /**
-   * loading: boolean - indicates the current loading state of user-state
+   * loading: boolean - indicate the loading status of IUserState
    */
   loading: boolean;
 
   /**
-   * error: Error - store the error message for user-state if any
+   * error: Error - indicate the error when manipulating IUserState if any
    */
   error: Error;
 }

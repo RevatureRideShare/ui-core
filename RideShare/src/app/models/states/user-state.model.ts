@@ -18,12 +18,12 @@ export interface IUserState {
   readonly allUsers: Array<User>;
 
   /**
-   * loading: boolean - indicates the current loading state of user-state
+   * loading: boolean - indicate the loading status of IUserState
    */
   loading: boolean;
 
   /**
-   * error: Error - store the error message for user-state if any
+   * error: Error - indicate the error when manipulating IUserState if any
    */
   error: Error;
 }
