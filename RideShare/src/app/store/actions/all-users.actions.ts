@@ -23,14 +23,14 @@ export enum AllUsersActionTypes {
 }
 
 /**
- * The action class of trying to load all users
+ * The action class of trying to load all users, when an admin logged in
  */
 export class LoadAllUsersAction implements Action {
   readonly type = AllUsersActionTypes.LOAD_ALL_USERS;
 }
 
 /**
- * The action class of successfully loaded all users
+ * The action class of successfully loaded all users, when an admin logged in
  */
 export class LoadAllUsersSuccessAction implements Action {
   readonly type = AllUsersActionTypes.LOAD_ALL_USERS_SUCCESS;
@@ -38,7 +38,7 @@ export class LoadAllUsersSuccessAction implements Action {
 }
 
 /**
- * The action class of failed to load all users
+ * The action class of failed to load all users, when an admin logged in
  */
 export class LoadAllUsersFailAction implements Action {
   readonly type = AllUsersActionTypes.LOAD_ALL_USERS_FAIL;
@@ -65,19 +65,19 @@ export class UpdateUserSuccessAction implements Action {
  * The action class of failed to update a particular user
  */
 export class UpdateUserFailAction implements Action {
-  readonly type = AllUsersActionTypes.UPDATE_USER;
+  readonly type = AllUsersActionTypes.UPDATE_USER_FAIL;
   constructor(public payload: Error) {}
 }
 
 /**
- * The action class of trying to load all drivers
+ * The action class of trying to load all drivers, when a normal user logged in
  */
 export class LoadAllDriversAction implements Action {
   readonly type = AllUsersActionTypes.LOAD_ALL_DRIVERS;
 }
 
 /**
- * The action class of successfully loaded all drivers
+ * The action class of successfully loaded all drivers, when a normal user logged in
  */
 export class LoadAllDriversSuccessAction implements Action {
   readonly type = AllUsersActionTypes.LOAD_ALL_DRIVERS_SUCCESS;
@@ -85,7 +85,7 @@ export class LoadAllDriversSuccessAction implements Action {
 }
 
 /**
- * The action class of failed to load all drivers
+ * The action class of failed to load all drivers, when a normal user logged in
  */
 export class LoadAllDriversFailAction implements Action {
   readonly type = AllUsersActionTypes.LOAD_ALL_DRIVERS_FAIL;
