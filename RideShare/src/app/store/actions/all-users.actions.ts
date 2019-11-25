@@ -26,7 +26,7 @@ export enum AllUsersActionTypes {
  * The action class of trying to load all users
  */
 export class LoadAllUsersAction implements Action {
-  readonly type = AllUsersActionTypes.REGISTER_USER;
+  readonly type = AllUsersActionTypes.LOAD_ALL_USERS;
 }
 
 /**
