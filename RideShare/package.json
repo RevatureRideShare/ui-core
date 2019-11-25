@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "compodoc": "npx compodoc -p tsconfig.app.json --watch --serve --open"
+    "compodoc": "npx compodoc -p tsconfig.app.json --watch --serve --open",
+    "json-server-test": "json-server ./src/app/json-server/test.json"
   },
   "private": true,
   "dependencies": {
