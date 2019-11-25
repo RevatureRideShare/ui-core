@@ -7,7 +7,6 @@ import { Stats } from 'fs';
 
 const initialUserState: IUserState = {
   currentUser: undefined,
-  allDrivers: [],
   allUsers: [],
   loading: false,
   error: undefined
@@ -56,6 +55,25 @@ export function AllUserReducer(
         ...state,
         allUsers: [...state.allUsers, action.payload],
         loading:false
+      }
+    }
+    case AllUsersActionTypes.UPDATE_USER_FAIL: {
+      return {
+        ...state,
+        loading: false,
+        error: action.payload
+      }
+    }
+    case AllUsersActionTypes.LOAD_ALL_DRIVERS: {
+      return {
+        ...state,
+        loading: true,
+      }
+    }
+    case AllUsersActionTypes.LOAD_ALL_DRIVERS_SUCCESS: {
+      return {
+        ...state,
+        allUsers: [...state.allUsers, action.payload]
       }
     }
   }

@@ -13,11 +13,6 @@ export interface IUserState {
   readonly currentUser: User;
 
   /**
-   * allDrivers: Array<User> - contains all of the drivers known in the database
-   */
-  readonly allDrivers: Array<User>;
-
-  /**
    * allUsers: Array<User> - contains all of the users known in the database
    */
   readonly allUsers: Array<User>;

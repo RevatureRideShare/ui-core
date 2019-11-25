@@ -65,7 +65,7 @@ export class UpdateUserSuccessAction implements Action {
  * The action class of failed to update a particular user
  */
 export class UpdateUserFailAction implements Action {
-  readonly type = AllUsersActionTypes.UPDATE_USER;
+  readonly type = AllUsersActionTypes.UPDATE_USER_FAIL;
   constructor(public payload: Error) {}
 }
 
