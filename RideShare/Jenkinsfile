@@ -1,4 +1,4 @@
-#!/bin/bash
+#!groovy
 
 pipeline {
     agent any
@@ -14,8 +14,8 @@ pipeline {
             steps {
                 echo 'Directory before'
                 sh 'pwd'
-                sh 'ls'
                 deleteDir()
+                checkout scm
             }
         }
         stage('Install') {
