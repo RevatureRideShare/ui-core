@@ -10,11 +10,17 @@ pipeline {
         buildDiscarder(logRotator(numToKeepStr: '15', daysToKeepStr: '14')) 
     }
     stages {
-        stage('Install') {
+        stage('Pre-Build') {
             steps {
                 echo 'Directory before'
                 sh 'pwd'
+                sh 'ls'
                 deleteDir()
+                checkout scm
+            }
+        }
+        stage('Install') {
+            steps {
                 sh '''
                     . ~/.nvm/nvm.sh
                     ls -alh
