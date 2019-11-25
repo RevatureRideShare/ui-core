@@ -11,6 +11,8 @@ pipeline {
     stages {
         stage('Install') {
             steps {
+                echo 'Delete dir'
+                sh 'pwd'
                 sh '''
                     . ~/.nvm/nvm.sh
                     ls -alh
@@ -76,7 +78,6 @@ pipeline {
         failure{
             echo 'Deleting from workspace: ' + env.BRANCH_NAME
             sh 'pwd'
-            deleteDir()
         }
     }
 }
