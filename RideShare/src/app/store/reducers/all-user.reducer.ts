@@ -3,7 +3,6 @@ import {
     AllUserAction
 } from '../../store/actions/all-users.actions';
 import { IUserState } from '../../models/states/user-state.model';
-import { Stats } from 'fs';
 
 const initialUserState: IUserState = {
   currentUser: undefined,
@@ -73,7 +72,35 @@ export function AllUserReducer(
     case AllUsersActionTypes.LOAD_ALL_DRIVERS_SUCCESS: {
       return {
         ...state,
-        allUsers: [...state.allUsers, action.payload]
+        allUsers: action.payload,
+        loading: false
+      }
+    }
+    case AllUsersActionTypes.LOAD_ALL_DRIVERS_FAIL: {
+      return {
+        ...state,
+        loading: false,
+        error: action.payload
+      }
+    }
+    case AllUsersActionTypes.LOGIN_USER: {
+      return {
+        ...state,
+        loading: true
+      }
+    }
+    case AllUsersActionTypes.LOGIN_USER_SUCCESS: {
+      return {
+        ...state,
+        currentUser: action.payload,
+        loading: false
+      }
+    }
+    case AllUsersActionTypes.LOGIN_USER_FAIL: {
+      return {
+        ...state,
+        loading: false,
+        error: action.payload
       }
     }
   }
