@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.elemProfile.style.visibility = 'hidden';
-    this.elemLogout.style.visibility = 'hidden';
+    //this.elemProfile.style.visibility = 'hidden';
+    //this.elemLogout.style.visibility = 'hidden';
   }
 }
