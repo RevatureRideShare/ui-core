@@ -7,11 +7,12 @@ pipeline {
     }    
     options { 
         disableConcurrentBuilds()
+        buildDiscarder(logRotator(numToKeepStr: '15', daysToKeepStr: '14')) 
     }
     stages {
         stage('Install') {
             steps {
-                echo 'Delete dir'
+                echo 'Directory before'
                 sh 'pwd'
                 sh '''
                     . ~/.nvm/nvm.sh
@@ -75,8 +76,8 @@ pipeline {
         // }
     }
     post{
-        failure{
-            echo 'Deleting from workspace: ' + env.BRANCH_NAME
+        always{
+            echo 'Directory after ' + env.BRANCH_NAME
             sh 'pwd'
         }
     }
