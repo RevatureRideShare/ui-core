@@ -8,7 +8,7 @@ import { IUserState } from '../../models/states/user-state.model';
  * The initial IUserState. 
  * If current IUserState is not loaded from database yet, the initial state is used 
  */
-const initialUserState: IUserState = {
+export const initialUserState: IUserState = {
   currentUser: undefined,
   allUsers: [],
   loading: false,
@@ -34,7 +34,7 @@ export function AllUserReducer(
     case AllUsersActionTypes.LOAD_ALL_USERS_SUCCESS: {
       return {
         ...state,
-        allUsers: [...state.allUsers, action.payload],
+        allUsers: action.payload,
         loading: false
       };
     }
@@ -133,6 +133,6 @@ export function AllUserReducer(
       };
     }
     default:
-      return state;
+      return initialUserState;
   }
 }

@@ -1,53 +1,57 @@
 import { TestBed, async } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from '../../../app.component';
-import { provideMockStore, MockStore } from '@ngrx/store/testing';
-import { IAppState } from 'src/app/models/states/app-state.model';
-import { IUserState } from 'src/app/models/states/user-state.model';
-import { ILocationState } from 'src/app/models/states/location-state.model';
-import { User } from 'src/app/models/user.model';
-import { RideStatus, Role } from '../../../models/user.model'
+import { User, Role, RideStatus } from 'src/app/models/user.model';
+import { AllUserReducer } from '../all-user.reducers';
+import { initialUserState } from '../all-user.reducers'
+import {
+  LoadAllUsersSuccessAction,
+  LoadAllUsersAction,
+  LoadAllUsersFailAction,
+  UpdateUserAction,
+  UpdateUserSuccessAction
+} from '../../actions/all-users.actions';
+import {
+  initialLocationState
+} from '../location.reducers'
 import { HouseLocation } from 'src/app/models/houselocation.model';
-import { TrainingLocation } from 'src/app/models/traininglocation.model';
+import { IAppState } from 'src/app/models/states/app-state.model';
 
-describe('all-user reducer ', () => {
-  let appStore: IAppState;
-  let userStore: IUserState;
-  let locationStore: ILocationState;
-  const initHouse = new HouseLocation(
-    '5th street',
-    'apt 1',
-    'new york',
-    'new york',
-    '10001',
-    'the 5th street',
-    new TrainingLocation('you train here')
+fdescribe('all-user reducer ', () => {
+  const initialAppState: IAppState = {
+    authorize: '',
+    userState: initialUserState,
+    locationState: initialLocationState
+  };
+  const user_1 = new User(
+    'user_1@email',
+    'UserFirst',
+    'UserLast',
+    '123456789',
+    RideStatus.ACTIVE,
+    Role.RIDER,
+    true,
+    new HouseLocation()
   );
-  const initUser1 = new User(
-        'user1@email.com', 
-        'user1_first', 'user2_last',
-        '123456789', 
-        RideStatus.ACTIVE, 
-        Role.RIDER, 
-        true, 
-        initHouse
-    )
-    const initUser2 = new User(
-        'user2@email.com', 
-        'user2_first', 'user2_last',
-        '123456789', 
-        RideStatus.ACTIVE, 
-        Role.RIDER, 
-        true, 
-        initHouse
-    )
-    const initialUserState: IUserState = {
-        currentUser: initUser1,
-        allUsers:[initUser1, initUser2],
-        loading: false,
-        error: undefined
-    }
-
+  const user_new = new User(
+    'user_1@email',
+    'NewFirst',
+    'NewLast',
+    '123456789',
+    RideStatus.ACTIVE,
+    Role.RIDER,
+    true,
+    new HouseLocation()
+  );
+  const user_2 = new User(
+    'user_2@email',
+    'SecondFirst',
+    'SecondLast',
+    '123456789',
+    RideStatus.ACTIVE,
+    Role.RIDER,
+    true,
+    new HouseLocation()
+  );
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [],
@@ -55,24 +59,50 @@ describe('all-user reducer ', () => {
     })
   }));
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
+  // test LoadingAllUserAction
+  it('should return initialUserState', () => {
+    const noAction = new LoadAllUsersAction();
+    const newState = AllUserReducer(undefined, noAction);
+    const expected = {...initialUserState, loading: true};
+    expect(newState).toEqual(expected);
   });
 
-  it(`should have as title 'Project3'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('Project3');
+  // test LoadingAllUserSuccessAction
+  it('should add a user to state', () => {
+    const action = new LoadAllUsersSuccessAction([user_1]);
+    const state = AllUserReducer(undefined, action);
+    const expected = { ...initialUserState, allUsers: [user_1] };
+    expect(state).toEqual(expected);
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain(
-      'Project3 app is running!'
-    );
+  // test LoadAllUsersFailAction
+  it('should add error to sate', () => {
+    const error = new Error('suppose to go wrong');
+    const action = new LoadAllUsersFailAction(error);
+    const state = AllUserReducer(undefined, action);
+    const expected = {...initialUserState, error: error};
+    expect(state).toEqual(expected);
+  });
+
+  // test UpdateUserAction
+  it('should update a user in state', () => {
+    // create original state
+    const initAction = new LoadAllUsersSuccessAction([user_1]);
+    const initState = AllUserReducer(undefined, initAction);
+    const action = new UpdateUserAction(user_new);
+    const newState = AllUserReducer(initState, action);
+    const expected = {...initialUserState, allUsers: [user_1], loading: true};
+    expect(newState).toEqual(expected);
+  });
+
+  // test UpdateUserSuccessAction
+  it('should update a user in state', () => {
+    // create original state
+    const initAction = new LoadAllUsersSuccessAction([user_1]);
+    const initState = AllUserReducer(undefined, initAction);
+    const action = new UpdateUserSuccessAction(user_new);
+    const newState = AllUserReducer(initState, action);
+    const expected = {...initialUserState, allUsers: [user_new]};
+    expect(newState).toEqual(expected);
   });
 });

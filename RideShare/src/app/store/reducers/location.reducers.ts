@@ -12,7 +12,7 @@ import { ILocationState } from '../../models/states/location-state.model';
  * The initial ILocationState.
  * If current ILocationState is not loaded from database yet, the initial state is used
  */
-const initialLocationState: ILocationState = {
+export const initialLocationState: ILocationState = {
   allTrainingLocations: [],
   allHousingLocations: [],
   loading: false,
