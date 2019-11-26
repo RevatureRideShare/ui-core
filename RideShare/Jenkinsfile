@@ -84,8 +84,13 @@ pipeline {
             steps {
                  timeout(time: 1, unit: 'MINUTES'){
                     waitForQualityGate abortPipeline: true
-                 }
-            }
+                    script{
+                        def sonarUrl = 
+                        slackSend "SonarCloud analysis for - ${env.JOB_NAME} ${env.BUILD_NUMBER}"+
+                        " (https://sonarcloud.io/dashboard?id=RevatureRideShare_"+env.PROJECT_NAME+")"
+                        }
+                    }
+                }
           }
         
         // stage('Karma Test') {
