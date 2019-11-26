@@ -4,6 +4,10 @@ import {
 } from '../../store/actions/all-users.actions';
 import { IUserState } from '../../models/states/user-state.model';
 
+/**
+ * The initial IUserState. 
+ * If current IUserState is not loaded from database yet, the initial state is used 
+ */
 const initialUserState: IUserState = {
   currentUser: undefined,
   allUsers: [],
@@ -11,6 +15,11 @@ const initialUserState: IUserState = {
   error: undefined
 };
 
+/**
+ * The reducer function which updates user states depending on the type of actions
+ * @param {IUserState} state the current users state
+ * @param {AllUserAction} action the current action need to be handled
+ */
 export function AllUserReducer(
   state: IUserState = initialUserState,
   action: AllUserAction
@@ -97,6 +106,26 @@ export function AllUserReducer(
       }
     }
     case AllUsersActionTypes.LOGIN_USER_FAIL: {
+      return {
+        ...state,
+        loading: false,
+        error: action.payload
+      }
+    }
+    case AllUsersActionTypes.REGISTER_USER: {
+      return {
+        ...state,
+        loading: true
+      }
+    }
+    case AllUsersActionTypes.REGISTER_USER_SUCCESS: {
+      return {
+        ...state,
+        allUsers: [...state.allUsers, action.payload],
+        loading: false
+      }
+    }
+    case AllUsersActionTypes.REGISTER_USER_FAIL: {
       return {
         ...state,
         loading: false,
