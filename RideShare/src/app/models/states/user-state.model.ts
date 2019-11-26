@@ -10,15 +10,20 @@ export interface IUserState{
   /**
    * currentUser: User - contains information for the current user in this session
    */
-  currentUser: User;
-
-  /**
-   * allDrivers: Array<User> - contains all of the drivers known in the database
-   */
-  allDrivers: Array<User>;
+  readonly currentUser: User;
 
   /**
    * allUsers: Array<User> - contains all of the users known in the database
    */
-  allUsers: Array<User>;
+  readonly allUsers: Array<User>;
+
+  /**
+   * loading: boolean - indicate the loading status of IUserState
+   */
+  loading: boolean;
+
+  /**
+   * error: Error - indicate the error when manipulating IUserState if any
+   */
+  error: Error;
 }
