@@ -2,10 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';	
+import { HttpClientModule} from '@angular/common/http';	
 
 import { AppRoutingModule, routing } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -29,7 +31,7 @@ import {
   declarations: [
     AppComponent,
     LoginComponent,
-    RegistrationComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
@@ -40,14 +42,18 @@ import {
     HttpClientModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
-  MatInputModule,
-  MatCardModule,
-  MatButtonModule,
-  MatSelectModule,
-  MatToolbarModule,
-  MatIconModule
+    MatInputModule,
+    MatCardModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatToolbarModule,
+    MatIconModule,
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

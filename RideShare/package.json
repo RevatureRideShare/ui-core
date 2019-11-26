@@ -2,13 +2,7 @@
   "name": "project3",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e",
-    "compodoc": "npx compodoc -p tsconfig.app.json --watch --serve --open"
+    "compodoc": "npx compodoc -p src/tsconfig.app.json"
   },
   "private": true,
   "dependencies": {
@@ -22,6 +16,8 @@
     "@angular/platform-browser": "~8.2.11",
     "@angular/platform-browser-dynamic": "~8.2.11",
     "@angular/router": "~8.2.11",
+    "@ngrx/store": "^8.5.2",
+    "@ngrx/store-devtools": "^8.5.2",
     "hammerjs": "^2.0.8",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
@@ -48,8 +44,5 @@
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
     "typescript": "~3.5.3"
-  },
-  "scripts": {
-    "compodoc": "npx compodoc -p src/tsconfig.app.json"
   }
 }

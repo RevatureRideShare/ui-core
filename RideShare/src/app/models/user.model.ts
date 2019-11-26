@@ -9,6 +9,8 @@ export enum Role {RIDER, DRIVER};
  * 
  * Imported by:
  * user-state.model.ts
+ * all-users.action.ts
+ * all-drivers.action.ts
  */
 export class User{
   /**
