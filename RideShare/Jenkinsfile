@@ -18,16 +18,16 @@ pipeline {
                 checkout scm
             }
         }
-        stage('Install') {
-            steps {
-                sh '''
-                    . ~/.nvm/nvm.sh
-                    ls -alh
-                    cd RideShare
-		            npm install
-                '''
-            }
-         }
+        // stage('Install') {
+        //     steps {
+        //         sh '''
+        //             . ~/.nvm/nvm.sh
+        //             ls -alh
+        //             cd RideShare
+		//             npm install
+        //         '''
+        //     }
+        //  }
 
          stage('SonarQube Analysis'){
              steps{
@@ -50,9 +50,7 @@ pipeline {
 
           stage("Quality Gate") {
             steps {
-              timeout(time: 1, unit: 'HOURS') {
                 waitForQualityGate abortPipeline: true
-              }
             }
           }
 
