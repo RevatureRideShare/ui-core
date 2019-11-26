@@ -26,6 +26,7 @@ pipeline {
                     ls -alh
                     cd RideShare
 		            npm install
+                    npm install typescript@3.5.3
                 '''
             }
          }
