@@ -14,7 +14,7 @@ td {
 
     mat-card{
     min-width: 35%;
-    max-width: 950px;
+    max-width: 50%;
     }
 
     .banners{
@@ -47,4 +47,8 @@ td {
   
   .company-code{
   width: 100%;
+  }
+
+  .table-style{
+      margin: 0%;
   }
