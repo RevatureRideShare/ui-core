@@ -26,10 +26,19 @@ pipeline {
                     ls -alh
                     cd RideShare
 		            npm install
-                    npm install typescript@3.5.3
                 '''
             }
          }
+
+         stage('Build') {
+              steps {
+                sh '''
+                    . ~/.nvm/nvm.sh 
+                    cd RideShare                   
+		            ng build
+                '''
+            }
+        }
 
          stage('SonarQube Analysis'){
              steps{
@@ -86,15 +95,7 @@ pipeline {
         //     }
         // }
 
-        stage('Build') {
-              steps {
-                sh '''
-                    . ~/.nvm/nvm.sh 
-                    cd RideShare                   
-		            ng build
-                '''
-            }
-        }
+        
         stage('Deploy') {
               steps {
                 script{
