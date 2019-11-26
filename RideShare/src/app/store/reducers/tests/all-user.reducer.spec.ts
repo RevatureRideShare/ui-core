@@ -8,7 +8,8 @@ import {
   LoadAllUsersAction,
   LoadAllUsersFailAction,
   UpdateUserAction,
-  UpdateUserSuccessAction
+  UpdateUserSuccessAction,
+  UpdateUserFailAction
 } from '../../actions/all-users.actions';
 import {
   initialLocationState
@@ -77,7 +78,7 @@ fdescribe('all-user reducer ', () => {
 
   // test LoadAllUsersFailAction
   it('should add error to sate', () => {
-    const error = new Error('suppose to go wrong');
+    const error = new Error('fail to load user list');
     const action = new LoadAllUsersFailAction(error);
     const state = AllUserReducer(undefined, action);
     const expected = {...initialUserState, error: error};
@@ -89,6 +90,7 @@ fdescribe('all-user reducer ', () => {
     // create original state
     const initAction = new LoadAllUsersSuccessAction([user_1]);
     const initState = AllUserReducer(undefined, initAction);
+    // update original state
     const action = new UpdateUserAction(user_new);
     const newState = AllUserReducer(initState, action);
     const expected = {...initialUserState, allUsers: [user_1], loading: true};
@@ -100,9 +102,25 @@ fdescribe('all-user reducer ', () => {
     // create original state
     const initAction = new LoadAllUsersSuccessAction([user_1]);
     const initState = AllUserReducer(undefined, initAction);
+    // update original state
     const action = new UpdateUserSuccessAction(user_new);
     const newState = AllUserReducer(initState, action);
     const expected = {...initialUserState, allUsers: [user_new]};
+    expect(newState).toEqual(expected);
+  });
+
+  // test UpdateUserFailAction
+  it('should add error to state', () => {
+    // create original state
+    const initAction = new LoadAllUsersSuccessAction([user_1]);
+    const initState = AllUserReducer(undefined, initAction);
+    // update original state
+    const error = new Error('fail to update user')
+    const action = new UpdateUserFailAction(error);
+    const newState = AllUserReducer(initState, action);
+    const expected = {...initialUserState, allUsers: [user_1], error: error};
+    console.log(newState);
+    console.log(expected);
     expect(newState).toEqual(expected);
   });
 });
