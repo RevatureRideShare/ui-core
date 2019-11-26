@@ -21,12 +21,13 @@ pipeline {
 
          stage('SonarQube Analysis'){
              steps{
-                echo env.CHANGE_URL.split("/")
-                echo urlcomponents[3]
-                echo urlcomponents[4]
-                
+                // echo env.CHANGE_URL.split("/")
+                // echo urlcomponents[3]
+                // echo urlcomponents[4]
+
                  withSonarQubeEnv(credentialsId: 'b44ffadc-08d5-11ea-8d71-362b9e155667', installationName:'SonarCloud'){
                     sh '''
+                    . ~/.nvm/nvm.sh
                     export SONAR_SCANNER_VERSION=4.2.0.1873
                     export SONAR_SCANNER_HOME=$HOME/.sonar/sonar-scanner-$SONAR_SCANNER_VERSION-linux
                     export PATH=$SONAR_SCANNER_HOME/bin:$PATH
