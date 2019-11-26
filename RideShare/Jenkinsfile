@@ -30,7 +30,8 @@ pipeline {
          }
 
          stage('SonarQube'){
-            withSonarQubeEnv('SonarCloud'){
+            steps{
+                withSonarQubeEnv('SonarCloud'){
                 sh '''
                 sonar-scanner \
                 -Dsonar.projectKey=RevatureRideShare_ui-core \
@@ -40,10 +41,13 @@ pipeline {
                 -Dsonar.login=f13453caf6dccc2ca1b0957363483278a174f20b
                 '''
             }
+            }
          }
 
          stage('Quality Gate'){
-            waitForQualityGate abortPipeline: true
+             steps{
+                waitForQualityGate abortPipeline: true
+             }
          }
 
         //  stage('Install Scanner'){
