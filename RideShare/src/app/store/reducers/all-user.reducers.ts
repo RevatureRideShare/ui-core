@@ -1,7 +1,7 @@
 import { 
     AllUsersActionTypes,
     AllUserAction
-} from '../../store/actions/all-users.actions';
+} from '../actions/all-users.actions';
 import { IUserState } from '../../models/states/user-state.model';
 
 /**
