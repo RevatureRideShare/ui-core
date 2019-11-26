@@ -11,7 +11,7 @@ export interface IAppState{
   /**
    * authorize: string - contains the JWT for the current session
    */
-  readonly authorize: string;
+  readonly authorization: string;
 
   /**
    * userState: IUserState - contains all user-related information for the application

@@ -7,6 +7,9 @@ import { AppComponent } from './app.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StoreModule } from '@ngrx/store';
+import { AllUserReducer } from './store/reducers/all-user.reducers';
+import { AllTrainingReducer, AllHousingReducer } from './store/reducers/location.reducers';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,7 +22,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     }),
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatSliderModule
+    MatSliderModule,
+    StoreModule.forRoot({
+      allUsers: AllUserReducer,
+      allTrainingLocation: AllTrainingReducer,
+      allHousingLocation: AllHousingReducer
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

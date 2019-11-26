@@ -2,7 +2,7 @@ import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from '../../../app.component';
 import { User, Role, RideStatus } from 'src/app/models/user.model';
 import { AllUserReducer } from '../all-user.reducers';
-import { initialUserState } from '../all-user.reducers'
+import { initialUserState } from '../all-user.reducers';
 import {
   LoadAllUsersSuccessAction,
   LoadAllUsersAction,
@@ -11,15 +11,13 @@ import {
   UpdateUserSuccessAction,
   UpdateUserFailAction
 } from '../../actions/all-users.actions';
-import {
-  initialLocationState
-} from '../location.reducers'
+import { initialLocationState } from '../location.reducers';
 import { HouseLocation } from 'src/app/models/houselocation.model';
 import { IAppState } from 'src/app/models/states/app-state.model';
 
 fdescribe('all-user reducer ', () => {
   const initialAppState: IAppState = {
-    authorize: '',
+    authorization: '',
     userState: initialUserState,
     locationState: initialLocationState
   };
@@ -55,16 +53,15 @@ fdescribe('all-user reducer ', () => {
   );
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [],
-      
-    })
+      imports: []
+    });
   }));
 
   // test LoadingAllUserAction
   it('should return initialUserState', () => {
     const noAction = new LoadAllUsersAction();
     const newState = AllUserReducer(undefined, noAction);
-    const expected = {...initialUserState, loading: true};
+    const expected = { ...initialUserState, loading: true };
     expect(newState).toEqual(expected);
   });
 
@@ -81,7 +78,7 @@ fdescribe('all-user reducer ', () => {
     const error = new Error('fail to load user list');
     const action = new LoadAllUsersFailAction(error);
     const state = AllUserReducer(undefined, action);
-    const expected = {...initialUserState, error: error};
+    const expected = { ...initialUserState, error: error };
     expect(state).toEqual(expected);
   });
 
@@ -93,7 +90,7 @@ fdescribe('all-user reducer ', () => {
     // update original state
     const action = new UpdateUserAction(user_new);
     const newState = AllUserReducer(initState, action);
-    const expected = {...initialUserState, allUsers: [user_1], loading: true};
+    const expected = { ...initialUserState, allUsers: [user_1], loading: true };
     expect(newState).toEqual(expected);
   });
 
@@ -105,7 +102,7 @@ fdescribe('all-user reducer ', () => {
     // update original state
     const action = new UpdateUserSuccessAction(user_new);
     const newState = AllUserReducer(initState, action);
-    const expected = {...initialUserState, allUsers: [user_new]};
+    const expected = { ...initialUserState, allUsers: [user_new] };
     expect(newState).toEqual(expected);
   });
 
@@ -115,10 +112,10 @@ fdescribe('all-user reducer ', () => {
     const initAction = new LoadAllUsersSuccessAction([user_1]);
     const initState = AllUserReducer(undefined, initAction);
     // update original state
-    const error = new Error('fail to update user')
+    const error = new Error('fail to update user');
     const action = new UpdateUserFailAction(error);
     const newState = AllUserReducer(initState, action);
-    const expected = {...initialUserState, allUsers: [user_1], error: error};
+    const expected = { ...initialUserState, allUsers: [user_1], error: error };
     console.log(newState);
     console.log(expected);
     expect(newState).toEqual(expected);
