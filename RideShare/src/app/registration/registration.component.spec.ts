@@ -4,7 +4,7 @@ import { RegistrationComponent } from './registration.component';
 import { FormsModule } from '@angular/forms';
 import { RouterTestingModule} from '@angular/router/testing';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { NavbarOuterComponent } from '../navbar-outer/navbar-outer.component';
+
 
 describe('RegistrationComponent', () => {
   let component: RegistrationComponent;
@@ -18,7 +18,7 @@ describe('RegistrationComponent', () => {
         HttpClientModule
         ],
       declarations: [ RegistrationComponent,
-      NavbarOuterComponent ]
+      ]
     })
     .compileComponents();
   }));

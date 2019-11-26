@@ -21,8 +21,8 @@
                 <input
                   matInput
                   placeholder="First Name"
-                  name="userFirstName"
-                  [(ngModel)]="userFirstName"
+                  name="firstName"
+                  [(ngModel)]="firstName"
                 />
               </mat-form-field>
             </td>
@@ -31,8 +31,8 @@
                 <input
                   matInput
                   placeholder="Last Name"
-                  name="userLastName"
-                  [(ngModel)]="userLastName"
+                  name="lastName"
+                  [(ngModel)]="lastName"
                 />
               </mat-form-field>
             </td>
@@ -44,8 +44,8 @@
                   type="email"
                   matInput
                   placeholder="Email"
-                  name="userEmail"
-                  [(ngModel)]="userEmail"
+                  name="email"
+                  [(ngModel)]="email"
                 />
               </mat-form-field>
             </td>
@@ -55,8 +55,8 @@
                   type="password"
                   matInput
                   placeholder="Password"
-                  name="userPassword"
-                  [(ngModel)]="userPassword"
+                  name="password"
+                  [(ngModel)]="password"
                 />
               </mat-form-field>
             </td>
@@ -65,107 +65,84 @@
             <td class="half">
               <mat-form-field class="full">
                 <input
-                  type="tel"
+                  type="phoneNumber"
                   matInput
-                  placeholder="Telephone"
-                  name="userTelephone"
-                  [(ngModel)]="userTelephone"
+                  placeholder="Phone Number"
+                  name="phoneNumber"
+                  [(ngModel)]="phoneNumber"
                 />
               </mat-form-field>
             </td>
             <td class="half">
               <mat-form-field class="full">
                 <mat-select
-                  placeholder="Access Level"
+                  placeholder="Do you have a car?"
                   [(ngModel)]="selectedValue"
-                  name="userAccessLevel"
-                  [(ngModel)]="userAccessLevel"
+                  name="role"
+                  [(ngModel)]="role"
                 >
-                  <mat-option value="Freelancer">Freelancer</mat-option>
-                  <mat-option value="Enterprise">Enterprise</mat-option>
+                  <mat-option value="RIDER">I don't have a car :(</mat-option>
+                  <mat-option value="DRIVER">I have a car!</mat-option>
                 </mat-select>
-                <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
-              </mat-form-field>
-            </td>
-            <td *ngIf="selectedValue == 'Enterprise'">
-              <mat-form-field
-                class="company-code"
-                *ngFor="let container of containers"
-              >
-                <input
-                  type="text"
-                  matInput
-                  placeholder="Company Code"
-                  name="userCode"
-                  [(ngModel)]="userCode"
-                />
               </mat-form-field>
             </td>
           </tr>
           <tr>
+            <!--  I have no idea why, but if you delete these, you'll be sorry. -->
             <td></td>
             <td></td>
-            <td>
-              <div class="fab-container">
-                <button
-                  mat-fab
-                  class="fab-toggler"
-                  color="primary"
-                  (click)="add()"
-                  *ngIf="selectedValue == 'Enterprise'"
-                  name="brianSaidToNameThis"
+            <td></td>
+          </tr>
+          <tr class="full" *ngIf="selectedValue == 'DRIVER'">
+            <td class="half">
+              <mat-form-field class="full">
+                <mat-select
+                  placeholder="How many seats in your car?"
+                  [(ngModel)]="selectedSeats"
+                  name="numberOfSeats"
+                  [(ngModel)]="car.seatNumber"
                 >
-                  <i class="material-icons">add</i>
-                </button>
-                <button
-                  mat-fab
-                  class="fab-toggler"
-                  color="primary"
-                  (click)="remove()"
-                  *ngIf="selectedValue == 'Enterprise'"
-                  name="brianSaidToNameThis"
-                >
-                  <i class="material-icons">remove</i>
-                </button>
-              </div>
+                  <mat-option value="1">1</mat-option>
+                  <mat-option value="2">2</mat-option>
+                  <mat-option value="3">3</mat-option>
+                  <mat-option value="4">4</mat-option>
+                  <mat-option value="5">5</mat-option>
+                  <mat-option value="6">6</mat-option>
+                </mat-select>
+              </mat-form-field>
             </td>
           </tr>
           <tr class="full">
-              <td class="half">
-            <mat-form-field class="full">
-              <mat-select
-                [(value)]="selected"
-                [(ngModel)]="workType"
-                placeholder="Work type"
-                name="workType"
-              >
-                <mat-option>None</mat-option>
-                <mat-option value="FRONTHOUSE">Front House</mat-option>
-                <mat-option value="FLOOR">Floor/Wait</mat-option>
-                <mat-option value="BACKHOUSE">Back House</mat-option>
-                <mat-option value="HOST">Host</mat-option>
-                <mat-option value="MAITRED">Maitre'd</mat-option>
-                <mat-option value="WAITER">Waiter</mat-option>
-                <mat-option value="BARTENDER">Bartender</mat-option>
-                <mat-option value="BUSSER">Busser</mat-option>
-                <mat-option value="BARBACK">Barback</mat-option>
-                <mat-option value="SOMMELIER">Sommelier</mat-option>
-                <mat-option value="HEADCHEF">Head Chef</mat-option>
-                <mat-option value="PREPCHEF">Prep Chef</mat-option>
-                <mat-option value="LINECHEF">Line Chef</mat-option>
-              </mat-select>
-            </mat-form-field>
-        </td>
-        <td class="half">
-            <mat-form-field class="full">
-              <mat-label>Biography</mat-label>
-              <textarea
-                matInput
-                name="userBiography"
-                [(ngModel)]="userBiography"
-              ></textarea>
-            </mat-form-field>
-        </td>
+            <td class="half">
+              <mat-form-field class="full">
+                <mat-select
+                  [(value)]="selected"
+                  [(ngModel)]="trainingLocation"
+                  placeholder="Training Location"
+                  name="trainingLocation"
+                >
+                  <mat-option>This will be an *NgFor</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </td>
+          </tr>
+
+          <tr class="full">
+            <td class="half">
+              <mat-form-field class="full">
+                <mat-select
+                  [(value)]="selected"
+                  [(ngModel)]="housingLocation"
+                  placeholder="Housing Location Name"
+                  name="housingLocation"
+                >
+                  <mat-option
+                    >This will be an NgFor Based on Training
+                    Location</mat-option
+                  >
+                </mat-select>
+              </mat-form-field>
+            </td>
           </tr>
         </table>
       </mat-card-content>
