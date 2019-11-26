@@ -17,6 +17,10 @@ td {
     max-width: 50%;
     }
 
+    .btn{
+     width: 30%   
+    }
+
     .banners{
         background-color: #F26925;
         border-color: #F26925;

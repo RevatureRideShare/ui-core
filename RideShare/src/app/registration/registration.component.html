@@ -3,144 +3,136 @@
 </mat-toolbar>
 
 <div id="outer-container">
-  <form action="register" method="POST">
-    <div
-      id="form-div"
-      fxLayout="row"
-      fxLayoutAlign="center center"
-      class="login-main"
-    >
-      <mat-card>
-        <mat-card-header>
-          <mat-card-title>Please Register Below</mat-card-title>
-        </mat-card-header>
-        <form action="register" method="POST">
-          <mat-card-content class="full">
-            <table>
-              <tr class="full">
-                <td class="half">
-                  <mat-form-field class="full">
-                    <input
-                      matInput
-                      placeholder="First Name"
-                      name="userFirstName"
-                      [(ngModel)]="userFirstName"
-                    />
-                  </mat-form-field>
-                </td>
-                <td class="half">
-                  <mat-form-field class="full">
-                    <input
-                      matInput
-                      placeholder="Last Name"
-                      name="userLastName"
-                      [(ngModel)]="userLastName"
-                    />
-                  </mat-form-field>
-                </td>
-              </tr>
-            </table>
-
-            <table cellspacing="0">
-              <tr>
-                <td>
-                  <mat-form-field>
-                    <input
-                      type="email"
-                      matInput
-                      placeholder="Email"
-                      name="userEmail"
-                      [(ngModel)]="userEmail"
-                    />
-                  </mat-form-field>
-                </td>
-                <td>
-                  <mat-form-field>
-                    <input
-                      type="password"
-                      matInput
-                      placeholder="Password"
-                      name="userPassword"
-                      [(ngModel)]="userPassword"
-                    />
-                  </mat-form-field>
-                </td>
-              </tr>
-            </table>
-
-            <table cellspacing="0">
-              <tr>
-                <td class="half">
-                  <mat-form-field class="full">
-                    <input
-                      type="tel"
-                      matInput
-                      placeholder="Telephone"
-                      name="userTelephone"
-                      [(ngModel)]="userTelephone"
-                    />
-                  </mat-form-field>
-                </td>
-                <td>
-                  <mat-form-field>
-                    <mat-select
-                      placeholder="Access Level"
-                      [(ngModel)]="selectedValue"
-                      name="userAccessLevel"
-                      [(ngModel)]="userAccessLevel"
-                    >
-                      <mat-option value="Freelancer">Freelancer</mat-option>
-                      <mat-option value="Enterprise">Enterprise</mat-option>
-                    </mat-select>
-                    <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
-                  </mat-form-field>
-                </td>
-                <td *ngIf="selectedValue == 'Enterprise'">
-                  <mat-form-field
-                    class="company-code"
-                    *ngFor="let container of containers"
-                  >
-                    <input
-                      type="text"
-                      matInput
-                      placeholder="Company Code"
-                      name="userCode"
-                      [(ngModel)]="userCode"
-                    />
-                  </mat-form-field>
-                </td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td>
-                  <div class="fab-container">
-                    <button
-                      mat-fab
-                      class="fab-toggler"
-                      color="primary"
-                      (click)="add()"
-                      *ngIf="selectedValue == 'Enterprise'"
-                      name="brianSaidToNameThis"
-                    >
-                      <i class="material-icons">add</i>
-                    </button>
-                    <button
-                      mat-fab
-                      class="fab-toggler"
-                      color="primary"
-                      (click)="remove()"
-                      *ngIf="selectedValue == 'Enterprise'"
-                      name="brianSaidToNameThis"
-                    >
-                      <i class="material-icons">remove</i>
-                    </button>
-                  </div>
-                </td>
-              </tr>
-            </table>
-
-            <mat-form-field>
+  <div
+    id="form-div"
+    fxLayout="row"
+    fxLayoutAlign="center center"
+    class="login-main"
+  >
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Please Register Below</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="full">
+        <table>
+          <tr class="full">
+            <td class="half">
+              <mat-form-field class="full">
+                <input
+                  matInput
+                  placeholder="First Name"
+                  name="userFirstName"
+                  [(ngModel)]="userFirstName"
+                />
+              </mat-form-field>
+            </td>
+            <td class="half">
+              <mat-form-field class="full">
+                <input
+                  matInput
+                  placeholder="Last Name"
+                  name="userLastName"
+                  [(ngModel)]="userLastName"
+                />
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr class="full">
+            <td class="half">
+              <mat-form-field class="full">
+                <input
+                  type="email"
+                  matInput
+                  placeholder="Email"
+                  name="userEmail"
+                  [(ngModel)]="userEmail"
+                />
+              </mat-form-field>
+            </td>
+            <td class="half">
+              <mat-form-field class="full">
+                <input
+                  type="password"
+                  matInput
+                  placeholder="Password"
+                  name="userPassword"
+                  [(ngModel)]="userPassword"
+                />
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr class="full">
+            <td class="half">
+              <mat-form-field class="full">
+                <input
+                  type="tel"
+                  matInput
+                  placeholder="Telephone"
+                  name="userTelephone"
+                  [(ngModel)]="userTelephone"
+                />
+              </mat-form-field>
+            </td>
+            <td class="half">
+              <mat-form-field class="full">
+                <mat-select
+                  placeholder="Access Level"
+                  [(ngModel)]="selectedValue"
+                  name="userAccessLevel"
+                  [(ngModel)]="userAccessLevel"
+                >
+                  <mat-option value="Freelancer">Freelancer</mat-option>
+                  <mat-option value="Enterprise">Enterprise</mat-option>
+                </mat-select>
+                <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
+              </mat-form-field>
+            </td>
+            <td *ngIf="selectedValue == 'Enterprise'">
+              <mat-form-field
+                class="company-code"
+                *ngFor="let container of containers"
+              >
+                <input
+                  type="text"
+                  matInput
+                  placeholder="Company Code"
+                  name="userCode"
+                  [(ngModel)]="userCode"
+                />
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>
+              <div class="fab-container">
+                <button
+                  mat-fab
+                  class="fab-toggler"
+                  color="primary"
+                  (click)="add()"
+                  *ngIf="selectedValue == 'Enterprise'"
+                  name="brianSaidToNameThis"
+                >
+                  <i class="material-icons">add</i>
+                </button>
+                <button
+                  mat-fab
+                  class="fab-toggler"
+                  color="primary"
+                  (click)="remove()"
+                  *ngIf="selectedValue == 'Enterprise'"
+                  name="brianSaidToNameThis"
+                >
+                  <i class="material-icons">remove</i>
+                </button>
+              </div>
+            </td>
+          </tr>
+          <tr class="full">
+              <td class="half">
+            <mat-form-field class="full">
               <mat-select
                 [(value)]="selected"
                 [(ngModel)]="workType"
@@ -163,49 +155,43 @@
                 <mat-option value="LINECHEF">Line Chef</mat-option>
               </mat-select>
             </mat-form-field>
-            <mat-form-field class="example-full-width">
+        </td>
+        <td class="half">
+            <mat-form-field class="full">
               <mat-label>Biography</mat-label>
               <textarea
                 matInput
-                cdkTextareaAutosize
-                #autosize="cdkTextareaAutosize"
-                cdkAutosizeMinRows="1"
-                cdkAutosizeMaxRows="5"
                 name="userBiography"
                 [(ngModel)]="userBiography"
               ></textarea>
             </mat-form-field>
-          </mat-card-content>
-          <mat-card-actions align="end">
-            <button
-              routerLink="/login"
-              type="button"
-              mat-raised-button
-              class="card-button"
-            >
-              Login
-            </button>
-            <button
-              (click)="register($event)"
-              type="button"
-              mat-raised-button
-              class="card-button"
-            >
-              Submit
-            </button>
-            <button
-              routerLink="/register-company"
-              type="button"
-              mat-raised-button
-              class="card-button"
-            >
-              Delete This Button
-            </button>
-          </mat-card-actions>
-        </form>
-      </mat-card>
-    </div>
-  </form>
+        </td>
+          </tr>
+        </table>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button
+          routerLink="/login"
+          type="button"
+          mat-raised-button
+          class="card-button"
+        >
+          Login
+        </button>
+        <button
+          (click)="register($event)"
+          type="button"
+          mat-raised-button
+          class="card-button"
+        >
+          Submit
+        </button>
+        <button routerLink="/register-company" type="button" class="btn">
+          Delete This Button
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
 </div>
 
 <mat-toolbar name="footer" id="footer" class="banners">
