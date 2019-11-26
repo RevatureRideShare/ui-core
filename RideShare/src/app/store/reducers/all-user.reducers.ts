@@ -25,7 +25,7 @@ export function AllUserReducer(
   action: AllUserAction
 ) {
   switch (action.type) {
-    case AllUsersActionTypes.LOAD_ALL_USERS_SUCCESS: {
+    case AllUsersActionTypes.LOAD_ALL_USERS: {
       return {
         ...state,
         loading: true
@@ -43,13 +43,13 @@ export function AllUserReducer(
         ...state,
         loading: false,
         error: action.payload
-      }
+      };
     }
     case AllUsersActionTypes.UPDATE_USER: {
       return {
         ...state,
         loading: true
-      }
+      };
     }
     case AllUsersActionTypes.UPDATE_USER_SUCCESS: {
       state = {
@@ -58,79 +58,81 @@ export function AllUserReducer(
           item => item.email !== action.payload.email
         ),
         loading: true
-      }
+      };
       return {
         ...state,
         allUsers: [...state.allUsers, action.payload],
         loading:false
-      }
+      };
     }
     case AllUsersActionTypes.UPDATE_USER_FAIL: {
       return {
         ...state,
         loading: false,
         error: action.payload
-      }
+      };
     }
     case AllUsersActionTypes.LOAD_ALL_DRIVERS: {
       return {
         ...state,
         loading: true,
-      }
+      };
     }
     case AllUsersActionTypes.LOAD_ALL_DRIVERS_SUCCESS: {
       return {
         ...state,
         allUsers: action.payload,
         loading: false
-      }
+      };
     }
     case AllUsersActionTypes.LOAD_ALL_DRIVERS_FAIL: {
       return {
         ...state,
         loading: false,
         error: action.payload
-      }
+      };
     }
     case AllUsersActionTypes.LOGIN_USER: {
       return {
         ...state,
         loading: true
-      }
+      };
     }
     case AllUsersActionTypes.LOGIN_USER_SUCCESS: {
       return {
         ...state,
         currentUser: action.payload,
         loading: false
-      }
+      };
     }
     case AllUsersActionTypes.LOGIN_USER_FAIL: {
       return {
         ...state,
         loading: false,
         error: action.payload
-      }
+      };
     }
     case AllUsersActionTypes.REGISTER_USER: {
       return {
         ...state,
         loading: true
-      }
+      };
     }
     case AllUsersActionTypes.REGISTER_USER_SUCCESS: {
       return {
         ...state,
         allUsers: [...state.allUsers, action.payload],
         loading: false
-      }
+      };
     }
     case AllUsersActionTypes.REGISTER_USER_FAIL: {
       return {
         ...state,
         loading: false,
         error: action.payload
-      }
+      };
     }
+    default:
+      return state;
   }
 }
