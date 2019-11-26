@@ -19,6 +19,17 @@ pipeline {
             }
         }
 
+        stage('Install') {
+            steps {
+                sh '''
+                    . ~/.nvm/nvm.sh
+                    ls -alh
+                    cd RideShare
+		            npm install
+                '''
+            }
+         }
+
          stage('SonarQube Analysis'){
              steps{
                 // echo env.CHANGE_URL.split("/")
@@ -63,16 +74,7 @@ pipeline {
                  }
             }
           }
-        stage('Install') {
-            steps {
-                sh '''
-                    . ~/.nvm/nvm.sh
-                    ls -alh
-                    cd RideShare
-		            npm install
-                '''
-            }
-         }
+        
         // stage('Karma Test') {
         //       steps {
         //         sh '''
