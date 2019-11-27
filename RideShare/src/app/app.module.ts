@@ -60,7 +60,8 @@ import {
       allUsers: AllUserReducer,
       allTrainingLocation: AllTrainingReducer,
       allHousingLocation: AllHousingReducer
-    })
+    }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]

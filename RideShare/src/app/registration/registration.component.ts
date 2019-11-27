@@ -62,8 +62,8 @@ export class RegistrationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.allHouseLocations = this.store.select(store => store.locationState.allHousingLocations)
-    this.allTrainingLocations = this.store.select(store => store.locationState.allTrainingLocations)
+    this.allHouseLocations = this.store.select(store => store['allHousingLocation'].allHousingLocations)
+    this.allTrainingLocations = this.store.select(store => store['allTrainingLocation'].allTrainingLocations)
     this.loading$ = this.store.select(store => store.locationState.loading)
     this.error$ = this.store.select(store => store.locationState.error)
     this.store.dispatch(new LoadAllTrainingLocationsAction())

@@ -14,7 +14,7 @@ import { TrainingLocation } from 'src/app/models/traininglocation.model';
  * If current ILocationState is not loaded from database yet, the initial state is used
  */
 export const initialLocationState: ILocationState = {
-  allTrainingLocations: [new TrainingLocation("ECH")],
+  allTrainingLocations: [],
   allHousingLocations: [],
   loading: false,
   error: undefined
@@ -29,7 +29,6 @@ export function AllHousingReducer(
   state: ILocationState = initialLocationState,
   action: HouseLocationsAction
 ) {
-  console.log(state)
   switch (action.type) {
     case HouseLocationsActionTypes.LOAD_ALL_HOUSE_LOCATIONS: {
       return {
