@@ -56,8 +56,6 @@ pipeline {
                         def organization = urlcomponents[3]
                         def repository = urlcomponents[4]
                         environment {
-                            CHANGE_ID = "${env.CHANGE_ID}"
-                            CHANGE_BRANCH = "${env.CHANGE_BRANCH}"
                             ORG = "${organization}"
                             REPO = "${repository}" 
                         }
@@ -127,6 +125,15 @@ pipeline {
                     timeout(time: 1, unit: 'MINUTES'){
                         waitForQualityGate abortPipeline: true
                     }
+
+                script{
+                    def urlComponents = env.JOB_NAME.split("/")
+                    def urlJobName = urlcomponents[0]
+                    def urlSonarCloudLink = "https://sonarcloud.io/dashboard?id=RevatureRideShare_"+urlJobName
+                }
+                slackSend message: "Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>) "+
+                "View the SonarCloud analysis - "+urlSonarCloudLink
+
                     script{
                             def sonarUrl = 
                             slackSend "SonarCloud analysis for - ${env.JOB_NAME} ${env.BUILD_NUMBER}"+
