@@ -51,10 +51,6 @@ pipeline {
                 script{
                     if (env.CHANGE_ID) {
                         echo 'Pull Request Detected... '
-                        echo "${env.CHANGE_ID}"
-                        echo "${env.CHANGE_BRANCH}"
-                        echo "${env.BUILD_NUMBER}"
-                        echo "${BUILD_ID}"
                         def urlcomponents = env.CHANGE_URL.split("/")
                         def org = urlcomponents[3]
                         def repo = urlcomponents[4]
@@ -70,10 +66,10 @@ pipeline {
                                 -Dsonar.login=f13453caf6dccc2ca1b0957363483278a174f20b \
                                 -Dsonar.pullrequest.provider=GitHub \
                                 -Dsonar.pullrequest.github.repository=${org}/${repo} \
-                                -Dsonar.pullrequest.key=${env.CHANGE_ID} \
-                                -Dsonar.pullrequest.branch=${env.CHANGE_BRANCH}
+                                -Dsonar.pullrequest.key=32 \
+                                -Dsonar.pullrequest.branch=chore/1-PhantomJS-dependency
                             '''
-                            echo "check1"
+                            echo 'Pull Request finished... '
                         }
                     }   else{
                             withSonarQubeEnv(credentialsId: 'b44ffadc-08d5-11ea-8d71-362b9e155667', installationName:'SonarCloud'){
