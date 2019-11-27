@@ -59,11 +59,14 @@ pipeline {
                             CHANGE_ID = "${env.CHANGE_ID}"
                             CHANGE_BRANCH = "${env.CHANGE_BRANCH}"
                             ORG = "${organization}"
-                            echo "Org: " +  organization
                             REPO = "${repository}" 
-                            echo "Repo: " +  repository
                         }
+                        echo "Org: " +  organization
+                        echo "Repo: " +  repository
+
                         withSonarQubeEnv(credentialsId: 'b44ffadc-08d5-11ea-8d71-362b9e155667', installationName:'SonarCloud'){
+                            echo "Org2: " +  organization
+                            echo "Repo2: " +  repository                            
                             sh '''
                             . ~/.nvm/nvm.sh
                              sonar-scanner \
