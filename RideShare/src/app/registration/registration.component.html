@@ -114,7 +114,6 @@
           </tr>
           <tr class="full">
             <td class="half">
-              <mat-form-field class="full">
                 <mat-select
                   [(value)]="selected"
                   [(ngModel)]="trainingLocation"
@@ -124,13 +123,11 @@
                 >
                   <mat-option value="i.trainingLocationName" (change)="filterHouse($event)">{{i.trainingLocationName}}</mat-option>
                 </mat-select>
-              </mat-form-field>
             </td>
           </tr>
 
           <tr class="full">
             <td class="half">
-              <mat-form-field class="full">
                 <mat-select
                   [(value)]="selected"
                   [(ngModel)]="housingLocation"
@@ -142,7 +139,6 @@
                     >{{i.houseLocationName}}</mat-option
                   >
                 </mat-select>
-              </mat-form-field>
             </td>
           </tr>
         </table>
