@@ -57,12 +57,6 @@ pipeline {
                         def urlcomponents = env.CHANGE_URL.split("/")
                         def organization = urlcomponents[3]
                         def repository = urlcomponents[4]
-                        // environment {
-                        //     ORG = "${organization}"
-                        //     REPO = "${repository}" 
-                        // }
-                        // echo "Org: " +  organization
-                        // echo "Repo: " +  repository
 
                         withSonarQubeEnv(credentialsId: 'b44ffadc-08d5-11ea-8d71-362b9e155667', installationName:'SonarCloud'){                           
                             sh """
