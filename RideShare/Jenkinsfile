@@ -49,7 +49,6 @@ pipeline {
          stage('SonarQube Analysis'){
             steps{
                 script{
-                        sh '. ~/.nvm/nvm.sh'
                     if (env.CHANGE_ID) {
                         echo 'Pull Request Detected...'
                         def urlcomponents = env.CHANGE_URL.split("/")
@@ -72,14 +71,13 @@ pipeline {
                         }
                     }   else{
                             withSonarQubeEnv(credentialsId: 'b44ffadc-08d5-11ea-8d71-362b9e155667', installationName:'SonarCloud'){
-                                sh '''
-                                sonar-scanner \
-                                -Dsonar.projectKey=RevatureRideShare_ui-core \
-                                -Dsonar.organization=b44ffadc-08d5-11ea-8d71-362b9e155667 \
-                                -Dsonar.sources=. \
-                                -Dsonar.host.url=https://sonarcloud.io/ \
-                                -Dsonar.login=f13453caf6dccc2ca1b0957363483278a174f20b 
-                                '''
+                              sh label: '', script: '''  sh \'\'\'~/.nvm/nvm.sh
+                                sonar-scanner \\
+                                -Dsonar.projectKey=RevatureRideShare_ui-core \\
+                                -Dsonar.organization=b44ffadc-08d5-11ea-8d71-362b9e155667 \\
+                                -Dsonar.sources=. \\
+                                -Dsonar.host.url=https://sonarcloud.io/ \\
+                                -Dsonar.login=f13453caf6dccc2ca1b0957363483278a174f20b\'\'\''''
                             }
                     }   
                 }
