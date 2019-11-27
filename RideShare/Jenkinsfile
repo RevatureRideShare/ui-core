@@ -107,15 +107,18 @@ pipeline {
             // }              
             steps {
                 echo "check2"
-                 timeout(time: 1, unit: 'MINUTES'){
-                    waitForQualityGate abortPipeline: true
-                    script{
-                        def sonarUrl = 
-                        slackSend "SonarCloud analysis for - ${env.JOB_NAME} ${env.BUILD_NUMBER}"+
-                        " (https://sonarcloud.io/dashboard?id=RevatureRideShare_+ ${env.PROJECT_NAME}" +")"
+                withSonarQubeEnv(credentialsId: 'b44ffadc-08d5-11ea-8d71-362b9e155667', installationName:'SonarCloud'){
+
+                    timeout(time: 1, unit: 'MINUTES'){
+                        waitForQualityGate abortPipeline: true
+                        script{
+                            def sonarUrl = 
+                            slackSend "SonarCloud analysis for - ${env.JOB_NAME} ${env.BUILD_NUMBER}"+
+                            " (https://sonarcloud.io/dashboard?id=RevatureRideShare_+ ${env.PROJECT_NAME}" +")"
                         }
                     }
                 }
+            }
           }
         
         // stage('Karma Test') {
