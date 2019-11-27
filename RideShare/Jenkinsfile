@@ -50,13 +50,14 @@ pipeline {
                     def repo = urlcomponents[4]
                     withSonarQubeEnv(credentialsId: 'b44ffadc-08d5-11ea-8d71-362b9e155667', installationName:'SonarCloud'){
                     sh '''
-                    . ~/.nvm/nvm.sh
                     export SONAR_SCANNER_VERSION=4.2.0.1873
                     export SONAR_SCANNER_HOME=$HOME/.sonar/sonar-scanner-$SONAR_SCANNER_VERSION-linux
                     export PATH=$SONAR_SCANNER_HOME/bin:$PATH
                     export SONAR_SCANNER_OPTS="-server"
                     '''
-                    sh " sonar-scanner \
+                    sh " 
+                    . ~/.nvm/nvm.sh \
+                    sonar-scanner \
                         -Dsonar.pullrequest.provider=GitHub \
                         -Dsonar.pullrequest.github.repository=${org}/${repo} \
                         -Dsonar.pullrequest.key=${env.CHANGE_ID} \
