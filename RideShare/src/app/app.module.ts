@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
 import { AllUserReducer } from './store/reducers/all-user.reducers';
 import { AllTrainingReducer, AllHousingReducer } from './store/reducers/location.reducers';
+import { AuthenticationReducer } from './store/reducers/authentication.reducers'
 
 //This is the material toolbar import and associated icon import
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -32,11 +33,7 @@ import {
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    RegistrationComponent
-  ],
+  declarations: [AppComponent, LoginComponent, RegistrationComponent],
   imports: [
     BrowserModule,
     routing,
@@ -58,8 +55,13 @@ import {
     }),
     StoreModule.forRoot({
       allUsers: AllUserReducer,
-      allTrainingLocation: AllTrainingReducer,
-      allHousingLocation: AllHousingReducer
+      allTrainingLocations: AllTrainingReducer,
+      allHousingLocations: AllHousingReducer,
+      authentication: AuthenticationReducer
+    }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production
     })
   ],
   providers: [],
