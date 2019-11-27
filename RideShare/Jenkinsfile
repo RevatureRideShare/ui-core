@@ -41,6 +41,11 @@ pipeline {
         }
 
          stage('SonarQube Analysis'){
+
+              if (env.CHANGE_ID) {
+                echo "PR request: $env.CHANGE_ID"
+                }
+            else{
              steps{
                 // echo env.CHANGE_URL.split("/")
                 // echo urlcomponents[3]
@@ -61,8 +66,9 @@ pipeline {
                     -Dsonar.host.url=https://sonarcloud.io/ \
                     -Dsonar.login=f13453caf6dccc2ca1b0957363483278a174f20b 
                     '''
-                 }
-             }
+                    }
+                }
+            }
                     // -Dsonar.pullrequest.provider=GitHub \
                     // -Dsonar.pullrequest.github.repository=${org}/${repo} \
                     // -Dsonar.pullrequest.key=${env.CHANGE_ID} \
