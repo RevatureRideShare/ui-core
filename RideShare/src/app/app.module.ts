@@ -30,6 +30,7 @@ import {
   } from '@angular/material';
   import {MatSelectModule} from '@angular/material/select';
   import {MatIconModule} from '@angular/material/icon';
+import { AuthenticationReducer } from './store/reducers/authentication.reducers';
 
 
 @NgModule({
