@@ -44,7 +44,7 @@ pipeline {
             steps{
                 script{
                    if (env.CHANGE_ID) {
-                    echo 'Im changing your ID'
+                    echo 'Pull Request Detected'
                     def urlcomponents = env.CHANGE_URL.split("/")
                     def org = urlcomponents[3]
                     def repo = urlcomponents[4]
