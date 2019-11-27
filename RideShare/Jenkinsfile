@@ -19,16 +19,16 @@ pipeline {
             }
         }
 
-        // stage('Install') {
-        //     steps {
-        //         sh '''
-        //             . ~/.nvm/nvm.sh
-        //             ls -alh
-        //             cd RideShare
-		//             npm install
-        //         '''
-        //     }
-        //  }
+        stage('Install') {
+            steps {
+                sh '''
+                    . ~/.nvm/nvm.sh
+                    ls -alh
+                    cd RideShare
+		            npm install
+                '''
+            }
+         }
 
         //  stage('Build') {
         //       steps {
@@ -54,10 +54,10 @@ pipeline {
                     export SONAR_SCANNER_VERSION=4.2.0.1873
                     export SONAR_SCANNER_HOME=$HOME/.sonar/sonar-scanner-$SONAR_SCANNER_VERSION-linux
                     export PATH=$SONAR_SCANNER_HOME/bin:$PATH
-                    export SONAR_SCANNER_OPTS="-server"sonar-scanner \
-                    -Dsonar.pullrequest.provider=GitHub \
-                    -Dsonar.pullrequest.github.repository=${org}/${repo} \
-                    -Dsonar.pullrequest.key=${env.CHANGE_ID} \
+                    export SONAR_SCANNER_OPTS="-server"sonar-scanner 
+                    -Dsonar.pullrequest.provider=GitHub 
+                    -Dsonar.pullrequest.github.repository=${org}/${repo} 
+                    -Dsonar.pullrequest.key=${env.CHANGE_ID} 
                     -Dsonar.pullrequest.branch=${env.CHANGE_BRANCH}
                     '''}
                     } else{
