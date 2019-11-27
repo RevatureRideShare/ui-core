@@ -80,8 +80,10 @@ pipeline {
                         export SONAR_SCANNER_HOME=$HOME/.sonar/sonar-scanner-$SONAR_SCANNER_VERSION-linux
                         export PATH=$SONAR_SCANNER_HOME/bin:$PATH
                         export SONAR_SCANNER_OPTS="-server"
+                        env
                         '''
                         sh '''
+                        env 
                         sonar-scanner \
                         -Dsonar.projectKey=RevatureRideShare_ui-core \
                         -Dsonar.organization=b44ffadc-08d5-11ea-8d71-362b9e155667 \
