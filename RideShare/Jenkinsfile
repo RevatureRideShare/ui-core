@@ -13,52 +13,59 @@ pipeline {
         SONAR_SCANNER_VERSION="4.2.0.1873"
         SONAR_SCANNER_HOME="$HOME/.sonar/sonar-scanner-$SONAR_SCANNER_VERSION-linux"
         PATH="$SONAR_SCANNER_HOME/bin:$PATH"
-        SONAR_SCANNER_OPTS="-server"
-        CHANGE_ID = "${env.CHANGE_ID}"
-        CHANGE_BRANCH = "${env.CHANGE_BRANCH}"        
+        SONAR_SCANNER_OPTS="-server" 
+        ORG="RevatureRideShare"
+        REPO="ui-core"       
     }
     stages {
-        stage('Pre-Build') {
-            steps {
-                echo 'Directory before'
-                sh 'pwd'
-                deleteDir()
-                checkout scm
-            }
-        }
+        // stage('Pre-Build') {
+        //     steps {
+        //         echo 'Directory before'
+        //         sh 'pwd'
+        //         deleteDir()
+        //         checkout scm
+        //     }
+        // }
 
-        stage('Install') {
-            steps {
-                sh '''
-                    . ~/.nvm/nvm.sh
-                    ls -alh
-                    cd RideShare
-		            npm install
-                '''
-            }
-         }
+        // stage('Install') {
+        //     steps {
+        //         sh '''
+        //             . ~/.nvm/nvm.sh
+        //             ls -alh
+        //             cd RideShare
+		//             npm install
+        //         '''
+        //     }
+        //  }
 
-         stage('Build') {
-              steps {
-                sh '''
-                    . ~/.nvm/nvm.sh 
-                    cd RideShare                   
-		            ng build
-                '''
-            }
-        }
+        //  stage('Build') {
+        //       steps {
+        //         sh '''
+        //             . ~/.nvm/nvm.sh 
+        //             cd RideShare                   
+		//             ng build
+        //         '''
+        //     }
+        // }
 
          stage('SonarQube Analysis'){
             steps{
                 script{
-                
+
                     if (env.CHANGE_ID) {
-                        echo 'Pull Request Detected... '
+                        echo 'Pull Request Detected...'
                         def urlcomponents = env.CHANGE_URL.split("/")
-                        def org = urlcomponents[3]
-                        def repo = urlcomponents[4]
-                        withSonarQubeEnv(credentialsId: 'b44ffadc-08d5-11ea-8d71-362b9e155667', installationName:'SonarCloud'){
-                            sh '''
+                        def organization = urlcomponents[3]
+                        def repository = urlcomponents[4]
+                        // environment {
+                        //     ORG = "${organization}"
+                        //     REPO = "${repository}" 
+                        // }
+                        // echo "Org: " +  organization
+                        // echo "Repo: " +  repository
+
+                        withSonarQubeEnv(credentialsId: 'b44ffadc-08d5-11ea-8d71-362b9e155667', installationName:'SonarCloud'){                           
+                            sh """
                             . ~/.nvm/nvm.sh
                              sonar-scanner \
                                 -Dsonar.projectKey=RevatureRideShare_ui-core \
@@ -67,11 +74,11 @@ pipeline {
                                 -Dsonar.host.url=https://sonarcloud.io/ \
                                 -Dsonar.login=f13453caf6dccc2ca1b0957363483278a174f20b \
                                 -Dsonar.pullrequest.provider=GitHub \
-                                -Dsonar.pullrequest.github.repository=${org}/${repo} \
-                                -Dsonar.pullrequest.key=${CHANGE_ID} \
-                                -Dsonar.pullrequest.branch=${CHANGE_BRANCH}
-                            '''
-                            echo "Pull Request finished: " + ${urlcomponents}
+                                -Dsonar.pullrequest.key=${env.CHANGE_ID} \
+                                -Dsonar.pullrequest.github.repository=${env.ORG}/${env.REPO} \
+                                -Dsonar.pullrequest.branch=${env.CHANGE_BRANCH}
+                            """
+                            echo "check1"
                         }
                     }   else{
                             withSonarQubeEnv(credentialsId: 'b44ffadc-08d5-11ea-8d71-362b9e155667', installationName:'SonarCloud'){
@@ -89,7 +96,16 @@ pipeline {
                 }
             }
         }        
+                    // export SONAR_SCANNER_VERSION=4.2.0.1873 \
+                    // SONAR_SCANNER_HOME=$HOME/.sonar/sonar-scanner-$SONAR_SCANNER_VERSION-linux \
+                    // PATH=$SONAR_SCANNER_HOME/bin:$PATH \
+                    // SONAR_SCANNER_OPTS='-server' \
+                    // -Dsonar.pullrequest.provider=GitHub \
+                    // -Dsonar.pullrequest.github.repository=${org}/${repo} \
+                    // -Dsonar.pullrequest.key=${env.CHANGE_ID} \
+                    // -Dsonar.pullrequest.branch=${env.CHANGE_BRANCH}
          
+
           stage("Quality Gate") {
             // steps {
             //     script{
@@ -108,14 +124,20 @@ pipeline {
 
                     timeout(time: 1, unit: 'MINUTES'){
                         waitForQualityGate abortPipeline: true
-                        script{
-                            def urlComponents = env.JOB_NAME.split("/")
-                            def urlJobName = urlcomponents[0]
-                            def urlSonarCloudLink = "https://sonarcloud.io/dashboard?id=RevatureRideShare_"+urlJobName
-                        }
-                        slackSend message: "Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>) "+
-                        "View the SonarCloud analysis - "+urlSonarCloudLink
                     }
+
+                script{
+                    def urlComponents = env.JOB_NAME.split("/")
+                    def urlJobName = urlComponents[0]
+                    def urlSonarCloudLink = "https://sonarcloud.io/dashboard?id=RevatureRideShare_"+urlJobName
+                    slackSend message: "Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>) "+
+                    "View the SonarCloud analysis - "+urlSonarCloudLink
+                }
+                    // script{
+                    //         def sonarUrl = 
+                    //         slackSend "SonarCloud analysis for - ${env.JOB_NAME} ${env.BUILD_NUMBER}"+
+                    //         " (https://sonarcloud.io/dashboard?id=RevatureRideShare_+ ${env.PROJECT_NAME}" +")"
+                    // }
                 }
             }
           }
