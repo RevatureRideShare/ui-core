@@ -19,26 +19,26 @@ pipeline {
             }
         }
 
-        stage('Install') {
-            steps {
-                sh '''
-                    . ~/.nvm/nvm.sh
-                    ls -alh
-                    cd RideShare
-		            npm install
-                '''
-            }
-         }
+        // stage('Install') {
+        //     steps {
+        //         sh '''
+        //             . ~/.nvm/nvm.sh
+        //             ls -alh
+        //             cd RideShare
+		//             npm install
+        //         '''
+        //     }
+        //  }
 
-         stage('Build') {
-              steps {
-                sh '''
-                    . ~/.nvm/nvm.sh 
-                    cd RideShare                   
-		            ng build
-                '''
-            }
-        }
+        //  stage('Build') {
+        //       steps {
+        //         sh '''
+        //             . ~/.nvm/nvm.sh 
+        //             cd RideShare                   
+		//             ng build
+        //         '''
+        //     }
+        // }
 
          stage('SonarQube Analysis'){
             steps{
