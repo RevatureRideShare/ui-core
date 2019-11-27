@@ -42,11 +42,7 @@ pipeline {
          stage('SonarQube Analysis'){
              steps{
                 script{
-                    def urlComponents = env.JOB_NAME.split("/")
-                    def urlJobName = urlComponents[0]
-                    def urlSonarCloudLink = "https://sonarcloud.io/dashboard?id=RevatureRideShare_"+urlJobName
-                    slackSend message: "Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>) "+
-                    "View the SonarCloud analysis - "+urlSonarCloudLink
+                  
                     if (env.CHANGE_ID) {
                     echo 'Im changing your ID'
                     def urlcomponents = env.CHANGE_URL.split("/")
@@ -59,8 +55,7 @@ pipeline {
                         export PATH=$SONAR_SCANNER_HOME/bin:$PATH
                         export SONAR_SCANNER_OPTS="-server"
                         '''
-                        sh "
-                        . ~/.nvm/nvm.sh \
+                        sh ". ~/.nvm/nvm.sh \
                         sonar-scanner \
                         -Dsonar.projectKey=RevatureRideShare_ui-core \
                         -Dsonar.organization=b44ffadc-08d5-11ea-8d71-362b9e155667 \
