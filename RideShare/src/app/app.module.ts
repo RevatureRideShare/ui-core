@@ -11,6 +11,9 @@ import { environment } from '../environments/environment';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StoreModule } from '@ngrx/store';
+import { AllUserReducer } from './store/reducers/all-user.reducers';
+import { AllTrainingReducer, AllHousingReducer } from './store/reducers/location.reducers';
 
 //This is the material toolbar import and associated icon import
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -51,6 +54,17 @@ import {
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production
+<<<<<<< HEAD
+=======
+    }),
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatSliderModule,
+    StoreModule.forRoot({
+      allUsers: AllUserReducer,
+      allTrainingLocation: AllTrainingReducer,
+      allHousingLocation: AllHousingReducer
+>>>>>>> feature/15-NgRx-Add-Reducers
     })
   ],
   providers: [],
