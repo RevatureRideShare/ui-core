@@ -40,7 +40,7 @@ export class RegistrationComponent implements OnInit {
   housingLocationName: string;
 
   trainingLocation: TrainingLocation;
-  trainingLocationName: String;
+  trainingLocationName: string;
   seatNumber: number;
 
   car: Car;
@@ -49,7 +49,7 @@ export class RegistrationComponent implements OnInit {
   result: any;
 
   public containers = [0];
-  public counter: number = 1;
+  public counter = 1;
 
 
 
@@ -62,8 +62,12 @@ export class RegistrationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.allHouseLocations = this.store.select(store => store['allHousingLocation'].allHousingLocations)
-    this.allTrainingLocations = this.store.select(store => store['allTrainingLocation'].allTrainingLocations)
+    this.allHouseLocations = this.store.select(
+      store => store['allHousingLocations'].allHousingLocations
+      )
+    this.allTrainingLocations = this.store.select(
+      store => store['allTrainingLocations'].allTrainingLocations
+      )
     this.loading$ = this.store.select(store => store.locationState.loading)
     this.error$ = this.store.select(store => store.locationState.error)
     this.store.dispatch(new LoadAllTrainingLocationsAction())
