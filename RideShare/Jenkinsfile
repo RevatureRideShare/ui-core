@@ -56,7 +56,7 @@ pipeline {
                 echo "${env.JOB_BASE_NAME}"
                 echo "${env.JOB_NAME}"
                 echo "${env.GIT_LOCAL_BRANCH}"
-                slackSend "Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+                slackSend message: "Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
 
                  withSonarQubeEnv(credentialsId: 'b44ffadc-08d5-11ea-8d71-362b9e155667', installationName:'SonarCloud'){
                     sh '''
