@@ -113,32 +113,33 @@
             </td>
           </tr>
           <tr class="full">
-            <td class="half">
-                <mat-select
-                  [(value)]="selected"
-                  [(ngModel)]="trainingLocation"
-                  placeholder="Training Location"
-                  name="trainingLocation"
-                  *ngFor="let i of allTrainingLocations | async"
+            <td
+              class="half"
+              *ngIf="allTrainingLocations | async as trainingLocations"
+            >
+              <mat-select placeholder="Training Location">
+                <mat-option
+                  value="i.trainingLocationName"
+                  *ngFor="let i of trainingLocations[0]"
+                  >{{ i.trainingLocationName }}</mat-option
                 >
-                  <mat-option value="i.trainingLocationName" (change)="filterHouse($event)">{{i.trainingLocationName}}</mat-option>
-                </mat-select>
+              </mat-select>
             </td>
           </tr>
 
           <tr class="full">
             <td class="half">
-                <mat-select
-                  [(value)]="selected"
-                  [(ngModel)]="housingLocation"
-                  placeholder="Housing Location Name"
-                  name="houseLocation"
-                  *ngFor="let i of allHouseLocations | async"
-                >
-                  <mat-option value="i.houseLocationName"
-                    >{{i.houseLocationName}}</mat-option
-                  >
-                </mat-select>
+              <mat-select
+                [(value)]="selected"
+                [(ngModel)]="housingLocation"
+                placeholder="Housing Location Name"
+                name="houseLocation"
+                *ngFor="let i of allHouseLocations | async"
+              >
+                <mat-option value="i.houseLocationName">{{
+                  i.houseLocationName
+                }}</mat-option>
+              </mat-select>
             </td>
           </tr>
         </table>
