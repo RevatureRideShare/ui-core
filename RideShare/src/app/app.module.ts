@@ -29,6 +29,7 @@ import {
   } from '@angular/material';
   import {MatSelectModule} from '@angular/material/select';
   import {MatIconModule} from '@angular/material/icon';
+import { AuthenticationReducer } from './store/reducers/authentication.reducers';
 
 
 @NgModule({
@@ -58,8 +59,9 @@ import {
     }),
     StoreModule.forRoot({
       allUsers: AllUserReducer,
-      allTrainingLocation: AllTrainingReducer,
-      allHousingLocation: AllHousingReducer
+      allTrainingLocations: AllTrainingReducer,
+      allHousingLocations: AllHousingReducer,
+      authentication: AuthenticationReducer
     }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
