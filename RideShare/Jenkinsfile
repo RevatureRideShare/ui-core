@@ -50,7 +50,11 @@ pipeline {
             steps{
                 script{
                     if (env.CHANGE_ID) {
-                        echo 'Pull Request Detected...'
+                        echo 'Pull Request Detected... '
+                        echo "${env.CHANGE_ID}"
+                        echo "${env.CHANGE_BRANCH}"
+                        echo "${env.BUILD_NUMBER}"
+                        echo "${BUILD_ID}"
                         def urlcomponents = env.CHANGE_URL.split("/")
                         def org = urlcomponents[3]
                         def repo = urlcomponents[4]
