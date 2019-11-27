@@ -58,7 +58,8 @@ pipeline {
                         export SONAR_SCANNER_HOME=$HOME/.sonar/sonar-scanner-$SONAR_SCANNER_VERSION-linux
                         export PATH=$SONAR_SCANNER_HOME/bin:$PATH
                         export SONAR_SCANNER_OPTS="-server"
-    
+                        '''
+                        sh "
                         . ~/.nvm/nvm.sh \
                         sonar-scanner \
                         -Dsonar.projectKey=RevatureRideShare_ui-core \
@@ -69,8 +70,8 @@ pipeline {
                         -Dsonar.pullrequest.provider=GitHub \
                         -Dsonar.pullrequest.github.repository=${org}/${repo} \
                         -Dsonar.pullrequest.key=${env.CHANGE_ID} \
-                        -Dsonar.pullrequest.branch=${env.CHANGE_BRANCH} 
-                        '''
+                        -Dsonar.pullrequest.branch=${env.CHANGE_BRANCH}" 
+                        
                         }
                     } else{
 
@@ -110,9 +111,14 @@ pipeline {
             steps {
                  timeout(time: 1, unit: 'MINUTES'){
                     waitForQualityGate abortPipeline: true
+                    script{
+                        def sonarUrl = 
+                        slackSend "SonarCloud analysis for - ${env.JOB_NAME} ${env.BUILD_NUMBER}"+
+                        " (https://sonarcloud.io/dashboard?id=RevatureRideShare_+ ${env.PROJECT_NAME}" +")"
+                    }
                 }
             }
-          }
+        }
         
         stage('Karma Test') {
               steps {
