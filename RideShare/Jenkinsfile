@@ -51,7 +51,6 @@ pipeline {
          stage('SonarQube Analysis'){
             steps{
                 script{
-
                     if (env.CHANGE_ID) {
                         echo 'Pull Request Detected...'
                         def urlcomponents = env.CHANGE_URL.split("/")
@@ -115,7 +114,7 @@ pipeline {
                 echo "check2"
                 withSonarQubeEnv(credentialsId: 'b44ffadc-08d5-11ea-8d71-362b9e155667', installationName:'SonarCloud'){
 
-                    timeout(time: 1, unit: 'MINUTES'){
+                    timeout(time: 3, unit: 'MINUTES'){
                         waitForQualityGate abortPipeline: true
                     }
 
@@ -150,7 +149,7 @@ pipeline {
               steps {
                   echo "check 3"
                 script{
-                  if(env.BRANCH_NAME == 'master'){
+                  if(env.BRANCH_NAME == 'master' ){
                     sh '''
                         cd RideShare
                         aws s3 cp --recursive ./dist/Project3 s3://rideshare-client
