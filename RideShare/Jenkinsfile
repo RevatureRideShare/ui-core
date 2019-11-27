@@ -44,7 +44,7 @@ pipeline {
              steps{
                 script{
                     def urlComponents = env.JOB_NAME.split("/")
-                    def urlJobName = urlcomponents[0]
+                    def urlJobName = urlComponents[0]
                     def urlSonarCloudLink = "https://sonarcloud.io/dashboard?id=RevatureRideShare_"+urlJobName
                 }
                 slackSend message: "Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>) "+
