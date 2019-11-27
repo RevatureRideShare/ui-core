@@ -34,6 +34,7 @@ export class RegistrationComponent implements OnInit {
 
   allTrainingLocations: Observable<Array<TrainingLocation>>;
   allHouseLocations: Observable<Array<HouseLocation>>;
+  filteredHouseLocations: Array<HouseLocation>;
 
   houseLocation: HouseLocation;
   housingLocationName: string;
@@ -61,18 +62,23 @@ export class RegistrationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.store.dispatch(new LoadAllHouseLocationsAction())
-    this.store.dispatch(new LoadAllTrainingLocationsAction())
     this.allHouseLocations = this.store.select(store => store.locationState.allHousingLocations)
     this.allTrainingLocations = this.store.select(store => store.locationState.allTrainingLocations)
     this.loading$ = this.store.select(store => store.locationState.loading)
     this.error$ = this.store.select(store => store.locationState.error)
+    this.store.dispatch(new LoadAllTrainingLocationsAction())
+    this.store.dispatch(new LoadAllHouseLocationsAction())
 
   }
 
   register() {
     this.store.dispatch(new RegisterUserAction({user: this.user, password: this.password}))
   }
+
+findHouse(event) {
+  console.log(event)
+  this.trainingLocation 
+}
 
  
     

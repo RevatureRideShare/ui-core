@@ -1,24 +1,13 @@
-#login{
-    margin-left: -2.5%;
-    background-color: #F26925;
-    border-color: #F26925;
-    color: #FFFFFF;
-    border-radius: 28px;
-    padding-left: 30px; 
-    padding-top: 12px;
-    padding-right: 30px;
-    padding-bottom: 12px;
-    font-family: 'Futura-PT';
-    font-size: 15px;
-    font-weight: 700;
-    width: 40%;
-    position: relative; 
-    left: 10%;
+#outer-container {
+  background-image: url('../../assets/Hitchhiking-in-a-Suit1.jpg');
+  background-size: cover;
+  min-height: 87vh;
 }
 
+.full {
+  width: 100%;
+}
 
-#login:hover, #login:active, #login:focus {
-    background-color: #FFFFFF;
-    color: #FCB414;
-    box-shadow: none;
+.half {
+  width: 50%;
 }

@@ -35,21 +35,21 @@ td {
   
   .fab-container{
   display: inline-block;
-  }
-  
-  .full{
+}
+
+.full {
   width: 100%;
-  }
-  
-  .half{
+}
+
+.half {
   width: 50%;
-  }
-  
-  .third{
+}
+
+.third {
   width: 30%;
-  }
-  
-  .company-code{
+}
+
+.company-code {
   width: 100%;
   }
 

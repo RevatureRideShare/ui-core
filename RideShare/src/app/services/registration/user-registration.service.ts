@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from "@angular/router";
+import { User } from '../../models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -8,25 +9,27 @@ import { Router } from "@angular/router";
 
 export class UserRegistrationService {
 
-  userFirstName: string;
-  userLastName: string;
-  userEmail: string;
-  userPassword: string;
-  userTelephone: string;
-  userAccessLevel: string;
-  userCode: string;
-  userBiography: string;
-  response: any;
+  user: User
+  password: string
+  response: any
 
-  registerUser(userFirstName, userLastName, userEmail, userPassword, userTelephone, userAccessLevel, userCode, userBiography, workType) {
-    let observer = this.http.post('register-user', {firstName: userFirstName, lastName: userLastName, email: userEmail, password: userPassword, userTelephone: userTelephone, accessLevel: userAccessLevel, userCode: userCode, userBiography: userBiography, workType: workType})
-    observer.subscribe((response) => {
-      this.response = response;
-      return response;
-    });
-
-    return this.response;
+  
+  registerUser(user: User, password: string) {
+    return this.http.post('register-user', {user, password});
+  
   }
 
   constructor(private router: Router, private http: HttpClient)  { }
 }
+
+/* registerUser(user: User, password: string) {
+  let observer = this.http.post('register-user', {user, password})
+  observer.subscribe((response) => {
+    this.response = response;
+    return response;
+  });
+
+  return this.response;
+}
+
+constructor(private router: Router, private http: HttpClient)  { } */

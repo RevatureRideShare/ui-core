@@ -138,9 +138,8 @@
                   name="houseLocation"
                   *ngFor="let i of allHouseLocations | async"
                 >
-                  <mat-option i=
-                    >This will be an NgFor Based on Training
-                    Location</mat-option
+                  <mat-option value="i.houseLocationName"
+                    >{{i.houseLocationName}}</mat-option
                   >
                 </mat-select>
               </mat-form-field>

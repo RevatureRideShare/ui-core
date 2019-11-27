@@ -11,31 +11,25 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
   /**
    * Title of the page
    */
   title = 'Welcome to RideShare';
 
-  /** 
+  /**
    * Email to log in with
    */
-  email: ""
+  userEmail: '';
 
   /**
    * Password to log in with
    */
-  password: ""
+  userPassword: '';
 
-
-  
-
-  
-  elemProfile = document.getElementById('profile'); 
+  elemProfile = document.getElementById('profile');
   elemLogout = document.getElementById('logout');
-  
 
-  /** 
+  /**
    * Takes user to registration page
    */
   onRegister(): void {
@@ -45,23 +39,16 @@ export class LoginComponent implements OnInit {
   /**
    * Logs user in
    */
-  onLogin(): void {
-    
-  }
+  onLogin(): void {}
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private http: HttpClient
-
-
-  ) { }
+  ) {}
 
   ngOnInit() {
-    
-    this.elemProfile.style.visibility = "hidden";
-    this.elemLogout.style.visibility = "hidden";
-    
+    //this.elemProfile.style.visibility = 'hidden';
+    //this.elemLogout.style.visibility = 'hidden';
   }
-
 }
