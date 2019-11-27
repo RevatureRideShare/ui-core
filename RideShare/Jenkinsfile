@@ -48,6 +48,8 @@ pipeline {
 
          stage('SonarQube Analysis'){
             steps{
+                sh '. ~/.nvm/nvm.sh'
+
                 script{
                    if (env.CHANGE_ID) {
                         echo 'Pull Request Detected...'
@@ -56,7 +58,6 @@ pipeline {
                         def repo = urlcomponents[4]
                         
                         withSonarQubeEnv(credentialsId: 'b44ffadc-08d5-11ea-8d71-362b9e155667', installationName:'SonarCloud'){
-                            sh '. ~/.nvm/nvm.sh'
                             sh " sonar-scanner \
                                 -Dsonar.projectKey=RevatureRideShare_ui-core \
                                 -Dsonar.organization=b44ffadc-08d5-11ea-8d71-362b9e155667 \
@@ -71,7 +72,6 @@ pipeline {
                         }
                     } else{
                             withSonarQubeEnv(credentialsId: 'b44ffadc-08d5-11ea-8d71-362b9e155667', installationName:'SonarCloud'){
-                                sh '. ~/.nvm/nvm.sh'                                
                                 sh '''
                                 sonar-scanner \
                                 -Dsonar.projectKey=RevatureRideShare_ui-core \
