@@ -18,7 +18,6 @@ import {
   AllHousingReducer
 } from './store/reducers/location.reducers';
 import { AuthenticationReducer } from './store/reducers/authentication.reducers';
-
 //This is the material toolbar import and associated icon import
 import { MatToolbarModule } from '@angular/material/toolbar';
 
