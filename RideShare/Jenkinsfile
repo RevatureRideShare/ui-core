@@ -39,12 +39,11 @@ pipeline {
             }
         }
 
-         stage('SonarQube Analysis'){
-             steps{
+        stage('SonarQube Analysis'){
+            steps{
                 script{
-                  
-                    if (env.CHANGE_ID) {
-                    echo 'Im changing your ID'
+                   if (env.CHANGE_ID) {
+                    echo 'Pull Request Detected'
                     def urlcomponents = env.CHANGE_URL.split("/")
                     def org = urlcomponents[3]
                     def repo = urlcomponents[4]
@@ -57,17 +56,16 @@ pipeline {
                         '''
                         sh ". ~/.nvm/nvm.sh \
                         sonar-scanner \
-                        -Dsonar.projectKey=RevatureRideShare_ui-core \
-                        -Dsonar.organization=b44ffadc-08d5-11ea-8d71-362b9e155667 \
-                        -Dsonar.sources=. \
-                        -Dsonar.host.url=https://sonarcloud.io/ \
-                        -Dsonar.login=f13453caf6dccc2ca1b0957363483278a174f20b \
-                        -Dsonar.pullrequest.provider=GitHub \
-                        -Dsonar.pullrequest.github.repository=${org}/${repo} \
-                        -Dsonar.pullrequest.key=${env.CHANGE_ID} \
-                        -Dsonar.pullrequest.branch=${env.CHANGE_BRANCH}" 
-                        
-                        }
+                            -Dsonar.projectKey=RevatureRideShare_ui-core \
+                            -Dsonar.organization=b44ffadc-08d5-11ea-8d71-362b9e155667 \
+                            -Dsonar.sources=. \
+                            -Dsonar.host.url=https://sonarcloud.io/ \
+                            -Dsonar.login=f13453caf6dccc2ca1b0957363483278a174f20b \
+                            -Dsonar.pullrequest.provider=GitHub \
+                            -Dsonar.pullrequest.github.repository=${org}/${repo} \
+                            -Dsonar.pullrequest.key=${env.CHANGE_ID} \
+                            -Dsonar.pullrequest.branch=${env.CHANGE_BRANCH} "
+                    }
                     } else{
 
                         withSonarQubeEnv(credentialsId: 'b44ffadc-08d5-11ea-8d71-362b9e155667', installationName:'SonarCloud'){
@@ -88,9 +86,11 @@ pipeline {
                         }
                     }
                 }
-            }
+            }        // -Dsonar.pullrequest.provider=GitHub \
+                    // -Dsonar.pullrequest.github.repository=${org}/${repo} \
+                    // -Dsonar.pullrequest.key=${env.CHANGE_ID} \
+                    // -Dsonar.pullrequest.branch=${env.CHANGE_BRANCH}
         }
-
           stage("Quality Gate") {
             // steps {
             //     script{
