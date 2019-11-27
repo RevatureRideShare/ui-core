@@ -47,29 +47,53 @@ pipeline {
                     def urlSonarCloudLink = "https://sonarcloud.io/dashboard?id=RevatureRideShare_"+urlJobName
                     slackSend message: "Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>) "+
                     "View the SonarCloud analysis - "+urlSonarCloudLink
+                    if (env.CHANGE_ID) {
+                    echo 'Im changing your ID'
+                    def urlcomponents = env.CHANGE_URL.split("/")
+                    def org = urlcomponents[3]
+                    def repo = urlcomponents[4]
+                    withSonarQubeEnv(credentialsId: 'b44ffadc-08d5-11ea-8d71-362b9e155667', installationName:'SonarCloud'){
+                        sh '''
+                        export SONAR_SCANNER_VERSION=4.2.0.1873
+                        export SONAR_SCANNER_HOME=$HOME/.sonar/sonar-scanner-$SONAR_SCANNER_VERSION-linux
+                        export PATH=$SONAR_SCANNER_HOME/bin:$PATH
+                        export SONAR_SCANNER_OPTS="-server"
+    
+                        . ~/.nvm/nvm.sh \
+                        sonar-scanner \
+                        -Dsonar.projectKey=RevatureRideShare_ui-core \
+                        -Dsonar.organization=b44ffadc-08d5-11ea-8d71-362b9e155667 \
+                        -Dsonar.sources=. \
+                        -Dsonar.host.url=https://sonarcloud.io/ \
+                        -Dsonar.login=f13453caf6dccc2ca1b0957363483278a174f20b \
+                        -Dsonar.pullrequest.provider=GitHub \
+                        -Dsonar.pullrequest.github.repository=${org}/${repo} \
+                        -Dsonar.pullrequest.key=${env.CHANGE_ID} \
+                        -Dsonar.pullrequest.branch=${env.CHANGE_BRANCH} 
+                        '''
+                        }
+                    } else{
+
+                        withSonarQubeEnv(credentialsId: 'b44ffadc-08d5-11ea-8d71-362b9e155667', installationName:'SonarCloud'){
+                        sh '''
+                        . ~/.nvm/nvm.sh
+                        export SONAR_SCANNER_VERSION=4.2.0.1873
+                        export SONAR_SCANNER_HOME=$HOME/.sonar/sonar-scanner-$SONAR_SCANNER_VERSION-linux
+                        export PATH=$SONAR_SCANNER_HOME/bin:$PATH
+                        export SONAR_SCANNER_OPTS="-server"
+                        
+                        sonar-scanner \
+                        -Dsonar.projectKey=RevatureRideShare_ui-core \
+                        -Dsonar.organization=b44ffadc-08d5-11ea-8d71-362b9e155667 \
+                        -Dsonar.sources=. \
+                        -Dsonar.host.url=https://sonarcloud.io/ \
+                        -Dsonar.login=f13453caf6dccc2ca1b0957363483278a174f20b 
+                        '''
+                        }
+                    }
                 }
-                 withSonarQubeEnv(credentialsId: 'b44ffadc-08d5-11ea-8d71-362b9e155667', installationName:'SonarCloud'){
-                    sh '''
-                    . ~/.nvm/nvm.sh
-                    export SONAR_SCANNER_VERSION=4.2.0.1873
-                    export SONAR_SCANNER_HOME=$HOME/.sonar/sonar-scanner-$SONAR_SCANNER_VERSION-linux
-                    export PATH=$SONAR_SCANNER_HOME/bin:$PATH
-                    export SONAR_SCANNER_OPTS="-server"
-                    
-                    sonar-scanner \
-                    -Dsonar.projectKey=RevatureRideShare_ui-core \
-                    -Dsonar.organization=b44ffadc-08d5-11ea-8d71-362b9e155667 \
-                    -Dsonar.sources=. \
-                    -Dsonar.host.url=https://sonarcloud.io/ \
-                    -Dsonar.login=f13453caf6dccc2ca1b0957363483278a174f20b 
-                    '''
-                 }
-             }
-                    // -Dsonar.pullrequest.provider=GitHub \
-                    // -Dsonar.pullrequest.github.repository=${org}/${repo} \
-                    // -Dsonar.pullrequest.key=${env.CHANGE_ID} \
-                    // -Dsonar.pullrequest.branch=${env.CHANGE_BRANCH}
-         }
+            }
+        }
 
           stage("Quality Gate") {
             // steps {
