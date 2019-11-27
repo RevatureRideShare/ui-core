@@ -4,7 +4,7 @@ import { ILocationState } from './location-state.model';
 /**
  * interface IAppState contains necessary information stored throughout the whole application
  *
- * Imported by:
+ * Imported by: the registartion compenent in registarton.registartion
  * 
  */
 export interface IAppState{
