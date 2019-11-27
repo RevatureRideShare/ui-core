@@ -41,22 +41,14 @@ pipeline {
         // }
 
          stage('SonarQube Analysis'){
-
-              if (env.CHANGE_ID) {
-                echo "PR request: $env.CHANGE_ID"
-                }
-            else{
              steps{
-                // echo env.CHANGE_URL.split("/")
-                // echo urlcomponents[3]
-                // echo urlcomponents[4]
-                echo "Slack cmnd"
-                echo "${env.BRANCH_NAME}"
-                echo "${env.BUILD_DISPLAY_NAME}"
-                echo "${env.JOB_BASE_NAME}"
-                echo "${env.JOB_NAME}"
-                echo "${env.GIT_LOCAL_BRANCH}"
-                slackSend message: "Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+                script{
+                    def urlComponents = env.JOB_NAME.split("/")
+                    def urlJobName = urlcomponents[0]
+                    def urlSonarCloudLink = "https://sonarcloud.io/dashboard?id=RevatureRideShare_"+urlJobName
+                }
+                slackSend message: "Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>) "+
+                "View the SonarCloud analysis - "+urlSonarCloudLink
 
                  withSonarQubeEnv(credentialsId: 'b44ffadc-08d5-11ea-8d71-362b9e155667', installationName:'SonarCloud'){
                     sh '''
@@ -73,9 +65,8 @@ pipeline {
                     -Dsonar.host.url=https://sonarcloud.io/ \
                     -Dsonar.login=f13453caf6dccc2ca1b0957363483278a174f20b 
                     '''
-                    }
-                }
-            }
+                 }
+             }
                     // -Dsonar.pullrequest.provider=GitHub \
                     // -Dsonar.pullrequest.github.repository=${org}/${repo} \
                     // -Dsonar.pullrequest.key=${env.CHANGE_ID} \
