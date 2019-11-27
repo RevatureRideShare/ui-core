@@ -10,25 +10,25 @@ pipeline {
         buildDiscarder(logRotator(numToKeepStr: '6', daysToKeepStr: '14')) 
     }
     stages {
-        stage('Pre-Build') {
-            steps {
-                echo 'Directory before'
-                sh 'pwd'
-                deleteDir()
-                checkout scm
-            }
-        }
+        // stage('Pre-Build') {
+        //     steps {
+        //         echo 'Directory before'
+        //         sh 'pwd'
+        //         deleteDir()
+        //         checkout scm
+        //     }
+        // }
 
-        stage('Install') {
-            steps {
-                sh '''
-                    . ~/.nvm/nvm.sh
-                    ls -alh
-                    cd RideShare
-		            npm install
-                '''
-            }
-         }
+        // stage('Install') {
+        //     steps {
+        //         sh '''
+        //             . ~/.nvm/nvm.sh
+        //             ls -alh
+        //             cd RideShare
+		//             npm install
+        //         '''
+        //     }
+        //  }
 
         //  stage('Build') {
         //       steps {
@@ -60,7 +60,9 @@ pipeline {
                         export PATH=$SONAR_SCANNER_HOME/bin:$PATH
                         export SONAR_SCANNER_OPTS="-server"
                         '''
-                        sh "sonar-scanner \
+                        sh
+                        "
+                        sonar-scanner \
                             -Dsonar.projectKey=RevatureRideShare_ui-core \
                             -Dsonar.organization=b44ffadc-08d5-11ea-8d71-362b9e155667 \
                             -Dsonar.sources=. \
@@ -69,7 +71,8 @@ pipeline {
                             -Dsonar.pullrequest.provider=GitHub \
                             -Dsonar.pullrequest.github.repository=${org}/${repo} \
                             -Dsonar.pullrequest.key=${env.CHANGE_ID} \
-                            -Dsonar.pullrequest.branch=${env.CHANGE_BRANCH} "
+                            -Dsonar.pullrequest.branch=${env.CHANGE_BRANCH} 
+                        "
                         echo "check1"
                     } else{
 
@@ -79,14 +82,15 @@ pipeline {
                         export SONAR_SCANNER_HOME=$HOME/.sonar/sonar-scanner-$SONAR_SCANNER_VERSION-linux
                         export PATH=$SONAR_SCANNER_HOME/bin:$PATH
                         export SONAR_SCANNER_OPTS="-server"
-                        
+                        '''
+                        sh "
                         sonar-scanner \
                         -Dsonar.projectKey=RevatureRideShare_ui-core \
                         -Dsonar.organization=b44ffadc-08d5-11ea-8d71-362b9e155667 \
                         -Dsonar.sources=. \
                         -Dsonar.host.url=https://sonarcloud.io/ \
                         -Dsonar.login=f13453caf6dccc2ca1b0957363483278a174f20b 
-                        '''
+                        "
                         }
                     }
                 }
