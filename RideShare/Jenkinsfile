@@ -55,8 +55,7 @@ pipeline {
                     export PATH=$SONAR_SCANNER_HOME/bin:$PATH
                     export SONAR_SCANNER_OPTS="-server"
                     '''
-                    sh " 
-                    . ~/.nvm/nvm.sh \
+                    sh ". ~/.nvm/nvm.sh \
                     sonar-scanner \
                         -Dsonar.pullrequest.provider=GitHub \
                         -Dsonar.pullrequest.github.repository=${org}/${repo} \
