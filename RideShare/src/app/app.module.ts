@@ -57,7 +57,6 @@ import {
     }),
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatSliderModule,
     StoreModule.forRoot({
       allUsers: AllUserReducer,
       allTrainingLocation: AllTrainingReducer,
