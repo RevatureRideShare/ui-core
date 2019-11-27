@@ -52,6 +52,7 @@ pipeline {
                 environment {
                 CHANGE_ID = "${env.CHANGE_ID}"
                 CHANGE_BRANCH = "${env.CHANGE_BRANCH}"
+                PROJECT_NAME = "${env.PROJECT_NAME}"
                 }
                     if (env.CHANGE_ID) {
                         echo 'Pull Request Detected... '
@@ -91,19 +92,7 @@ pipeline {
                 }
             }
         }        
-        // -Dsonar.pullrequest.key=32 \
-        // -Dsonar.pullrequest.branch=chore/1-PhantomJS-dependency
-
-                    // export SONAR_SCANNER_VERSION=4.2.0.1873 \
-                    // SONAR_SCANNER_HOME=$HOME/.sonar/sonar-scanner-$SONAR_SCANNER_VERSION-linux \
-                    // PATH=$SONAR_SCANNER_HOME/bin:$PATH \
-                    // SONAR_SCANNER_OPTS='-server' \
-                    // -Dsonar.pullrequest.provider=GitHub \
-                    // -Dsonar.pullrequest.github.repository=${org}/${repo} \
-                    // -Dsonar.pullrequest.key=${env.CHANGE_ID} \
-                    // -Dsonar.pullrequest.branch=${env.CHANGE_BRANCH}
          
-
           stage("Quality Gate") {
             // steps {
             //     script{
@@ -125,7 +114,7 @@ pipeline {
                         script{
                             def sonarUrl = 
                             slackSend "SonarCloud analysis for - ${env.JOB_NAME} ${env.BUILD_NUMBER}"+
-                            " (https://sonarcloud.io/dashboard?id=RevatureRideShare_+ ${env.BUILD_NUMBER}" +")"
+                            " (https://sonarcloud.io/dashboard?id=RevatureRideShare_+ ${PROJECT_NAME}" +")"
                         }
                     }
                 }
