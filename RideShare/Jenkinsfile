@@ -48,10 +48,9 @@ pipeline {
 
          stage('SonarQube Analysis'){
             steps{
-                sh '. ~/.nvm/nvm.sh'
-
                 script{
-                   if (env.CHANGE_ID) {
+                    steps{
+                    if (env.CHANGE_ID) {
                         echo 'Pull Request Detected...'
                         def urlcomponents = env.CHANGE_URL.split("/")
                         def org = urlcomponents[3]
@@ -70,7 +69,7 @@ pipeline {
                                 -Dsonar.pullrequest.branch=${env.CHANGE_BRANCH}"
                             echo "check1"
                         }
-                    } else{
+                    }   else{
                             withSonarQubeEnv(credentialsId: 'b44ffadc-08d5-11ea-8d71-362b9e155667', installationName:'SonarCloud'){
                                 sh '''
                                 sonar-scanner \
@@ -83,8 +82,10 @@ pipeline {
                             }
                         }
                     }
+                   
                 }
-            }        
+            }
+        }        
                     // export SONAR_SCANNER_VERSION=4.2.0.1873 \
                     // SONAR_SCANNER_HOME=$HOME/.sonar/sonar-scanner-$SONAR_SCANNER_VERSION-linux \
                     // PATH=$SONAR_SCANNER_HOME/bin:$PATH \
