@@ -49,12 +49,18 @@ pipeline {
          stage('SonarQube Analysis'){
             steps{
                 script{
+
                     if (env.CHANGE_ID) {
                         echo 'Pull Request Detected...'
                         def urlcomponents = env.CHANGE_URL.split("/")
                         def org = urlcomponents[3]
                         def repo = urlcomponents[4]
-                        
+                        environment {
+                            CHANGE_ID = "${env.CHANGE_ID}"
+                            CHANGE_BRANCH = "${env.CHANGE_BRANCH}"
+                            ORG = "${org}"
+                            REPO = "${repo}"                            
+                        }
                         withSonarQubeEnv(credentialsId: 'b44ffadc-08d5-11ea-8d71-362b9e155667', installationName:'SonarCloud'){
                             sh '''
                             . ~/.nvm/nvm.sh
@@ -65,9 +71,9 @@ pipeline {
                                 -Dsonar.host.url=https://sonarcloud.io/ \
                                 -Dsonar.login=f13453caf6dccc2ca1b0957363483278a174f20b \
                                 -Dsonar.pullrequest.provider=GitHub \
-                                -Dsonar.pullrequest.github.repository=${org}/${repo} \
-                                -Dsonar.pullrequest.key=${env.CHANGE_ID} \
-                                -Dsonar.pullrequest.branch=${env.CHANGE_BRANCH}
+                                -Dsonar.pullrequest.github.repository=${ORG}/${REPO} \
+                                -Dsonar.pullrequest.key=${CHANGE_ID} \
+                                -Dsonar.pullrequest.branch=${CHANGE_BRANCH}
                             '''
                             echo "check1"
                         }
@@ -115,11 +121,11 @@ pipeline {
 
                     timeout(time: 1, unit: 'MINUTES'){
                         waitForQualityGate abortPipeline: true
-                        script{
+                    }
+                    script{
                             def sonarUrl = 
                             slackSend "SonarCloud analysis for - ${env.JOB_NAME} ${env.BUILD_NUMBER}"+
                             " (https://sonarcloud.io/dashboard?id=RevatureRideShare_+ ${env.PROJECT_NAME}" +")"
-                        }
                     }
                 }
             }
