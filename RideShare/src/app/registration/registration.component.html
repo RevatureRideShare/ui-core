@@ -56,7 +56,7 @@
                   matInput
                   placeholder="Password"
                   name="password"
-                  [(ngModel)]="user.password"
+                  [(ngModel)]="password"
                 />
               </mat-form-field>
             </td>
@@ -100,7 +100,7 @@
                   placeholder="How many seats in your car?"
                   [(ngModel)]="selectedSeats"
                   name="numberOfSeats"
-                  [(ngModel)]="car.seatNumber"
+                  [(ngModel)]="user.car.seatNumber"
                 >
                   <mat-option value="1">1</mat-option>
                   <mat-option value="2">2</mat-option>
@@ -120,8 +120,9 @@
                   [(ngModel)]="trainingLocation"
                   placeholder="Training Location"
                   name="trainingLocation"
+                  *ngFor="let i of allTrainingLocations | async"
                 >
-                  <mat-option>This will be an *NgFor</mat-option>
+                  <mat-option value="i.trainingLocationName" (change)="filterHouse($event)">{{i.trainingLocationName}}</mat-option>
                 </mat-select>
               </mat-form-field>
             </td>
@@ -134,9 +135,10 @@
                   [(value)]="selected"
                   [(ngModel)]="housingLocation"
                   placeholder="Housing Location Name"
-                  name="housingLocation"
+                  name="houseLocation"
+                  *ngFor="let i of allHouseLocations | async"
                 >
-                  <mat-option
+                  <mat-option i=
                     >This will be an NgFor Based on Training
                     Location</mat-option
                   >

@@ -25,6 +25,7 @@ import {
   MatInputModule,
   MatCardModule,
   MatButtonModule
+  
   } from '@angular/material';
   import {MatSelectModule} from '@angular/material/select';
   import {MatIconModule} from '@angular/material/icon';
@@ -55,8 +56,6 @@ import {
       maxAge: 25,
       logOnly: environment.production
     }),
-    AppRoutingModule,
-    BrowserAnimationsModule,
     StoreModule.forRoot({
       allUsers: AllUserReducer,
       allTrainingLocation: AllTrainingReducer,
