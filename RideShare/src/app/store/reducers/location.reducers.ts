@@ -64,6 +64,8 @@ export function AllTrainingReducer(
   state: ILocationState = initialLocationState,
   action: TrainingLocationsAction
 ) {
+  console.log('location.reducers.ts');
+  console.log(action);
   switch (action.type) {
     case TrainingLocationsActionTypes.LOAD_ALL_TRAINING_LOCATIONS: {
       return {

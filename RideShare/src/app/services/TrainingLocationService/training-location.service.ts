@@ -15,7 +15,7 @@ export class TrainingLocationService {
   /**
    * Server and port number
    */
-  readonly port = 'localhost:3003';
+  readonly port = 'http://localhost:3002';
 
   /**
    * Endpoint
@@ -27,7 +27,9 @@ export class TrainingLocationService {
    * Gets all training locations
    */
   getTrainingLocations() {
+    console.log('training-location.service');
     let url = this.port + this.endpoint;
+    console.log(url);
     return this.http.get<TrainingLocation[]>(url);
   }
 }
