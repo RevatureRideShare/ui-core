@@ -67,7 +67,7 @@ pipeline {
                             -Dsonar.pullrequest.github.repository=${org}/${repo} \
                             -Dsonar.pullrequest.key=${env.CHANGE_ID} \
                             -Dsonar.pullrequest.branch=${env.CHANGE_BRANCH} "
-                    
+                        echo "check1"
                     } else{
 
                         sh '''
@@ -106,6 +106,7 @@ pipeline {
             //     }
             // }              
             steps {
+                echo "check2"
                  timeout(time: 1, unit: 'MINUTES'){
                     waitForQualityGate abortPipeline: true
                     script{
@@ -130,6 +131,7 @@ pipeline {
         
         stage('Deploy') {
               steps {
+                  echo "check 3"
                 script{
                   if(env.BRANCH_NAME == 'master'){
                     sh '''
