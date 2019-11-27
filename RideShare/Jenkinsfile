@@ -49,6 +49,10 @@ pipeline {
          stage('SonarQube Analysis'){
             steps{
                 script{
+                environment {
+                CHANGE_ID = "${env.CHANGE_ID}"
+                CHANGE_BRANCH = "${env.CHANGE_BRANCH}"
+                }
                     if (env.CHANGE_ID) {
                         echo 'Pull Request Detected... '
                         def urlcomponents = env.CHANGE_URL.split("/")
@@ -66,8 +70,8 @@ pipeline {
                                 -Dsonar.login=f13453caf6dccc2ca1b0957363483278a174f20b \
                                 -Dsonar.pullrequest.provider=GitHub \
                                 -Dsonar.pullrequest.github.repository=${org}/${repo} \
-                                -Dsonar.pullrequest.key=32 \
-                                -Dsonar.pullrequest.branch=chore/1-PhantomJS-dependency
+                                -Dsonar.pullrequest.key=${CHANGE_ID} \
+                                -Dsonar.pullrequest.branch=${CHANGE_BRANCH}
                             '''
                             echo 'Pull Request finished... '
                         }
@@ -87,6 +91,9 @@ pipeline {
                 }
             }
         }        
+        // -Dsonar.pullrequest.key=32 \
+        // -Dsonar.pullrequest.branch=chore/1-PhantomJS-dependency
+
                     // export SONAR_SCANNER_VERSION=4.2.0.1873 \
                     // SONAR_SCANNER_HOME=$HOME/.sonar/sonar-scanner-$SONAR_SCANNER_VERSION-linux \
                     // PATH=$SONAR_SCANNER_HOME/bin:$PATH \
