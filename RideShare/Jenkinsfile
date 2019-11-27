@@ -46,10 +46,9 @@ pipeline {
                     def urlComponents = env.JOB_NAME.split("/")
                     def urlJobName = urlComponents[0]
                     def urlSonarCloudLink = "https://sonarcloud.io/dashboard?id=RevatureRideShare_"+urlJobName
+                    slackSend message: "Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>) "+
+                    "View the SonarCloud analysis - "+urlSonarCloudLink
                 }
-                slackSend message: "Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>) "+
-                "View the SonarCloud analysis - "+urlSonarCloudLink
-
                  withSonarQubeEnv(credentialsId: 'b44ffadc-08d5-11ea-8d71-362b9e155667', installationName:'SonarCloud'){
                     sh '''
                     . ~/.nvm/nvm.sh
