@@ -53,12 +53,11 @@ pipeline {
                    if (env.CHANGE_ID) {
                     echo 'Pull Request Detected...'
                     def urlcomponents = env.CHANGE_URL.split("/")
-                    echo "first: " + urlcomponents
                     def org = urlcomponents[3]
-                    echo "second: " + org
                     def repo = urlcomponents[4]
-                    echo "third" + repo
-                   
+                    
+                    sh '. ~/.nvm/nvm.sh'
+
                         sh " sonar-scanner \
                             -Dsonar.projectKey=RevatureRideShare_ui-core \
                             -Dsonar.organization=b44ffadc-08d5-11ea-8d71-362b9e155667 \
@@ -72,6 +71,7 @@ pipeline {
                         echo "check1"
 
                     } else{
+                        sh '. ~/.nvm/nvm.sh'
                         sh '''
                         sonar-scanner \
                         -Dsonar.projectKey=RevatureRideShare_ui-core \
