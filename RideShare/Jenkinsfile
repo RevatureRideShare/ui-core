@@ -9,6 +9,12 @@ pipeline {
         disableConcurrentBuilds()
         buildDiscarder(logRotator(numToKeepStr: '6', daysToKeepStr: '14')) 
     }
+    environment{
+        SONAR_SCANNER_VERSION="4.2.0.1873"
+        SONAR_SCANNER_HOME="$HOME/.sonar/sonar-scanner-$SONAR_SCANNER_VERSION-linux"
+        PATH="$SONAR_SCANNER_HOME/bin:$PATH"
+        SONAR_SCANNER_OPTS="-server"        
+    }
     stages {
         // stage('Pre-Build') {
         //     steps {
@@ -54,10 +60,10 @@ pipeline {
                     echo "third" + repo
                    
                         sh '''
-                        export SONAR_SCANNER_VERSION=4.2.0.1873
-                        export SONAR_SCANNER_HOME=$HOME/.sonar/sonar-scanner-$SONAR_SCANNER_VERSION-linux
-                        export PATH=$SONAR_SCANNER_HOME/bin:$PATH
-                        export SONAR_SCANNER_OPTS="-server"
+        SONAR_SCANNER_VERSION=4.2.0.1873
+        SONAR_SCANNER_HOME=$HOME/.sonar/sonar-scanner-$SONAR_SCANNER_VERSION-linux
+        PATH=$SONAR_SCANNER_HOME/bin:$PATH
+        SONAR_SCANNER_OPTS="-server"
                         
                         sonar-scanner \
                             -Dsonar.projectKey=RevatureRideShare_ui-core \
@@ -77,11 +83,7 @@ pipeline {
                         sh '''
                         . ~/.nvm/nvm.sh
                         '''
-                        sh -c "export SONAR_SCANNER_VERSION=4.2.0.1873 \
-                        export SONAR_SCANNER_HOME=$HOME/.sonar/sonar-scanner-$SONAR_SCANNER_VERSION-linux \
-                        export PATH=$SONAR_SCANNER_HOME/bin:$PATH \
-                        export SONAR_SCANNER_OPTS='-server'  
-                        sonar-scanner \
+                        sh "sonar-scanner \
                         -Dsonar.projectKey=RevatureRideShare_ui-core \
                         -Dsonar.organization=b44ffadc-08d5-11ea-8d71-362b9e155667 \
                         -Dsonar.sources=. \
