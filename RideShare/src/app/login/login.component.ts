@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient, HttpResponse } from '@angular/common/http';
+import { LoginService } from '../services/LoginService/login.service';
 
 /**
  * Login page
@@ -26,8 +27,16 @@ export class LoginComponent implements OnInit {
    */
   userPassword: '';
 
+  /**
+   * Will be used to hide elements of the navbar
+   */
   elemProfile = document.getElementById('profile');
   elemLogout = document.getElementById('logout');
+
+  /**
+   * Used to store the results of the http request
+   */
+  data: any;
 
   /**
    * Takes user to registration page
@@ -39,15 +48,21 @@ export class LoginComponent implements OnInit {
   /**
    * Logs user in
    */
-  onLogin(): void {}
+  onLogin(): void {
+    this.loginService
+      .login(this.userEmail, this.userPassword)
+      .subscribe(data => this.data);
+  }
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private http: HttpClient
+    private http: HttpClient,
+    private loginService: LoginService
   ) {}
 
   ngOnInit() {
+    /**Will be used to hide elements of the navbar */
     //this.elemProfile.style.visibility = 'hidden';
     //this.elemLogout.style.visibility = 'hidden';
   }

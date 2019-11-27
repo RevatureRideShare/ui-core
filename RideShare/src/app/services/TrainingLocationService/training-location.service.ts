@@ -13,21 +13,25 @@ import { TrainingLocation } from '../../models/traininglocation.model';
  */
 export class TrainingLocationService {
   /**
-   * Server and port number
+   * Server and port number of the request
    */
   readonly port = 'localhost:3000';
 
   /**
-   * Endpoint
+   * Endpoint of the request
    */
   readonly endpoint = '/training-location';
+
   constructor(private http: HttpClient) {}
 
   /**
    * Gets all training locations
    */
   getTrainingLocations() {
+    /**Combine port and endpoint to get the url */
     let url = this.port + this.endpoint;
+
+    /**The http request */
     return this.http.get<TrainingLocation[]>(url);
   }
 }

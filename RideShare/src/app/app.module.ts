@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';	
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule, routing } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,8 +11,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //This is the material toolbar import and associated icon import
-import {MatToolbarModule} from '@angular/material/toolbar';
-
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 //these ng material imports are used in the registration and login components
 import {
@@ -20,17 +19,12 @@ import {
   MatInputModule,
   MatCardModule,
   MatButtonModule
-  } from '@angular/material';
-  import {MatSelectModule} from '@angular/material/select';
-  import {MatIconModule} from '@angular/material/icon';
-
+} from '@angular/material';
+import { MatSelectModule } from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    RegistrationComponent,
-  ],
+  declarations: [AppComponent, LoginComponent, RegistrationComponent],
   imports: [
     BrowserModule,
     routing,
@@ -40,14 +34,14 @@ import {
     HttpClientModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
-  MatInputModule,
-  MatCardModule,
-  MatButtonModule,
-  MatSelectModule,
-  MatToolbarModule,
-  MatIconModule
+    MatInputModule,
+    MatCardModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatToolbarModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
