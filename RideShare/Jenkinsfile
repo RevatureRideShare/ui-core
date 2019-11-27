@@ -57,7 +57,6 @@ pipeline {
                         def urlcomponents = env.CHANGE_URL.split("/")
                         def org = urlcomponents[3]
                         def repo = urlcomponents[4]
-                        
                         withSonarQubeEnv(credentialsId: 'b44ffadc-08d5-11ea-8d71-362b9e155667', installationName:'SonarCloud'){
                             sh '''
                             . ~/.nvm/nvm.sh
@@ -72,8 +71,7 @@ pipeline {
                                 -Dsonar.pullrequest.key=${CHANGE_ID} \
                                 -Dsonar.pullrequest.branch=${CHANGE_BRANCH}
                             '''
-                            echo "Pull Request finished: " + ${org}
-                            echo "Pull Request finished: " + ${repo}
+                            echo "Pull Request finished: " + ${urlcomponents}
                         }
                     }   else{
                             withSonarQubeEnv(credentialsId: 'b44ffadc-08d5-11ea-8d71-362b9e155667', installationName:'SonarCloud'){
