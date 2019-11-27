@@ -88,16 +88,7 @@ pipeline {
                     }   
                 }
             }
-        }        
-                    // export SONAR_SCANNER_VERSION=4.2.0.1873 \
-                    // SONAR_SCANNER_HOME=$HOME/.sonar/sonar-scanner-$SONAR_SCANNER_VERSION-linux \
-                    // PATH=$SONAR_SCANNER_HOME/bin:$PATH \
-                    // SONAR_SCANNER_OPTS='-server' \
-                    // -Dsonar.pullrequest.provider=GitHub \
-                    // -Dsonar.pullrequest.github.repository=${org}/${repo} \
-                    // -Dsonar.pullrequest.key=${env.CHANGE_ID} \
-                    // -Dsonar.pullrequest.branch=${env.CHANGE_BRANCH}
-         
+        }                 
 
           stage("Quality Gate") {
             // steps {
@@ -114,23 +105,16 @@ pipeline {
             steps {
                 echo "check2"
                 withSonarQubeEnv(credentialsId: 'b44ffadc-08d5-11ea-8d71-362b9e155667', installationName:'SonarCloud'){
-
                     timeout(time: 3, unit: 'MINUTES'){
                         waitForQualityGate abortPipeline: true
                     }
-
-                script{
-                    def urlComponents = env.JOB_NAME.split("/")
-                    def urlJobName = urlComponents[0]
-                    def urlSonarCloudLink = "https://sonarcloud.io/dashboard?id=RevatureRideShare_"+urlJobName
-                    slackSend message: "Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>) "+
-                    "View the SonarCloud analysis - "+urlSonarCloudLink
-                }
-                    // script{
-                    //         def sonarUrl = 
-                    //         slackSend "SonarCloud analysis for - ${env.JOB_NAME} ${env.BUILD_NUMBER}"+
-                    //         " (https://sonarcloud.io/dashboard?id=RevatureRideShare_+ ${env.PROJECT_NAME}" +")"
-                    // }
+                    script{
+                        def urlComponents = env.JOB_NAME.split("/")
+                        def urlJobName = urlComponents[0]
+                        def urlSonarCloudLink = "https://sonarcloud.io/dashboard?id=RevatureRideShare_"+urlJobName
+                        slackSend message: "Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>) "+
+                        "View the SonarCloud analysis - "+urlSonarCloudLink
+                    }
                 }
             }
           }
