@@ -52,7 +52,6 @@ pipeline {
                 environment {
                 CHANGE_ID = "${env.CHANGE_ID}"
                 CHANGE_BRANCH = "${env.CHANGE_BRANCH}"
-                PROJECT_NAME = "${env.PROJECT_NAME}"
                 }
                     if (env.CHANGE_ID) {
                         echo 'Pull Request Detected... '
@@ -114,7 +113,7 @@ pipeline {
                         script{
                             def sonarUrl = 
                             slackSend "SonarCloud analysis for - ${env.JOB_NAME} ${env.BUILD_NUMBER}"+
-                            " (https://sonarcloud.io/dashboard?id=RevatureRideShare_+ ${PROJECT_NAME}" +")"
+                            " (https://sonarcloud.io/dashboard?id=RevatureRideShare_"+ "${env.PROJECT_NAME}" +")"
                         }
                     }
                 }
