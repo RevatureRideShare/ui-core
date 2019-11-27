@@ -1,6 +1,6 @@
 import { TestBed, getTestBed } from '@angular/core/testing';
-
 import { LoginService } from './login.service';
+import { User } from '../../models/user.model';
 import {
   HttpClientTestingModule,
   HttpTestingController
@@ -29,34 +29,33 @@ describe('LoginService', () => {
     httpMock = injector.get(HttpTestingController);
   });
 
-  const User = [
-    {
-      email: 'test',
-      firstName: 'test',
-      lastName: 'test',
-      phoneNumber: 'test',
-      rideStatus: RideStatus.ACTIVE,
-      role: Role.DRIVER,
-      accountStatus: 'false',
-      houseLocation: {
-        address1: 'test',
-        address2: 'test',
-        city: 'test',
-        state: 'test',
-        zipCode: 'test',
-        housingLocationName: 'IQ',
-        trainingLocation: { trainingLocationName: 'USF' }
-      },
-      car: { seatNumber: 4 }
-    }
-  ];
-  it('should be created', () => {
+  const user: User = {
+    email: 'test',
+    firstName: 'test',
+    lastName: 'test',
+    phoneNumber: 'test',
+    rideStatus: RideStatus.ACTIVE,
+    role: Role.DRIVER,
+    accountStatus: false,
+    houseLocation: {
+      address1: 'test',
+      address2: 'test',
+      city: 'test',
+      state: 'test',
+      zipCode: 'test',
+      housingLocationName: 'IQ',
+      trainingLocation: { trainingLocationName: 'USF' }
+    },
+    car: { seatNumber: 4 }
+  };
+
+  it('login() should return user', () => {
     service.login('test', 'test').subscribe(data => {
-      expect(data).toEqual(User);
+      expect(data).toEqual(user);
     });
 
     const req = httpMock.expectOne('localhost:3000/login');
     expect(req.request.method).toBe('GET');
-    req.flush(User);
+    req.flush(user);
   });
 });
