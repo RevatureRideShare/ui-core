@@ -13,7 +13,9 @@ pipeline {
         SONAR_SCANNER_VERSION="4.2.0.1873"
         SONAR_SCANNER_HOME="$HOME/.sonar/sonar-scanner-$SONAR_SCANNER_VERSION-linux"
         PATH="$SONAR_SCANNER_HOME/bin:$PATH"
-        SONAR_SCANNER_OPTS="-server"        
+        SONAR_SCANNER_OPTS="-server" 
+        ORG="RevatureRideShare"
+        REPO="ui-core"       
     }
     stages {
         // stage('Pre-Build') {
@@ -55,16 +57,14 @@ pipeline {
                         def urlcomponents = env.CHANGE_URL.split("/")
                         def organization = urlcomponents[3]
                         def repository = urlcomponents[4]
-                        environment {
-                            ORG = "${organization}"
-                            REPO = "${repository}" 
-                        }
-                        echo "Org: " +  organization
-                        echo "Repo: " +  repository
+                        // environment {
+                        //     ORG = "${organization}"
+                        //     REPO = "${repository}" 
+                        // }
+                        // echo "Org: " +  organization
+                        // echo "Repo: " +  repository
 
-                        withSonarQubeEnv(credentialsId: 'b44ffadc-08d5-11ea-8d71-362b9e155667', installationName:'SonarCloud'){
-                            echo "Org2: " +  organization
-                            echo "Repo2: " +  repository                            
+                        withSonarQubeEnv(credentialsId: 'b44ffadc-08d5-11ea-8d71-362b9e155667', installationName:'SonarCloud'){                           
                             sh """
                             . ~/.nvm/nvm.sh
                              sonar-scanner \
