@@ -133,6 +133,6 @@ export function AllUserReducer(
       };
     }
     default:
-      return initialUserState;
+      return state;
   }
 }
