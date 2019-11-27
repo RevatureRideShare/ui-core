@@ -19,26 +19,26 @@ pipeline {
             }
         }
 
-        stage('Install') {
-            steps {
-                sh '''
-                    . ~/.nvm/nvm.sh
-                    ls -alh
-                    cd RideShare
-		            npm install
-                '''
-            }
-         }
+        // stage('Install') {
+        //     steps {
+        //         sh '''
+        //             . ~/.nvm/nvm.sh
+        //             ls -alh
+        //             cd RideShare
+		//             npm install
+        //         '''
+        //     }
+        //  }
 
-         stage('Build') {
-              steps {
-                sh '''
-                    . ~/.nvm/nvm.sh 
-                    cd RideShare                   
-		            ng build
-                '''
-            }
-        }
+        //  stage('Build') {
+        //       steps {
+        //         sh '''
+        //             . ~/.nvm/nvm.sh 
+        //             cd RideShare                   
+		//             ng build
+        //         '''
+        //     }
+        // }
 
          stage('SonarQube Analysis'){
 
@@ -50,6 +50,13 @@ pipeline {
                 // echo env.CHANGE_URL.split("/")
                 // echo urlcomponents[3]
                 // echo urlcomponents[4]
+                echo "Slack cmnd"
+                echo "${env.BRANCH_NAME}"
+                echo "${env.BUILD_DISPLAY_NAME}"
+                echo "${env.JOB_BASE_NAME}"
+                echo "${env.JOB_NAME}"
+                echo "${env.GIT_LOCAL_BRANCH}"
+                slackSend "Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
 
                  withSonarQubeEnv(credentialsId: 'b44ffadc-08d5-11ea-8d71-362b9e155667', installationName:'SonarCloud'){
                     sh '''
@@ -75,29 +82,29 @@ pipeline {
                     // -Dsonar.pullrequest.branch=${env.CHANGE_BRANCH}
          }
 
-          stage("Quality Gate") {
-            // steps {
-            //     script{
-            //      timeout(time: 1, unit: 'MINUTES'){
-            //         def qg = waitForQualityGate() // Reuse taskId previously collected by withSonarQubeEnv
-            //             echo ${qg.status}
-            //             if (qg.status == 'OK') {
-            //             error "Pipeline aborted due to quality gate failure: ${qg.status}"
-            //         } 
-            //         }                
-            //     }
-            // }              
-            steps {
-                 timeout(time: 1, unit: 'MINUTES'){
-                    waitForQualityGate abortPipeline: true
-                    script{
-                        def sonarUrl = 
-                        slackSend "SonarCloud analysis for - ${env.JOB_NAME} ${env.BUILD_NUMBER}"+
-                        " (https://sonarcloud.io/dashboard?id=RevatureRideShare_+ ${env.PROJECT_NAME}" +")"
-                        }
-                    }
-                }
-          }
+        //   stage("Quality Gate") {
+        //     // steps {
+        //     //     script{
+        //     //      timeout(time: 1, unit: 'MINUTES'){
+        //     //         def qg = waitForQualityGate() // Reuse taskId previously collected by withSonarQubeEnv
+        //     //             echo ${qg.status}
+        //     //             if (qg.status == 'OK') {
+        //     //             error "Pipeline aborted due to quality gate failure: ${qg.status}"
+        //     //         } 
+        //     //         }                
+        //     //     }
+        //     // }              
+        //     steps {
+        //          timeout(time: 1, unit: 'MINUTES'){
+        //             waitForQualityGate abortPipeline: true
+        //             script{
+        //                 def sonarUrl = 
+        //                 slackSend "SonarCloud analysis for - ${env.JOB_NAME} ${env.BUILD_NUMBER}"+
+        //                 " (https://sonarcloud.io/dashboard?id=RevatureRideShare_+ ${env.PROJECT_NAME}" +")"
+        //                 }
+        //             }
+        //         }
+        //   }
         
         // stage('Karma Test') {
         //       steps {
