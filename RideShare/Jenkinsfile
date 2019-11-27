@@ -113,7 +113,7 @@ pipeline {
                         script{
                             def sonarUrl = 
                             slackSend "SonarCloud analysis for - ${env.JOB_NAME} ${env.BUILD_NUMBER}"+
-                            " (https://sonarcloud.io/dashboard?id=RevatureRideShare_"+ ${env.PROJECT_NAME}" +")"
+                            " (https://sonarcloud.io/dashboard?id=RevatureRideShare_"+ "${env.PROJECT_NAME}" +")"
                         }
                     }
                 }
