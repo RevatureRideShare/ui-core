@@ -9,7 +9,10 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "compodoc": "npx compodoc -p tsconfig.app.json --watch --serve --open",
-    "json-server-test": "json-server ./src/app/json-server/test.json"
+    "json-server-test": "json-server ./src/app/json-server/test.json",
+    "json-server-user": "json-server ./src/app/json-server/user_table.json --port 3001",
+    "json-server-housing-location": "json-server ./src/app/json-server/housing_location_table.json --port 3002",
+    "json-server-training-location": "json-server ./src/app/json-server/training_location_table.json --port 3003"
   },
   "private": true,
   "dependencies": {
