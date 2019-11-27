@@ -116,8 +116,6 @@ fdescribe('all-user reducer ', () => {
     const action = new UpdateUserFailAction(error);
     const newState = AllUserReducer(initState, action);
     const expected = { ...initialUserState, allUsers: [user_1], error: error };
-    console.log(newState);
-    console.log(expected);
     expect(newState).toEqual(expected);
   });
 });
