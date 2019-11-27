@@ -1,0 +1,6 @@
+{
+  "port": 3003,
+  "routes": "./src/app/json-server/routes/housing_location_table.routes.json",
+  "watch": true,
+  "id": "housingLocationName"
+}
