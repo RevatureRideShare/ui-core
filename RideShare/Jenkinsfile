@@ -29,21 +29,22 @@ pipeline {
                 '''
             }
          }
-         stage('Build') {
-              steps {
-                sh '''
-                    . ~/.nvm/nvm.sh 
-                    cd RideShare                   
-		            ng build
-                '''
-            }
-        }
 
-        stage('SonarQube Analysis'){
+        //  stage('Build') {
+        //       steps {
+        //         sh '''
+        //             . ~/.nvm/nvm.sh 
+        //             cd RideShare                   
+		//             ng build
+        //         '''
+        //     }
+        // }
+
+         stage('SonarQube Analysis'){
             steps{
                 script{
                    if (env.CHANGE_ID) {
-                    echo 'Pull Request Detected'
+                    echo 'Pull Request Detected...'
                     def urlcomponents = env.CHANGE_URL.split("/")
                     def org = urlcomponents[3]
                     def repo = urlcomponents[4]
@@ -90,7 +91,8 @@ pipeline {
                     // -Dsonar.pullrequest.github.repository=${org}/${repo} \
                     // -Dsonar.pullrequest.key=${env.CHANGE_ID} \
                     // -Dsonar.pullrequest.branch=${env.CHANGE_BRANCH}
-        }
+         }
+
           stage("Quality Gate") {
             // steps {
             //     script{
@@ -110,20 +112,20 @@ pipeline {
                         def sonarUrl = 
                         slackSend "SonarCloud analysis for - ${env.JOB_NAME} ${env.BUILD_NUMBER}"+
                         " (https://sonarcloud.io/dashboard?id=RevatureRideShare_+ ${env.PROJECT_NAME}" +")"
+                        }
                     }
                 }
-            }
-        }
+          }
         
-        stage('Karma Test') {
-              steps {
-                sh '''
-                    . ~/.nvm/nvm.sh
-                    cd RideShare
-                    npm run test-headless
-                '''
-            }
-        }
+        // stage('Karma Test') {
+        //       steps {
+        //         sh '''
+        //             . ~/.nvm/nvm.sh
+        //             cd RideShare
+        //             npm run test-headless
+        //         '''
+        //     }
+        // }
 
         
         stage('Deploy') {
