@@ -10,6 +10,7 @@ export enum AuthenticationActionTypes {
  */
 export class LoadAuthenticationAction implements Action {
   readonly type = AuthenticationActionTypes.LOAD_AUTHENTICATION;
+  constructor(public payload: string) {}
 }
 
 /**

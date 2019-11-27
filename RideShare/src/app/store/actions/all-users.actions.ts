@@ -144,18 +144,18 @@ export class RegisterUserFailAction implements Action {
  * Exporting all-user actions classes
  */
 export type AllUserAction =
-  | LoadAllUsersAction
-  | LoadAllUsersSuccessAction
-  | LoadAllUsersFailAction
-  | UpdateUserAction
-  | UpdateUserSuccessAction
-  | UpdateUserFailAction
-  | LoadAllDriversAction
-  | LoadAllDriversSuccessAction
-  | LoadAllDriversFailAction
-  | LoginUserAction
-  | LoginUserSuccessAction
-  | LoginUserFailAction
-  | RegisterUserAction
-  | RegisterUserSuccessAction
-  | RegisterUserFailAction;
+  LoadAllUsersAction |
+  LoadAllUsersSuccessAction |
+  LoadAllUsersFailAction |
+  UpdateUserAction |
+  UpdateUserSuccessAction |
+  UpdateUserFailAction |
+  LoadAllDriversAction |
+  LoadAllDriversSuccessAction |
+  LoadAllDriversFailAction |
+  LoginUserAction |
+  LoginUserSuccessAction |
+  LoginUserFailAction |
+  RegisterUserAction |
+  RegisterUserSuccessAction |
+  RegisterUserFailAction;
