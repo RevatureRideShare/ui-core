@@ -80,7 +80,7 @@ pipeline {
                                 -Dsonar.exclusions=RideShare/**/*.module.ts \
                                 -Dsonar.ts.tslint.configPath=RideShare/tslint.json \
                                 -Dsonar.sourceEncoding=UTF-8    \
-                                -Dsonar.typescript.lcov.reportPaths=RideShare/coverage/lcov.info \
+                                -Dsonar.typescript.lcov.reportPaths=RideShare/coverage/Project3/lcov.info \
                                 -Dsonar.projectKey=RevatureRideShare_ui-core \
                                 -Dsonar.organization=b44ffadc-08d5-11ea-8d71-362b9e155667 \
                                 -Dsonar.sources=. \
@@ -98,6 +98,7 @@ pipeline {
         stage("Code Coverage Integration to Sonar"){
             steps{
                 echo 'npm run sonar'
+                sh 'cd RideShare'
                 sh 'npm run sonar'
             }
         }               
