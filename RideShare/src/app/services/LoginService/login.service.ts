@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { User } from '../../models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +24,14 @@ export class LoginService {
   readonly endpoint = '/login';
   constructor(private http: HttpClient) {}
 
-  login() {
+  /**
+   * Will attempt to log in with email and password
+   *
+   * @param email is the email that the user attempts to log in with
+   * @param password is the password that the user attempts to log in with
+   * email and password have no function while testing with json server
+   */
+  login(email: string, password: string) {
     /**Combine port and endpoint to get the url */
     let url = this.port + this.endpoint;
 
@@ -31,6 +39,6 @@ export class LoginService {
      * The http request
      * currently a get request for testing with a json server
      */
-    return this.http.get<Observable<any>>(url);
+    return this.http.get<User>(url);
   }
 }
