@@ -63,8 +63,6 @@ export class RegistrationComponent implements OnInit {
     this.allTrainingLocations = this.store.select(
       store => store['allTrainingLocations'].allTrainingLocations
     );
-    console.log('Registration component constructor');
-    console.log(this.allTrainingLocations);
     this.loading$ = this.store.select(
       store => store['allTrainingLocations'].loading
     );

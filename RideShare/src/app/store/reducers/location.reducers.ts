@@ -39,7 +39,7 @@ export function AllHousingReducer(
     case HouseLocationsActionTypes.LOAD_ALL_HOUSE_LOCATIONS_SUCCESS: {
       return {
         ...state,
-        allHousingLocations: [...state.allHousingLocations, action.payload],
+        allHousingLocations: action.payload,
         loading: false
       };
     }
@@ -64,8 +64,6 @@ export function AllTrainingReducer(
   state: ILocationState = initialLocationState,
   action: TrainingLocationsAction
 ) {
-  console.log('location.reducers.ts');
-  console.log(action);
   switch (action.type) {
     case TrainingLocationsActionTypes.LOAD_ALL_TRAINING_LOCATIONS: {
       return {
@@ -76,7 +74,7 @@ export function AllTrainingReducer(
     case TrainingLocationsActionTypes.LOAD_ALL_TRAINING_LOCATIONS_SUCCESS: {
       return {
         ...state,
-        allTrainingLocations: [...state.allTrainingLocations, ...action.payload],
+        allTrainingLocations: action.payload,
         loading: false
       };
     }
