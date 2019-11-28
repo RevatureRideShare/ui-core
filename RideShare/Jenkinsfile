@@ -17,15 +17,16 @@ pipeline {
         ORG="RevatureRideShare"
         REPO="ui-core"       
     }
+    
     stages {
-        stage('Pre-Build') {
+        stage('Clean and checkout') {
             steps {
                 deleteDir()
                 checkout scm
             }
         }
 
-        stage('Install') {
+        stage('NPM Install') {
             steps {
                 sh '''
                     . ~/.nvm/nvm.sh
@@ -36,7 +37,7 @@ pipeline {
             }
          }
 
-         stage('Build') {
+         stage('Ng Build') {
               steps {
                 sh '''
                     . ~/.nvm/nvm.sh 
