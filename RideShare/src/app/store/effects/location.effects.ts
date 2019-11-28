@@ -12,6 +12,12 @@ import {
   LoadAllTrainingSuccessLocationsAction,
   LoadAllTrainingFailLocationsAction
 } from '../actions/training-locations.action';
+import { 
+  LoadAllHouseLocationsAction, 
+  HouseLocationsActionTypes, 
+  LoadAllHouseLocationsSuccessAction,
+  LoadAllHouseLocationsFailAction
+} from '../actions/house-locations.actions';
 
 @Injectable()
 export class LocationEffects {
@@ -22,7 +28,7 @@ export class LocationEffects {
   ) {}
 
   @Effect()
-  loadingLocation$ = this.actions$.pipe(
+  loadingTrainingLocation$ = this.actions$.pipe(
     ofType<LoadAllTrainingLocationsAction>(
       TrainingLocationsActionTypes.LOAD_ALL_TRAINING_LOCATIONS
     ),
@@ -31,6 +37,19 @@ export class LocationEffects {
         map(data => new LoadAllTrainingSuccessLocationsAction(data)),
         // map(data => console.log(data)),
         catchError(error => of(new LoadAllTrainingFailLocationsAction(error)))
+      )
+    )
+  );
+
+  @Effect()
+  loadingHousingLocation$ = this.actions$.pipe(
+    ofType<LoadAllHouseLocationsAction>(
+      HouseLocationsActionTypes.LOAD_ALL_HOUSE_LOCATIONS
+    ),
+    mergeMap(() => 
+      this.housingLocationService.getHousingLocations().pipe(
+        map(data => new LoadAllHouseLocationsSuccessAction(data)),
+        catchError(error => of (new LoadAllHouseLocationsFailAction(error)))
       )
     )
   );
