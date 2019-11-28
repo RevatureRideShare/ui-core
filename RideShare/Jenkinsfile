@@ -89,7 +89,7 @@ pipeline {
                                 sh '''
                                 . ~/.nvm/nvm.sh
                                 cd RideShare
-                                sonar-scanner
+                                sonar-scanner \
                                 -Dsonar.projectKey=RevatureRideShare_ui-core \
                                 -Dsonar.organization=b44ffadc-08d5-11ea-8d71-362b9e155667 \
                                 -Dsonar.sources=. \
