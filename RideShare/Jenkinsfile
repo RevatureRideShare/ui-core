@@ -76,7 +76,7 @@ pipeline {
                             sh """
                             . ~/.nvm/nvm.sh
                             cd RideShare
-                             sonar-scanner 
+                             sonar-scanner \
                                 -Dsonar.pullrequest.base=${env.CHANGE_TARGET} \
                                 -Dsonar.pullrequest.provider=GitHub \
                                 -Dsonar.pullrequest.key=${env.CHANGE_ID} \
@@ -130,7 +130,7 @@ pipeline {
         
         stage('Deploy') {
               steps {
-                  echo "check 3"
+                echo "Deploy Stage Reached"
                 script{
                   if(env.BRANCH_NAME == 'master' ){
                     sh '''
