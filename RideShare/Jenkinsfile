@@ -114,7 +114,7 @@ pipeline {
             steps {
                 echo "check2"
                 withSonarQubeEnv(credentialsId: 'b44ffadc-08d5-11ea-8d71-362b9e155667', installationName:'SonarCloud'){
-                    timeout(time: 3, unit: 'MINUTES'){
+                    timeout(time: 7, unit: 'MINUTES'){
                         waitForQualityGate abortPipeline: true
                     }
                     script{
