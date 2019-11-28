@@ -98,8 +98,10 @@ pipeline {
         stage("Code Coverage Integration to Sonar"){
             steps{
                 echo 'npm run sonar'
-                sh 'cd RideShare'
-                sh 'npm run sonar'
+                sh '''
+                cd RideShare
+                npm run sonar
+                '''
             }
         }               
 
