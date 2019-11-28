@@ -79,8 +79,11 @@ pipeline {
                                 sonar-scanner \
                                 -Dsonar.test=RideShare/src/app \
                                 -Dsonar.test.inclusions=RideShare/**/*.spec.ts \
-                                -Dsonar.exclusions=RideShare/**/*.module.ts \
+                                -Dsonar.tests=RideShare/**/*.spec.ts \
+                                -Dsonar.exclusions=RideShare/**/*.module.ts, **/node_modules/** \
                                 -Dsonar.ts.tslint.configPath=RideShare/tslint.json \
+                                -Dsonar.sourceEncoding=UTF-8    \
+                                -Dsonar.typescript.lcov.reportPaths=RideShare/coverage/lcov.info \
                                 -Dsonar.projectKey=RevatureRideShare_ui-core \
                                 -Dsonar.organization=b44ffadc-08d5-11ea-8d71-362b9e155667 \
                                 -Dsonar.sources=. \
@@ -91,7 +94,14 @@ pipeline {
                     }   
                 }
             }
-        }                 
+        }  
+
+        stage("Code Coverage Integration to Sonar"){
+            step{
+                echo 'npm run sonar'
+                sh 'npm run sonar'
+            }
+        }               
 
           stage("Quality Gate") {
             // steps {
