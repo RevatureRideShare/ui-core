@@ -76,7 +76,7 @@ export function AllTrainingReducer(
     case TrainingLocationsActionTypes.LOAD_ALL_TRAINING_LOCATIONS_SUCCESS: {
       return {
         ...state,
-        allTrainingLocations: [...state.allTrainingLocations, action.payload],
+        allTrainingLocations: [...state.allTrainingLocations, ...action.payload],
         loading: false
       };
     }

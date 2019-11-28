@@ -120,13 +120,12 @@
               <mat-select placeholder="Training Location">
                 <mat-option
                   value="i.trainingLocationName"
-                  *ngFor="let i of trainingLocations[0]"
+                  *ngFor="let i of trainingLocations"
                   >{{ i.trainingLocationName }}</mat-option
                 >
               </mat-select>
             </td>
           </tr>
-
           <tr class="full">
             <td class="half">
               <mat-select
