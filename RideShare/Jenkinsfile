@@ -7,7 +7,7 @@ pipeline {
     }    
     options { 
         disableConcurrentBuilds()
-        buildDiscarder(logRotator(numToKeepStr: '6', daysToKeepStr: '14')) 
+        buildDiscarder(logRotator(numToKeepStr: '6', daysToKeepStr: '7')) 
     }
     environment{
         SONAR_SCANNER_VERSION="4.2.0.1873"
@@ -17,7 +17,7 @@ pipeline {
         ORG="RevatureRideShare"
         REPO="ui-core"       
     }
-    
+
     stages {
         stage('Clean and checkout') {
             steps {
