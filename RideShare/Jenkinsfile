@@ -97,7 +97,7 @@ pipeline {
         }  
 
         stage("Code Coverage Integration to Sonar"){
-            step{
+            steps{
                 echo 'npm run sonar'
                 sh 'npm run sonar'
             }
