@@ -39,6 +39,7 @@ pipeline {
 
         stage('Karma Test') {
               steps {
+                script{
                   try{
                     sh '''
                         . ~/.nvm/nvm.sh
@@ -49,7 +50,7 @@ pipeline {
                         echo "Caught: ${err}"
                         currentBuild.result = 'UNSTABLE'
                   }
-
+                }
             }
         }               
 
