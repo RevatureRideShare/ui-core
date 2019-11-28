@@ -77,10 +77,7 @@ pipeline {
                                 sh '''
                                 . ~/.nvm/nvm.sh
                                 sonar-scanner \
-                                -Dsonar.test=RideShare/src/app \
-                                -Dsonar.test.inclusions=RideShare/**/*.spec.ts \
-                                -Dsonar.tests=RideShare/**/*.spec.ts \
-                                -Dsonar.exclusions=RideShare/**/*.module.ts, **/node_modules/** \
+                                -Dsonar.exclusions=RideShare/**/*.module.ts \
                                 -Dsonar.ts.tslint.configPath=RideShare/tslint.json \
                                 -Dsonar.sourceEncoding=UTF-8    \
                                 -Dsonar.typescript.lcov.reportPaths=RideShare/coverage/lcov.info \
@@ -95,7 +92,9 @@ pipeline {
                 }
             }
         }  
-
+                                // -Dsonar.test=RideShare/src/app \
+                                // -Dsonar.test.inclusions=RideShare/**/*.spec.ts \
+                                // -Dsonar.tests=RideShare/**/*.spec.ts \
         stage("Code Coverage Integration to Sonar"){
             steps{
                 echo 'npm run sonar'
