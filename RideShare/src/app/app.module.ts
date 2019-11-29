@@ -39,6 +39,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { TrainingLocationService } from './services/TrainingLocationService/training-location.service';
 import { LocationEffects } from './store/effects/location.effects';
 import { ProfileComponent } from './profile/profile.component';
+import { DriverComponent } from './driver/driver.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { ProfileComponent } from './profile/profile.component';
     HomeComponent,
     FooterComponent,
     NavbarComponent,
-    ProfileComponent
+    ProfileComponent,
+    DriverComponent
   ],
   imports: [
     BrowserModule,
