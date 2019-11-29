@@ -90,7 +90,7 @@ pipeline {
                                 sh """
                                 . ~/.nvm/nvm.sh
                                 cd RideShare
-                                sonar-scanner
+                                sonar-scanner \
                                 -Dsonar.login=${env.SONAR_LOGIN_TOKEN} \
                                 """
                             }
