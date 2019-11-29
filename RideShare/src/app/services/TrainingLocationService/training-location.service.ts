@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { TrainingLocation } from '../../models/traininglocation.model';
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { TrainingLocation } from "../../models/traininglocation.model";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 
 /**
@@ -15,12 +15,12 @@ export class TrainingLocationService {
   /**
    * Server and port number of the request
    */
-  readonly port = 'http://localhost:3000';
+  readonly port = "http://localhost:3002";
 
   /**
    * Endpoint of the request
    */
-  readonly endpoint = '/training-location';
+  readonly endpoint = "/training-location";
 
   constructor(private http: HttpClient) {}
 

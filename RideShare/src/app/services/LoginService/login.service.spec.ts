@@ -29,6 +29,10 @@ describe('LoginService', () => {
     httpMock = injector.get(HttpTestingController);
   });
 
+  afterEach(() => {
+    httpMock.verify();
+  });
+
   const user: User = {
     email: 'test',
     firstName: 'test',
@@ -54,7 +58,7 @@ describe('LoginService', () => {
       expect(data).toEqual(user);
     });
 
-    const req = httpMock.expectOne('localhost:3000/login');
+    const req = httpMock.expectOne('http://localhost:3001/login');
     expect(req.request.method).toBe('GET');
     req.flush(user);
   });

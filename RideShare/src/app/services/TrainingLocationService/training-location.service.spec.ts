@@ -1,13 +1,13 @@
-import { TestBed, getTestBed } from '@angular/core/testing';
+import { TestBed, getTestBed } from "@angular/core/testing";
 
-import { TrainingLocationService } from './training-location.service';
-import { TrainingLocation } from '../../models/traininglocation.model';
+import { TrainingLocationService } from "./training-location.service";
+import { TrainingLocation } from "../../models/traininglocation.model";
 import {
   HttpClientTestingModule,
   HttpTestingController
-} from '@angular/common/http/testing';
+} from "@angular/common/http/testing";
 
-describe('TrainingLocationService', () => {
+describe("TrainingLocationService", () => {
   let injector: TestBed;
   let service: TrainingLocationService;
   let httpMock: HttpTestingController;
@@ -26,23 +26,23 @@ describe('TrainingLocationService', () => {
 
   const trainingLocationList = [
     {
-      trainingLocationName: 'test1'
+      trainingLocationName: "test1"
     },
     {
-      trainingLocationName: 'test2'
+      trainingLocationName: "test2"
     },
     {
-      trainingLocationName: 'test3'
+      trainingLocationName: "test3"
     }
   ];
 
-  it('getTrainingLocations() should return data', () => {
+  it("getTrainingLocations() should return data", () => {
     service.getTrainingLocations().subscribe(data => {
       expect(data).toEqual(trainingLocationList);
     });
 
-    const req = httpMock.expectOne('localhost:3000/training-location');
-    expect(req.request.method).toBe('GET');
+    const req = httpMock.expectOne("http://localhost:3002/training-location");
+    expect(req.request.method).toBe("GET");
     req.flush(trainingLocationList);
   });
 });

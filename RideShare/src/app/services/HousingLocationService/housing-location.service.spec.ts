@@ -1,12 +1,12 @@
-import { TestBed, getTestBed } from '@angular/core/testing';
+import { TestBed, getTestBed } from "@angular/core/testing";
 
-import { HousingLocationService } from './housing-location.service';
+import { HousingLocationService } from "./housing-location.service";
 import {
   HttpClientTestingModule,
   HttpTestingController
-} from '@angular/common/http/testing';
+} from "@angular/common/http/testing";
 
-describe('HousingLocationService', () => {
+describe("HousingLocationService", () => {
   let injector: TestBed;
   let service: HousingLocationService;
   let httpMock: HttpTestingController;
@@ -27,41 +27,41 @@ describe('HousingLocationService', () => {
 
   const housingLocationList = [
     {
-      address1: 'test',
-      address2: 'test',
-      city: 'test',
-      state: 'test',
-      zipCode: 'test',
-      housingLocationName: 'IQ',
-      trainingLocation: { trainingLocationName: 'USF' }
+      address1: "test",
+      address2: "test",
+      city: "test",
+      state: "test",
+      zipCode: "test",
+      housingLocationName: "IQ",
+      trainingLocation: { trainingLocationName: "USF" }
     },
     {
-      address1: 'test2',
-      address2: 'test2',
-      city: 'test2',
-      state: 'test2',
-      zipCode: 'test2',
-      housingLocationName: 'IQ',
-      trainingLocation: { trainingLocationName: 'USF' }
+      address1: "test2",
+      address2: "test2",
+      city: "test2",
+      state: "test2",
+      zipCode: "test2",
+      housingLocationName: "IQ",
+      trainingLocation: { trainingLocationName: "USF" }
     },
     {
-      address1: 'test3',
-      address2: 'test3',
-      city: 'test3',
-      state: 'test3',
-      zipCode: 'test3',
-      housingLocationName: 'IQ',
-      trainingLocation: { trainingLocationName: 'USF' }
+      address1: "test3",
+      address2: "test3",
+      city: "test3",
+      state: "test3",
+      zipCode: "test3",
+      housingLocationName: "IQ",
+      trainingLocation: { trainingLocationName: "USF" }
     }
   ];
 
-  it('getHousingLocations() should return data', () => {
+  it("getHousingLocations() should return data", () => {
     service.getHousingLocations().subscribe(data => {
       expect(data).toEqual(housingLocationList);
     });
 
-    const req = httpMock.expectOne('localhost:3000/housing-location');
-    expect(req.request.method).toBe('GET');
+    const req = httpMock.expectOne("http://localhost:3003/housing-location");
+    expect(req.request.method).toBe("GET");
     req.flush(housingLocationList);
   });
 });

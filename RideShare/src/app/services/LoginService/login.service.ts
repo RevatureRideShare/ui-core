@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import { User } from '../../models/user.model';
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { HttpClient } from "@angular/common/http";
+import { User } from "../../models/user.model";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 
 /**
@@ -16,12 +16,12 @@ export class LoginService {
   /**
    * Server and port number of the request
    */
-  readonly port = 'http://localhost:3000';
+  readonly port = "http://localhost:3001";
 
   /**
    * Endpoint of the request
    */
-  readonly endpoint = '/login';
+  readonly endpoint = "/login";
   constructor(private http: HttpClient) {}
 
   /**
