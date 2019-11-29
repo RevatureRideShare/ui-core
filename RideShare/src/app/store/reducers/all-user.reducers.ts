@@ -34,7 +34,7 @@ export function AllUserReducer(
     case AllUsersActionTypes.LOAD_ALL_USERS_SUCCESS: {
       return {
         ...state,
-        allUsers: action.payload,
+        allUsers: [...state.allUsers, ...action.payload],
         loading: false
       };
     }
@@ -61,7 +61,7 @@ export function AllUserReducer(
       };
       return {
         ...state,
-        allUsers: action.payload,
+        allUsers: [...state.allUsers, action.payload],
         loading:false
       };
     }
