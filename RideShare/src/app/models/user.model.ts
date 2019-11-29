@@ -1,14 +1,16 @@
 import { HouseLocation } from './houselocation.model';
 import { Car } from './car.model';
 
-enum RideStatus {INACTIVE, ACTIVE};
-enum Role {RIDER, DRIVER};
+export enum RideStatus {INACTIVE, ACTIVE};
+export enum Role {RIDER, DRIVER};
 
 /**
  * class User contains all of the information regarding a user
  * 
  * Imported by:
  * user-state.model.ts
+ * all-users.action.ts
+ * all-drivers.action.ts
  */
 export class User{
   /**

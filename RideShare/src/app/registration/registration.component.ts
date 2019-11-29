@@ -1,66 +1,86 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { HttpClient, HttpResponse } from '@angular/common/http';
-import { UserRegistrationService } from '../user-registration.service'
+import { RideStatus } from '../models/user.model';
+import { Role } from '../models/user.model';
+import { User } from '../models/user.model';
+import { HouseLocation } from '../models/houselocation.model';
+import { TrainingLocation } from '../models/traininglocation.model';
+import { Car } from '../models/car.model';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { IAppState } from '../models/states/app-state.model';
+import { RegisterUserAction } from '../store/actions/all-users.actions';
+import { LoadAllTrainingLocationsAction } from '../store/actions/training-locations.action';
+import { LoadAllHouseLocationsAction } from '../store/actions/house-locations.actions';
 
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.css']
 })
-
 export class RegistrationComponent implements OnInit {
-  userFirstName: string;
-  userLastName: string;
-  userEmail: string;
-  userPassword: string;
-  userTelephone: string;
-  userAccessLevel: string;
-  userCode: string;
-  userBiography: string;
-  workType: string;
+  user: User;
+
+  password: string;
+  loading$: Observable<boolean>;
+  error$: Observable<Error>;
+
+  email: string;
+  firstName: string;
+  lastName: string;
+  phoneNumber: string;
+  rideStatus: RideStatus;
+  role: Role;
+  accountStatus: boolean;
+
+  allTrainingLocations: Observable<Array<TrainingLocation>>;
+  allHouseLocations: Observable<Array<HouseLocation>>;
+  filteredHouseLocations: Array<HouseLocation>;
+
+  houseLocation: HouseLocation;
+  housingLocationName: string;
+
+  trainingLocation: TrainingLocation;
+  trainingLocationName: string;
+  seatNumber: number;
+
+  car: Car;
+
   result: any;
 
   public containers = [0];
-  public counter: number = 1;
-  svc: UserRegistrationService;
-  constructor(svc: UserRegistrationService, private router: Router, private http: HttpClient) { 
-    this.svc = svc;
+  public counter = 1;
+
+  constructor(private store: Store<IAppState>) {
+    this.car = new Car();
+    this.user = new User();
+    this.trainingLocation = new TrainingLocation();
   }
 
   ngOnInit() {
+    this.allHouseLocations = this.store.select(
+      store => store['allHousingLocations'].allHousingLocations
+    );
+    this.allTrainingLocations = this.store.select(
+      store => store['allTrainingLocations'].allTrainingLocations
+    );
+    this.loading$ = this.store.select(
+      store => store['allTrainingLocations'].loading
+    );
+    this.error$ = this.store.select(
+      store => store['allTrainingLocations'].error
+    );
+    this.store.dispatch(new LoadAllTrainingLocationsAction());
+    this.store.dispatch(new LoadAllHouseLocationsAction());
   }
 
   register() {
-    this.result = this.svc.registerUser(this.userFirstName, this.userLastName, this.userEmail, this.userPassword, this.userTelephone, this.userAccessLevel, this.userCode, this.userBiography, this.workType)
-    if (this.result == true) {
-      alert("registration successful");
-      this.router.navigateByUrl('login');
-      return true;
-    } else {
-      alert("registration failed");
-      this.router.navigateByUrl('login');
-      return false;
-    }
+    this.store.dispatch(
+      new RegisterUserAction({ user: this.user, password: this.password })
+    );
   }
 
-  add() {
-    if (this.containers.length < 5) {
-      this.containers.push(this.counter);
-      this.counter++;
-    }
-  }
-
-
-  remove() {
-    let element = document.getElementsByClassName('company-code');
-    if (this.containers.length > 1) {
-      element[this.containers.length - 1].parentNode.removeChild(element[this.containers.length - 1]);
-      const index = this.containers.indexOf(this.containers.length - 1, 0);
-      if (index > -1) {
-        this.containers.splice(index, 1);
-        this.counter--;
-      }
-    }
+  findHouse(event) {
+    console.log(event);
+    this.trainingLocation;
   }
 }
