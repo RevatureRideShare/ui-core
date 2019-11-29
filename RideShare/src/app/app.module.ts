@@ -6,10 +6,19 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule, routing } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { AllUserReducer } from './store/reducers/all-user.reducers';
+import {
+  AllTrainingReducer,
+  AllHousingReducer
+} from './store/reducers/location.reducers';
+import { AuthenticationReducer } from './store/reducers/authentication.reducers';
 //This is the material toolbar import and associated icon import
 import { MatToolbarModule } from '@angular/material/toolbar';
 
@@ -22,6 +31,8 @@ import {
 } from '@angular/material';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
+import { TrainingLocationService } from './services/TrainingLocationService/training-location.service';
+import { LocationEffects } from './store/effects/location.effects';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, RegistrationComponent],
@@ -39,9 +50,20 @@ import { MatIconModule } from '@angular/material/icon';
     MatButtonModule,
     MatSelectModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    EffectsModule.forRoot([LocationEffects]),
+    StoreModule.forRoot({
+      allUsers: AllUserReducer,
+      allTrainingLocations: AllTrainingReducer,
+      allHousingLocations: AllHousingReducer,
+      authentication: AuthenticationReducer
+    }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production
+    })
   ],
-  providers: [],
+  providers: [TrainingLocationService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

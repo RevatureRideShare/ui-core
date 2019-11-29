@@ -16,7 +16,7 @@ export class HousingLocationService {
   /**
    * Server and port number of the request
    */
-  readonly port = 'localhost:3000';
+  readonly port = 'http://localhost:3003';
 
   /**
    * The endpoint of the request
