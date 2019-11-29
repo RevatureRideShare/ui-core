@@ -54,11 +54,18 @@ export class RegistrationComponent implements OnInit {
     this.car = new Car();
     this.user = new User();
     this.trainingLocation = new TrainingLocation();
+    this.houseLocation = new HouseLocation();
   }
 
   ngOnInit() {
     this.allHouseLocations = this.store.select(
       store => store['allHousingLocations'].allHousingLocations
+    );
+    this.loading$ = this.store.select(
+      store => store['allHousingLocations'].loading
+    );
+    this.error$ = this.store.select(
+      store => store['allHousingLocations'].error
     );
     this.allTrainingLocations = this.store.select(
       store => store['allTrainingLocations'].allTrainingLocations

@@ -127,17 +127,15 @@
             </td>
           </tr>
           <tr class="full">
-            <td class="half">
-              <mat-select
-                [(value)]="selected"
-                [(ngModel)]="housingLocation"
-                placeholder="Housing Location Name"
-                name="houseLocation"
-                *ngFor="let i of allHouseLocations | async"
-              >
-                <mat-option value="i.houseLocationName">{{
-                  i.houseLocationName
-                }}</mat-option>
+            <td 
+            class="half" 
+            *ngIf="allHouseLocations | async as housingLocations"
+            >
+              <mat-select placeholder="Housing Location Name">
+                <mat-option 
+                value="i.housingLocationName" 
+                *ngFor="let i of housingLocations"
+                >{{i.housingLocationName}}</mat-option>
               </mat-select>
             </td>
           </tr>
