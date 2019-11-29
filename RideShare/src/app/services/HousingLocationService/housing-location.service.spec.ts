@@ -60,7 +60,7 @@ describe('HousingLocationService', () => {
       expect(data).toEqual(housingLocationList);
     });
 
-    const req = httpMock.expectOne('localhost:3000/housing-location');
+    const req = httpMock.expectOne('http://localhost:3003/housing-location');
     expect(req.request.method).toBe('GET');
     req.flush(housingLocationList);
   });

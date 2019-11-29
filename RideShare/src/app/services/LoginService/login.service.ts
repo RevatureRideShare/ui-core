@@ -16,7 +16,7 @@ export class LoginService {
   /**
    * Server and port number of the request
    */
-  readonly port = 'http://localhost:3000';
+  readonly port = 'http://localhost:3001';
 
   /**
    * Endpoint of the request
@@ -39,7 +39,6 @@ export class LoginService {
      * The http request
      * currently a get request for testing with a json server
      */
-    console.log('in login service email: ' + email + ' password: ' + password);
     return this.http.get<User>(url);
   }
 }

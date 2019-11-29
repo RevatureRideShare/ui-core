@@ -97,9 +97,7 @@ export class LoadAllDriversFailAction implements Action {
  */
 export class LoginUserAction implements Action {
   readonly type = AllUsersActionTypes.LOGIN_USER;
-  constructor(public payload: { email: string; password: string }) {
-    console.log(payload);
-  }
+  constructor(public payload: { email: string; password: string }) {}
 }
 
 /**
@@ -107,9 +105,7 @@ export class LoginUserAction implements Action {
  */
 export class LoginUserSuccessAction implements Action {
   readonly type = AllUsersActionTypes.LOGIN_USER_SUCCESS;
-  constructor(public payload: User) {
-    console.log(payload);
-  }
+  constructor(public payload: User) {}
 }
 
 /**

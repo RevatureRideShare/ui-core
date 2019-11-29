@@ -4,7 +4,8 @@ import { LoginComponent } from './login.component';
 import { FormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-//import { NavbarOuterComponent } from '../navbar-outer/navbar-outer.component';
+import { MatInputModule } from '@angular/material';
+import { Store, StoreModule, StateObservable } from '@ngrx/store';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -12,9 +13,14 @@ describe('LoginComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [FormsModule, RouterTestingModule, HttpClientModule],
+      imports: [
+        FormsModule,
+        RouterTestingModule,
+        HttpClientModule,
+        MatInputModule
+      ],
       declarations: [LoginComponent],
-      providers: [HttpClient]
+      providers: [HttpClient, Store, StateObservable]
     }).compileComponents();
   }));
 
@@ -43,6 +49,16 @@ describe('LoginComponent', () => {
   it('should contain password input', () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('#password').name).toContain('password');
+  });
+
+  it('should contain login button', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('form>input').name).toContain('login');
+  });
+
+  it('should contain register button', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('form>button').name).toContain('register');
   });
 
   it('should call onLogin method', () => {
