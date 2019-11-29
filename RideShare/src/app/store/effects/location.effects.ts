@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, ofType, Effect } from '@ngrx/effects';
-import { of, from } from 'rxjs';
+import { of } from 'rxjs';
 import { mergeMap, map, catchError } from 'rxjs/operators';
 import { HousingLocationService } from 
     '../../services/HousingLocationService/housing-location.service';
