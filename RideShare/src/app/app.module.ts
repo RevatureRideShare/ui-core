@@ -35,6 +35,7 @@ import {
 } from '@angular/material';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { TrainingLocationService } from './services/TrainingLocationService/training-location.service';
 import { LocationEffects } from './store/effects/location.effects';
 import { ProfileComponent } from './profile/profile.component';
@@ -64,6 +65,7 @@ import { ProfileComponent } from './profile/profile.component';
     MatSelectModule,
     MatToolbarModule,
     MatIconModule,
+    MatCheckboxModule,
     EffectsModule.forRoot([LocationEffects]),
     StoreModule.forRoot({
       allUsers: AllUserReducer,
