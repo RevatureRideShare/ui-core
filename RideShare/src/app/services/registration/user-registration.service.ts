@@ -6,20 +6,26 @@ import { User } from '../../models/user.model';
 @Injectable({
   providedIn: 'root'
 })
-
 export class UserRegistrationService {
+  user: User;
+  password: string;
+  response: any;
+  /**
+   * Server and port number of the request
+   */
+  readonly port = 'http://localhost:3002';
 
-  user: User
-  password: string
-  response: any
+  /**
+   * Endpoint of the request
+   */
+  readonly endpoint = '/register-user';
 
-  
   registerUser(user: User, password: string) {
-    return this.http.post('register-user', {user, password});
-  
+    const url = this.port+this.endpoint
+    return this.http.post(url, { user, password });
   }
 
-  constructor(private router: Router, private http: HttpClient)  { }
+  constructor(private router: Router, private http: HttpClient) {}
 }
 
 /* registerUser(user: User, password: string) {

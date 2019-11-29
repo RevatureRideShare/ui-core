@@ -61,7 +61,7 @@ export function AllUserReducer(
       };
       return {
         ...state,
-        allUsers: [...state.allUsers, action.payload],
+        allUsers: action.payload,
         loading:false
       };
     }
@@ -133,6 +133,6 @@ export function AllUserReducer(
       };
     }
     default:
-      return initialUserState;
+      return state;
   }
 }
