@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule, routing } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +19,8 @@ import {
   AllHousingReducer
 } from './store/reducers/location.reducers';
 import { AuthenticationReducer } from './store/reducers/authentication.reducers';
+import { HomeComponent } from './home/home.component';
+
 //This is the material toolbar import and associated icon import
 import { MatToolbarModule } from '@angular/material/toolbar';
 
@@ -33,15 +35,18 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { TrainingLocationService } from './services/TrainingLocationService/training-location.service';
 import { LocationEffects } from './store/effects/location.effects';
+import { FooterComponent } from './footer/footer.component';
+
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, RegistrationComponent],
+  declarations: [AppComponent, LoginComponent, RegistrationComponent, HomeComponent, FooterComponent],
   imports: [
     BrowserModule,
     routing,
     RouterModule,
     AppRoutingModule,
     FormsModule,
+    AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
