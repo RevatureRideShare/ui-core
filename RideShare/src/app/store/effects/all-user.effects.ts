@@ -31,7 +31,7 @@ export class AllUserEffects {
     ofType<LoginUserAction>(AllUsersActionTypes.LOGIN_USER),
     mergeMap(data =>
       this.loginService
-        .login(data.payload.username, data.payload.password)
+        .login(data.payload.email, data.payload.password)
         .pipe(
           map((user: User) => new LoginUserSuccessAction(user)),
           catchError(error => of(new LoginUserFailAction(error)))
