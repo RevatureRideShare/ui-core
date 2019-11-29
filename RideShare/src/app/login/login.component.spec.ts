@@ -6,23 +6,16 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { NavbarOuterComponent } from '../navbar-outer/navbar-outer.component';
 
-
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        FormsModule,
-        RouterTestingModule,
-        HttpClientModule
-      ],
-      declarations: [LoginComponent,
-        NavbarOuterComponent],
+      imports: [FormsModule, RouterTestingModule, HttpClientModule],
+      declarations: [LoginComponent, NavbarOuterComponent],
       providers: [HttpClient]
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -37,32 +30,34 @@ describe('LoginComponent', () => {
 
   it('should render title in a h1 tag', () => {
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to RideShare');
+    expect(compiled.querySelector('h1').textContent).toContain(
+      'Welcome to RideShare'
+    );
   });
 
   it('should contain email input', () => {
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('#email').name).toContain("email");
+    expect(compiled.querySelector('#email').name).toContain('email');
   });
 
   it('should contain password input', () => {
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('#password').name).toContain("password");
+    expect(compiled.querySelector('#password').name).toContain('password');
   });
 
   it('should call onLogin method', () => {
     const compiled = fixture.debugElement.nativeElement.querySelector('#login');
-    spyOn(component, "onLogin");
+    spyOn(component, 'onLogin');
     compiled.click();
     expect(component.onLogin).toHaveBeenCalled();
   });
 
   it('should call onRegister method', () => {
-    const compiled = fixture.debugElement.nativeElement.querySelector('#register');
-    spyOn(component, "onRegister");
+    const compiled = fixture.debugElement.nativeElement.querySelector(
+      '#register'
+    );
+    spyOn(component, 'onRegister');
     compiled.click();
     expect(component.onRegister).toHaveBeenCalled();
   });
-
-
 });
