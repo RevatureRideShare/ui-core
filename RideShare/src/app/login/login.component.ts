@@ -19,12 +19,12 @@ export class LoginComponent implements OnInit {
   /**
    * Email to log in with
    */
-  userEmail: '';
+  email: '';
 
   /**
    * Password to log in with
    */
-  userPassword: '';
+  password: '';
 
   elemProfile = document.getElementById('profile');
   elemLogout = document.getElementById('logout');
