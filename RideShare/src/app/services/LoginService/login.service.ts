@@ -39,6 +39,7 @@ export class LoginService {
      * The http request
      * currently a get request for testing with a json server
      */
+    console.log('in login service email: ' + email + ' password: ' + password);
     return this.http.get<User>(url);
   }
 }
