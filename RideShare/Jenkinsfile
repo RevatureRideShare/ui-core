@@ -101,32 +101,20 @@ pipeline {
                                 // -Dsonar.test=RideShare/src/app \
                                 // -Dsonar.test.inclusions=RideShare/**/*.spec.ts \
                                 // -Dsonar.tests=RideShare/**/*.spec.ts \
-          stage("Quality Gate") {
-            // steps {
-            //     script{
-            //      timeout(time: 1, unit: 'MINUTES'){
-            //         def qg = waitForQualityGate() // Reuse taskId previously collected by withSonarQubeEnv
-            //             echo ${qg.status}
-            //             if (qg.status == 'OK') {
-            //             error "Pipeline aborted due to quality gate failure: ${qg.status}"
-            //         } 
-            //         }                
-            //     }
-            // }              
+          stage("Quality Gate") {     
             steps {
                 echo "check2"
-                withSonarQubeEnv(credentialsId: 'b44ffadc-08d5-11ea-8d71-362b9e155667', installationName:'SonarCloud'){
-                       script{
-                            def urlComponents = env.JOB_NAME.split("/")
-                            def urlJobName = urlComponents[0]
-                            def urlSonarCloudLink = "https://sonarcloud.io/dashboard?id=RevatureRideShare_"+urlJobName
-                            slackSend message: "Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>) "+
-                            "View the SonarCloud analysis - "+urlSonarCloudLink
-                        }                       
-                    timeout(time: 10, unit: 'MINUTES'){
-                        waitForQualityGate abortPipeline: true 
-                    } 
-                }
+                script{
+                    def urlComponents = env.JOB_NAME.split("/")
+                    def urlJobName = urlComponents[0]
+                    def urlSonarCloudLink = "https://sonarcloud.io/dashboard?id=RevatureRideShare_"+urlJobName
+                    slackSend message: "Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>) "+
+                    "View the SonarCloud analysis - "+urlSonarCloudLink
+                }                       
+                timeout(time: 5, unit: 'MINUTES'){
+                    waitForQualityGate abortPipeline: true 
+                } 
+                
             }
           }
         
