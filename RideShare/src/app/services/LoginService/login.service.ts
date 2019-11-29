@@ -16,7 +16,7 @@ export class LoginService {
   /**
    * Server and port number of the request
    */
-  readonly port = 'localhost:3000';
+  readonly port = 'http://localhost:3000';
 
   /**
    * Endpoint of the request

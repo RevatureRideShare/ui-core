@@ -15,7 +15,7 @@ export class TrainingLocationService {
   /**
    * Server and port number of the request
    */
-  readonly port = 'localhost:3000';
+  readonly port = 'http://localhost:3002';
 
   /**
    * Endpoint of the request
