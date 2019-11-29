@@ -36,6 +36,7 @@ import {
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTableModule } from '@angular/material/table';
 import { TrainingLocationService } from './services/TrainingLocationService/training-location.service';
 import { LocationEffects } from './store/effects/location.effects';
 import { ProfileComponent } from './profile/profile.component';
@@ -68,6 +69,7 @@ import { DriverComponent } from './driver/driver.component';
     MatToolbarModule,
     MatIconModule,
     MatCheckboxModule,
+    MatTableModule,
     EffectsModule.forRoot([LocationEffects]),
     StoreModule.forRoot({
       allUsers: AllUserReducer,
