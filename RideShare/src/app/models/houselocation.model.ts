@@ -2,12 +2,13 @@ import { TrainingLocation } from './traininglocation.model';
 
 /**
  * class HouseLocation contains any information regarding a known housing location.
- * 
+ *
  * Imported by:
  * user.model.ts
  * location-state.model.ts
+ * housing-location.service.ts
  */
-export class HouseLocation{
+export class HouseLocation {
   /**
    * address1: string - contains the primary address of the house location
    */
@@ -44,14 +45,14 @@ export class HouseLocation{
   trainingLocation: TrainingLocation;
 
   constructor(
-    address1: string = "",
-    address2: string = "",
-    city: string = "",
-    state: string = "",
-    zipCode: string = "",
-    housingLocationName: string = "",
-    trainingLocation: TrainingLocation = new TrainingLocation(),
-  ){
+    address1: string = '',
+    address2: string = '',
+    city: string = '',
+    state: string = '',
+    zipCode: string = '',
+    housingLocationName: string = '',
+    trainingLocation: TrainingLocation = new TrainingLocation()
+  ) {
     this.address1 = address1;
     this.address2 = address2;
     this.city = city;

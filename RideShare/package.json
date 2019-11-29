@@ -2,6 +2,7 @@
   "name": "project3",
   "version": "0.0.0",
   "scripts": {
+
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -13,6 +14,9 @@
     "json-server-user": "json-server ./src/app/json-server/user_table.json --config ./src/app/json-server/configurations/user_table.configurations.json",
     "json-server-housing-location": "json-server ./src/app/json-server/housing_location_table.json --config ./src/app/json-server/configurations/housing_location_table.configurations.json",
     "json-server-training-location": "json-server ./src/app/json-server/training_location_table.json --config ./src/app/json-server/configurations/training_location_table.configurations.json"
+
+    "compodoc": "npx compodoc -p src/tsconfig.app.json"
+
   },
   "private": true,
   "dependencies": {
