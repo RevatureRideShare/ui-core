@@ -4,7 +4,7 @@ import { RouterModule, Routes, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import { AppRoutingModule, routing } from './app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
@@ -33,6 +33,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { TrainingLocationService } from './services/TrainingLocationService/training-location.service';
 import { LocationEffects } from './store/effects/location.effects';
+import { AllUserEffects } from './store/effects/all-user.effects';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, RegistrationComponent],
@@ -51,7 +52,7 @@ import { LocationEffects } from './store/effects/location.effects';
     MatSelectModule,
     MatToolbarModule,
     MatIconModule,
-    EffectsModule.forRoot([LocationEffects]),
+    EffectsModule.forRoot([LocationEffects, AllUserEffects]),
     StoreModule.forRoot({
       allUsers: AllUserReducer,
       allTrainingLocations: AllTrainingReducer,
