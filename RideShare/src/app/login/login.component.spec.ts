@@ -4,7 +4,7 @@ import { LoginComponent } from './login.component';
 import { FormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { NavbarOuterComponent } from '../navbar-outer/navbar-outer.component';
+//import { NavbarOuterComponent } from '../navbar-outer/navbar-outer.component';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -13,7 +13,7 @@ describe('LoginComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [FormsModule, RouterTestingModule, HttpClientModule],
-      declarations: [LoginComponent, NavbarOuterComponent],
+      declarations: [LoginComponent],
       providers: [HttpClient]
     }).compileComponents();
   }));
