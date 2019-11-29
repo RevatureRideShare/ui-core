@@ -23,9 +23,10 @@ import {
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { FooterComponent } from './footer/footer.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, FooterComponent],
+  declarations: [AppComponent, HomeComponent, FooterComponent, NavbarComponent],
   imports: [
     BrowserModule,
     routing,
