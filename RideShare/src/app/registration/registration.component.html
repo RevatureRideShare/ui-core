@@ -117,10 +117,13 @@
               class="half"
               *ngIf="allTrainingLocations | async as trainingLocations"
             >
-              <mat-select placeholder="Training Location">
+              <mat-select placeholder="Training Location"
+              name="selectedTrainingLocation"
+              [(ngModel)]="user.trainingLocation"
+              >
                 <mat-option
-                  value="i.trainingLocationName"
                   *ngFor="let i of trainingLocations"
+                  [(value)]="i"
                   >{{ i.trainingLocationName }}</mat-option
                 >
               </mat-select>
@@ -131,10 +134,13 @@
             class="half" 
             *ngIf="allHouseLocations | async as housingLocations"
             >
-              <mat-select placeholder="Housing Location Name">
+              <mat-select placeholder="Housing Location Name"
+              name="selectedHousingLocation"
+              [(ngModel)]="user.houseLocation"
+              >
                 <mat-option 
-                value="i.housingLocationName" 
                 *ngFor="let i of housingLocations"
+                [(value)]="i" 
                 >{{i.housingLocationName}}</mat-option>
               </mat-select>
             </td>
