@@ -36,10 +36,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { TrainingLocationService } from './services/TrainingLocationService/training-location.service';
 import { LocationEffects } from './store/effects/location.effects';
 import { FooterComponent } from './footer/footer.component';
+import { IsLocationPipe } from './pipes/is-location.pipe';
 
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, RegistrationComponent, HomeComponent, FooterComponent],
+  declarations: [AppComponent, LoginComponent, RegistrationComponent, HomeComponent, FooterComponent, IsLocationPipe],
   imports: [
     BrowserModule,
     routing,
