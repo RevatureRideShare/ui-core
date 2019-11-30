@@ -38,15 +38,16 @@ describe('LoginService', () => {
     role: Role.DRIVER,
     accountStatus: false,
     houseLocation: {
+      locationID: 1,
       address1: 'test',
       address2: 'test',
       city: 'test',
       state: 'test',
       zipCode: 'test',
       housingLocationName: 'IQ',
-      trainingLocation: { trainingLocationName: 'USF' }
+      trainingLocation: { trainingLocationID: 1, trainingLocationName: 'USF' }
     },
-    car: { seatNumber: 4 }
+    carDto: { seatNumber: 4 }
   };
 
   it('login() should return user', () => {

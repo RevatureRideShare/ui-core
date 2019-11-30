@@ -61,9 +61,9 @@ export class User {
   houseLocation: HouseLocation;
 
   /**
-   * car: Car - contains the car this user has, if any
+   * carDto: Car - contains the car this user has, if any
    */
-  car: Car;
+  carDto: Car;
 
   constructor(
     email: string = '',
@@ -74,7 +74,7 @@ export class User {
     role: Role = Role.RIDER,
     accountStatus: boolean = false,
     houseLocation: HouseLocation = new HouseLocation(),
-    car: Car = new Car()
+    carDto: Car = new Car()
   ) {
     this.email = email;
     this.firstName = firstName;
@@ -84,6 +84,6 @@ export class User {
     this.role = role;
     this.accountStatus = accountStatus;
     this.houseLocation = houseLocation;
-    this.car = car;
+    this.carDto = carDto;
   }
 }

@@ -20,9 +20,9 @@ export class UserRegistrationService {
    */
   readonly endpoint = '/register-user';
 
-  registerUser(user: User, password: string) {
+  registerUser(userDto: User, password: string) {
     const url = this.port + this.endpoint;
-    return this.http.post(url, { user, password });
+    return this.http.post(url, { userDto, password });
   }
 
   constructor(private router: Router, private http: HttpClient) {}

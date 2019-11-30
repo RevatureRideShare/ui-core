@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
     role: Role.ADMIN,
     accountStatus: true,
     houseLocation: {
+      locationID: 1,
       address1: 'Street',
       address2: 'Apt.',
       city: 'Tampa',
@@ -27,10 +28,11 @@ export class HomeComponent implements OnInit {
       zipCode: '12345',
       housingLocationName: 'IQ Apartments',
       trainingLocation: {
+        trainingLocationID: 1,
         trainingLocationName: 'USF'
       }
     },
-    car: { seatNumber: 0 }
+    carDto: { seatNumber: 0 }
   };
 
   constructor(private store: Store<IAppState>) {}
