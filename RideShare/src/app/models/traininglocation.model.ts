@@ -1,19 +1,26 @@
 /**
  * class TrainingLocation contains any information regarding a known training location.
- * 
+ *
  * Imported by:
  * houseLocation.model.ts
  * location-state.model.ts
  */
-export class TrainingLocation{
+export class TrainingLocation {
+  /**
+   * trainingLocationID: number - id of the training location
+   */
+  trainingLocationID: number;
+
   /**
    * trainingLocationName: string - name of the training location
    */
   trainingLocationName: string;
 
   constructor(
-    trainingLocationName: string = "",
-  ){
+    trainingLocationID: number = -1,
+    trainingLocationName: string = ''
+  ) {
+    this.trainingLocationID = trainingLocationID;
     this.trainingLocationName = trainingLocationName;
   }
 }
