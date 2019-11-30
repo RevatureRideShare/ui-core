@@ -28,16 +28,13 @@
 
 a {
   text-decoration: none;
-  color: black
+  color: black;
 }
 
 mat-toolbar {
   background-color: white;
 }
 
-div {
-  font-family: "Futura-PT-Bold";
-}
 
 ul {
   margin-top: 40px;
@@ -61,3 +58,15 @@ li>a:hover {
 .logo {
   margin-left: 200px;
 }
+
+.down-arrow {
+  margin-left:10px;
+}
+
+.font-bold {
+  font-family: "Futura-PT-Bold";
+}
+.font-bold-italic {
+  font-family: "Futura-PT-Bold-Oblique";
+}
+
