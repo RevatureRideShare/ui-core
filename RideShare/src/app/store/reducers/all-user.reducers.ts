@@ -1,12 +1,12 @@
-import { 
-    AllUsersActionTypes,
-    AllUserAction
+import {
+  AllUsersActionTypes,
+  AllUserAction
 } from '../actions/all-users.actions';
 import { IUserState } from '../../models/states/user-state.model';
 
 /**
- * The initial IUserState. 
- * If current IUserState is not loaded from database yet, the initial state is used 
+ * The initial IUserState.
+ * If current IUserState is not loaded from database yet, the initial state is used
  */
 export const initialUserState: IUserState = {
   currentUser: undefined,
@@ -34,7 +34,7 @@ export function AllUserReducer(
     case AllUsersActionTypes.LOAD_ALL_USERS_SUCCESS: {
       return {
         ...state,
-        allUsers: [...state.allUsers, ...action.payload],
+        allUsers: action.payload,
         loading: false
       };
     }
@@ -62,7 +62,7 @@ export function AllUserReducer(
       return {
         ...state,
         allUsers: [...state.allUsers, action.payload],
-        loading:false
+        loading: false
       };
     }
     case AllUsersActionTypes.UPDATE_USER_FAIL: {
@@ -75,7 +75,7 @@ export function AllUserReducer(
     case AllUsersActionTypes.LOAD_ALL_DRIVERS: {
       return {
         ...state,
-        loading: true,
+        loading: true
       };
     }
     case AllUsersActionTypes.LOAD_ALL_DRIVERS_SUCCESS: {
