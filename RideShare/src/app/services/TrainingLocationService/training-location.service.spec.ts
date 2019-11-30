@@ -41,7 +41,7 @@ describe('TrainingLocationService', () => {
       expect(data).toEqual(trainingLocationList);
     });
 
-    const req = httpMock.expectOne('localhost:3000/training-location');
+    const req = httpMock.expectOne('http://localhost:3002/training-location');
     expect(req.request.method).toBe('GET');
     req.flush(trainingLocationList);
   });

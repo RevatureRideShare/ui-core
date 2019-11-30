@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule, routing } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,10 +19,17 @@ import {
   AllHousingReducer
 } from './store/reducers/location.reducers';
 import { AuthenticationReducer } from './store/reducers/authentication.reducers';
-//This is the material toolbar import and associated icon import
+import { HomeComponent } from './home/home.component';
+import { FooterComponent } from './footer/footer.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { ProfileComponent } from './profile/profile.component';
+import { DriverComponent } from './driver/driver.component';
+import { IsLocationPipe } from './pipes/is-location.pipe';
+
+// This is the material toolbar import and associated icon import
 import { MatToolbarModule } from '@angular/material/toolbar';
 
-//these ng material imports are used in the registration and login components
+// these ng material imports are used in the registration and login components
 import {
   MatFormFieldModule,
   MatInputModule,
@@ -31,12 +38,24 @@ import {
 } from '@angular/material';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTableModule } from '@angular/material/table';
 import { TrainingLocationService } from './services/TrainingLocationService/training-location.service';
 import { LocationEffects } from './store/effects/location.effects';
 import { AllUserEffects } from './store/effects/all-user.effects';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, RegistrationComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    RegistrationComponent,
+    HomeComponent,
+    FooterComponent,
+    NavbarComponent,
+    ProfileComponent,
+    DriverComponent,
+    IsLocationPipe
+  ],
   imports: [
     BrowserModule,
     routing,
@@ -52,6 +71,8 @@ import { AllUserEffects } from './store/effects/all-user.effects';
     MatSelectModule,
     MatToolbarModule,
     MatIconModule,
+    MatCheckboxModule,
+    MatTableModule,
     EffectsModule.forRoot([LocationEffects, AllUserEffects]),
     StoreModule.forRoot({
       allUsers: AllUserReducer,
