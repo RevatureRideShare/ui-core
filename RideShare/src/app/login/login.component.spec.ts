@@ -5,11 +5,26 @@ import { FormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { MatInputModule } from '@angular/material';
-import { Store, StoreModule, StateObservable } from '@ngrx/store';
+import { provideMockStore, MockStore } from '@ngrx/store/testing';
+import { Store } from '@ngrx/store';
+import { User } from '../models/user.model';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
+  let store: MockStore<{
+    currentUser: User;
+    allUsers: Array<User>;
+    loading: boolean;
+    error: Error;
+  }>;
+
+  const initialState = {
+    currentUser: undefined,
+    allUsers: [],
+    loading: false,
+    error: undefined
+  };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -20,8 +35,9 @@ describe('LoginComponent', () => {
         MatInputModule
       ],
       declarations: [LoginComponent],
-      providers: [HttpClient, Store, StateObservable]
+      providers: [HttpClient, provideMockStore({ initialState })]
     }).compileComponents();
+    store = TestBed.get<Store>(Store);
   }));
 
   beforeEach(() => {
