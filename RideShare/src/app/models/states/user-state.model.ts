@@ -6,7 +6,7 @@ import { User } from '../user.model';
  * Imported by:
  * app-state.model.ts
  */
-export interface IUserState{
+export interface IUserState {
   /**
    * currentUser: User - contains information for the current user in this session
    */
