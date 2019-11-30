@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { User, RideStatus, Role } from '../models/user.model';
-import { HouseLocation } from '../models/houselocation.model';
-import { Car } from '../models/car.model';
+import { User } from '../models/user.model';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { IAppState } from '../models/states/app-state.model';
+import { LoadAllDriversAction } from '../store/actions/all-users.actions';
 
 @Component({
   selector: 'app-driver',
@@ -9,26 +11,7 @@ import { Car } from '../models/car.model';
   styleUrls: ['./driver.component.css']
 })
 export class DriverComponent implements OnInit {
-  allDrivers: Array<User> = new Array<User>();
-  testUser: User = {
-    email: 'hello@email.com',
-    firstName: 'Hello',
-    lastName: 'World',
-    phoneNumber: '555-555-5555',
-    rideStatus: RideStatus.ACTIVE,
-    role: Role.DRIVER,
-    accountStatus: true,
-    houseLocation: {
-      address1: 'Here',
-      address2: 'There',
-      city: 'Tampa',
-      state: 'FL',
-      zipCode: '12738',
-      housingLocationName: 'IQ Apartments',
-      trainingLocation: { trainingLocationName: 'USF' }
-    },
-    car: { seatNumber: 4 }
-  };
+  allDrivers: Observable<Array<User>>;
 
   displayedColumns: string[] = [
     'name',
@@ -38,10 +21,10 @@ export class DriverComponent implements OnInit {
     'carSeats'
   ];
 
-  constructor() {
-    this.allDrivers.push(this.testUser);
-    this.allDrivers.push(this.testUser);
-  }
+  constructor(private store: Store<IAppState>) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.allDrivers = this.store.select(store => store['allUsers'].allUsers);
+    this.store.dispatch(new LoadAllDriversAction());
+  }
 }
