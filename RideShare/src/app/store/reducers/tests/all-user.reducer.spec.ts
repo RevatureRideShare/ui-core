@@ -14,6 +14,7 @@ import {
 import { initialLocationState } from '../location.reducers';
 import { HouseLocation } from 'src/app/models/houselocation.model';
 import { IAppState } from 'src/app/models/states/app-state.model';
+import { IUserState } from 'src/app/models/states/user-state.model';
 
 xdescribe('all-user reducer ', () => {
   const initialAppState: IAppState = {
