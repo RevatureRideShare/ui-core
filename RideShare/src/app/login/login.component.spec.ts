@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material';
 import { provideMockStore, MockStore } from '@ngrx/store/testing';
 import { Store } from '@ngrx/store';
 import { User } from '../models/user.model';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -32,12 +33,13 @@ describe('LoginComponent', () => {
         FormsModule,
         RouterTestingModule,
         HttpClientModule,
-        MatInputModule
+        MatInputModule,
+        BrowserAnimationsModule
       ],
       declarations: [LoginComponent],
       providers: [HttpClient, provideMockStore({ initialState })]
     }).compileComponents();
-    store = TestBed.get<Store>(Store);
+    store = TestBed.get(Store);
   }));
 
   beforeEach(() => {
