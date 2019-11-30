@@ -21,6 +21,11 @@ module.exports = function (config) {
       fixWebpackSourcePaths: true
     },
     reporters: ['progress', 'kjhtml'],
+    junitReporter: {
+      outputDir: 'reports', // results will be saved as $outputDir/$browserName.xml
+      outputFile: undefined,
+      useBrowserName: false // add browser name to report and classes names
+    },
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
