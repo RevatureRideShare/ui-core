@@ -71,11 +71,8 @@ import { AllUserEffects } from './store/effects/all-user.effects';
     MatSelectModule,
     MatToolbarModule,
     MatIconModule,
-<<<<<<< HEAD
-=======
     MatCheckboxModule,
     MatTableModule,
->>>>>>> feature/56-Driver-Component
     EffectsModule.forRoot([LocationEffects, AllUserEffects]),
     StoreModule.forRoot({
       allUsers: AllUserReducer,
