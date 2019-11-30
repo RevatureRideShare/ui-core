@@ -2,11 +2,23 @@
 <div id="outer-container">
   <mat-card class="half">
     <mat-card-header>
-      <mat-card-title class="full">Set Your Status</mat-card-title>
-      <mat-card-content>
-        <mat-checkbox>Active Driver?</mat-checkbox>
-      </mat-card-content>
+      <mat-card-title class="full">Welcome to Your Profile Page</mat-card-title>
     </mat-card-header>
+    <mat-card-content 
+    *ngIf="currentUser | async as thisUser"
+    [(ngModel)="user">
+      <table>
+        <tr class="full">
+          <mat-checkbox class="half"
+          *ngIf="user.role == 'DRIVER';
+          else Rider"
+          >Active Driver?</mat-checkbox>
+          <ng-template #Rider>
+              We are but passengers here.
+          </ng-template>
+        </tr>
+      </table>
+    </mat-card-content>
   </mat-card>
 </div>
 <app-footer></app-footer>

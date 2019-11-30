@@ -13,12 +13,12 @@ export class UserRegistrationService {
   /**
    * Server and port number of the request
    */
-  readonly port = 'http://localhost:3002';
+  readonly port = 'http://localhost:3001';
 
   /**
    * Endpoint of the request
    */
-  readonly endpoint = '/register-user';
+  readonly endpoint = '/user';
 
   registerUser(user: User, password: string) {
     const url = this.port+this.endpoint
@@ -28,14 +28,3 @@ export class UserRegistrationService {
   constructor(private router: Router, private http: HttpClient) {}
 }
 
-/* registerUser(user: User, password: string) {
-  let observer = this.http.post('register-user', {user, password})
-  observer.subscribe((response) => {
-    this.response = response;
-    return response;
-  });
-
-  return this.response;
-}
-
-constructor(private router: Router, private http: HttpClient)  { } */

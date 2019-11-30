@@ -114,6 +114,114 @@
       "car": {
         "seatNumber": 4
       }
+    },
+    {
+      "user": {
+        "email": "maker@profile.com",
+        "firstName": "profile",
+        "lastName": "maker",
+        "phoneNumber": "911",
+        "rideStatus": 0,
+        "role": "DRIVER",
+        "accountStatus": false,
+        "houseLocation": {
+          "address1": "My House",
+          "address2": "Apt. 1",
+          "city": "Tampa",
+          "state": "FL",
+          "zipCode": "99999",
+          "housingLocationName": "IQ Apartments",
+          "trainingLocation": {
+            "trainingLocationName": "USF"
+          }
+        },
+        "car": {
+          "seatNumber": "5"
+        }
+      },
+      "password": "sasasas",
+      "email": "U3ZBCmS"
+    },
+    {
+      "user": {
+        "email": "yay",
+        "firstName": "Jeffrey",
+        "lastName": "Franken",
+        "phoneNumber": "5052209478",
+        "rideStatus": 0,
+        "role": "DRIVER",
+        "accountStatus": false,
+        "houseLocation": {
+          "address1": "My House",
+          "address2": "Apt. 1",
+          "city": "Tampa",
+          "state": "FL",
+          "zipCode": "99999",
+          "housingLocationName": "IQ Apartments",
+          "trainingLocation": {
+            "trainingLocationName": "USF"
+          }
+        },
+        "car": {
+          "seatNumber": "5"
+        }
+      },
+      "password": "sad",
+      "email": "fbyNh-X"
+    },
+    {
+      "user": {
+        "email": "dr__j__11@hotmail.com",
+        "firstName": "Jeffrey",
+        "lastName": "Franken",
+        "phoneNumber": "5052209478",
+        "rideStatus": 0,
+        "role": "DRIVER",
+        "accountStatus": false,
+        "houseLocation": {
+          "address1": "That House",
+          "address2": "Apt. 3",
+          "city": "Los Angeles",
+          "state": "CA",
+          "zipCode": "34343",
+          "housingLocationName": "Far Away Apartment",
+          "trainingLocation": {
+            "trainingLocationName": "UCLA"
+          }
+        },
+        "car": {
+          "seatNumber": "6"
+        }
+      },
+      "password": "dfj",
+      "email": "F1BVN5v"
+    },
+    {
+      "user": {
+        "email": "dr__j__11@hotmail.com",
+        "firstName": "Jeffrey",
+        "lastName": "Franken",
+        "phoneNumber": "5052209478",
+        "rideStatus": 0,
+        "role": "RIDER",
+        "accountStatus": false,
+        "houseLocation": {
+          "address1": "That Other House",
+          "address2": "Apt. 4",
+          "city": "Los Angeles",
+          "state": "CA",
+          "zipCode": "34343",
+          "housingLocationName": "Somewhat Away Apartment",
+          "trainingLocation": {
+            "trainingLocationName": "UCLA"
+          }
+        },
+        "car": {
+          "seatNumber": 0
+        }
+      },
+      "password": "dfj",
+      "email": "Zox9nGT"
     }
   ]
 }
