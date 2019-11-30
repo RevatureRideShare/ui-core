@@ -9,6 +9,7 @@
       "role": "RIDER",
       "accountStatus": true,
       "houseLocation": {
+        "locationID": 1,
         "address1": "My House",
         "address2": "Apt. 1",
         "city": "Tampa",
@@ -16,10 +17,11 @@
         "zipCode": "99999",
         "housingLocationName": "IQ Apartments",
         "trainingLocation": {
+          "trainingLocationID": 1,
           "trainingLocationName": "USF"
         }
       },
-      "car": {
+      "carDto": {
         "seatNumber": 0
       }
     },
@@ -32,6 +34,7 @@
       "role": "DRIVER",
       "accountStatus": false,
       "houseLocation": {
+        "locationID": 1,
         "address1": "My House",
         "address2": "Apt. 1",
         "city": "Tampa",
@@ -39,10 +42,11 @@
         "zipCode": "99999",
         "housingLocationName": "IQ Apartments",
         "trainingLocation": {
+          "trainingLocationID": 1,
           "trainingLocationName": "USF"
         }
       },
-      "car": {
+      "carDto": {
         "seatNumber": 4
       }
     },
@@ -55,6 +59,7 @@
       "role": "DRIVER",
       "accountStatus": true,
       "houseLocation": {
+        "locationID": 1,
         "address1": "My House",
         "address2": "Apt. 1",
         "city": "Tampa",
@@ -62,10 +67,11 @@
         "zipCode": "99999",
         "housingLocationName": "IQ Apartments",
         "trainingLocation": {
+          "trainingLocationID": 1,
           "trainingLocationName": "USF"
         }
       },
-      "car": {
+      "carDto": {
         "seatNumber": 4
       }
     },
@@ -78,6 +84,7 @@
       "role": "RIDER",
       "accountStatus": false,
       "houseLocation": {
+        "locationID": 1,
         "address1": "My House",
         "address2": "Apt. 1",
         "city": "Tampa",
@@ -85,10 +92,11 @@
         "zipCode": "99999",
         "housingLocationName": "IQ Apartments",
         "trainingLocation": {
+          "trainingLocationID": 1,
           "trainingLocationName": "USF"
         }
       },
-      "car": {
+      "carDto": {
         "seatNumber": 0
       }
     },
@@ -101,6 +109,7 @@
       "role": "DRIVER",
       "accountStatus": true,
       "houseLocation": {
+        "locationID": 2,
         "address1": "His House",
         "address2": "Apt. 2",
         "city": "Tampa",
@@ -108,10 +117,11 @@
         "zipCode": "99999",
         "housingLocationName": "The Second Apartment",
         "trainingLocation": {
+          "trainingLocationID": 1,
           "trainingLocationName": "USF"
         }
       },
-      "car": {
+      "carDto": {
         "seatNumber": 4
       }
     },
@@ -124,6 +134,7 @@
       "role": "ADMIN",
       "accountStatus": true,
       "houseLocation": {
+        "locationID": 2,
         "address1": "His House",
         "address2": "Apt. 2",
         "city": "Tampa",
@@ -131,10 +142,11 @@
         "zipCode": "99999",
         "housingLocationName": "The Second Apartment",
         "trainingLocation": {
+          "trainingLocationID": 1,
           "trainingLocationName": "USF"
         }
       },
-      "car": {
+      "carDto": {
         "seatNumber": 4
       }
     }
