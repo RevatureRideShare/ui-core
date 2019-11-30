@@ -1,23 +1,21 @@
 <app-navbar></app-navbar>
 <div id="outer-container">
   <mat-card class="half">
-    <mat-card-header>
-      <mat-card-title class="full">Welcome to Your Profile Page</mat-card-title>
-    </mat-card-header>
-    <mat-card-content 
-    *ngIf="currentUser | async as thisUser"
-    [(ngModel)="user">
-      <table>
-        <tr class="full">
-          <mat-checkbox class="half"
-          *ngIf="user.role == 'DRIVER';
-          else Rider"
-          >Active Driver?</mat-checkbox>
-          <ng-template #Rider>
-              We are but passengers here.
-          </ng-template>
-        </tr>
-      </table>
+    <mat-card-title class="full">Welcome to Your Profile Page</mat-card-title>
+    <mat-card-content *ngIf="currentUser | async as thisUser">
+      <section>
+        <mat-checkbox
+          *ngIf="thisUser.user.role === 'DRIVER'; else rider"
+          [(ngModel)]="thisUser.user.rideStatus"
+          (ngModelChange)="updateDriverStatus(thisUser.user)"
+          >Active Driver?</mat-checkbox
+        >
+        <ng-template #rider>
+          <h3>
+            We are but passengers here.
+          </h3>
+        </ng-template>
+      </section>
     </mat-card-content>
   </mat-card>
 </div>
