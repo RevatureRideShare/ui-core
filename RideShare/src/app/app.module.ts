@@ -22,9 +22,13 @@ import { AuthenticationReducer } from './store/reducers/authentication.reducers'
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ProfileComponent } from './profile/profile.component';
+import { DriverComponent } from './driver/driver.component';
+import { IsLocationPipe } from './pipes/is-location.pipe';
 
 // This is the material toolbar import and associated icon import
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
 
 // these ng material imports are used in the registration and login components
 import {
@@ -35,8 +39,11 @@ import {
 } from '@angular/material';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTableModule } from '@angular/material/table';
 import { TrainingLocationService } from './services/TrainingLocationService/training-location.service';
 import { LocationEffects } from './store/effects/location.effects';
+import { AllUserEffects } from './store/effects/all-user.effects';
 
 @NgModule({
   declarations: [
@@ -45,7 +52,10 @@ import { LocationEffects } from './store/effects/location.effects';
     RegistrationComponent,
     HomeComponent,
     FooterComponent,
-    NavbarComponent
+    NavbarComponent,
+    ProfileComponent,
+    DriverComponent,
+    IsLocationPipe
   ],
   imports: [
     BrowserModule,
@@ -62,7 +72,10 @@ import { LocationEffects } from './store/effects/location.effects';
     MatSelectModule,
     MatToolbarModule,
     MatIconModule,
-    EffectsModule.forRoot([LocationEffects]),
+    MatCheckboxModule,
+    MatTableModule,
+    MatMenuModule,
+    EffectsModule.forRoot([LocationEffects, AllUserEffects]),
     StoreModule.forRoot({
       allUsers: AllUserReducer,
       allTrainingLocations: AllTrainingReducer,
