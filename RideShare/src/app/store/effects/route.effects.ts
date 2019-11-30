@@ -11,7 +11,7 @@ import { tap } from 'rxjs/operators';
 export class RouteEffects {
   constructor(private action$: Actions, private router: Router) {}
 
-  @Effect()
+  @Effect({dispatch:false})
   redirectHome$ = this.action$.pipe(
     ofType<LoginUserAction>(AllUsersActionTypes.LOGIN_USER_SUCCESS),
     tap(() => this.router.navigate(['/home']))
