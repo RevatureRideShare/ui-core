@@ -9,6 +9,7 @@ import { IUserState } from '../../models/states/user-state.model';
  * If current IUserState is not loaded from database yet, the initial state is used
  */
 export const initialUserState: IUserState = {
+  authorization: '',
   currentUser: undefined,
   allUsers: [],
   loading: false,
