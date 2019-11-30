@@ -22,6 +22,9 @@ import { AuthenticationReducer } from './store/reducers/authentication.reducers'
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ProfileComponent } from './profile/profile.component';
+import { DriverComponent } from './driver/driver.component';
+import { IsLocationPipe } from './pipes/is-location.pipe';
 
 // This is the material toolbar import and associated icon import
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -39,8 +42,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTableModule } from '@angular/material/table';
 import { TrainingLocationService } from './services/TrainingLocationService/training-location.service';
 import { LocationEffects } from './store/effects/location.effects';
-import { ProfileComponent } from './profile/profile.component';
-import { DriverComponent } from './driver/driver.component';
 import { AllUserEffects } from './store/effects/all-user.effects';
 
 @NgModule({
@@ -52,7 +53,8 @@ import { AllUserEffects } from './store/effects/all-user.effects';
     FooterComponent,
     NavbarComponent,
     ProfileComponent,
-    DriverComponent
+    DriverComponent,
+    IsLocationPipe
   ],
   imports: [
     BrowserModule,
