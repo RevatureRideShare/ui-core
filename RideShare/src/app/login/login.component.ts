@@ -43,8 +43,6 @@ export class LoginComponent implements OnInit {
    * Logs user in
    */
   onLogin(): void {
-    console.log('in login');
-    console.log('email: ' + this.email + ' password: ' + this.password);
     this.store.dispatch(
       new LoginUserAction({ email: this.email, password: this.password })
     );

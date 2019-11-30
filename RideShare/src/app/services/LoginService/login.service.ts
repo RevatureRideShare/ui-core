@@ -34,7 +34,6 @@ export class LoginService {
   login(email: string, password: string) {
     /**Combine port and endpoint to get the url */
     let url = this.port + this.endpoint;
-
     /**
      * The http request
      * currently a get request for testing with a json server
