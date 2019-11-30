@@ -41,6 +41,7 @@ import { TrainingLocationService } from './services/TrainingLocationService/trai
 import { LocationEffects } from './store/effects/location.effects';
 import { ProfileComponent } from './profile/profile.component';
 import { DriverComponent } from './driver/driver.component';
+import { AllUserEffects } from './store/effects/all-user.effects';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,7 @@ import { DriverComponent } from './driver/driver.component';
     MatIconModule,
     MatCheckboxModule,
     MatTableModule,
-    EffectsModule.forRoot([LocationEffects]),
+    EffectsModule.forRoot([LocationEffects, AllUserEffects]),
     StoreModule.forRoot({
       allUsers: AllUserReducer,
       allTrainingLocations: AllTrainingReducer,
