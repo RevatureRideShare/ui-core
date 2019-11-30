@@ -46,3 +46,8 @@ li{
   padding: 0;
   vertical-align: top;
 }
+
+.nav-right {
+  margin-left: auto;
+  margin-right: 100px;
+}
