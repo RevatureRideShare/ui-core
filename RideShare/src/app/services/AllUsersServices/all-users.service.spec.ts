@@ -1,22 +1,13 @@
 import { TestBed, getTestBed } from '@angular/core/testing';
 
 import { AllUsersService } from './all-users.service';
-import { User } from '../../models/user.model';
+import { User, Role, RideStatus } from '../../models/user.model';
 import {
   HttpClientTestingModule,
   HttpTestingController
 } from '@angular/common/http/testing';
 
 import { environment } from 'src/environments/environment';
-
-enum RideStatus {
-  INACTIVE,
-  ACTIVE
-}
-enum Role {
-  RIDER,
-  DRIVER
-}
 
 describe('AllUsersService', () => {
   let injector: TestBed;
