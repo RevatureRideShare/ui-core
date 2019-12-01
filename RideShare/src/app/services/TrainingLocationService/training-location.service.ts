@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { TrainingLocation } from '../../models/traininglocation.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -15,12 +16,12 @@ export class TrainingLocationService {
   /**
    * Server and port number of the request
    */
-  readonly port = 'http://localhost:3000';
+  readonly port = environment.trainingLocationUrl;
 
   /**
    * Endpoint of the request
    */
-  readonly endpoint = '/training-location';
+  readonly endpoint = environment.trainingLocationEndpoint;
 
   constructor(private http: HttpClient) {}
 
@@ -28,10 +29,14 @@ export class TrainingLocationService {
    * Gets all training locations
    */
   getTrainingLocations() {
-    /**Combine port and endpoint to get the url */
-    let url = this.port + this.endpoint;
+    /**
+     * Combine port and endpoint to get the url
+     */
+    const url = this.port + this.endpoint;
 
-    /**The http request */
+    /**
+     * The http request
+     */
     return this.http.get<TrainingLocation[]>(url);
   }
 }

@@ -11,13 +11,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-@NgModule({
-  declarations: [AppComponent],
-
-import { LoginComponent } from './login/login.component';
-import { RegistrationComponent } from './registration/registration.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 //This is the material toolbar import and associated icon import
 import { MatToolbarModule } from '@angular/material/toolbar';
 
@@ -32,23 +25,18 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, RegistrationComponent],
-
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     routing,
     RouterModule,
     AppRoutingModule,
-
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production
     }),
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatSliderModule
-
-    FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
@@ -58,7 +46,6 @@ import { MatIconModule } from '@angular/material/icon';
     MatSelectModule,
     MatToolbarModule,
     MatIconModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]
