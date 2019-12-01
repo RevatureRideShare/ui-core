@@ -11,16 +11,29 @@ import {
   LoginUserFailAction,
   RegisterUserAction,
   RegisterUserSuccessAction,
-  RegisterUserFailAction
+  RegisterUserFailAction,
+  LoadAllUsersAction,
+  LoadAllUsersSuccessAction,
+  LoadAllUsersFailAction,
+  LoadAllDriversAction,
+  LoadAllDriversSuccessAction,
+  LoadAllDriversFailAction,
+  UpdateUserAction,
+  UpdateUserSuccessAction,
+  UpdateUserFailAction
 } from '../actions/all-users.actions';
 import { User } from 'src/app/models/user.model';
+import { AllUsersService } from 'src/app/services/AllUsersServices/all-users.service';
+import { AllDriversService } from 'src/app/services/AllDriversServices/all-drivers.service';
 
 @Injectable()
 export class AllUserEffects {
   constructor(
     private action$: Actions,
     private loginService: LoginService,
-    private registerService: UserRegistrationService
+    private registerService: UserRegistrationService,
+    private userService: AllUsersService,
+    private driverService: AllDriversService
   ) {}
 
   /**
@@ -30,12 +43,10 @@ export class AllUserEffects {
   loginUser$ = this.action$.pipe(
     ofType<LoginUserAction>(AllUsersActionTypes.LOGIN_USER),
     mergeMap(data =>
-      this.loginService
-        .login(data.payload.username, data.payload.password)
-        .pipe(
-          map((user: User) => new LoginUserSuccessAction(user)),
-          catchError(error => of(new LoginUserFailAction(error)))
-        )
+      this.loginService.login(data.payload.email, data.payload.password).pipe(
+        map((user: User) => new LoginUserSuccessAction(user)),
+        catchError(error => of(new LoginUserFailAction(error)))
+      )
     )
   );
 
@@ -55,4 +66,45 @@ export class AllUserEffects {
     )
   );
 
+  /**
+   * The effect to get all users
+   */
+  @Effect()
+  getAllUsers$ = this.action$.pipe(
+    ofType<LoadAllUsersAction>(AllUsersActionTypes.LOAD_ALL_USERS),
+    mergeMap(() =>
+      this.userService.getAllUsers().pipe(
+        map(data => new LoadAllUsersSuccessAction(data)),
+        catchError(error => of(new LoadAllUsersFailAction(error)))
+      )
+    )
+  );
+
+  /**
+   * The effect to get all drivers
+   */
+  @Effect()
+  getAllDrivers$ = this.action$.pipe(
+    ofType<LoadAllDriversAction>(AllUsersActionTypes.LOAD_ALL_DRIVERS),
+    mergeMap(() =>
+      this.driverService.getAllDrivers().pipe(
+        map(data => new LoadAllDriversSuccessAction(data)),
+        catchError(error => of(new LoadAllDriversFailAction(error)))
+      )
+    )
+  );
+
+  /**
+   * The effect to update certain user
+   */
+  @Effect()
+  updateUser$ = this.action$.pipe(
+    ofType<UpdateUserAction>(AllUsersActionTypes.UPDATE_USER),
+    mergeMap((data) => 
+    this.userService.updateUser(data.payload).pipe(
+      map(user => new UpdateUserSuccessAction(user)),
+      catchError(error => of(new UpdateUserFailAction(error)))
+    )
+    )
+  )
 }
