@@ -22,7 +22,8 @@ export class ProfileComponent implements OnInit {
   constructor(private store: Store<IAppState>) {
     this.user = new User();
   }
-
+/* we use the store to load the current user state referencing it by name with the appState array. the all users
+value is contains the current user */
   ngOnInit() {
     this.currentUser = this.store.select(
       store => store['allUsers'].currentUser
@@ -30,7 +31,7 @@ export class ProfileComponent implements OnInit {
     this.loading$ = this.store.select(store => store['currentUser'].loading);
     this.error$ = this.store.select(store => store['currentUser'].error);
   }
-
+/* we call the upDateDriver action which takes a single user object as its payload */
   updateDriverStatus(user: User) {
     this.store.dispatch(
       new UpdateUserAction(user)

@@ -12,6 +12,7 @@ import { RegisterUserAction } from '../store/actions/all-users.actions';
 import { LoadAllTrainingLocationsAction } from '../store/actions/training-locations.action';
 import { LoadAllHouseLocationsAction } from '../store/actions/house-locations.actions';
 
+
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -57,6 +58,12 @@ export class RegistrationComponent implements OnInit {
     this.houseLocation = new HouseLocation();
   }
 
+/*   On init we are setting the two observables allHouseLocations and allTrainingLocations to a value from the Store.
+  The store is essentially an array of the state of all items in the store. We are using javascripts ability to reference
+  an array item by type within the square brackets, then accessing the allHouseLocations array within that state array.
+  You will see the pattern repeated throughout ngrx -> [state].array.item or [state].object.value 
+  We need to call these two arrays to populate the traing and housin drop downs */
+
   ngOnInit() {
     this.allHouseLocations = this.store.select(
       store => store['allHousingLocations'].allHousingLocations
@@ -80,6 +87,7 @@ export class RegistrationComponent implements OnInit {
     this.store.dispatch(new LoadAllHouseLocationsAction());
   }
 
+  /* passing the user action its payload as an object (key value pairs) */
   register() {
     this.store.dispatch(
       new RegisterUserAction({ user: this.user, password: this.password })

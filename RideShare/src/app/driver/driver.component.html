@@ -1,17 +1,20 @@
+<!-- Displays an NGMaterial table using the list of drivers contained in dataSource -->
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <!-- Displays the user's name -->
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef>Name</th>
     <td mat-cell *matCellDef="let user">
-      <!-- If user role equals driver, display the information. -->
       {{ user.firstName }} {{ user.lastName }}
     </td>
   </ng-container>
 
+  <!-- Displays the user's email -->
   <ng-container matColumnDef="email">
     <th mat-header-cell *matHeaderCellDef>Email</th>
     <td mat-cell *matCellDef="let user">{{ user.email }}</td>
   </ng-container>
 
+  <!-- Displays the user's phone number -->
   <ng-container matColumnDef="phoneNumber">
     <th mat-header-cell *matHeaderCellDef>Phone Number</th>
     <td mat-cell *matCellDef="let user">
@@ -19,6 +22,7 @@
     </td>
   </ng-container>
 
+  <!-- Displays the name of the user's housing location -->
   <ng-container matColumnDef="houseLocationName">
     <th mat-header-cell *matHeaderCellDef>House Location</th>
     <td mat-cell *matCellDef="let user">
@@ -26,6 +30,7 @@
     </td>
   </ng-container>
 
+  <!-- Displays the number of car seats available for user -->
   <ng-container matColumnDef="carSeats">
     <th mat-header-cell *matHeaderCellDef>Available Seats</th>
     <td mat-cell *matCellDef="let user">
@@ -33,6 +38,7 @@
     </td>
   </ng-container>
 
+  <!-- Tells mat-table which columns to display from the variable displayedColumns -->
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>

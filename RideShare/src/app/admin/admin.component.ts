@@ -14,8 +14,14 @@ import {
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
+  /**
+   * allUsers contains an observable to the list of users in the store.
+   */
   allUsers: Observable<Array<User>>;
-
+  
+  /**
+   * displayedColumns contains all of the fields the mat-table will display for each driver.
+   */
   displayedColumns: string[] = [
     'name',
     'email',
@@ -25,12 +31,19 @@ export class AdminComponent implements OnInit {
     'accountStatus'
   ];
 
+  /**
+   * updateUser(user: User) dispatches an UpdateUserAction to update the user with NgRx
+   * @param user User to update accountStatus value.
+   */
   updateUser(user: User) {
     this.store.dispatch(new UpdateUserAction(user));
   }
 
   constructor(private store: Store<IAppState>) {}
 
+  /**
+   * ngOnInit() grabs the list of users within the store.
+   */
   ngOnInit() {
     this.allUsers = this.store.select(store => store['allUsers'].allUsers);
     this.store.dispatch(new LoadAllUsersAction());

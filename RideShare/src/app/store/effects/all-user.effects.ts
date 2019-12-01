@@ -26,8 +26,19 @@ import { User } from 'src/app/models/user.model';
 import { AllUsersService } from 'src/app/services/AllUsersServices/all-users.service';
 import { AllDriversService } from 'src/app/services/AllDriversServices/all-drivers.service';
 
+/**
+ * The effects related to user actions
+ */
 @Injectable()
 export class AllUserEffects {
+  /**
+   * Constructor used to inject userActions and services related to user
+   * @param {Actions} action$ the action fired, contains type of the action and payload
+   * @param {LoginService} loginService services related to login
+   * @param {UserRegistrationService} registerService services related to register
+   * @param {AllUsersService} userService servies related to get, update users
+   * @param {AllDriversService} driverService services realted to drivers
+   */
   constructor(
     private action$: Actions,
     private loginService: LoginService,
@@ -37,7 +48,9 @@ export class AllUserEffects {
   ) {}
 
   /**
-   * The effect to login user
+   * Side effect of LoginUser,
+   * if success trigger LoginUserSuccessAction
+   * if faile trigger LoginUserFailAction
    */
   @Effect()
   loginUser$ = this.action$.pipe(
@@ -51,7 +64,9 @@ export class AllUserEffects {
   );
 
   /**
-   * The effect to register new user
+   * Side effect of registerUser
+   * if success trigger RegiserUserSucessAction
+   * if fail trigger RegiserUserFailAction
    */
   @Effect()
   register$ = this.action$.pipe(
@@ -67,7 +82,9 @@ export class AllUserEffects {
   );
 
   /**
-   * The effect to get all users
+   * Side effect of LoadAllUsers,
+   * if success trigger LoadALlUserSuccessAction
+   * if fail trigger LoadAllUserFailAction
    */
   @Effect()
   getAllUsers$ = this.action$.pipe(
@@ -81,7 +98,9 @@ export class AllUserEffects {
   );
 
   /**
-   * The effect to get all drivers
+   * Side effect of LoadAllDrivers
+   * if success trigger LoadAllDriverSuccessAction
+   * if fail trigger LoadALlDriverFailAction
    */
   @Effect()
   getAllDrivers$ = this.action$.pipe(
@@ -95,7 +114,9 @@ export class AllUserEffects {
   );
 
   /**
-   * The effect to update certain user
+   * Side effect of UpdataUser
+   * if success trigger UpdateUserSuccessAction
+   * if faile trigger UpdateUserFailAction
    */
   @Effect()
   updateUser$ = this.action$.pipe(

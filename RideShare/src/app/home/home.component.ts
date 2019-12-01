@@ -10,10 +10,16 @@ import { IAppState } from '../models/states/app-state.model';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  /**
+   * currUser contains the current logged in user from the store.
+   */
   currUser: Observable<User>;
 
   constructor(private store: Store<IAppState>) {}
 
+  /**
+   * ngOnInit() grabs the currUser from the store.
+   */
   ngOnInit() {
     this.currUser = this.store.select(store => store['allUsers'].currentUser);
   }
