@@ -11,9 +11,15 @@ describe('RegistrationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [FormsModule, RouterTestingModule, HttpClientModule],
-      declarations: [RegistrationComponent]
-    }).compileComponents();
+      imports: [
+        FormsModule,
+        RouterTestingModule,
+        HttpClientModule
+        ],
+      declarations: [ RegistrationComponent,
+      ]
+    })
+    .compileComponents();
   }));
 
   beforeEach(() => {
@@ -45,6 +51,7 @@ describe('RegistrationComponent', () => {
     compiled.click();
     expect(component.onBack).toHaveBeenCalled();
   });
+
   it('should call onRegister method', () => {
     const compiled = fixture.debugElement.nativeElement.querySelector(
       '#register'

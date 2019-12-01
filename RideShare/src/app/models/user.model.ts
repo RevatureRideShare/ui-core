@@ -2,13 +2,13 @@ import { HouseLocation } from './houselocation.model';
 import { Car } from './car.model';
 
 export enum RideStatus {
-  INACTIVE,
-  ACTIVE
+  INACTIVE = 'INACTIVE',
+  ACTIVE = 'ACTIVE'
 }
 export enum Role {
-  ADMIN,
-  RIDER,
-  DRIVER
+  ADMIN = 'ADMIN',
+  RIDER = 'RIDER',
+  DRIVER = 'DRIVER'
 }
 
 /**
@@ -61,7 +61,7 @@ export class User {
   houseLocation: HouseLocation;
 
   /**
-   * carDto: Car - contains the car this user has, if any
+   * car: Car - contains the car this user has, if any
    */
   carDto: Car;
 

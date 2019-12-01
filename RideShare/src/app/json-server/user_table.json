@@ -6,7 +6,7 @@
       "lastName": "Wang",
       "phoneNumber": "6666666666",
       "rideStatus": "INACTIVE",
-      "role": "ADMIN",
+      "role": "DRIVER",
       "accountStatus": true,
       "houseLocation": {
         "locationID": 1,
@@ -149,35 +149,6 @@
       "carDto": {
         "seatNumber": 4
       }
-    },
-    {
-      "userDto": {
-        "email": "dr__j__11@hotmail.com",
-        "firstName": "Jeffrey",
-        "lastName": "Franken",
-        "phoneNumber": "5052209478",
-        "rideStatus": 0,
-        "role": "DRIVER",
-        "accountStatus": false,
-        "houseLocation": {
-          "locationID": 2,
-          "address1": "His House",
-          "address2": "Apt. 2",
-          "city": "Tampa",
-          "state": "FL",
-          "zipCode": "99999",
-          "housingLocationName": "The Second Apartment",
-          "trainingLocation": {
-            "trainingLocationID": 1,
-            "trainingLocationName": "USF"
-          }
-        },
-        "carDto": {
-          "seatNumber": "5"
-        }
-      },
-      "password": "dfj",
-      "email": "ppSbNBm"
     }
   ]
 }
