@@ -119,7 +119,6 @@
             >
               <mat-select placeholder="Training Location"
               name="selectedTrainingLocation"
-              [(ngModel)]="selectedLocation"
               >
                 <mat-option
                   *ngFor="let i of trainingLocations"
@@ -139,7 +138,7 @@
               [(ngModel)]="user.houseLocation"
               >
                 <mat-option 
-                *ngFor="let i of housingLocations | isLocation: selectedLocation"
+                *ngFor="let i of housingLocations"
                 [(value)]="i" 
                 >{{i.housingLocationName}}</mat-option>
               </mat-select>

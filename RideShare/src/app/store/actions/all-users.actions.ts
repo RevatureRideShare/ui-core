@@ -1,25 +1,25 @@
-import { Action } from '@ngrx/store';
-import { User } from '../../models/user.model';
+import { Action } from "@ngrx/store";
+import { User } from "../../models/user.model";
 
 /**
  * All the actions types related to the allUsers state
  */
 export enum AllUsersActionTypes {
-  LOAD_ALL_USERS = '[ADMIN] Loading All Users',
-  LOAD_ALL_USERS_SUCCESS = '[ADMIN] Loading All Users Success',
-  LOAD_ALL_USERS_FAIL = '[ADMIN] Loading All User Fail',
-  REGISTER_USER = '[REGISTER] Adding New User',
-  REGISTER_USER_SUCCESS = '[REGISTER] Adding New User Success',
-  REGISTER_USER_FAIL = '[REGISTER] Adding New User Fail',
-  UPDATE_USER = '[ADMIN] Updating User',
-  UPDATE_USER_SUCCESS = '[ADMIN] Updating User Success',
-  UPDATE_USER_FAIL = '[ADMIN] Updating User Fail',
-  LOGIN_USER = '[LOGIN] Login User',
-  LOGIN_USER_SUCCESS = '[LOGIN] Login User Success',
-  LOGIN_USER_FAIL = '[LOGIN] Login User Fail',
-  LOAD_ALL_DRIVERS = '[HOME] Load All Drivers',
-  LOAD_ALL_DRIVERS_SUCCESS = '[HOME] Load All Driver Success',
-  LOAD_ALL_DRIVERS_FAIL = '[HOME] Load All Driver Fail'
+  LOAD_ALL_USERS = "[ADMIN] Loading All Users",
+  LOAD_ALL_USERS_SUCCESS = "[ADMIN] Loading All Users Success",
+  LOAD_ALL_USERS_FAIL = "[ADMIN] Loading All User Fail",
+  REGISTER_USER = "[REGISTER] Adding New User",
+  REGISTER_USER_SUCCESS = "[REGISTER] Adding New User Success",
+  REGISTER_USER_FAIL = "[REGISTER] Adding New User Fail",
+  UPDATE_USER = "[ADMIN] Updating User",
+  UPDATE_USER_SUCCESS = "[ADMIN] Updating User Success",
+  UPDATE_USER_FAIL = "[ADMIN] Updating User Fail",
+  LOGIN_USER = "[LOGIN] Login User",
+  LOGIN_USER_SUCCESS = "[LOGIN] Login User Success",
+  LOGIN_USER_FAIL = "[LOGIN] Login User Fail",
+  LOAD_ALL_DRIVERS = "[HOME] Load All Drivers",
+  LOAD_ALL_DRIVERS_SUCCESS = "[HOME] Load All Driver Success",
+  LOAD_ALL_DRIVERS_FAIL = "[HOME] Load All Driver Fail"
 }
 
 /**
@@ -97,7 +97,7 @@ export class LoadAllDriversFailAction implements Action {
  */
 export class LoginUserAction implements Action {
   readonly type = AllUsersActionTypes.LOGIN_USER;
-  constructor(public payload: { username: string; password: string }) {}
+  constructor(public payload: { email: string; password: string }) {}
 }
 
 /**
@@ -122,7 +122,7 @@ export class LoginUserFailAction implements Action {
 export class RegisterUserAction implements Action {
   readonly type = AllUsersActionTypes.REGISTER_USER;
   constructor(public payload: { user: User; password: string }) {
-    console.log(payload.user, payload.password) 
+    console.log(payload.user, payload.password);
   }
 }
 
@@ -146,18 +146,18 @@ export class RegisterUserFailAction implements Action {
  * Exporting all-user actions classes
  */
 export type AllUserAction =
-  LoadAllUsersAction |
-  LoadAllUsersSuccessAction |
-  LoadAllUsersFailAction |
-  UpdateUserAction |
-  UpdateUserSuccessAction |
-  UpdateUserFailAction |
-  LoadAllDriversAction |
-  LoadAllDriversSuccessAction |
-  LoadAllDriversFailAction |
-  LoginUserAction |
-  LoginUserSuccessAction |
-  LoginUserFailAction |
-  RegisterUserAction |
-  RegisterUserSuccessAction |
-  RegisterUserFailAction;
+  | LoadAllUsersAction
+  | LoadAllUsersSuccessAction
+  | LoadAllUsersFailAction
+  | UpdateUserAction
+  | UpdateUserSuccessAction
+  | UpdateUserFailAction
+  | LoadAllDriversAction
+  | LoadAllDriversSuccessAction
+  | LoadAllDriversFailAction
+  | LoginUserAction
+  | LoginUserSuccessAction
+  | LoginUserFailAction
+  | RegisterUserAction
+  | RegisterUserSuccessAction
+  | RegisterUserFailAction;
