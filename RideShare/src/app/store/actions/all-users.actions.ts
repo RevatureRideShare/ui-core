@@ -122,7 +122,7 @@ export class LoginUserFailAction implements Action {
 export class RegisterUserAction implements Action {
   readonly type = AllUsersActionTypes.REGISTER_USER;
   constructor(public payload: { user: User; password: string }) {
-    console.log(payload.user, payload.password) 
+    console.log(payload.user, payload.password);
   }
 }
 
@@ -146,18 +146,18 @@ export class RegisterUserFailAction implements Action {
  * Exporting all-user actions classes
  */
 export type AllUserAction =
-  LoadAllUsersAction |
-  LoadAllUsersSuccessAction |
-  LoadAllUsersFailAction |
-  UpdateUserAction |
-  UpdateUserSuccessAction |
-  UpdateUserFailAction |
-  LoadAllDriversAction |
-  LoadAllDriversSuccessAction |
-  LoadAllDriversFailAction |
-  LoginUserAction |
-  LoginUserSuccessAction |
-  LoginUserFailAction |
-  RegisterUserAction |
-  RegisterUserSuccessAction |
-  RegisterUserFailAction;
+  | LoadAllUsersAction
+  | LoadAllUsersSuccessAction
+  | LoadAllUsersFailAction
+  | UpdateUserAction
+  | UpdateUserSuccessAction
+  | UpdateUserFailAction
+  | LoadAllDriversAction
+  | LoadAllDriversSuccessAction
+  | LoadAllDriversFailAction
+  | LoginUserAction
+  | LoginUserSuccessAction
+  | LoginUserFailAction
+  | RegisterUserAction
+  | RegisterUserSuccessAction
+  | RegisterUserFailAction;

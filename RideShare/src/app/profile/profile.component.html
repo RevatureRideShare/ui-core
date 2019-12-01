@@ -5,9 +5,9 @@
     <mat-card-content *ngIf="currentUser | async as thisUser">
       <section>
         <mat-checkbox
-          *ngIf="thisUser.user.role === 'DRIVER'; else rider"
-          [(ngModel)]="thisUser.user.rideStatus"
-          (ngModelChange)="updateDriverStatus(thisUser.user)"
+          *ngIf="thisUser.userDto.role === 'DRIVER'; else rider"
+          [(ngModel)]="thisUser.userDto.rideStatus"
+          (ngModelChange)="updateDriverStatus(thisUser.userDto)"
           >Active Driver?</mat-checkbox
         >
         <ng-template #rider>

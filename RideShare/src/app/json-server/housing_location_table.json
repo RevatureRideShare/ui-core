@@ -1,6 +1,7 @@
 {
   "housing-location": [
     {
+      "locationID": 1,
       "address1": "My House",
       "address2": "Apt. 1",
       "city": "Tampa",
@@ -8,10 +9,12 @@
       "zipCode": "99999",
       "housingLocationName": "IQ Apartments",
       "trainingLocation": {
+        "trainingLocationID": 1,
         "trainingLocationName": "USF"
       }
     },
     {
+      "locationID": 2,
       "address1": "His House",
       "address2": "Apt. 2",
       "city": "Tampa",
@@ -19,10 +22,12 @@
       "zipCode": "99999",
       "housingLocationName": "The Second Apartment",
       "trainingLocation": {
+        "trainingLocationID": 1,
         "trainingLocationName": "USF"
       }
     },
     {
+      "locationID": 3,
       "address1": "That House",
       "address2": "Apt. 3",
       "city": "Los Angeles",
@@ -30,10 +35,12 @@
       "zipCode": "34343",
       "housingLocationName": "Far Away Apartment",
       "trainingLocation": {
+        "trainingLocationID": 2,
         "trainingLocationName": "UCLA"
       }
     },
     {
+      "locationID": 4,
       "address1": "That Other House",
       "address2": "Apt. 4",
       "city": "Los Angeles",
@@ -41,6 +48,7 @@
       "zipCode": "34343",
       "housingLocationName": "Somewhat Away Apartment",
       "trainingLocation": {
+        "trainingLocationID": 2,
         "trainingLocationName": "UCLA"
       }
     }

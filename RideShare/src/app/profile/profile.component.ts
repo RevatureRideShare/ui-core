@@ -32,7 +32,6 @@ export class ProfileComponent implements OnInit {
   }
 
   updateDriverStatus(user: User) {
-    console.log(user)
     this.store.dispatch(
       new UpdateUserAction(user)
     );
