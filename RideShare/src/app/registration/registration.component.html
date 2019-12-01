@@ -100,7 +100,7 @@
                   placeholder="How many seats in your car?"
                   [(ngModel)]="selectedSeats"
                   name="numberOfSeats"
-                  [(ngModel)]="user.carDto.seatNumber"
+                  [(ngModel)]="user.car.seatNumber"
                 >
                   <mat-option value="1">1</mat-option>
                   <mat-option value="2">2</mat-option>
@@ -119,8 +119,8 @@
             >
               <mat-select
                 placeholder="Training Location"
-                name="selectedTrainingLocation"
                 [(ngModel)]="selectedLocation"
+                name="selectedTrainingLocation"
               >
                 <mat-option
                   *ngFor="let i of trainingLocations"

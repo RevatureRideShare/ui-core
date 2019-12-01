@@ -1,11 +1,9 @@
 {
   "training-location": [
     {
-      "trainingLocationID": 1,
       "trainingLocationName": "USF"
     },
     {
-      "trainingLocationID": 2,
       "trainingLocationName": "UCLA"
     }
   ]
