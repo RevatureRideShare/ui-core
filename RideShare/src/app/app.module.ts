@@ -24,7 +24,6 @@ import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { DriverComponent } from './driver/driver.component';
-import { AdminComponent } from './admin/admin.component';
 import { IsLocationPipe } from './pipes/is-location.pipe';
 
 // This is the material toolbar import and associated icon import
@@ -44,6 +43,7 @@ import { MatTableModule } from '@angular/material/table';
 import { TrainingLocationService } from './services/TrainingLocationService/training-location.service';
 import { LocationEffects } from './store/effects/location.effects';
 import { AllUserEffects } from './store/effects/all-user.effects';
+import { RouteEffects } from './store/effects/route.effects';
 
 @NgModule({
   declarations: [
@@ -55,7 +55,6 @@ import { AllUserEffects } from './store/effects/all-user.effects';
     NavbarComponent,
     ProfileComponent,
     DriverComponent,
-    AdminComponent,
     IsLocationPipe
   ],
   imports: [
@@ -75,7 +74,7 @@ import { AllUserEffects } from './store/effects/all-user.effects';
     MatIconModule,
     MatCheckboxModule,
     MatTableModule,
-    EffectsModule.forRoot([LocationEffects, AllUserEffects]),
+    EffectsModule.forRoot([LocationEffects, AllUserEffects, RouteEffects]),
     StoreModule.forRoot({
       allUsers: AllUserReducer,
       allTrainingLocations: AllTrainingReducer,
