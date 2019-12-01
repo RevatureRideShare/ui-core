@@ -22,12 +22,13 @@ import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileComponent } from './profile/profile.component';
+import { DriverComponent } from './driver/driver.component';
 import { IsLocationPipe } from './pipes/is-location.pipe';
 
 // This is the material toolbar import and associated icon import
 import { MatToolbarModule } from '@angular/material/toolbar';
 
-// These ng material imports are used in the registration and login components
+// these ng material imports are used in the registration and login components
 import {
   MatFormFieldModule,
   MatInputModule,
@@ -37,19 +38,20 @@ import {
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTableModule } from '@angular/material/table';
 import { TrainingLocationService } from './services/TrainingLocationService/training-location.service';
 import { LocationEffects } from './store/effects/location.effects';
 import { AllUserEffects } from './store/effects/all-user.effects';
-import { RouteEffects } from './store/effects/route.effects';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistrationComponent,
     HomeComponent,
-    NavbarComponent,
     FooterComponent,
+    NavbarComponent,
     ProfileComponent,
+    DriverComponent,
     IsLocationPipe
   ],
   imports: [
@@ -68,7 +70,8 @@ import { RouteEffects } from './store/effects/route.effects';
     MatToolbarModule,
     MatIconModule,
     MatCheckboxModule,
-    EffectsModule.forRoot([AllUserEffects, LocationEffects, RouteEffects]),
+    MatTableModule,
+    EffectsModule.forRoot([LocationEffects, AllUserEffects]),
     StoreModule.forRoot({
       allUsers: AllUserReducer,
       allTrainingLocations: AllTrainingReducer,
