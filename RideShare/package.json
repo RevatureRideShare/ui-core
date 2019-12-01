@@ -12,8 +12,7 @@
     "json-server-test": "json-server ./src/app/json-server/test.json",
     "json-server-user": "json-server ./src/app/json-server/user_table.json --config ./src/app/json-server/configurations/user_table.configurations.json",
     "json-server-housing-location": "json-server ./src/app/json-server/housing_location_table.json --config ./src/app/json-server/configurations/housing_location_table.configurations.json",
-    "json-server-training-location": "json-server ./src/app/json-server/training_location_table.json --config ./src/app/json-server/configurations/training_location_table.configurations.json",
-    "test-headless": "ng test --watch=false --browsers=ChromeHeadless --code-coverage"
+    "json-server-training-location": "json-server ./src/app/json-server/training_location_table.json --config ./src/app/json-server/configurations/training_location_table.configurations.json"
   },
   "private": true,
   "dependencies": {

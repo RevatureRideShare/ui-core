@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../../models/user.model';
 
@@ -15,7 +16,7 @@ export class LoginService {
   /**
    * Server and port number of the request
    */
-  readonly port = 'http://localhost:3001';
+  readonly port = 'http://localhost:3000';
 
   /**
    * Endpoint of the request
@@ -33,6 +34,7 @@ export class LoginService {
   login(email: string, password: string) {
     /**Combine port and endpoint to get the url */
     let url = this.port + this.endpoint;
+
     /**
      * The http request
      * currently a get request for testing with a json server

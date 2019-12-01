@@ -14,9 +14,8 @@ import {
 import { initialLocationState } from '../location.reducers';
 import { HouseLocation } from 'src/app/models/houselocation.model';
 import { IAppState } from 'src/app/models/states/app-state.model';
-import { IUserState } from 'src/app/models/states/user-state.model';
 
-xdescribe('all-user reducer ', () => {
+fdescribe('all-user reducer ', () => {
   const initialAppState: IAppState = {
     authorization: '',
     userState: initialUserState,
@@ -84,7 +83,7 @@ xdescribe('all-user reducer ', () => {
   });
 
   // test UpdateUserAction
-  xit('should update a user in state', () => {
+  it('should update a user in state', () => {
     // create original state
     const initAction = new LoadAllUsersSuccessAction([user_1]);
     const initState = AllUserReducer(undefined, initAction);
@@ -96,7 +95,7 @@ xdescribe('all-user reducer ', () => {
   });
 
   // test UpdateUserSuccessAction
-  xit('should update a user in state', () => {
+  it('should update a user in state', () => {
     // create original state
     const initAction = new LoadAllUsersSuccessAction([user_1]);
     const initState = AllUserReducer(undefined, initAction);
@@ -108,7 +107,7 @@ xdescribe('all-user reducer ', () => {
   });
 
   // test UpdateUserFailAction
-  xit('should add error to state', () => {
+  it('should add error to state', () => {
     // create original state
     const initAction = new LoadAllUsersSuccessAction([user_1]);
     const initState = AllUserReducer(undefined, initAction);
