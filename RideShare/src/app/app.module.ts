@@ -29,6 +29,7 @@ import { IsLocationPipe } from './pipes/is-location.pipe';
 
 // This is the material toolbar import and associated icon import
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
 
 // these ng material imports are used in the registration and login components
 import {
@@ -77,6 +78,7 @@ import { RouteEffects } from './store/effects/route.effects';
     MatIconModule,
     MatCheckboxModule,
     MatTableModule,
+    MatMenuModule,
     EffectsModule.forRoot([LocationEffects, AllUserEffects, RouteEffects]),
     StoreModule.forRoot({
       allUsers: AllUserReducer,
