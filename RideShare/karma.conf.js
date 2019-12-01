@@ -30,6 +30,8 @@ module.exports = function (config) {
     sonarQubeUnitReporter: {
       sonarQubeVersion: 'LATEST',
       outputFile: 'reports/ut_report.xml',
+      overrideTestDescription: true,
+      testFilePattern: '.spec.ts',
       useBrowserName: false
     },
     port: 9876,
