@@ -4,11 +4,11 @@
 <div>
   <app-driver></app-driver>
 </div>
-<!--<div *ngIf="currUser | async as currentUser">-->
-<div *ngIf="currUser.role === 0">
-  <app-admin></app-admin>
+<div *ngIf="currUser | async as currentUser">
+  <div *ngIf="currentUser[0].role === 'ADMIN'">
+    <app-admin></app-admin>
+  </div>
 </div>
-<!--</div>-->
 <div>
   <app-footer></app-footer>
 </div>

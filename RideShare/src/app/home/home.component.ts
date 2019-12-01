@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User, Role, RideStatus } from '../models/user.model';
+import { User } from '../models/user.model';
 import { Store } from '@ngrx/store';
 import { IAppState } from '../models/states/app-state.model';
 
@@ -10,8 +10,8 @@ import { IAppState } from '../models/states/app-state.model';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  // currUser: Observable<User>;
-  currUser: User = {
+  currUser: Observable<User>;
+  /*currUser: User = {
     email: 'test@email.com',
     firstName: 'Test',
     lastName: 'Admin',
@@ -31,13 +31,11 @@ export class HomeComponent implements OnInit {
       }
     },
     car: { seatNumber: 0 }
-  };
+  };*/
 
   constructor(private store: Store<IAppState>) {}
 
   ngOnInit() {
-    /*this.currUser = this.store.select(
-      store => store.userState['currUser'].currUser
-    );*/
+    this.currUser = this.store.select(store => store['allUsers'].currentUser);
   }
 }

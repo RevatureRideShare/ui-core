@@ -44,6 +44,7 @@ import { MatTableModule } from '@angular/material/table';
 import { TrainingLocationService } from './services/TrainingLocationService/training-location.service';
 import { LocationEffects } from './store/effects/location.effects';
 import { AllUserEffects } from './store/effects/all-user.effects';
+import { RouteEffects } from './store/effects/route.effects';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,7 @@ import { AllUserEffects } from './store/effects/all-user.effects';
     MatIconModule,
     MatCheckboxModule,
     MatTableModule,
-    EffectsModule.forRoot([LocationEffects, AllUserEffects]),
+    EffectsModule.forRoot([LocationEffects, AllUserEffects, RouteEffects]),
     StoreModule.forRoot({
       allUsers: AllUserReducer,
       allTrainingLocations: AllTrainingReducer,

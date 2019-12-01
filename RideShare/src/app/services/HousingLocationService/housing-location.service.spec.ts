@@ -5,6 +5,7 @@ import {
   HttpClientTestingModule,
   HttpTestingController
 } from '@angular/common/http/testing';
+import { environment } from 'src/environments/environment';
 
 describe('HousingLocationService', () => {
   let injector: TestBed;
@@ -60,7 +61,9 @@ describe('HousingLocationService', () => {
       expect(data).toEqual(housingLocationList);
     });
 
-    const req = httpMock.expectOne('http://localhost:3003/housing-location');
+    const req = httpMock.expectOne(
+      environment.housingLocationUrl + environment.housingLocationEndpoint
+    );
     expect(req.request.method).toBe('GET');
     req.flush(housingLocationList);
   });

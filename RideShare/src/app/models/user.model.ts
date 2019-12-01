@@ -6,7 +6,6 @@ export enum RideStatus {
   ACTIVE
 }
 export enum Role {
-  ADMIN,
   RIDER,
   DRIVER
 }

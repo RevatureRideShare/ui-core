@@ -6,7 +6,7 @@
       "lastName": "Wang",
       "phoneNumber": "6666666666",
       "rideStatus": "INACTIVE",
-      "role": "RIDER",
+      "role": "ADMIN",
       "accountStatus": true,
       "houseLocation": {
         "address1": "My House",
@@ -30,7 +30,7 @@
       "phoneNumber": "1111111111",
       "rideStatus": "ACTIVE",
       "role": "DRIVER",
-      "accountStatus": false,
+      "accountStatus": true,
       "houseLocation": {
         "address1": "My House",
         "address2": "Apt. 1",
@@ -99,29 +99,6 @@
       "phoneNumber": "7777777777",
       "rideStatus": "ACTIVE",
       "role": "DRIVER",
-      "accountStatus": true,
-      "houseLocation": {
-        "address1": "His House",
-        "address2": "Apt. 2",
-        "city": "Tampa",
-        "state": "FL",
-        "zipCode": "99999",
-        "housingLocationName": "The Second Apartment",
-        "trainingLocation": {
-          "trainingLocationName": "USF"
-        }
-      },
-      "car": {
-        "seatNumber": 4
-      }
-    },
-    {
-      "email": "admin@gmail.com",
-      "firstName": "Admin",
-      "lastName": "IsHere",
-      "phoneNumber": "8888888888",
-      "rideStatus": "ACTIVE",
-      "role": "ADMIN",
       "accountStatus": true,
       "houseLocation": {
         "address1": "His House",
