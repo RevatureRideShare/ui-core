@@ -9,7 +9,7 @@ import { IUserState } from '../../models/states/user-state.model';
  * If current IUserState is not loaded from database yet, the initial state is used
  */
 export const initialUserState: IUserState = {
-  authorization: '',
+  authorization: null,
   currentUser: undefined,
   allUsers: [],
   loading: false,
@@ -42,6 +42,8 @@ export function AllUserReducer(
     case AllUsersActionTypes.LOAD_ALL_USERS_FAIL: {
       return {
         ...state,
+        authorization: null,
+        currentUser: undefined,
         loading: false,
         error: action.payload
       };
@@ -69,6 +71,8 @@ export function AllUserReducer(
     case AllUsersActionTypes.UPDATE_USER_FAIL: {
       return {
         ...state,
+        authorization: null,
+        currentUser: undefined,
         loading: false,
         error: action.payload
       };
@@ -89,6 +93,7 @@ export function AllUserReducer(
     case AllUsersActionTypes.LOAD_ALL_DRIVERS_FAIL: {
       return {
         ...state,
+        authorization: null,
         loading: false,
         error: action.payload
       };
@@ -100,8 +105,6 @@ export function AllUserReducer(
       };
     }
     case AllUsersActionTypes.LOGIN_USER_SUCCESS: {
-      console.log('allUser reducer http response');
-      console.log(action.payload);
       return {
         ...state,
         authorization: action.payload.headers,
@@ -112,6 +115,8 @@ export function AllUserReducer(
     case AllUsersActionTypes.LOGIN_USER_FAIL: {
       return {
         ...state,
+        authorization: null,
+        currentUser: undefined,
         loading: false,
         error: action.payload
       };
@@ -132,6 +137,8 @@ export function AllUserReducer(
     case AllUsersActionTypes.REGISTER_USER_FAIL: {
       return {
         ...state,
+        authorization: null,
+        currentUser: undefined,
         loading: false,
         error: action.payload
       };
