@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../../models/user.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -15,12 +16,12 @@ export class LoginService {
   /**
    * Server and port number of the request
    */
-  readonly port = 'http://localhost:3001';
+  readonly port = environment.userUrl;
 
   /**
    * Endpoint of the request
    */
-  readonly endpoint = '/login';
+  readonly endpoint = environment.loginEndpoint;
   constructor(private http: HttpClient) {}
 
   /**
@@ -32,9 +33,10 @@ export class LoginService {
    */
   login(email: string, password: string) {
     /**
-     * Combine port and endpoint to get the url 
+     * Combine port and endpoint to get the url
      */
     const url = this.port + this.endpoint;
+
     /**
      * The http request
      * currently a get request for testing with a json server

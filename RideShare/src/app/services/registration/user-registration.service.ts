@@ -2,26 +2,25 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { User } from '../../models/user.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserRegistrationService {
-  user: User;
-  password: string;
-  response: any;
   /**
    * Server and port number of the request
    */
-  readonly port = 'http://localhost:3002';
+  readonly port = environment.userUrl;
 
   /**
    * Endpoint of the request
    */
-  readonly endpoint = '/register-user';
+  readonly endpoint = environment.userEndpoint;
 
   registerUser(userDto: User, password: string) {
     const url = this.port + this.endpoint;
+    console.log(userDto);
     return this.http.post(url, { userDto, password });
   }
 

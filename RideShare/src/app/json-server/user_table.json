@@ -6,7 +6,7 @@
       "lastName": "Wang",
       "phoneNumber": "6666666666",
       "rideStatus": "INACTIVE",
-      "role": "RIDER",
+      "role": "DRIVER",
       "accountStatus": true,
       "houseLocation": {
         "locationID": 1,

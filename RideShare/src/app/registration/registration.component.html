@@ -1,5 +1,5 @@
 <mat-toolbar name="header" id="header" class="banners">
-  <span>RideForce: For My Rydaz</span>
+  <span>Welcome to RideShare!</span>
 </mat-toolbar>
 
 <div id="outer-container">
@@ -119,8 +119,8 @@
             >
               <mat-select
                 placeholder="Training Location"
-                name="selectedTrainingLocation"
                 [(ngModel)]="selectedLocation"
+                name="selectedTrainingLocation"
               >
                 <mat-option
                   *ngFor="let i of trainingLocations"
@@ -153,32 +153,22 @@
         </table>
       </mat-card-content>
       <mat-card-actions align="end">
-        <button
-          routerLink="/login"
-          type="button"
-          mat-raised-button
-          class="card-button"
-        >
+        <button routerLink="/login" type="button" class="btn">
           Login
         </button>
         <button
           (click)="register($event)"
           type="button"
-          mat-raised-button
-          class="card-button"
+          class="btn"
+          routerLink="/home"
         >
           Submit
-        </button>
-        <button routerLink="/register-company" type="button" class="btn">
-          Delete This Button
         </button>
       </mat-card-actions>
     </mat-card>
   </div>
 </div>
 
-<mat-toolbar name="footer" id="footer" class="banners">
-  <span
-    >This is a footer. This is where we will have information about feet.</span
-  >
-</mat-toolbar>
+<div>
+  <app-footer></app-footer>
+</div>
