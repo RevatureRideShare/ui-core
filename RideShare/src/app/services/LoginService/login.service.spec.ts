@@ -5,6 +5,7 @@ import {
   HttpClientTestingModule,
   HttpTestingController
 } from '@angular/common/http/testing';
+import { environment } from 'src/environments/environment';
 
 enum RideStatus {
   INACTIVE,
@@ -27,6 +28,10 @@ describe('LoginService', () => {
     injector = getTestBed();
     service = injector.get(LoginService);
     httpMock = injector.get(HttpTestingController);
+  });
+
+  afterEach(() => {
+    httpMock.verify();
   });
 
   const user: User = {
@@ -54,7 +59,9 @@ describe('LoginService', () => {
       expect(data).toEqual(user);
     });
 
-    const req = httpMock.expectOne('localhost:3000/login');
+    const req = httpMock.expectOne(
+      environment.userUrl + environment.userEndpoint
+    );
     expect(req.request.method).toBe('GET');
     req.flush(user);
   });

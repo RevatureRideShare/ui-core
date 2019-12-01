@@ -10,10 +10,10 @@ import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 
-//This is the material toolbar import and associated icon import
+// This is the material toolbar import and associated icon import
 import { MatToolbarModule } from '@angular/material/toolbar';
 
-//these ng material imports are used in the registration and login components
+// These ng material imports are used in the registration and login components
 import {
   MatFormFieldModule,
   MatInputModule,
