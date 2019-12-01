@@ -31,15 +31,16 @@ export class LoginService {
    * email and password have no function while testing with json server
    */
   login(email: string, password: string) {
-    /**Combine port and endpoint to get the url */
-    let url = this.port + this.endpoint;
+    /**
+     * Combine port and endpoint to get the url 
+     */
+    const url = this.port + this.endpoint;
     /**
      * The http request
      * currently a get request for testing with a json server
      */
 
-    // need to fix this function
     // return this.http.get<User>(url);
-    return this.http.get<User>(url, {observe: 'response'});
+    return this.http.get<User>(url, {observe: 'response'});   // TODO this function should be POST
   }
 }

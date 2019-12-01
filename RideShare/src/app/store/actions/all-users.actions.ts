@@ -132,7 +132,7 @@ export class RegisterUserAction implements Action {
  */
 export class RegisterUserSuccessAction implements Action {
   readonly type = AllUsersActionTypes.REGISTER_USER_SUCCESS;
-  constructor(public payload: User) {}
+  constructor(public payload: HttpResponse<User>) {}
 }
 
 /**
