@@ -22,6 +22,7 @@ import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileComponent } from './profile/profile.component';
+import { IsLocationPipe } from './pipes/is-location.pipe';
 
 // This is the material toolbar import and associated icon import
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -48,7 +49,8 @@ import { RouteEffects } from './store/effects/route.effects';
     HomeComponent,
     NavbarComponent,
     FooterComponent,
-    ProfileComponent
+    ProfileComponent,
+    IsLocationPipe
   ],
   imports: [
     BrowserModule,
