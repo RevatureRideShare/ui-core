@@ -29,7 +29,7 @@ import { IsLocationPipe } from './pipes/is-location.pipe';
 // This is the material toolbar import and associated icon import
 import { MatToolbarModule } from '@angular/material/toolbar';
 
-// these ng material imports are used in the registration and login components
+// These ng material imports are used in the registration and login components
 import {
   MatFormFieldModule,
   MatInputModule,
