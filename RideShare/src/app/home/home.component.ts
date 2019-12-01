@@ -11,27 +11,6 @@ import { IAppState } from '../models/states/app-state.model';
 })
 export class HomeComponent implements OnInit {
   currUser: Observable<User>;
-  /*currUser: User = {
-    email: 'test@email.com',
-    firstName: 'Test',
-    lastName: 'Admin',
-    phoneNumber: '5557779999',
-    rideStatus: RideStatus.ACTIVE,
-    role: Role.ADMIN,
-    accountStatus: true,
-    houseLocation: {
-      address1: 'Street',
-      address2: 'Apt.',
-      city: 'Tampa',
-      state: 'FL',
-      zipCode: '12345',
-      housingLocationName: 'IQ Apartments',
-      trainingLocation: {
-        trainingLocationName: 'USF'
-      }
-    },
-    car: { seatNumber: 0 }
-  };*/
 
   constructor(private store: Store<IAppState>) {}
 

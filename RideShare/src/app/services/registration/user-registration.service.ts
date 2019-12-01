@@ -8,9 +8,6 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class UserRegistrationService {
-  user: User;
-  password: string;
-  response: any;
   /**
    * Server and port number of the request
    */
@@ -21,9 +18,9 @@ export class UserRegistrationService {
    */
   readonly endpoint = environment.userEndpoint;
 
-  registerUser(user: User, password: string) {
+  registerUser(userDto: User, password: string) {
     const url = this.port + this.endpoint;
-    return this.http.post(url, { user, password });
+    return this.http.post(url, { userDto, password });
   }
 
   constructor(private router: Router, private http: HttpClient) {}
