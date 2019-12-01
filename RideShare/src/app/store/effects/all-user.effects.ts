@@ -25,6 +25,7 @@ import {
 import { User } from 'src/app/models/user.model';
 import { AllUsersService } from 'src/app/services/AllUsersServices/all-users.service';
 import { AllDriversService } from 'src/app/services/AllDriversServices/all-drivers.service';
+import { HttpResponse } from '@angular/common/http';
 
 @Injectable()
 export class AllUserEffects {
@@ -44,7 +45,7 @@ export class AllUserEffects {
     ofType<LoginUserAction>(AllUsersActionTypes.LOGIN_USER),
     mergeMap(data =>
       this.loginService.login(data.payload.email, data.payload.password).pipe(
-        map((user: User) => new LoginUserSuccessAction(user)),
+        map((res :HttpResponse<User>) => new LoginUserSuccessAction(res)),
         catchError(error => of(new LoginUserFailAction(error)))
       )
     )

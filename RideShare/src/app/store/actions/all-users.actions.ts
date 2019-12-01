@@ -1,5 +1,6 @@
 import { Action } from '@ngrx/store';
 import { User } from '../../models/user.model';
+import { HttpResponse } from '@angular/common/http';
 
 /**
  * All the actions types related to the allUsers state
@@ -105,7 +106,7 @@ export class LoginUserAction implements Action {
  */
 export class LoginUserSuccessAction implements Action {
   readonly type = AllUsersActionTypes.LOGIN_USER_SUCCESS;
-  constructor(public payload: User) {}
+  constructor(public payload: HttpResponse<User>) {}
 }
 
 /**

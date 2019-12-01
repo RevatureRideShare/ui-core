@@ -37,6 +37,9 @@ export class LoginService {
      * The http request
      * currently a get request for testing with a json server
      */
-    return this.http.get<User>(url);
+
+    // need to fix this function
+    // return this.http.get<User>(url);
+    return this.http.get<User>(url, {observe: 'response'});
   }
 }

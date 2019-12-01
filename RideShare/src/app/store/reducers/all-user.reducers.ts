@@ -100,9 +100,12 @@ export function AllUserReducer(
       };
     }
     case AllUsersActionTypes.LOGIN_USER_SUCCESS: {
+      console.log('allUser reducer http response');
+      console.log(action.payload);
       return {
         ...state,
-        currentUser: action.payload,
+        authorization: action.payload.headers,
+        currentUser: action.payload.body,
         loading: false
       };
     }
