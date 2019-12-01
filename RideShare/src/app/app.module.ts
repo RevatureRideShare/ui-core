@@ -21,6 +21,7 @@ import { AuthenticationReducer } from './store/reducers/authentication.reducers'
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ProfileComponent } from './profile/profile.component';
 
 // This is the material toolbar import and associated icon import
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -34,6 +35,7 @@ import {
 } from '@angular/material';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { TrainingLocationService } from './services/TrainingLocationService/training-location.service';
 import { LocationEffects } from './store/effects/location.effects';
 import { AllUserEffects } from './store/effects/all-user.effects';
@@ -45,7 +47,8 @@ import { RouteEffects } from './store/effects/route.effects';
     RegistrationComponent,
     HomeComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -62,6 +65,7 @@ import { RouteEffects } from './store/effects/route.effects';
     MatSelectModule,
     MatToolbarModule,
     MatIconModule,
+    MatCheckboxModule,
     EffectsModule.forRoot([AllUserEffects, LocationEffects, RouteEffects]),
     StoreModule.forRoot({
       allUsers: AllUserReducer,
