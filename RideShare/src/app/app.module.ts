@@ -8,7 +8,6 @@ import { AppRoutingModule, routing } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
@@ -47,7 +46,6 @@ import { AllUserEffects } from './store/effects/all-user.effects';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     RegistrationComponent,
     HomeComponent,
     FooterComponent,
