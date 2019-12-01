@@ -17,7 +17,10 @@ import {
   LoadAllUsersFailAction,
   LoadAllDriversAction,
   LoadAllDriversSuccessAction,
-  LoadAllDriversFailAction
+  LoadAllDriversFailAction,
+  UpdateUserAction,
+  UpdateUserSuccessAction,
+  UpdateUserFailAction
 } from '../actions/all-users.actions';
 import { User } from 'src/app/models/user.model';
 import { AllUsersService } from 'src/app/services/AllUsersServices/all-users.service';
@@ -90,4 +93,18 @@ export class AllUserEffects {
       )
     )
   );
+
+  /**
+   * The effect to update certain user
+   */
+  @Effect()
+  updateUser$ = this.action$.pipe(
+    ofType<UpdateUserAction>(AllUsersActionTypes.UPDATE_USER),
+    mergeMap((data) => 
+    this.userService.updateUser(data.payload).pipe(
+      map(user => new UpdateUserSuccessAction(user)),
+      catchError(error => of(new UpdateUserFailAction(error)))
+    )
+    )
+  )
 }

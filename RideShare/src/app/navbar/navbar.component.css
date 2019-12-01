@@ -27,46 +27,27 @@
 }
 
 a {
+  padding: 10px 20px 10px 10px;
   text-decoration: none;
-  color: black;
+  color: black
 }
 
 mat-toolbar {
   background-color: white;
 }
 
-
-ul {
-  margin-top: 40px;
+div {
+  font-family: "Futura-PT-Bold";
 }
 
 li{
   display: inline;
-  margin-right: 100px;
+  margin: 0 0 0 10px;
+  padding: 0;
   vertical-align: top;
-}
-
-li>a:hover {
-  border-bottom: 2px solid #f26925;
 }
 
 .nav-right {
   margin-left: auto;
-  margin-right: 200px;
+  margin-right: 100px;
 }
-
-.logo {
-  margin-left: 200px;
-}
-
-.down-arrow {
-  margin-left:10px;
-}
-
-.font-bold {
-  font-family: "Futura-PT-Bold";
-}
-.font-bold-italic {
-  font-family: "Futura-PT-Bold-Oblique";
-}
-

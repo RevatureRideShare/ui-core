@@ -85,9 +85,4 @@ export class RegistrationComponent implements OnInit {
       new RegisterUserAction({ user: this.user, password: this.password })
     );
   }
-
-  findHouse(event) {
-    console.log(event);
-    this.trainingLocation;
-  }
 }

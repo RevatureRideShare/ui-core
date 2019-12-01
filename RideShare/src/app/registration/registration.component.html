@@ -1,5 +1,5 @@
 <mat-toolbar name="header" id="header" class="banners">
-  <span>RideForce: For My Rydaz</span>
+  <span>Welcome to RideShare!</span>
 </mat-toolbar>
 
 <div id="outer-container">
@@ -100,7 +100,7 @@
                   placeholder="How many seats in your car?"
                   [(ngModel)]="selectedSeats"
                   name="numberOfSeats"
-                  [(ngModel)]="user.car.seatNumber"
+                  [(ngModel)]="user.carDto.seatNumber"
                 >
                   <mat-option value="1">1</mat-option>
                   <mat-option value="2">2</mat-option>
@@ -117,9 +117,10 @@
               class="half"
               *ngIf="allTrainingLocations | async as trainingLocations"
             >
-              <mat-select placeholder="Training Location"
-              name="selectedTrainingLocation"
-              [(ngModel)]="selectedLocation"
+              <mat-select
+                placeholder="Training Location"
+                [(ngModel)]="selectedLocation"
+                name="selectedTrainingLocation"
               >
                 <mat-option
                   *ngFor="let i of trainingLocations"
@@ -130,50 +131,39 @@
             </td>
           </tr>
           <tr class="full">
-            <td 
-            class="half" 
-            *ngIf="allHouseLocations | async as housingLocations"
+            <td
+              class="half"
+              *ngIf="allHouseLocations | async as housingLocations"
             >
-              <mat-select placeholder="Housing Location Name"
-              name="selectedHousingLocation"
-              [(ngModel)]="user.houseLocation"
+              <mat-select
+                placeholder="Housing Location Name"
+                name="selectedHousingLocation"
+                [(ngModel)]="user.houseLocation"
               >
-                <mat-option 
-                *ngFor="let i of housingLocations | isLocation: selectedLocation"
-                [(value)]="i" 
-                >{{i.housingLocationName}}</mat-option>
+                <mat-option
+                  *ngFor="
+                    let i of housingLocations | isLocation: selectedLocation
+                  "
+                  [(value)]="i"
+                  >{{ i.housingLocationName }}</mat-option
+                >
               </mat-select>
             </td>
           </tr>
         </table>
       </mat-card-content>
       <mat-card-actions align="end">
-        <button
-          routerLink="/login"
-          type="button"
-          mat-raised-button
-          class="card-button"
-        >
-          Login
+        <button routerLink="/" type="button" class="btn">
+          BACK TO LOGIN
         </button>
-        <button
-          (click)="register($event)"
-          type="button"
-          mat-raised-button
-          class="card-button"
-        >
-          Submit
-        </button>
-        <button routerLink="/register-company" type="button" class="btn">
-          Delete This Button
+        <button (click)="register($event)" type="button" class="btn">
+          SUBMIT
         </button>
       </mat-card-actions>
     </mat-card>
   </div>
 </div>
 
-<mat-toolbar name="footer" id="footer" class="banners">
-  <span
-    >This is a footer. This is where we will have information about feet.</span
-  >
-</mat-toolbar>
+<div>
+  <app-footer></app-footer>
+</div>
