@@ -6,6 +6,7 @@ import {
   HttpClientTestingModule,
   HttpTestingController
 } from '@angular/common/http/testing';
+import { environment } from 'src/environments/environment';
 
 enum RideStatus {
   INACTIVE,
@@ -79,7 +80,9 @@ describe('AllDriversService', () => {
       expect(data).toEqual(DriverList);
     });
 
-    const req = httpMock.expectOne('http://localhost:3001/user?role=DRIVER');
+    const req = httpMock.expectOne(
+      environment.userUrl + environment.driverEndpoint
+    );
     expect(req.request.method).toBe('GET');
     req.flush(DriverList);
   });

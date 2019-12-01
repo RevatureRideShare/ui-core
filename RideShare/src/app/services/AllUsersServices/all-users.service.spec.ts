@@ -7,6 +7,8 @@ import {
   HttpTestingController
 } from '@angular/common/http/testing';
 
+import { environment } from 'src/environments/environment';
+
 enum RideStatus {
   INACTIVE,
   ACTIVE
@@ -81,7 +83,9 @@ describe('AllUsersService', () => {
       expect(data).toEqual(UserList);
     });
 
-    const req = httpMock.expectOne('http://localhost:3001/user');
+    const req = httpMock.expectOne(
+      environment.userUrl + environment.userEndpoint
+    );
     expect(req.request.method).toBe('GET');
     req.flush(UserList);
   });

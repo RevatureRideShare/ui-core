@@ -1,10 +1,10 @@
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { TrainingLocation } from "../../models/traininglocation.model";
-import { HouseLocation } from "../../models/houselocation.model";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { HouseLocation } from '../../models/houselocation.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 
 /**
@@ -16,22 +16,26 @@ export class HousingLocationService {
   /**
    * Server and port number of the request
    */
-  readonly port = "http://localhost:3003";
+  readonly port = environment.housingLocationUrl;
 
   /**
    * The endpoint of the request
    */
-  readonly endpoint = "/housing-location";
+  readonly endpoint = environment.housingLocationEndpoint;
   constructor(private http: HttpClient) {}
 
   /**
    * Gets all housing locations
    */
   getHousingLocations() {
-    /**Combine port and endpoint to get the url */
-    let url = this.port + this.endpoint;
+    /**
+     * Combine port and endpoint to get the url
+     */
+    const url = this.port + this.endpoint;
 
-    /**The http request */
+    /**
+     * The http request
+     */
     return this.http.get<HouseLocation[]>(url);
   }
 }

@@ -5,6 +5,7 @@ import {
   HttpClientTestingModule,
   HttpTestingController
 } from '@angular/common/http/testing';
+import { environment } from 'src/environments/environment';
 
 enum RideStatus {
   INACTIVE,
@@ -58,7 +59,9 @@ describe('LoginService', () => {
       expect(data).toEqual(user);
     });
 
-    const req = httpMock.expectOne('http://localhost:3001/login');
+    const req = httpMock.expectOne(
+      environment.userUrl + environment.userEndpoint
+    );
     expect(req.request.method).toBe('GET');
     req.flush(user);
   });

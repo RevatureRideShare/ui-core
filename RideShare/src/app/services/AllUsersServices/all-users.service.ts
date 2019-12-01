@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from 'src/app/models/user.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +10,11 @@ export class AllUsersService {
   /**
    * Server and port number of the request
    */
-  readonly port = 'http://localhost:3001';
+  readonly port = environment.userUrl;
   /**
    * The endpoint of the request
    */
-  readonly endpoint = '/user';
+  readonly endpoint = environment.userEndpoint;
   constructor(private http: HttpClient) {}
   /**
    * Gets all users
