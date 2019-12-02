@@ -41,9 +41,6 @@ export class LoginService {
      * The http request
      * currently a get request for testing with a json server
      */
-    return this.http.post<HttpResponse<User>>(url, {
-      'email': email,
-      'password': password
-    });
+    return this.http.post<HttpResponse<User>>(url, {email, password});
   }
 }
