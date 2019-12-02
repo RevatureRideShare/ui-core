@@ -1,0 +1,68 @@
+#link-container{
+    min-width: 100%;
+    max-height: 100%;
+} 
+
+#revature-image {
+    margin-left: 10%;
+    height: 90%;
+    width: 40%;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+}
+
+button {
+    border-color: #F26925;
+    color: #F26925;
+    
+}
+
+.btn:hover, .btn:active, .btn:focus {
+    background-color: #F26925;
+    color: #FFFFFF;
+    box-shadow: none;
+}
+
+#profile {
+    margin-right:2%;
+}
+
+#logout {
+    margin-right:2%;
+}
+
+#navbar {
+    height: 80px;
+}
+
+ul {
+    margin-left: 0%;
+    width: 100%;
+    /* width: 40%; */
+    /* padding: 0;
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none; */
+}
+
+li {
+    max-height: 100%;
+    font-family: 'Futura-PT';
+    font-size: 15px;
+}
+
+.words {
+    margin-top: 1%;
+}
+
+.buttons {
+    margin-top: 1%;
+    margin-left: 3%;
+}
+
+#home-li {
+    margin-left: 10%;
+}
+#profile-li {
+    margin-left: 30%;
+}

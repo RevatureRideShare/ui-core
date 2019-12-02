@@ -10,6 +10,7 @@ import { Store } from '@ngrx/store';
 import { User } from '../models/user.model';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
@@ -26,6 +27,7 @@ describe('LoginComponent', () => {
     loading: false,
     error: undefined
   };
+
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
