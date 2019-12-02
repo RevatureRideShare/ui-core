@@ -1,8 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
 
-const appRoutes: Routes = [];
+const appRoutes: Routes = [
+  // { path: '', component: LoginComponent },
+  // { path: 'registration', component: RegistrationComponent },
+  { path: 'home', component: HomeComponent }
+];
 
 @NgModule({
   declarations: [],
