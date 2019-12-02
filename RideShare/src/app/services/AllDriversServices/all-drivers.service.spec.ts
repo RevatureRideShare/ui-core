@@ -1,5 +1,4 @@
 import { TestBed, getTestBed } from '@angular/core/testing';
-
 import { AllDriversService } from './all-drivers.service';
 import { User } from '../../models/user.model';
 import {
@@ -45,15 +44,16 @@ describe('AllDriversService', () => {
       role: Role.DRIVER,
       accountStatus: false,
       houseLocation: {
+        locationID: 1,
         address1: 'test',
         address2: 'test',
         city: 'test',
         state: 'test',
         zipCode: 'test',
         housingLocationName: 'IQ',
-        trainingLocation: { trainingLocationName: 'USF' }
+        trainingLocation: { trainingLocationID: 1, trainingLocationName: 'USF' }
       },
-      car: { seatNumber: 4 }
+      carDto: { seatNumber: 4 }
     },
     {
       email: 'test2',
@@ -64,15 +64,16 @@ describe('AllDriversService', () => {
       role: Role.DRIVER,
       accountStatus: false,
       houseLocation: {
+        locationID: 1,
         address1: 'test',
         address2: 'test',
         city: 'test',
         state: 'test',
         zipCode: 'test',
         housingLocationName: 'IQ',
-        trainingLocation: { trainingLocationName: 'USF' }
+        trainingLocation: { trainingLocationID: 1, trainingLocationName: 'USF' }
       },
-      car: { seatNumber: 4 }
+      carDto: { seatNumber: 4 }
     }
   ];
   it('getAllDrivers should return drivers', () => {

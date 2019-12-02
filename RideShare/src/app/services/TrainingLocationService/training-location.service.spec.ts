@@ -27,12 +27,15 @@ describe('TrainingLocationService', () => {
 
   const trainingLocationList = [
     {
+      trainingLocationID: 1,
       trainingLocationName: 'test1'
     },
     {
+      trainingLocationID: 2,
       trainingLocationName: 'test2'
     },
     {
+      trainingLocationID: 3,
       trainingLocationName: 'test3'
     }
   ];
