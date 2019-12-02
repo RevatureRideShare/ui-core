@@ -6,28 +6,8 @@ import { HouseLocation } from '../houselocation.model';
  *
  * Imported by:
  * app-state.model.ts
- * location.action.ts
  */
-export interface ILocationState {
-  /**
-   * allTrainingLocations: Array<TrainingLocation> 
-   * - contains all of the training locations known in the database
-   */
+export interface ILocationState{
   readonly allTrainingLocations: Array<TrainingLocation>;
-
-  /**
-   * allHousingLocations: Array<HouseLocation> 
-   * - contains all of the housing locations known in the database
-   */
   readonly allHousingLocations: Array<HouseLocation>;
-
-  /**
-   * loading: boolean - indicate the loading status of IUserState
-   */
-  loading: boolean;
-
-  /**
-   * error: Error - indicate the error when manipulating IUserState if any
-   */
-  error: Error;
 }

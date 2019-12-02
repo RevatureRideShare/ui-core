@@ -1,6 +1,0 @@
-{
-  "port": 3001,
-  "routes": "./src/app/json-server/routes/user_table.routes.json",
-  "watch": true,
-  "id": "email"
-}

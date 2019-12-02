@@ -6,29 +6,19 @@ import { User } from '../user.model';
  * Imported by:
  * app-state.model.ts
  */
-export interface IUserState {
-  /**
-   * authorize: string - contains the JWT for the current session
-   */
-  readonly authorization: string;
-  
+export interface IUserState{
   /**
    * currentUser: User - contains information for the current user in this session
    */
-  readonly currentUser: User;
+  currentUser: User;
+
+  /**
+   * allDrivers: Array<User> - contains all of the drivers known in the database
+   */
+  allDrivers: Array<User>;
 
   /**
    * allUsers: Array<User> - contains all of the users known in the database
    */
-  readonly allUsers: Array<User>;
-
-  /**
-   * loading: boolean - indicate the loading status of IUserState
-   */
-  loading: boolean;
-
-  /**
-   * error: Error - indicate the error when manipulating IUserState if any
-   */
-  error: Error;
+  allUsers: Array<User>;
 }
