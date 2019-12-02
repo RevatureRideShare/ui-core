@@ -106,8 +106,8 @@ export function AllUserReducer(
       };
     }
     case AllUsersActionTypes.LOGIN_USER_SUCCESS: {
-      console.log('login success reducer, print response');
-      console.log(action.payload);
+      console.log('login success reducer, print token');
+      console.log(action.payload.headers.get('Authorization'));
       return {
         ...state,
         // TODO get correct auth token from header
