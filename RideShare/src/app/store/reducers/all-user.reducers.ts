@@ -106,9 +106,8 @@ export function AllUserReducer(
       };
     }
     case AllUsersActionTypes.LOGIN_USER_SUCCESS: {
-      console.log('login success reducer, print header and body of response');
-      console.log(action.payload.headers);
-      console.log(action.payload.body);
+      console.log('login success reducer, print response');
+      console.log(action.payload);
       return {
         ...state,
         authorization: action.payload.headers, // TODO get correct auth token from header
@@ -133,10 +132,9 @@ export function AllUserReducer(
     }
     case AllUsersActionTypes.REGISTER_USER_SUCCESS: {
       console.log(
-        'register success reducer, print header and body of response'
+        'register success reducer, print response'
       );
-      console.log(action.payload.headers);
-      console.log(action.payload.body);
+      console.log(action.payload);
       return {
         ...state,
         authorization: action.payload.headers, // TODO get correct auth token from header
