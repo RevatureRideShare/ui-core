@@ -1,6 +1,6 @@
 {
   "port": 3002,
-  "routes": "./src/app/json-server/routes/training_location_table.routes.json",
   "watch": true,
-  "id": "trainingLocationName"
+  "id": "trainingLocationName",
+  "no-cors": true
 }
