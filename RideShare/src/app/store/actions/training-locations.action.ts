@@ -23,7 +23,8 @@ export class LoadAllTrainingLocationsAction implements Action {
 export class LoadAllTrainingSuccessLocationsAction implements Action {
   readonly type =
     TrainingLocationsActionTypes.LOAD_ALL_TRAINING_LOCATIONS_SUCCESS;
-  constructor(public payload: Array<TrainingLocation>) {}
+  constructor(public payload: Array<TrainingLocation>) {
+  }
 }
 
 /**

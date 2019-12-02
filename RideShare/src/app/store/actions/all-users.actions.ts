@@ -121,7 +121,9 @@ export class LoginUserFailAction implements Action {
  */
 export class RegisterUserAction implements Action {
   readonly type = AllUsersActionTypes.REGISTER_USER;
-  constructor(public payload: { user: User; password: string }) {}
+  constructor(public payload: { user: User; password: string }) {
+    console.log(payload.user, payload.password);
+  }
 }
 
 /**

@@ -1,0 +1,53 @@
+/*
+ * Import Revature font
+*/
+/* Regular font*/
+@font-face {
+  font-family: Futura-PT;
+  src: url('../../assets/Futura-PT-Complete/ParaType-Futura-PT-Book.ttf')
+    format('truetype');
+}
+/* Bold font*/
+@font-face {
+  font-family: Futura-PT-Bold;
+  src: url('../../assets/Futura-PT-Complete/ParaType-Futura-PT-Bold.ttf')
+    format('truetype');
+}
+/* Italic font */
+@font-face {
+  font-family: Futura-PT-Oblique;
+  src: url('../../assets/Futura-PT-Complete/ParaType-Futura-PT-Book-Oblique.ttf')
+    format('truetype');
+}
+/* Bold Italic font */
+@font-face {
+  font-family: Futura-PT-Bold-Oblique;
+  src: url('../../assets/Futura-PT-Complete/ParaType-Futura-PT-Bold-Oblique.ttf')
+    format('truetype');
+}
+
+a {
+  padding: 10px 20px 10px 10px;
+  text-decoration: none;
+  color: black
+}
+
+mat-toolbar {
+  background-color: white;
+}
+
+div {
+  font-family: "Futura-PT-Bold";
+}
+
+li{
+  display: inline;
+  margin: 0 0 0 10px;
+  padding: 0;
+  vertical-align: top;
+}
+
+.nav-right {
+  margin-left: auto;
+  margin-right: 100px;
+}
