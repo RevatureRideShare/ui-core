@@ -4,15 +4,10 @@ import { ILocationState } from './location-state.model';
 /**
  * interface IAppState contains necessary information stored throughout the whole application
  *
- * Imported by:
+ * Imported by: the registartion compenent in registarton.registartion
  * 
  */
 export interface IAppState{
-  /**
-   * authorize: string - contains the JWT for the current session
-   */
-  readonly authorize: string;
-
   /**
    * userState: IUserState - contains all user-related information for the application
    */

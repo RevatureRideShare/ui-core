@@ -9,6 +9,10 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "compodoc": "npx compodoc -p tsconfig.app.json --watch --serve --open",
+    "json-server-test": "json-server ./src/app/json-server/test.json",
+    "json-server-user": "json-server ./src/app/json-server/user_table.json --config ./src/app/json-server/configurations/user_table.configurations.json",
+    "json-server-housing-location": "json-server ./src/app/json-server/housing_location_table.json --config ./src/app/json-server/configurations/housing_location_table.configurations.json",
+    "json-server-training-location": "json-server ./src/app/json-server/training_location_table.json --config ./src/app/json-server/configurations/training_location_table.configurations.json",
     "test-headless": "ng test --watch=false --browsers=ChromeHeadless --code-coverage"
   },
   "private": true,
@@ -23,7 +27,11 @@
     "@angular/platform-browser": "~8.2.11",
     "@angular/platform-browser-dynamic": "~8.2.11",
     "@angular/router": "~8.2.11",
+    "@ngrx/store": "^8.5.2",
+    "@ngrx/store-devtools": "^8.5.2",
+    "@ngrx/effects": "^8.5.1",
     "hammerjs": "^2.0.8",
+    "json-server": "^0.15.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
@@ -47,9 +55,11 @@
     "karma-jasmine-html-reporter": "^1.4.0",
     "karma-junit-reporter": "^2.0.1",
     "karma-sonarqube-unit-reporter": "0.0.21",
+    "prettier": "^1.19.1",
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
-    "typescript": "^3.4.5"
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "~3.5.3"
   }
 }

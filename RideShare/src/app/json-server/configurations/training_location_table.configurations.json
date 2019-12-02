@@ -1,0 +1,6 @@
+{
+  "port": 3002,
+  "watch": true,
+  "id": "trainingLocationName",
+  "no-cors": true
+}

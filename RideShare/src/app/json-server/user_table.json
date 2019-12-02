@@ -1,0 +1,154 @@
+{
+  "user": [
+    {
+      "email": "rickywang@gmail.com",
+      "firstName": "Ricky",
+      "lastName": "Wang",
+      "phoneNumber": "6666666666",
+      "rideStatus": "INACTIVE",
+      "role": "DRIVER",
+      "accountStatus": true,
+      "houseLocation": {
+        "locationID": 1,
+        "address1": "My House",
+        "address2": "Apt. 1",
+        "city": "Tampa",
+        "state": "FL",
+        "zipCode": "99999",
+        "housingLocationName": "IQ Apartments",
+        "trainingLocation": {
+          "trainingLocationID": 1,
+          "trainingLocationName": "USF"
+        }
+      },
+      "carDto": {
+        "seatNumber": 0
+      }
+    },
+    {
+      "email": "jefffranken@gmail.com",
+      "firstName": "Jeff",
+      "lastName": "Franken",
+      "phoneNumber": "1111111111",
+      "rideStatus": "ACTIVE",
+      "role": "DRIVER",
+      "accountStatus": false,
+      "houseLocation": {
+        "locationID": 1,
+        "address1": "My House",
+        "address2": "Apt. 1",
+        "city": "Tampa",
+        "state": "FL",
+        "zipCode": "99999",
+        "housingLocationName": "IQ Apartments",
+        "trainingLocation": {
+          "trainingLocationID": 1,
+          "trainingLocationName": "USF"
+        }
+      },
+      "carDto": {
+        "seatNumber": 4
+      }
+    },
+    {
+      "email": "robertli@gmail.com",
+      "firstName": "Robert",
+      "lastName": "Li",
+      "phoneNumber": "2222222222",
+      "rideStatus": "INACTIVE",
+      "role": "DRIVER",
+      "accountStatus": true,
+      "houseLocation": {
+        "locationID": 1,
+        "address1": "My House",
+        "address2": "Apt. 1",
+        "city": "Tampa",
+        "state": "FL",
+        "zipCode": "99999",
+        "housingLocationName": "IQ Apartments",
+        "trainingLocation": {
+          "trainingLocationID": 1,
+          "trainingLocationName": "USF"
+        }
+      },
+      "carDto": {
+        "seatNumber": 4
+      }
+    },
+    {
+      "email": "carlosmendez@gmail.com",
+      "firstName": "Carlos",
+      "lastName": "Mendez",
+      "phoneNumber": "3333333333",
+      "rideStatus": "INACTIVE",
+      "role": "RIDER",
+      "accountStatus": false,
+      "houseLocation": {
+        "locationID": 1,
+        "address1": "My House",
+        "address2": "Apt. 1",
+        "city": "Tampa",
+        "state": "FL",
+        "zipCode": "99999",
+        "housingLocationName": "IQ Apartments",
+        "trainingLocation": {
+          "trainingLocationID": 1,
+          "trainingLocationName": "USF"
+        }
+      },
+      "carDto": {
+        "seatNumber": 0
+      }
+    },
+    {
+      "email": "brianmoney@gmail.com",
+      "firstName": "Brian",
+      "lastName": "Money",
+      "phoneNumber": "7777777777",
+      "rideStatus": "ACTIVE",
+      "role": "DRIVER",
+      "accountStatus": true,
+      "houseLocation": {
+        "locationID": 2,
+        "address1": "His House",
+        "address2": "Apt. 2",
+        "city": "Tampa",
+        "state": "FL",
+        "zipCode": "99999",
+        "housingLocationName": "The Second Apartment",
+        "trainingLocation": {
+          "trainingLocationID": 1,
+          "trainingLocationName": "USF"
+        }
+      },
+      "carDto": {
+        "seatNumber": 4
+      }
+    },
+    {
+      "email": "admin@gmail.com",
+      "firstName": "Admin",
+      "lastName": "IsHere",
+      "phoneNumber": "8888888888",
+      "rideStatus": "ACTIVE",
+      "role": "ADMIN",
+      "accountStatus": true,
+      "houseLocation": {
+        "locationID": 2,
+        "address1": "His House",
+        "address2": "Apt. 2",
+        "city": "Tampa",
+        "state": "FL",
+        "zipCode": "99999",
+        "housingLocationName": "The Second Apartment",
+        "trainingLocation": {
+          "trainingLocationID": 1,
+          "trainingLocationName": "USF"
+        }
+      },
+      "carDto": {
+        "seatNumber": 4
+      }
+    }
+  ]
+}

@@ -1,8 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { HttpClient, HttpResponse } from '@angular/common/http';
-
-
+import { RideStatus } from '../models/user.model';
+import { Role } from '../models/user.model';
+import { User } from '../models/user.model';
+import { HouseLocation } from '../models/houselocation.model';
+import { TrainingLocation } from '../models/traininglocation.model';
+import { Car } from '../models/car.model';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { IAppState } from '../models/states/app-state.model';
+import { RegisterUserAction } from '../store/actions/all-users.actions';
+import { LoadAllTrainingLocationsAction } from '../store/actions/training-locations.action';
+import { LoadAllHouseLocationsAction } from '../store/actions/house-locations.actions';
 
 @Component({
   selector: 'app-registration',
@@ -10,67 +18,71 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
+  user: User;
 
-  email: ""
-  password: ""
-  //fullName: ""
-  
-  backtologin = "Back to login";
-  register = "register";
-  response: string;
-  constructor(
-    private route: ActivatedRoute,
-  private router: Router,
-  private http: HttpClient
-  ) { }
-    /*
-  elemResources = document.getElementById('resources-link');
-  elemForum = document.getElementById('forum-link');
-  elemQuiz = document.getElementById('quiz-link');
-  elemHome = document.getElementById('home-link');
-  elemSearch = document.getElementById('search');
-  elemProfile = document.getElementById('profile');
-  elemLogout = document.getElementById('logout');
-    */
+  password: string;
+  loading$: Observable<boolean>;
+  error$: Observable<Error>;
+
+  email: string;
+  firstName: string;
+  lastName: string;
+  phoneNumber: string;
+  rideStatus: RideStatus;
+  role: Role;
+  accountStatus: boolean;
+
+  allTrainingLocations: Observable<Array<TrainingLocation>>;
+  allHouseLocations: Observable<Array<HouseLocation>>;
+  filteredHouseLocations: Array<HouseLocation>;
+
+  houseLocation: HouseLocation;
+  housingLocationName: string;
+
+  trainingLocation: TrainingLocation;
+  trainingLocationName: string;
+  seatNumber: number;
+
+  car: Car;
+
+  result: any;
+
+  public containers = [0];
+  public counter = 1;
+
+  constructor(private store: Store<IAppState>) {
+    this.car = new Car();
+    this.user = new User();
+    this.trainingLocation = new TrainingLocation();
+    this.houseLocation = new HouseLocation();
+  }
+
   ngOnInit() {
-    /*
-    sessionStorage.setItem('token', '');
-    this.elemResources.style.visibility = "hidden";
-    this.elemForum.style.visibility = "hidden";
-    this.elemQuiz.style.visibility = "hidden";
-    this.elemHome.style.visibility = "hidden";
-    this.elemSearch.style.visibility = "hidden";
-    this.elemProfile.style.visibility = "hidden";
-    this.elemLogout.style.visibility = "hidden";
-    */
+    this.allHouseLocations = this.store.select(
+      store => store['allHousingLocations'].allHousingLocations
+    );
+    this.loading$ = this.store.select(
+      store => store['allHousingLocations'].loading
+    );
+    this.error$ = this.store.select(
+      store => store['allHousingLocations'].error
+    );
+    this.allTrainingLocations = this.store.select(
+      store => store['allTrainingLocations'].allTrainingLocations
+    );
+    this.loading$ = this.store.select(
+      store => store['allTrainingLocations'].loading
+    );
+    this.error$ = this.store.select(
+      store => store['allTrainingLocations'].error
+    );
+    this.store.dispatch(new LoadAllTrainingLocationsAction());
+    this.store.dispatch(new LoadAllHouseLocationsAction());
   }
-  onBack(): void {
-    this.router.navigate(['']);
+
+  register() {
+    this.store.dispatch(
+      new RegisterUserAction({ user: this.user, password: this.password })
+    );
   }
-  onRegister(): void {
-    /*
-    let url = 'http://localhost:8080/LightHouse/register';
-    let result = this.http.post<ControllerResponse>(url, {
-      username: this.username,
-      password: this.password,
-      fullName: this.fullName,
-      emailName: this.emailName
-      
-    }).subscribe(cr => {
-      if (cr.response === "registered") {
-        console.log("Response: " + cr.response);
-        sessionStorage.setItem(
-          'token',
-          btoa(this.username + ":" + this.password)
-        );
-        this.router.navigate(['home']);
-      } else {
-        console.log("Response: " + cr.response);
-        this.response = cr.response;
-        //alert("Registration failed.");
-      }
-    });
-    */
-  }
-  
 }
