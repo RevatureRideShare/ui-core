@@ -27,18 +27,20 @@ export class InterceptorService implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     let authToken = '';
-    this.getAuthorizationToken().then(res => {
-      authToken = res;
-    });
-
+    // this.getAuthorizationToken().then(res => {
+    //   authToken = res;
+    // });
+    
+    this.store
+      .select(store => store['allUsers'].authorization)
+      .toPromise()
+      .then(res => {
+        console.log('interceptor print res');
+        console.log(res);
+        authToken = res;
+      });
+    console.log('interceptor print token');
     console.log(authToken);
-    // this.store
-    //   .select(store => store['allUsers'].authorization)
-    //   .toPromise()
-    //   .then(res => {
-    //     console.log(res);
-    //     authToken = res;
-    //   });
 
     if (authToken) {
       const newReq = req.clone({
