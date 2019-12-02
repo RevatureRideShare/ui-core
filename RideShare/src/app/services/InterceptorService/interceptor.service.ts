@@ -28,13 +28,13 @@ export class InterceptorService implements HttpInterceptor {
     
     // retrieve token from store
     let authToken: string;
-    this.store.select(
-      store => store.authorization
-    ).subscribe(token => {
-      authToken = token;
-    })
-    console.log('interceptor service: print token.');
-    console.log(authToken);
+    this.store
+      .select(store => store.authorization)
+      .subscribe(token => {
+        console.log(token);
+      });
+    // console.log('interceptor service: print token.');
+    // console.log(authToken);
     let newReq = null;
     if (authToken) {
       newReq = req.clone({
