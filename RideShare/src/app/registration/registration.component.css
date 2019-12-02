@@ -1,0 +1,58 @@
+td {
+    padding-right: 10px;
+  } 
+
+  #outer-container {
+    background-image: url("../../assets/Hitchhiking-in-a-Suit1.jpg");
+    background-size: cover;
+    min-height: 87vh;
+}
+
+  .login-main{
+    margin-top: 0%;
+    }
+
+    mat-card{
+    min-width: 35%;
+    max-width: 50%;
+    }
+
+    .btn{
+     width: 30%   
+    }
+
+    .banners{
+        background-color: #F26925;
+        border-color: #F26925;
+        color: #FFFFFF;
+    }
+    
+    .card-button{
+        background-color: #F26925;
+        border-color: #F26925;
+        color: #FFFFFF;
+    }
+  
+  .fab-container{
+  display: inline-block;
+}
+
+.full {
+  width: 100%;
+}
+
+.half {
+  width: 50%;
+}
+
+.third {
+  width: 30%;
+}
+
+.company-code {
+  width: 100%;
+  }
+
+  .table-style{
+      margin: 0%;
+  }

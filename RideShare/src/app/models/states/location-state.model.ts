@@ -10,12 +10,14 @@ import { HouseLocation } from '../houselocation.model';
  */
 export interface ILocationState {
   /**
-   * allTrainingLocations: Array<TrainingLocation> - contains all of the training locations known in the database
+   * allTrainingLocations: Array<TrainingLocation> 
+   * - contains all of the training locations known in the database
    */
   readonly allTrainingLocations: Array<TrainingLocation>;
 
   /**
-   * allHousingLocations: Array<HouseLocation> - contains all of the housing locations known in the database
+   * allHousingLocations: Array<HouseLocation> 
+   * - contains all of the housing locations known in the database
    */
   readonly allHousingLocations: Array<HouseLocation>;
 
