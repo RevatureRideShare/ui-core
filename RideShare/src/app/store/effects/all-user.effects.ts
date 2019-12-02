@@ -25,6 +25,7 @@ import {
 import { User } from 'src/app/models/user.model';
 import { AllUsersService } from 'src/app/services/AllUsersServices/all-users.service';
 import { AllDriversService } from 'src/app/services/AllDriversServices/all-drivers.service';
+import { HttpResponse } from '@angular/common/http';
 
 @Injectable()
 export class AllUserEffects {
@@ -44,7 +45,7 @@ export class AllUserEffects {
     ofType<LoginUserAction>(AllUsersActionTypes.LOGIN_USER),
     mergeMap(data =>
       this.loginService.login(data.payload.email, data.payload.password).pipe(
-        map((user: User) => new LoginUserSuccessAction(user)),
+        map((res: HttpResponse<User>) => new LoginUserSuccessAction(res)),
         catchError(error => of(new LoginUserFailAction(error)))
       )
     )
@@ -60,7 +61,7 @@ export class AllUserEffects {
       this.registerService
         .registerUser(data.payload.user, data.payload.password)
         .pipe(
-          map((user: User) => new RegisterUserSuccessAction(user)),
+          map((res: HttpResponse<User>) => new RegisterUserSuccessAction(res)),
           catchError(error => of(new RegisterUserFailAction(error)))
         )
     )
@@ -100,11 +101,11 @@ export class AllUserEffects {
   @Effect()
   updateUser$ = this.action$.pipe(
     ofType<UpdateUserAction>(AllUsersActionTypes.UPDATE_USER),
-    mergeMap((data) => 
-    this.userService.updateUser(data.payload).pipe(
-      map(user => new UpdateUserSuccessAction(user)),
-      catchError(error => of(new UpdateUserFailAction(error)))
+    mergeMap(data =>
+      this.userService.updateUser(data.payload).pipe(
+        map(user => new UpdateUserSuccessAction(user)),
+        catchError(error => of(new UpdateUserFailAction(error)))
+      )
     )
-    )
-  )
+  );
 }

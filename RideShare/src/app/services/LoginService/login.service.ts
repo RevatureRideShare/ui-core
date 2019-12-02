@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { User } from '../../models/user.model';
 import { environment } from 'src/environments/environment';
 
@@ -41,6 +41,6 @@ export class LoginService {
      * The http request
      * currently a get request for testing with a json server
      */
-    return this.http.get<User>(url);
+    return this.http.get<HttpResponse<User>>(url);
   }
 }

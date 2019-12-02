@@ -41,6 +41,7 @@ export function AllUserReducer(
     case AllUsersActionTypes.LOAD_ALL_USERS_FAIL: {
       return {
         ...state,
+        currentUser: undefined,
         loading: false,
         error: action.payload
       };
@@ -68,6 +69,7 @@ export function AllUserReducer(
     case AllUsersActionTypes.UPDATE_USER_FAIL: {
       return {
         ...state,
+        currentUser: undefined,
         loading: false,
         error: action.payload
       };
@@ -88,6 +90,7 @@ export function AllUserReducer(
     case AllUsersActionTypes.LOAD_ALL_DRIVERS_FAIL: {
       return {
         ...state,
+        currentUser: undefined,
         loading: false,
         error: action.payload
       };
@@ -108,6 +111,7 @@ export function AllUserReducer(
     case AllUsersActionTypes.LOGIN_USER_FAIL: {
       return {
         ...state,
+        currentUser: undefined,
         loading: false,
         error: action.payload
       };
@@ -119,6 +123,11 @@ export function AllUserReducer(
       };
     }
     case AllUsersActionTypes.REGISTER_USER_SUCCESS: {
+      console.log(
+        'register success reducer, print header and body of response'
+      );
+      console.log(action.payload);
+      console.log(action.payload);
       return {
         ...state,
         currentUser: action.payload,
@@ -129,6 +138,7 @@ export function AllUserReducer(
     case AllUsersActionTypes.REGISTER_USER_FAIL: {
       return {
         ...state,
+        currentUser: undefined,
         loading: false,
         error: action.payload
       };
