@@ -110,7 +110,8 @@ export function AllUserReducer(
       console.log(action.payload);
       return {
         ...state,
-        authorization: action.payload.headers, // TODO get correct auth token from header
+        // TODO get correct auth token from header
+        authorization: action.payload.headers.get('Authorization'),
         currentUser: action.payload.body,
         loading: false
       };
@@ -137,7 +138,8 @@ export function AllUserReducer(
       console.log(action.payload);
       return {
         ...state,
-        authorization: action.payload.headers, // TODO get correct auth token from header
+        // TODO get correct auth token from header
+        authorization: action.payload.headers.get('Authorization'),
         currentUser: action.payload.body,
         allUsers: [...state.allUsers, action.payload.body],
         loading: false
