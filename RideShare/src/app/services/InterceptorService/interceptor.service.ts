@@ -7,6 +7,7 @@ import {
   HTTP_INTERCEPTORS
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { switchMap } from 'rxjs/internal/operators';
 import { IUserState } from 'src/app/models/states/user-state.model';
 import { Store } from '@ngrx/store';
 import { IAppState } from 'src/app/models/states/app-state.model';
@@ -26,12 +27,31 @@ export class InterceptorService implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    let authToken = '';
     // this.getAuthorizationToken().then(res => {
     //   authToken = res;
     // });
-    
-    this.store
+
+    return this.store
+      .select(store => store['allUsers'].authorization)
+      .pipe(switchMap(authToken => {
+        console.log('interceptor print token');
+        console.log(authToken);
+
+        if (authToken) {
+          const newReq = req.clone({
+            headers: req.headers.append('Authorization', authToken)
+          });
+          return next.handle(newReq);
+        } else {
+          return next.handle(req);
+        }
+      }
+      )
+      )
+        
+        ;
+
+    /*this.store
       .select(store => store['allUsers'].authorization)
       .toPromise()
       .then(res => {
@@ -49,7 +69,7 @@ export class InterceptorService implements HttpInterceptor {
       return next.handle(newReq);
     } else {
       return next.handle(req);
-    }
+    }*/
   }
 
   async getAuthorizationToken(): Promise<string> {
