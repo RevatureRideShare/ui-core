@@ -38,7 +38,7 @@ export class InterceptorService implements HttpInterceptor {
     let newReq = null;
     if (authToken) {
       newReq = req.clone({
-        headers: req.headers.append('authorization', authToken)
+        headers: req.headers.append('Authorization', authToken)
       });
     
     console.log('interceptor, print newReq body and token');
