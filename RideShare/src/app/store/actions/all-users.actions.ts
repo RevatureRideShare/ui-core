@@ -106,7 +106,10 @@ export class LoginUserAction implements Action {
  */
 export class LoginUserSuccessAction implements Action {
   readonly type = AllUsersActionTypes.LOGIN_USER_SUCCESS;
-  constructor(public payload: HttpResponse<User>) {}
+  constructor(public payload: HttpResponse<User>) {
+    console.log('all user action, login user success action');
+    console.log(payload);
+  }
 }
 
 /**
@@ -132,7 +135,10 @@ export class RegisterUserAction implements Action {
  */
 export class RegisterUserSuccessAction implements Action {
   readonly type = AllUsersActionTypes.REGISTER_USER_SUCCESS;
-  constructor(public payload: HttpResponse<User>) {}
+  constructor(public payload: HttpResponse<User>) {
+    console.log('all user reducer, register user success action');
+    console.log(payload);
+  }
 }
 
 /**

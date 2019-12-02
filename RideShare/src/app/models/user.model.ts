@@ -70,7 +70,7 @@ export class User {
     firstName: string = '',
     lastName: string = '',
     phoneNumber: string = '',
-    rideStatus: RideStatus = RideStatus.INACTIVE,
+    rideStatus: RideStatus = RideStatus.ACTIVE,
     role: Role = Role.RIDER,
     accountStatus: boolean = false,
     houseLocation: HouseLocation = new HouseLocation(),
