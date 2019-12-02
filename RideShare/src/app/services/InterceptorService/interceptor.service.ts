@@ -7,7 +7,7 @@ import {
   HTTP_INTERCEPTORS
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/internal/operators';
+import { flatMap, first } from 'rxjs/internal/operators';
 import { IUserState } from 'src/app/models/states/user-state.model';
 import { Store } from '@ngrx/store';
 import { IAppState } from 'src/app/models/states/app-state.model';
@@ -33,7 +33,7 @@ export class InterceptorService implements HttpInterceptor {
 
     return this.store
       .select(store => store['allUsers'].authorization)
-      .pipe(switchMap(authToken => {
+      .pipe(first(), flatMap(authToken => {
         console.log('interceptor print token');
         console.log(authToken);
 
@@ -45,11 +45,7 @@ export class InterceptorService implements HttpInterceptor {
         } else {
           return next.handle(req);
         }
-      }
-      )
-      )
-        
-        ;
+      }));
 
     /*this.store
       .select(store => store['allUsers'].authorization)
