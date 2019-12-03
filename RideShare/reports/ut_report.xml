@@ -1,0 +1,245 @@
+<testExecutions version="1">
+  <file path="src/app/app.component.spec.ts">
+    <testCase name="AppComponent should have as title 'Project3'" duration="81">
+      <failure message="Error">1. If 'mat-slider' is an Angular component, then verify that it is part of this module.
+2. If 'mat-slider' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. ("&#xD;
+&#xD;
+'mat-slider' is not a known element:
+1. If 'mat-slider' is an Angular component, then verify that it is part of this module.
+2. If 'mat-slider' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. ("&#xD;
+&#xD;
+[ERROR -&gt;]&lt;mat-slider min="1" max="100" step="1" value="1"&gt;&lt;/mat-slider&gt;"): ng:///DynamicTestModule/AppComponent.html@2:0
+error properties: Object({ ngSyntaxError: true, ngParseErrors: [ 'mat-slider' is not a known element:
+[ERROR -&gt;]&lt;mat-slider min="1" max="100" step="1" value="1"&gt;&lt;/mat-slider&gt;"): ng:///DynamicTestModule/AppComponent.html@2:0 ] })
+Error: Template parse errors:
+    at syntaxError (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:2175:1)
+    at TemplateParser.parse (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:11388:1)
+    at JitCompiler._parseTemplate (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25963:1)
+    at JitCompiler._compileTemplate (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25951:61)
+    at http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25895:1
+    at &lt;Jasmine&gt;
+    at JitCompiler._compileComponents (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25895:1)
+    at http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25815:1
+    at Object.then (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:2166:27)
+    at JitCompiler._compileModuleAndAllComponents (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25813:1)
+
+1. If 'mat-slider' is an Angular component, then verify that it is part of this module.
+2. If 'mat-slider' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. ("&#xD;
+&#xD;
+Error: Template parse errors:
+'mat-slider' is not a known element:
+1. If 'mat-slider' is an Angular component, then verify that it is part of this module.
+2. If 'mat-slider' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. ("&#xD;
+&#xD;
+[ERROR -&gt;]&lt;mat-slider min="1" max="100" step="1" value="1"&gt;&lt;/mat-slider&gt;"): ng:///DynamicTestModule/AppComponent.html@2:0
+error properties: Object({ ngSyntaxError: true, ngParseErrors: [ 'mat-slider' is not a known element:
+[ERROR -&gt;]&lt;mat-slider min="1" max="100" step="1" value="1"&gt;&lt;/mat-slider&gt;"): ng:///DynamicTestModule/AppComponent.html@2:0 ] })
+    at syntaxError (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:2175:1)
+    at TemplateParser.parse (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:11388:1)
+    at JitCompiler._parseTemplate (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25963:1)
+    at JitCompiler._compileTemplate (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25951:61)
+    at http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25895:1
+    at &lt;Jasmine&gt;
+    at JitCompiler._compileComponents (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25895:1)
+    at http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25815:1
+    at Object.then (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:2166:27)
+    at JitCompiler._compileModuleAndAllComponents (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25813:1)
+</failure>
+    </testCase>
+    <testCase name="AppComponent should create the app" duration="34">
+      <failure message="Error">1. If 'mat-slider' is an Angular component, then verify that it is part of this module.
+2. If 'mat-slider' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. ("&#xD;
+&#xD;
+'mat-slider' is not a known element:
+1. If 'mat-slider' is an Angular component, then verify that it is part of this module.
+2. If 'mat-slider' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. ("&#xD;
+&#xD;
+[ERROR -&gt;]&lt;mat-slider min="1" max="100" step="1" value="1"&gt;&lt;/mat-slider&gt;"): ng:///DynamicTestModule/AppComponent.html@2:0
+error properties: Object({ ngSyntaxError: true, ngParseErrors: [ 'mat-slider' is not a known element:
+[ERROR -&gt;]&lt;mat-slider min="1" max="100" step="1" value="1"&gt;&lt;/mat-slider&gt;"): ng:///DynamicTestModule/AppComponent.html@2:0 ] })
+Error: Template parse errors:
+    at syntaxError (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:2175:1)
+    at TemplateParser.parse (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:11388:1)
+    at JitCompiler._parseTemplate (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25963:1)
+    at JitCompiler._compileTemplate (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25951:61)
+    at http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25895:1
+    at &lt;Jasmine&gt;
+    at JitCompiler._compileComponents (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25895:1)
+    at http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25815:1
+    at Object.then (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:2166:27)
+    at JitCompiler._compileModuleAndAllComponents (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25813:1)
+
+1. If 'mat-slider' is an Angular component, then verify that it is part of this module.
+2. If 'mat-slider' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. ("&#xD;
+&#xD;
+Error: Template parse errors:
+'mat-slider' is not a known element:
+1. If 'mat-slider' is an Angular component, then verify that it is part of this module.
+2. If 'mat-slider' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. ("&#xD;
+&#xD;
+[ERROR -&gt;]&lt;mat-slider min="1" max="100" step="1" value="1"&gt;&lt;/mat-slider&gt;"): ng:///DynamicTestModule/AppComponent.html@2:0
+error properties: Object({ ngSyntaxError: true, ngParseErrors: [ 'mat-slider' is not a known element:
+[ERROR -&gt;]&lt;mat-slider min="1" max="100" step="1" value="1"&gt;&lt;/mat-slider&gt;"): ng:///DynamicTestModule/AppComponent.html@2:0 ] })
+    at syntaxError (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:2175:1)
+    at TemplateParser.parse (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:11388:1)
+    at JitCompiler._parseTemplate (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25963:1)
+    at JitCompiler._compileTemplate (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25951:61)
+    at http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25895:1
+    at &lt;Jasmine&gt;
+    at JitCompiler._compileComponents (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25895:1)
+    at http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25815:1
+    at Object.then (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:2166:27)
+    at JitCompiler._compileModuleAndAllComponents (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25813:1)
+</failure>
+    </testCase>
+    <testCase name="AppComponent should render title" duration="57">
+      <failure message="Error">1. If 'mat-slider' is an Angular component, then verify that it is part of this module.
+2. If 'mat-slider' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. ("&#xD;
+&#xD;
+'mat-slider' is not a known element:
+1. If 'mat-slider' is an Angular component, then verify that it is part of this module.
+2. If 'mat-slider' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. ("&#xD;
+&#xD;
+[ERROR -&gt;]&lt;mat-slider min="1" max="100" step="1" value="1"&gt;&lt;/mat-slider&gt;"): ng:///DynamicTestModule/AppComponent.html@2:0
+error properties: Object({ ngSyntaxError: true, ngParseErrors: [ 'mat-slider' is not a known element:
+[ERROR -&gt;]&lt;mat-slider min="1" max="100" step="1" value="1"&gt;&lt;/mat-slider&gt;"): ng:///DynamicTestModule/AppComponent.html@2:0 ] })
+Error: Template parse errors:
+    at syntaxError (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:2175:1)
+    at TemplateParser.parse (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:11388:1)
+    at JitCompiler._parseTemplate (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25963:1)
+    at JitCompiler._compileTemplate (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25951:61)
+    at http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25895:1
+    at &lt;Jasmine&gt;
+    at JitCompiler._compileComponents (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25895:1)
+    at http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25815:1
+    at Object.then (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:2166:27)
+    at JitCompiler._compileModuleAndAllComponents (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25813:1)
+
+1. If 'mat-slider' is an Angular component, then verify that it is part of this module.
+2. If 'mat-slider' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. ("&#xD;
+&#xD;
+Error: Template parse errors:
+'mat-slider' is not a known element:
+1. If 'mat-slider' is an Angular component, then verify that it is part of this module.
+2. If 'mat-slider' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. ("&#xD;
+&#xD;
+[ERROR -&gt;]&lt;mat-slider min="1" max="100" step="1" value="1"&gt;&lt;/mat-slider&gt;"): ng:///DynamicTestModule/AppComponent.html@2:0
+error properties: Object({ ngSyntaxError: true, ngParseErrors: [ 'mat-slider' is not a known element:
+[ERROR -&gt;]&lt;mat-slider min="1" max="100" step="1" value="1"&gt;&lt;/mat-slider&gt;"): ng:///DynamicTestModule/AppComponent.html@2:0 ] })
+    at syntaxError (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:2175:1)
+    at TemplateParser.parse (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:11388:1)
+    at JitCompiler._parseTemplate (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25963:1)
+    at JitCompiler._compileTemplate (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25951:61)
+    at http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25895:1
+    at &lt;Jasmine&gt;
+    at JitCompiler._compileComponents (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25895:1)
+    at http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25815:1
+    at Object.then (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:2166:27)
+    at JitCompiler._compileModuleAndAllComponents (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25813:1)
+</failure>
+    </testCase>
+  </file>
+  <file path="src/app/navbar-outer/navbar-outer.component.spec.ts">
+    <testCase name="NavbarOuterComponent should render the logo" duration="239">
+      <failure message="Error">TypeError: Cannot read property 'src' of null
+    at &lt;Jasmine&gt;
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/src/app/navbar-outer/navbar-outer.component.spec.ts:30:45)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:359:1)
+    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:308:1)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:358:1)
+    at Zone.run (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:124:1)
+    at runInTestZone (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:561:1)
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:576:1)
+    at &lt;Jasmine&gt;
+</failure>
+    </testCase>
+    <testCase name="NavbarOuterComponent should create" duration="79"/>
+  </file>
+  <file path="src/app/login/login.component.spec.ts">
+    <testCase name="LoginComponent should contain password input" duration="93"/>
+    <testCase name="LoginComponent should contain username input" duration="39"/>
+    <testCase name="LoginComponent should call onRegister method" duration="47"/>
+    <testCase name="LoginComponent should render title in a h1 tag" duration="38">
+      <failure message="Error">Error: Expected 'Welcome to RideShare' to contain 'Welcome to LightHouse'.
+    at &lt;Jasmine&gt;
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/src/app/login/login.component.spec.ts:40:54)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:359:1)
+    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:308:1)
+</failure>
+    </testCase>
+    <testCase name="LoginComponent should create login" duration="68"/>
+    <testCase name="LoginComponent should call onLogin method" duration="66"/>
+  </file>
+  <file path="src/app/registration/registration.component.spec.ts">
+    <testCase name="RegistrationComponent should create" duration="36">
+      <failure message="Error">                    &lt;input name="emailName" id="email" type="text" class="form-control" [ERROR -&gt;][(ngModel)]="email"&#xD;
+                        placeholder="email"&gt;&#xD;
+&#xD;
+                    &lt;input name="password" id="password" type="password" class="form-control" [ERROR -&gt;][(ngModel)]="password"&#xD;
+                        placeholder="password" /&gt;&#xD;
+&#xD;
+Can't bind to 'ngModel' since it isn't a known property of 'input'. (": &lt;/label&gt;&#xD;
+                    &lt;input name="emailName" id="email" type="text" class="form-control" [ERROR -&gt;][(ngModel)]="email"&#xD;
+                        placeholder="email"&gt;&#xD;
+&#xD;
+"): ng:///DynamicTestModule/RegistrationComponent.html@12:88
+Can't bind to 'ngModel' since it isn't a known property of 'input'. ("bel&gt;&#xD;
+                    &lt;input name="password" id="password" type="password" class="form-control" [ERROR -&gt;][(ngModel)]="password"&#xD;
+                        placeholder="password" /&gt;&#xD;
+&#xD;
+"): ng:///DynamicTestModule/RegistrationComponent.html@18:94
+error properties: Object({ ngSyntaxError: true, ngParseErrors: [ Can't bind to 'ngModel' since it isn't a known property of 'input'. (": &lt;/label&gt;&#xD;
+"): ng:///DynamicTestModule/RegistrationComponent.html@12:88, Can't bind to 'ngModel' since it isn't a known property of 'input'. ("bel&gt;&#xD;
+"): ng:///DynamicTestModule/RegistrationComponent.html@18:94 ] })
+Error: Template parse errors:
+    at syntaxError (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:2175:1)
+    at TemplateParser.parse (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:11388:1)
+    at JitCompiler._parseTemplate (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25963:1)
+    at JitCompiler._compileTemplate (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25951:61)
+    at http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25895:1
+    at &lt;Jasmine&gt;
+    at JitCompiler._compileComponents (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25895:1)
+    at http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25815:1
+    at Object.then (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:2166:27)
+    at JitCompiler._compileModuleAndAllComponents (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25813:1)
+
+                    &lt;input name="emailName" id="email" type="text" class="form-control" [ERROR -&gt;][(ngModel)]="email"&#xD;
+                        placeholder="email"&gt;&#xD;
+&#xD;
+                    &lt;input name="password" id="password" type="password" class="form-control" [ERROR -&gt;][(ngModel)]="password"&#xD;
+                        placeholder="password" /&gt;&#xD;
+&#xD;
+Error: Template parse errors:
+Can't bind to 'ngModel' since it isn't a known property of 'input'. (": &lt;/label&gt;&#xD;
+                    &lt;input name="emailName" id="email" type="text" class="form-control" [ERROR -&gt;][(ngModel)]="email"&#xD;
+                        placeholder="email"&gt;&#xD;
+&#xD;
+"): ng:///DynamicTestModule/RegistrationComponent.html@12:88
+Can't bind to 'ngModel' since it isn't a known property of 'input'. ("bel&gt;&#xD;
+                    &lt;input name="password" id="password" type="password" class="form-control" [ERROR -&gt;][(ngModel)]="password"&#xD;
+                        placeholder="password" /&gt;&#xD;
+&#xD;
+"): ng:///DynamicTestModule/RegistrationComponent.html@18:94
+error properties: Object({ ngSyntaxError: true, ngParseErrors: [ Can't bind to 'ngModel' since it isn't a known property of 'input'. (": &lt;/label&gt;&#xD;
+"): ng:///DynamicTestModule/RegistrationComponent.html@12:88, Can't bind to 'ngModel' since it isn't a known property of 'input'. ("bel&gt;&#xD;
+"): ng:///DynamicTestModule/RegistrationComponent.html@18:94 ] })
+    at syntaxError (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:2175:1)
+    at TemplateParser.parse (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:11388:1)
+    at JitCompiler._parseTemplate (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25963:1)
+    at JitCompiler._compileTemplate (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25951:61)
+    at http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25895:1
+    at &lt;Jasmine&gt;
+    at JitCompiler._compileComponents (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25895:1)
+    at http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25815:1
+    at Object.then (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:2166:27)
+    at JitCompiler._compileModuleAndAllComponents (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25813:1)
+
+Error: Expected undefined to be truthy.
+    at &lt;Jasmine&gt;
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/src/app/registration/registration.component.spec.ts:23:23)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:359:1)
+    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:308:1)
+</failure>
+    </testCase>
+  </file>
+</testExecutions>
