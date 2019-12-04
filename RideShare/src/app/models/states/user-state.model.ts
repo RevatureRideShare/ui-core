@@ -8,6 +8,11 @@ import { User } from '../user.model';
  */
 export interface IUserState {
   /**
+   * authorize: string - contains the JWT for the current session
+   */
+  readonly authorization: string;
+  
+  /**
    * currentUser: User - contains information for the current user in this session
    */
   readonly currentUser: User;

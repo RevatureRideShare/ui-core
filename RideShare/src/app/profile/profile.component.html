@@ -2,19 +2,19 @@
 <div id="outer-container">
   <mat-card class="half">
     <mat-card-title class="full">Welcome to Your Profile Page</mat-card-title>
-    <!-- we use the ngIf directive to reomve the observable. this user is a state that
+    <!-- we use the ngIf directive to remove the observable. this user is a state that
     contains a user object.  -->
     <mat-card-content *ngIf="currentUser | async as thisUser">
       <section>
         <!-- we use ngIfElse to display something in place of the driver status
-        checkbox in case the user is as broke as me and doesnt have a car. the value is
+        checkbox in case the user is as broke as me and doesn't have a car. the value is
       then bound to the current status value (it should be blank if inactive, checked if 
-      active) then ngModelchange if the user changes their status, passing in the new modified user
+      active) then ngModel change if the user changes their status, passing in the new modified user
     object to which the checkbox is bound-->
         <mat-checkbox
-          *ngIf="thisUser.user.role === 'DRIVER'; else rider"
-          [(ngModel)]="thisUser.user.rideStatus"
-          (ngModelChange)="updateDriverStatus(thisUser.user)"
+          *ngIf="thisUser.role === 'DRIVER'; else rider"
+          [(ngModel)]="active"
+          (ngModelChange)="updateDriverStatus(thisUser)"
           >Active Driver?</mat-checkbox
         >
         <ng-template #rider>

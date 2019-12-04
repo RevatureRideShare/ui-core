@@ -18,6 +18,7 @@ export class ProfileComponent implements OnInit {
   currentUser: Observable<User>;
   rideStatus: RideStatus;
   role: Role;
+  active: boolean;
 
   constructor(private store: Store<IAppState>) {
     this.user = new User();
@@ -30,11 +31,22 @@ value is contains the current user */
     );
     this.loading$ = this.store.select(store => store['currentUser'].loading);
     this.error$ = this.store.select(store => store['currentUser'].error);
+
+    this.currentUser.subscribe(res => {
+      if (res.rideStatus === RideStatus.ACTIVE) {
+        this.active = true;
+      } else {
+        this.active = false;
+      }
+    });
   }
 /* we call the upDateDriver action which takes a single user object as its payload */
   updateDriverStatus(user: User) {
-    this.store.dispatch(
-      new UpdateUserAction(user)
-    );
+    if (this.active) {
+      user.rideStatus = RideStatus.ACTIVE;
+    } else {
+      user.rideStatus = RideStatus.INACTIVE;
+    }
+    this.store.dispatch(new UpdateUserAction(user));
   }
 }

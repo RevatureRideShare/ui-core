@@ -28,4 +28,10 @@ export class RouteEffects {
     ofType<LoginUserAction>(AllUsersActionTypes.LOGIN_USER_SUCCESS),
     tap(() => this.router.navigate(['/home']))
   );
+
+  @Effect({ dispatch: false })
+  redirectRegisterHome$ = this.action$.pipe(
+    ofType<LoginUserAction>(AllUsersActionTypes.REGISTER_USER_SUCCESS),
+    tap(() => this.router.navigate(['/home']))
+  );
 }

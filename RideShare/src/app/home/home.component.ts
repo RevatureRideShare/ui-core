@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User, Role, RideStatus } from '../models/user.model';
+import { User } from '../models/user.model';
 import { Store } from '@ngrx/store';
 import { IAppState } from '../models/states/app-state.model';
 

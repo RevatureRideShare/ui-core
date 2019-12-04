@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../../models/user.model';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,15 +11,15 @@ export class AllDriversService {
   /**
    * Server and port number of the request
    */
-  readonly port = 'http://localhost:3001';
+  readonly port = environment.userUrl;
   /**
    * The endpoint of the request
    */
-  readonly endpoint = '/user?role=DRIVER';
+  readonly endpoint = environment.driverEndpoint;
 
   /**
    * Constructor to inject HttpClient
-   * @param {http} http the http object used to send request 
+   * @param {http} http the http object used to send request
    */
   constructor(private http: HttpClient) {}
 

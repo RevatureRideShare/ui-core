@@ -128,8 +128,8 @@
               <!-- we bind training location to the selected item, in this case training location object.name -->
               <mat-select
                 placeholder="Training Location"
-                name="selectedTrainingLocation"
                 [(ngModel)]="selectedLocation"
+                name="selectedTrainingLocation"
               >
                 <!-- we use ngFor to loop through the array interpolating the names conatined therein -->
                 <mat-option
@@ -172,16 +172,11 @@
         </table>
       </mat-card-content>
       <mat-card-actions align="end">
-        <button routerLink="/login" type="button" class="btn">
-          Login
+        <button routerLink="/" type="button" class="btn">
+          BACK TO LOGIN
         </button>
-        <button
-          (click)="register($event)"
-          type="button"
-          class="btn"
-          routerLink="/home"
-        >
-          Submit
+        <button (click)="register($event)" type="button" class="btn">
+          SUBMIT
         </button>
       </mat-card-actions>
     </mat-card>

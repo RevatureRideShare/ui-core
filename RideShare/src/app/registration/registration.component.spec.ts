@@ -45,6 +45,7 @@ describe('RegistrationComponent', () => {
     compiled.click();
     expect(component.onBack).toHaveBeenCalled();
   });
+
   it('should call onRegister method', () => {
     const compiled = fixture.debugElement.nativeElement.querySelector(
       '#register'

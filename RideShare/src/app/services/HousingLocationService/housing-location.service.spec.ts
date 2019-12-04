@@ -5,6 +5,7 @@ import {
   HttpClientTestingModule,
   HttpTestingController
 } from '@angular/common/http/testing';
+import { environment } from 'src/environments/environment';
 
 describe('HousingLocationService', () => {
   let injector: TestBed;
@@ -27,31 +28,34 @@ describe('HousingLocationService', () => {
 
   const housingLocationList = [
     {
+      locationID: 1,
       address1: 'test',
       address2: 'test',
       city: 'test',
       state: 'test',
       zipCode: 'test',
       housingLocationName: 'IQ',
-      trainingLocation: { trainingLocationName: 'USF' }
+      trainingLocation: { trainingLocationID: 1, trainingLocationName: 'USF' }
     },
     {
+      locationID: 2,
       address1: 'test2',
       address2: 'test2',
       city: 'test2',
       state: 'test2',
       zipCode: 'test2',
       housingLocationName: 'IQ',
-      trainingLocation: { trainingLocationName: 'USF' }
+      trainingLocation: { trainingLocationID: 1, trainingLocationName: 'USF' }
     },
     {
+      locationID: 3,
       address1: 'test3',
       address2: 'test3',
       city: 'test3',
       state: 'test3',
       zipCode: 'test3',
       housingLocationName: 'IQ',
-      trainingLocation: { trainingLocationName: 'USF' }
+      trainingLocation: { trainingLocationID: 1, trainingLocationName: 'USF' }
     }
   ];
 
@@ -60,7 +64,9 @@ describe('HousingLocationService', () => {
       expect(data).toEqual(housingLocationList);
     });
 
-    const req = httpMock.expectOne('http://localhost:3003/housing-location');
+    const req = httpMock.expectOne(
+      environment.housingLocationUrl + environment.housingLocationEndpoint
+    );
     expect(req.request.method).toBe('GET');
     req.flush(housingLocationList);
   });

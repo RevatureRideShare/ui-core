@@ -2,19 +2,17 @@ import { Injectable } from '@angular/core';
 import { Actions, ofType, Effect } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { mergeMap, map, catchError } from 'rxjs/operators';
-import { HousingLocationService } from 
-    '../../services/HousingLocationService/housing-location.service';
-import { TrainingLocationService } from
-    '../../services/TrainingLocationService/training-location.service';
+import { HousingLocationService } from '../../services/HousingLocationService/housing-location.service';
+import { TrainingLocationService } from '../../services/TrainingLocationService/training-location.service';
 import {
   LoadAllTrainingLocationsAction,
   TrainingLocationsActionTypes,
   LoadAllTrainingSuccessLocationsAction,
   LoadAllTrainingFailLocationsAction
 } from '../actions/training-locations.action';
-import { 
-  LoadAllHouseLocationsAction, 
-  HouseLocationsActionTypes, 
+import {
+  LoadAllHouseLocationsAction,
+  HouseLocationsActionTypes,
   LoadAllHouseLocationsSuccessAction,
   LoadAllHouseLocationsFailAction
 } from '../actions/house-locations.actions';
@@ -65,10 +63,10 @@ export class LocationEffects {
     ofType<LoadAllHouseLocationsAction>(
       HouseLocationsActionTypes.LOAD_ALL_HOUSE_LOCATIONS
     ),
-    mergeMap(() => 
+    mergeMap(() =>
       this.housingLocationService.getHousingLocations().pipe(
         map(data => new LoadAllHouseLocationsSuccessAction(data)),
-        catchError(error => of (new LoadAllHouseLocationsFailAction(error)))
+        catchError(error => of(new LoadAllHouseLocationsFailAction(error)))
       )
     )
   );

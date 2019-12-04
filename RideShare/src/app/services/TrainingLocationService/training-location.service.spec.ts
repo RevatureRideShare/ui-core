@@ -6,6 +6,7 @@ import {
   HttpClientTestingModule,
   HttpTestingController
 } from '@angular/common/http/testing';
+import { environment } from 'src/environments/environment';
 
 describe('TrainingLocationService', () => {
   let injector: TestBed;
@@ -26,12 +27,15 @@ describe('TrainingLocationService', () => {
 
   const trainingLocationList = [
     {
+      trainingLocationID: 1,
       trainingLocationName: 'test1'
     },
     {
+      trainingLocationID: 2,
       trainingLocationName: 'test2'
     },
     {
+      trainingLocationID: 3,
       trainingLocationName: 'test3'
     }
   ];
@@ -41,7 +45,9 @@ describe('TrainingLocationService', () => {
       expect(data).toEqual(trainingLocationList);
     });
 
-    const req = httpMock.expectOne('http://localhost:3002/training-location');
+    const req = httpMock.expectOne(
+      environment.trainingLocationUrl + environment.trainingLocationEndpoint
+    );
     expect(req.request.method).toBe('GET');
     req.flush(trainingLocationList);
   });

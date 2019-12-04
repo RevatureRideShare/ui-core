@@ -1,5 +1,6 @@
 import { Action } from '@ngrx/store';
 import { User } from '../../models/user.model';
+import { HttpResponse } from '@angular/common/http';
 
 /**
  * All the actions types related to the allUsers state
@@ -105,7 +106,7 @@ export class LoginUserAction implements Action {
  */
 export class LoginUserSuccessAction implements Action {
   readonly type = AllUsersActionTypes.LOGIN_USER_SUCCESS;
-  constructor(public payload: User) {}
+  constructor(public payload: HttpResponse<any>) {}
 }
 
 /**
@@ -131,7 +132,12 @@ export class RegisterUserAction implements Action {
  */
 export class RegisterUserSuccessAction implements Action {
   readonly type = AllUsersActionTypes.REGISTER_USER_SUCCESS;
-  constructor(public payload: User) {}
+  constructor(public payload: HttpResponse<any>) {
+    console.log('all user reducer, register user success action');
+    console.log(payload.headers.get('Authorization'));
+    console.log(payload.body);
+    // console.log(payload);
+  }
 }
 
 /**
