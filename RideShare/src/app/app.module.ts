@@ -18,7 +18,6 @@ import {
   AllTrainingReducer,
   AllHousingReducer
 } from './store/reducers/location.reducers';
-import { AuthenticationReducer } from './store/reducers/authentication.reducers';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -83,8 +82,7 @@ import { RouteEffects } from './store/effects/route.effects';
     StoreModule.forRoot({
       allUsers: AllUserReducer,
       allTrainingLocations: AllTrainingReducer,
-      allHousingLocations: AllHousingReducer,
-      authentication: AuthenticationReducer
+      allHousingLocations: AllHousingReducer
     }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,

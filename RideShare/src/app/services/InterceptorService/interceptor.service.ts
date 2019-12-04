@@ -19,53 +19,30 @@ export class InterceptorService implements HttpInterceptor {
   /**
    * Constructor used to inject IUserState
    */
-  constructor(public store: Store<IAppState>) {
-    console.log('interceptor is called');
-  }
+  constructor(public store: Store<IAppState>) {}
 
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    // this.getAuthorizationToken().then(res => {
-    //   authToken = res;
-    // });
-
     return this.store
       .select(store => store['allUsers'].authorization)
-      .pipe(first(), flatMap(authToken => {
-        console.log('interceptor print token');
-        console.log(authToken);
+      .pipe(
+        first(),
+        flatMap(authToken => {
+          console.log('interceptor print token');
+          console.log(authToken);
 
-        if (authToken) {
-          const newReq = req.clone({
-            headers: req.headers.append('Authorization', authToken)
-          });
-          return next.handle(newReq);
-        } else {
-          return next.handle(req);
-        }
-      }));
-
-    /*this.store
-      .select(store => store['allUsers'].authorization)
-      .toPromise()
-      .then(res => {
-        console.log('interceptor print res');
-        console.log(res);
-        authToken = res;
-      });
-    console.log('interceptor print token');
-    console.log(authToken);
-
-    if (authToken) {
-      const newReq = req.clone({
-        headers: req.headers.append('Authorization', authToken)
-      });
-      return next.handle(newReq);
-    } else {
-      return next.handle(req);
-    }*/
+          if (authToken) {
+            const newReq = req.clone({
+              headers: req.headers.append('Authorization', authToken)
+            });
+            return next.handle(newReq);
+          } else {
+            return next.handle(req);
+          }
+        })
+      );
   }
 
   async getAuthorizationToken(): Promise<string> {
