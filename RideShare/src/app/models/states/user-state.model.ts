@@ -5,6 +5,9 @@ import { User } from '../user.model';
  *
  * Imported by:
  * app-state.model.ts
+ * user-state.model.ts
+ * interceptor.services.ts
+ * all-users.reducer.ts
  */
 export interface IUserState {
   /**

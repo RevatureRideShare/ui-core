@@ -15,16 +15,23 @@ export class ProfileComponent implements OnInit {
   error$: Observable<Error>;
 
   user: User;
+  /**
+   * currUser contains the current logged, retrieved in user from the store
+   */
   currentUser: Observable<User>;
   rideStatus: RideStatus;
   role: Role;
+  /**
+   * active tracks the active state of the currentUser
+   */
   active: boolean;
 
   constructor(private store: Store<IAppState>) {
     this.user = new User();
   }
-/* we use the store to load the current user state referencing it by name with the appState array. the all users
-value is contains the current user */
+  /**
+   * ngOnInit() grab the rideStatus of currentUser from store
+   */
   ngOnInit() {
     this.currentUser = this.store.select(
       store => store['allUsers'].currentUser
@@ -40,7 +47,11 @@ value is contains the current user */
       }
     });
   }
-/* we call the upDateDriver action which takes a single user object as its payload */
+
+  /**
+   * Toggle and update the rideStatus of the user
+   * @param {User} user The user object need to be updated
+   */
   updateDriverStatus(user: User) {
     if (this.active) {
       user.rideStatus = RideStatus.ACTIVE;

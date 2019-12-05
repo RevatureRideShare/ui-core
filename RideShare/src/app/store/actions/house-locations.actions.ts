@@ -2,7 +2,7 @@ import { Action } from '@ngrx/store';
 import { HouseLocation } from '../../models/houselocation.model';
 
 /**
- * All the actions types related to the allHouseLocations state in ILocationState of location-state.model.ts
+ * All the actions types related to the allHouseLocations state
  */
 export enum HouseLocationsActionTypes {
   LOAD_ALL_HOUSE_LOCATIONS = '[HOUSE_LOCATIONS] Load All House Locations',

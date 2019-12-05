@@ -16,19 +16,13 @@ import {
   LoadAllHouseLocationsSuccessAction,
   LoadAllHouseLocationsFailAction
 } from '../actions/house-locations.actions';
-import { TrainingLocation } from 'src/app/models/traininglocation.model';
 
 /**
  * The effects related to housing and training loactions
  */
 @Injectable()
 export class LocationEffects {
-  /**
-   * Contructor used to inject action, training loaction services and housing location serivces
-   * @param {Actions} actions$ the action fired, contains type of the action and the payload
-   * @param {TrainingLocationService} trainingLocationService services related to training loaction
-   * @param {HousingLocationService} housingLocationService services related to housing location
-   */
+
   constructor(
     private actions$: Actions,
     private trainingLocationService: TrainingLocationService,

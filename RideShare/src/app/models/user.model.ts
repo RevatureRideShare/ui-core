@@ -15,9 +15,18 @@ export enum Role {
  * class User contains all of the information regarding a user
  *
  * Imported by:
+ * admin.component.ts
+ * driver.component.ts
+ * home.component.ts
  * user-state.model.ts
- * all-users.action.ts
- * all-drivers.action.ts
+ * profile.component.ts
+ * registration.component.ts
+ * all-drivers.service.ts
+ * all-user.service.ts
+ * login.service
+ * user-registration.service.ts
+ * all-user.effects.ts
+ * all-user.action.ts
  */
 export class User {
   /**

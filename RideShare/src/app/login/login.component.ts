@@ -5,9 +5,6 @@ import { Store } from '@ngrx/store';
 import { IAppState } from '../models/states/app-state.model';
 import { LoginUserAction } from '../store/actions/all-users.actions';
 
-/**
- * Login page
- */
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -20,12 +17,12 @@ export class LoginComponent implements OnInit {
   title = 'Welcome to RideShare';
 
   /**
-   * Email to log in with
+   * Email that user entered to log in with
    */
   email: '';
 
   /**
-   * Password to log in with
+   * Password the user entered to log in with
    */
   password: '';
 
@@ -40,7 +37,7 @@ export class LoginComponent implements OnInit {
   }
 
   /**
-   * Logs user in
+   * Logs user in with the email and password
    */
   onLogin(): void {
     this.store.dispatch(

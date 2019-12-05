@@ -22,7 +22,6 @@ import {
   UpdateUserSuccessAction,
   UpdateUserFailAction
 } from '../actions/all-users.actions';
-import { User } from 'src/app/models/user.model';
 import { AllUsersService } from 'src/app/services/AllUsersServices/all-users.service';
 import { AllDriversService } from 'src/app/services/AllDriversServices/all-drivers.service';
 import { HttpResponse } from '@angular/common/http';
@@ -32,14 +31,7 @@ import { HttpResponse } from '@angular/common/http';
  */
 @Injectable()
 export class AllUserEffects {
-  /**
-   * Constructor used to inject userActions and services related to user
-   * @param {Actions} action$ the action fired, contains type of the action and payload
-   * @param {LoginService} loginService services related to login
-   * @param {UserRegistrationService} registerService services related to register
-   * @param {AllUsersService} userService servies related to get, update users
-   * @param {AllDriversService} driverService services realted to drivers
-   */
+
   constructor(
     private action$: Actions,
     private loginService: LoginService,

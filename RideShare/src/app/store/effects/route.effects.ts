@@ -12,11 +12,7 @@ import { tap } from 'rxjs/operators';
  */
 @Injectable()
 export class RouteEffects {
-  /**
-   * Constructor used to inject Action and Router
-   * @param {Actions} action$ the action fired, contains type of the action and payload
-   * @param {Router} router the router used to redirect page
-   */
+
   constructor(private action$: Actions, private router: Router) {}
 
   /**

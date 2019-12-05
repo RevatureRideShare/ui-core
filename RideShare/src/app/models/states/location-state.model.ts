@@ -7,6 +7,7 @@ import { HouseLocation } from '../houselocation.model';
  * Imported by:
  * app-state.model.ts
  * location.action.ts
+ * location.reducer.ts
  */
 export interface ILocationState {
   /**

@@ -3,6 +3,7 @@
  * 
  * Imported by:
  * user.model.ts
+ * registration.component.ts
  */
 export class Car{
   /**

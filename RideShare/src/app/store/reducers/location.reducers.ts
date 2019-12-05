@@ -7,7 +7,6 @@ import {
   TrainingLocationsAction
 } from '../actions/training-locations.action';
 import { ILocationState } from '../../models/states/location-state.model';
-import { TrainingLocation } from 'src/app/models/traininglocation.model';
 
 /**
  * The initial ILocationState.

@@ -3,6 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { User } from 'src/app/models/user.model';
 import { environment } from 'src/environments/environment';
 
+/**
+ * Services related to general users
+ * 
+ * Imported by:
+ * all-users.effects.ts
+ */
 @Injectable({
   providedIn: 'root'
 })

@@ -12,58 +12,90 @@ import { RegisterUserAction } from '../store/actions/all-users.actions';
 import { LoadAllTrainingLocationsAction } from '../store/actions/training-locations.action';
 import { LoadAllHouseLocationsAction } from '../store/actions/house-locations.actions';
 
-
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
+  /**
+   * user contains the new user information that is being registered
+   */
   user: User;
-
+  /**
+   * password contains the password entered by the new user
+   */
   password: string;
+  /**
+   * loading$ contains the loading status retrieves from store
+   */
   loading$: Observable<boolean>;
+  /**
+   * error$ contains the error message retrieves from store if any
+   */
   error$: Observable<Error>;
-
+  /**
+   * email contains the email address entered by the new user
+   */
   email: string;
+  /**
+   * firstName contains the first name entered by the new user
+   */
   firstName: string;
+  /**
+   * lastName contains the last name entered by the new user
+   */
   lastName: string;
+  /**
+   * phoneNumber contains the phone number entered by the new user
+   */
   phoneNumber: string;
-  rideStatus: RideStatus;
+  rideStatus: RideStatus; //
+  /**
+   * role contains the role selected by the new user, rider or driver
+   */
   role: Role;
-  accountStatus: boolean;
+  accountStatus: boolean; //
 
+  /**
+   * allTrainingLocations contains the observable array of training locations
+   * retrieves from store
+   */
   allTrainingLocations: Observable<Array<TrainingLocation>>;
+  /**
+   * allHouseLocations contains the observable array of house locations
+   * retrieves from store
+   */
   allHouseLocations: Observable<Array<HouseLocation>>;
-  filteredHouseLocations: Array<HouseLocation>;
+  filteredHouseLocations: Array<HouseLocation>; //
 
-  houseLocation: HouseLocation;
-  housingLocationName: string;
+  houseLocation: HouseLocation; //
+  housingLocationName: string; //
 
-  trainingLocation: TrainingLocation;
-  trainingLocationName: string;
+  trainingLocation: TrainingLocation; //
+  trainingLocationName: string; //
+  /**
+   * seatNumber contains number of seats the new user plans to share
+   */
   seatNumber: number;
 
-  car: Car;
+  car: Car; //
 
-  result: any;
+  result: any; //
 
-  public containers = [0];
-  public counter = 1;
+  public containers = [0]; //
+  public counter = 1; //
 
   constructor(private store: Store<IAppState>) {
-    this.car = new Car();
+    this.car = new Car(); //
     this.user = new User();
-    this.trainingLocation = new TrainingLocation();
-    this.houseLocation = new HouseLocation();
+    this.trainingLocation = new TrainingLocation(); //
+    this.houseLocation = new HouseLocation(); //
   }
 
-/*   On init we are setting the two observables allHouseLocations and allTrainingLocations to a value from the Store.
-  The store is essentially an array of the state of all items in the store. We are using javascripts ability to reference
-  an array item by type within the square brackets, then accessing the allHouseLocations array within that state array.
-  You will see the pattern repeated throughout ngrx -> [state].array.item or [state].object.value 
-  We need to call these two arrays to populate the traing and housin drop downs */
-
+  /**
+   * ngOnInt() retrieves house and training location from store
+   */
   ngOnInit() {
     this.allHouseLocations = this.store.select(
       store => store['allHousingLocations'].allHousingLocations
@@ -87,7 +119,9 @@ export class RegistrationComponent implements OnInit {
     this.store.dispatch(new LoadAllHouseLocationsAction());
   }
 
-  /* passing the user action its payload as an object (key value pairs) */
+  /**
+   * register() Register new user by passing the user object and the password to registerUserAction
+   */
   register() {
     this.store.dispatch(
       new RegisterUserAction({ user: this.user, password: this.password })

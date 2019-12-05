@@ -8,9 +8,10 @@ import { environment } from 'src/environments/environment';
 })
 
 /**
- * HousingLocationService gets all housing locations
+ * Services related to housing locations
  *
  * Imported by:
+ * location.effects.ts
  */
 export class HousingLocationService {
   /**

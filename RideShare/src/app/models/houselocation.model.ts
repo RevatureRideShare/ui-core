@@ -6,6 +6,11 @@ import { TrainingLocation } from './traininglocation.model';
  * Imported by:
  * user.model.ts
  * location-state.model.ts
+ * is-location.pipe.ts
+ * registration.component.ts
+ * housing-location.service.ts
+ * housing-location.service
+ * house-location.action
  */
 export class HouseLocation {
   /**

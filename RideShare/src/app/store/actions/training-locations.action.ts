@@ -2,7 +2,7 @@ import { Action } from '@ngrx/store';
 import { TrainingLocation } from '../../models/traininglocation.model';
 
 /**
- * All the actions types related to the allTrainingLocation state in ILocationState of location-state.model.ts
+ * All the actions types related to the allTrainingLocation state
  */
 export enum TrainingLocationsActionTypes {
   LOAD_ALL_TRAINING_LOCATIONS = '[TRAINING_LOCATION] Load All Training Locations',

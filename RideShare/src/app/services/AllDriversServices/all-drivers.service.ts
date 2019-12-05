@@ -4,6 +4,12 @@ import { User } from '../../models/user.model';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
+/**
+ * Service related to drivers
+ * 
+ * Imported by:
+ * all-user.effects.ts
+ */
 @Injectable({
   providedIn: 'root'
 })
