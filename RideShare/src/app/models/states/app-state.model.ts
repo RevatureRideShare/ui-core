@@ -15,12 +15,12 @@ import { ILocationState } from './location-state.model';
  */
 export interface IAppState{
   /**
-   * userState: IUserState - contains all user-related information for the application
+   * Contains all user-related information for the application
    */
   readonly userState: IUserState;
 
   /**
-   * locationState: ILocationState - contains all location-related information for the application
+   * Contains all location-related information for the application
    */
   readonly locationState: ILocationState;
 }

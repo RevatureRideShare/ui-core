@@ -1,10 +1,16 @@
 import { HouseLocation } from './houselocation.model';
 import { Car } from './car.model';
 
+/**
+ * The status of user
+ */
 export enum RideStatus {
   INACTIVE = 'INACTIVE',
   ACTIVE = 'ACTIVE'
 }
+/**
+ * The role of user
+ */
 export enum Role {
   ADMIN = 'ADMIN',
   RIDER = 'RIDER',
@@ -30,47 +36,47 @@ export enum Role {
  */
 export class User {
   /**
-   * email: string - contains the user's email
+   * Contains the user's email
    */
   email: string;
 
   /**
-   * firstName: string - contains the user's first name
+   * Contains the user's first name
    */
   firstName: string;
 
   /**
-   * lastName: string - contains the user's last name
+   * Contains the user's last name
    */
   lastName: string;
 
   /**
-   * phoneNumber: string - contains the user's phone number
+   * Contains the user's phone number
    */
   phoneNumber: string;
 
   /**
-   * rideStatus: RideStatus - contains the rider status of the user, which is a RideStatus enum
+   * Contains the rider status of the user, which is a RideStatus enum
    */
   rideStatus: RideStatus;
 
   /**
-   * role: Role - contains the role status of the user, which is a Role enum
+   * Contains the role status of the user, which is a Role enum
    */
   role: Role;
 
   /**
-   * accountStatus: boolean - contains this user's account status, whether is it active or not
+   * Contains this user's account status, whether is it active or not
    */
   accountStatus: boolean;
 
   /**
-   * houseLocation: HouseLocation - contains the house location information for this user
+   * Contains the house location information for this user
    */
   houseLocation: HouseLocation;
 
   /**
-   * car: Car - contains the car this user has, if any
+   * Contains the car this user has, if any
    */
   carDto: Car;
 

@@ -19,51 +19,51 @@ import { LoadAllHouseLocationsAction } from '../store/actions/house-locations.ac
 })
 export class RegistrationComponent implements OnInit {
   /**
-   * user contains the new user information that is being registered
+   * Contains the new user information that is being registered
    */
   user: User;
   /**
-   * password contains the password entered by the new user
+   * Contains the password entered by the new user
    */
   password: string;
   /**
-   * loading$ contains the loading status retrieves from store
+   * Contains the loading status retrieves from store
    */
   loading$: Observable<boolean>;
   /**
-   * error$ contains the error message retrieves from store if any
+   * Contains the error message retrieves from store if any
    */
   error$: Observable<Error>;
   /**
-   * email contains the email address entered by the new user
+   * Contains the email address entered by the new user
    */
   email: string;
   /**
-   * firstName contains the first name entered by the new user
+   * Contains the first name entered by the new user
    */
   firstName: string;
   /**
-   * lastName contains the last name entered by the new user
+   * Contains the last name entered by the new user
    */
   lastName: string;
   /**
-   * phoneNumber contains the phone number entered by the new user
+   * Contains the phone number entered by the new user
    */
   phoneNumber: string;
   rideStatus: RideStatus; //
   /**
-   * role contains the role selected by the new user, rider or driver
+   * Contains the role selected by the new user, rider or driver
    */
   role: Role;
   accountStatus: boolean; //
 
   /**
-   * allTrainingLocations contains the observable array of training locations
+   * Contains the observable array of training locations
    * retrieves from store
    */
   allTrainingLocations: Observable<Array<TrainingLocation>>;
   /**
-   * allHouseLocations contains the observable array of house locations
+   * Contains the observable array of house locations
    * retrieves from store
    */
   allHouseLocations: Observable<Array<HouseLocation>>;
@@ -75,7 +75,7 @@ export class RegistrationComponent implements OnInit {
   trainingLocation: TrainingLocation; //
   trainingLocationName: string; //
   /**
-   * seatNumber contains number of seats the new user plans to share
+   * Contains number of seats the new user plans to share
    */
   seatNumber: number;
 
@@ -94,7 +94,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   /**
-   * ngOnInt() retrieves house and training location from store
+   * Retrieves house and training location from store onInit component
    */
   ngOnInit() {
     this.allHouseLocations = this.store.select(
@@ -120,7 +120,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   /**
-   * register() Register new user by passing the user object and the password to registerUserAction
+   * Register new user by using the user object and the password to create a registerUserAction
    */
   register() {
     this.store.dispatch(

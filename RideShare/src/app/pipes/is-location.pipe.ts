@@ -11,9 +11,10 @@ import { HouseLocation } from '../models/houselocation.model';
 export class IsLocationPipe implements PipeTransform {
   /**
    * Pipe function to filter out the locations that matched locationName
-   * @param {HouseLocation[]} values The list of house locations to be filtered
-   * @param {string} locationName The training location to filter by
-   * @param {boolean} pure Default to be false, indicates it is a impure pipe
+   * @param values The list of house locations to be filtered
+   * @param locationName The training location to filter by
+   * @param pure Default to be false, indicates it is a impure pipe
+   * @returns The filtered list of house locations
    */
   transform(values: HouseLocation[], locationName: string, pure: false): any {
     return values.filter(

@@ -11,27 +11,27 @@ import { User } from '../user.model';
  */
 export interface IUserState {
   /**
-   * authorize: string - contains the JWT for the current session
+   * Contains the JWT for the current session
    */
   readonly authorization: string;
   
   /**
-   * currentUser: User - contains information for the current user in this session
+   * Contains information for the current user in this session
    */
   readonly currentUser: User;
 
   /**
-   * allUsers: Array<User> - contains all of the users known in the database
+   * Contains all of the users known in the database
    */
   readonly allUsers: Array<User>;
 
   /**
-   * loading: boolean - indicate the loading status of IUserState
+   * Indicates the loading status of IUserState
    */
   loading: boolean;
 
   /**
-   * error: Error - indicate the error when manipulating IUserState if any
+   * Indicates the error when manipulating IUserState if any
    */
   error: Error;
 }

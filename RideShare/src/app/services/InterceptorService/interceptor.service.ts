@@ -8,7 +8,6 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { flatMap, first } from 'rxjs/internal/operators';
-import { IUserState } from 'src/app/models/states/user-state.model';
 import { Store } from '@ngrx/store';
 import { IAppState } from 'src/app/models/states/app-state.model';
 
@@ -25,9 +24,9 @@ export class InterceptorService implements HttpInterceptor {
   constructor(public store: Store<IAppState>) {}
 
   /**
-   * intercept() take original request, attach authorization token to it and send new request
+   * Take original request, attach authorization token to it and send new request
    * @param req The original request
-   * @param next The object that used to handle/send request
+   * @param next The object that used to handle/send new request
    */
   intercept(
     req: HttpRequest<any>,

@@ -14,43 +14,42 @@ import { TrainingLocation } from './traininglocation.model';
  */
 export class HouseLocation {
   /**
-   * locationID: number - contains the id for the house location
+   * Contains the id for the house location
    */
   locationID: number;
 
   /**
-   * address1: string - contains the primary address of the house location
+   * Contains the primary address of the house location
    */
   address1: string;
 
   /**
-   * address2: string - contains the secondary address of the house location
+   * Contains the secondary address of the house location
    */
   address2: string;
 
   /**
-   * city: string - contains the city of the house location
+   * Contains the city of the house location
    */
   city: string;
 
   /**
-   * state: string - contains the state of the house location
+   * Contains the state of the house location
    */
   state: string;
 
   /**
-   * zipCode: string - contains the zip code of the house location
+   * Contains the zip code of the house location
    */
   zipCode: string;
 
   /**
-   * housingLocationName: string - contains the name of the house location
+   * Contains the name of the house location
    */
   housingLocationName: string;
 
   /**
-   * trainingLocation: TrainingLocation - contains the training location
-   * this housing location is located in
+   * Contains the training location that this housing location is located in
    */
   trainingLocation: TrainingLocation;
 

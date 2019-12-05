@@ -15,12 +15,12 @@ import {
 })
 export class AdminComponent implements OnInit {
   /**
-   * allUsers contains an observable to the list of users in the store.
+   * Contains an observable to the list of users in the store.
    */
   allUsers: Observable<Array<User>>;
   
   /**
-   * displayedColumns contains all of the fields the mat-table will display for each driver.
+   * Contains all of the fields the mat-table will display for each driver.
    */
   displayedColumns: string[] = [
     'name',
@@ -32,7 +32,7 @@ export class AdminComponent implements OnInit {
   ];
 
   /**
-   * updateUser(user: User) dispatches an UpdateUserAction to update the user with NgRx
+   * Dispatches an UpdateUserAction to update the user with NgRx
    * @param user User to update accountStatus value.
    */
   updateUser(user: User) {
@@ -42,7 +42,7 @@ export class AdminComponent implements OnInit {
   constructor(private store: Store<IAppState>) {}
 
   /**
-   * ngOnInit() grabs the list of users within the store.
+   * Grabs the list of users within the store onInit the component
    */
   ngOnInit() {
     this.allUsers = this.store.select(store => store['allUsers'].allUsers);

@@ -13,17 +13,17 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class DriverComponent implements OnInit {
   /**
-   * allDrivers contains an observable to the list of drivers in the store.
+   * Contains an observable to the list of drivers in the store.
    */
   allDrivers: Observable<Array<User>>;
 
   /**
-   * dataSource contains the data within the driver list to be able to sort/filter/paginate.
+   * Contains the data within the driver list to be able to sort/filter/paginate.
    */
   dataSource = new MatTableDataSource<User>();
 
   /**
-   * displayedColumns contains all of the fields the mat-table will display for each driver.
+   * Contains all of the fields the mat-table will display for each driver.
    */
   displayedColumns: string[] = [
     'name',
@@ -36,7 +36,7 @@ export class DriverComponent implements OnInit {
   constructor(private store: Store<IAppState>) {}
 
   /**
-   * ngOnInit() grabs the list of drivers within the store.
+   * Grabs the list of drivers within the store onInit the component
    * Once allDrivers has received its values, it gives them to dataSource and filters by DRIVER
    */
   ngOnInit() {
