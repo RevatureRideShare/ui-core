@@ -26,9 +26,6 @@ export class LoginComponent implements OnInit {
    */
   password: '';
 
-  elemProfile = document.getElementById('profile');
-  elemLogout = document.getElementById('logout');
-
   /**
    * Takes user to registration page
    */
@@ -45,12 +42,7 @@ export class LoginComponent implements OnInit {
     );
   }
 
-  constructor(
-    private store: Store<IAppState>,
-    private route: ActivatedRoute,
-    private router: Router,
-    private http: HttpClient
-  ) {}
+  constructor(private store: Store<IAppState>, private router: Router) {}
 
   ngOnInit() {}
 }

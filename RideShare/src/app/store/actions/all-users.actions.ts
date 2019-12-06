@@ -57,7 +57,7 @@ export class LoadAllUsersFailAction implements Action {
    */
   readonly type = AllUsersActionTypes.LOAD_ALL_USERS_FAIL;
   /**
-   * The constructor of LoadAllUsersFailAction 
+   * The constructor of LoadAllUsersFailAction
    * @param payload The occurred error when communicating to server
    */
   constructor(public payload: Error) {}
@@ -198,9 +198,7 @@ export class LoginUserFailAction implements Action {
  */
 export class RegisterUserAction implements Action {
   readonly type = AllUsersActionTypes.REGISTER_USER;
-  constructor(public payload: { user: User; password: string }) {
-    console.log(payload.user, payload.password);
-  }
+  constructor(public payload: { user: User; password: string }) {}
 }
 
 /**
@@ -213,15 +211,10 @@ export class RegisterUserSuccessAction implements Action {
   readonly type = AllUsersActionTypes.REGISTER_USER_SUCCESS;
   /**
    *  The constructor of RegisterUserSuccessAction
-   * @param payload the response returned from server, 
+   * @param payload the response returned from server,
    * the headers of response contains the authorization token, and body contains the new user object
    */
-  constructor(public payload: HttpResponse<any>) {
-    console.log('all user reducer, register user success action');
-    console.log(payload.headers.get('Authorization'));
-    console.log(payload.body);
-    // console.log(payload);
-  }
+  constructor(public payload: HttpResponse<any>) {}
 }
 
 /**

@@ -22,75 +22,66 @@ export class RegistrationComponent implements OnInit {
    * Contains the new user information that is being registered
    */
   user: User;
+
   /**
    * Contains the password entered by the new user
    */
   password: string;
+
   /**
    * Contains the loading status retrieves from store
    */
   loading$: Observable<boolean>;
+
   /**
    * Contains the error message retrieves from store if any
    */
   error$: Observable<Error>;
+
   /**
    * Contains the email address entered by the new user
    */
   email: string;
+
   /**
    * Contains the first name entered by the new user
    */
   firstName: string;
+
   /**
    * Contains the last name entered by the new user
    */
   lastName: string;
+
   /**
    * Contains the phone number entered by the new user
    */
   phoneNumber: string;
-  rideStatus: RideStatus; //
+
   /**
    * Contains the role selected by the new user, rider or driver
    */
   role: Role;
-  accountStatus: boolean; //
 
   /**
    * Contains the observable array of training locations
    * retrieves from store
    */
   allTrainingLocations: Observable<Array<TrainingLocation>>;
+
   /**
    * Contains the observable array of house locations
    * retrieves from store
    */
   allHouseLocations: Observable<Array<HouseLocation>>;
-  filteredHouseLocations: Array<HouseLocation>; //
 
-  houseLocation: HouseLocation; //
-  housingLocationName: string; //
-
-  trainingLocation: TrainingLocation; //
-  trainingLocationName: string; //
   /**
    * Contains number of seats the new user plans to share
    */
   seatNumber: number;
 
-  car: Car; //
-
-  result: any; //
-
-  public containers = [0]; //
-  public counter = 1; //
-
   constructor(private store: Store<IAppState>) {
-    this.car = new Car(); //
     this.user = new User();
-    this.trainingLocation = new TrainingLocation(); //
-    this.houseLocation = new HouseLocation(); //
   }
 
   /**

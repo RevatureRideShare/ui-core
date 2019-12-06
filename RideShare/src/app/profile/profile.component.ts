@@ -14,21 +14,17 @@ export class ProfileComponent implements OnInit {
   loading$: Observable<boolean>;
   error$: Observable<Error>;
 
-  user: User;
   /**
    * Contains the current logged, retrieved in user from the store
    */
   currentUser: Observable<User>;
-  rideStatus: RideStatus;
-  role: Role;
+
   /**
    * Tracks the active state of the currentUser
    */
   active: boolean;
 
-  constructor(private store: Store<IAppState>) {
-    this.user = new User();
-  }
+  constructor(private store: Store<IAppState>) {}
   /**
    * Grab the rideStatus of currentUser from store onInit component
    */
