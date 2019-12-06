@@ -57,13 +57,13 @@ describe('LoginService', () => {
 
   it('login() should return user', () => {
     service.login('test', 'test').subscribe(data => {
-      expect(data).toEqual(user);
+      expect(data.body.body).toEqual(user);
     });
 
     const req = httpMock.expectOne(
       environment.userUrl + environment.userEndpoint
     );
-    expect(req.request.method).toBe('GET');
+    expect(req.request.method).toBe('POST');
     req.flush(user);
   });
 });
