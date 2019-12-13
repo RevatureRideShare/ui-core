@@ -98,9 +98,6 @@ pipeline {
                 }
             }
         }  
-                                // -Dsonar.test=RideShare/src/app \
-                                // -Dsonar.test.inclusions=RideShare/**/*.spec.ts \
-                                // -Dsonar.tests=RideShare/**/*.spec.ts \
           stage("Quality Gate") {     
             steps {
                 echo "check2"
