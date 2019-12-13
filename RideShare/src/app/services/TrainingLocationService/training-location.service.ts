@@ -3,15 +3,15 @@ import { HttpClient } from '@angular/common/http';
 import { TrainingLocation } from '../../models/traininglocation.model';
 import { environment } from 'src/environments/environment';
 
-@Injectable({
-  providedIn: 'root'
-})
-
 /**
  * TrainingLocationService gets all training locations
  *
  * Imported By:
+ * location.effects.ts
  */
+@Injectable({
+  providedIn: 'root'
+})
 export class TrainingLocationService {
   /**
    * Server and port number of the request
@@ -26,7 +26,7 @@ export class TrainingLocationService {
   constructor(private http: HttpClient) {}
 
   /**
-   * Gets all training locations
+   *
    */
   getTrainingLocations() {
     /**
@@ -35,7 +35,7 @@ export class TrainingLocationService {
     const url = this.port + this.endpoint;
 
     /**
-     * The http request
+     * The http request to get all training locations from server
      */
     return this.http.get<TrainingLocation[]>(url);
   }

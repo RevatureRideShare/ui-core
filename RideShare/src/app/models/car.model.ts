@@ -3,10 +3,11 @@
  * 
  * Imported by:
  * user.model.ts
+ * registration.component.ts
  */
 export class Car{
   /**
-   * seatNumber: number - contains the available seat numbers for this car
+   * Contains the available seat numbers for this car
    */
   seatNumber: number;
 

@@ -4,15 +4,19 @@
  * Imported by:
  * houseLocation.model.ts
  * location-state.model.ts
+ * training-location.services.ts
+ * training-location.action.ts
+ * location.effects.ts
+ * location.reducer.ts
  */
 export class TrainingLocation {
   /**
-   * trainingLocationID: number - id of the training location
+   * Id of the training location
    */
   trainingLocationID: number;
 
   /**
-   * trainingLocationName: string - name of the training location
+   * Name of the training location
    */
   trainingLocationName: string;
 

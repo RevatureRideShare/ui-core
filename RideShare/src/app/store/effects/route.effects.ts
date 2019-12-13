@@ -7,12 +7,20 @@ import {
 } from '../actions/all-users.actions';
 import { tap } from 'rxjs/operators';
 
+/**
+ * The effect for redirecting pages
+ */
 @Injectable()
 export class RouteEffects {
+
   constructor(private action$: Actions, private router: Router) {}
 
-  @Effect({ dispatch: false })
-  redirectLoginHome$ = this.action$.pipe(
+  /**
+   * Side effect of LoginUserSuccess
+   * redirect to HOME page after successfully login
+   */
+  @Effect({dispatch:false})
+  redirectHome$ = this.action$.pipe(
     ofType<LoginUserAction>(AllUsersActionTypes.LOGIN_USER_SUCCESS),
     tap(() => this.router.navigate(['/home']))
   );

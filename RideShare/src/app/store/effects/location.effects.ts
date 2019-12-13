@@ -17,14 +17,23 @@ import {
   LoadAllHouseLocationsFailAction
 } from '../actions/house-locations.actions';
 
+/**
+ * The effects related to housing and training loactions
+ */
 @Injectable()
 export class LocationEffects {
+
   constructor(
     private actions$: Actions,
     private trainingLocationService: TrainingLocationService,
     private housingLocationService: HousingLocationService
   ) {}
-
+  
+  /**
+   * Side effect of LoadAllTrainingLocation, 
+   * if success trigger LoadALlTrainingLocationsSuccessAction
+   * if failed trigger LoadAllTrainingLocationsFailAction
+   */
   @Effect()
   loadingTrainingLocation$ = this.actions$.pipe(
     ofType<LoadAllTrainingLocationsAction>(
@@ -33,12 +42,16 @@ export class LocationEffects {
     mergeMap(() =>
       this.trainingLocationService.getTrainingLocations().pipe(
         map(data => new LoadAllTrainingSuccessLocationsAction(data)),
-        // map(data => console.log(data)),
         catchError(error => of(new LoadAllTrainingFailLocationsAction(error)))
       )
     )
   );
 
+  /**
+   * Side effect of LoadALlHouseLocations
+   * if success trigger LoadAllHouseLocationsSuccessAction
+   * if fail trigger LoadAllHouseLocationFailAction
+   */
   @Effect()
   loadingHousingLocation$ = this.actions$.pipe(
     ofType<LoadAllHouseLocationsAction>(

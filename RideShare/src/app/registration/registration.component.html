@@ -18,6 +18,9 @@
           <tr class="full">
             <td class="half">
               <mat-form-field class="full">
+                <!-- through these first fields we use the relatively routine
+                ngModel function of binding input to a field, except in this case  we are binding
+              to the empty user object created in the registractionComponent.ts constructor -->
                 <input
                   matInput
                   placeholder="First Name"
@@ -75,6 +78,8 @@
             </td>
             <td class="half">
               <mat-form-field class="full">
+                <!-- here, we double bind, first binding the form field to the selected value,
+                 then binding the user.role to that selected value-->
                 <mat-select
                   placeholder="Do you have a car?"
                   [(ngModel)]="selectedValue"
@@ -88,7 +93,7 @@
             </td>
           </tr>
           <tr>
-            <!--  I have no idea why, but if you delete these, you'll be sorry. -->
+            <!--  the table structure needs these empty elements to maintain space in card -->
             <td></td>
             <td></td>
             <td></td>
@@ -113,15 +118,20 @@
             </td>
           </tr>
           <tr class="full">
+            <!-- we need a structural directive to use the async pipe,
+            ngIf* is great for that, and we pipe the output to a new name for clarity.
+          async removes the observable 'state'. Remember, [state].array.item -->
             <td
               class="half"
               *ngIf="allTrainingLocations | async as trainingLocations"
             >
+              <!-- we bind training location to the selected item, in this case training location object.name -->
               <mat-select
                 placeholder="Training Location"
                 [(ngModel)]="selectedLocation"
                 name="selectedTrainingLocation"
               >
+                <!-- we use ngFor to loop through the array interpolating the names conatined therein -->
                 <mat-option
                   *ngFor="let i of trainingLocations"
                   [(value)]="i.trainingLocationName"
@@ -131,15 +141,24 @@
             </td>
           </tr>
           <tr class="full">
+            <!-- similar to above, remove observable pipe to new name -->
             <td
               class="half"
               *ngIf="allHouseLocations | async as housingLocations"
             >
+              <!-- because the user object contains a housing object, we bind to whole object
+            by setting value in mat-option to 'i' instead of i.name, but we dispaly i.name with 
+          interpolation -->
               <mat-select
                 placeholder="Housing Location Name"
                 name="selectedHousingLocation"
                 [(ngModel)]="user.houseLocation"
               >
+                <!-- we only want to display housing locations that are in a selected training location,
+              so we use a pipe to filter the selection. this custom pipe filters by the selected location value
+            bound above. it is an impure pipe, meaning it will be reapplied any time its input parameters, either the
+          array of housing locations or the value of the selectedLocation string are changed. 
+          You have offically achieved Jedi angular skills  -->
                 <mat-option
                   *ngFor="
                     let i of housingLocations | isLocation: selectedLocation
