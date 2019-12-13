@@ -24,6 +24,7 @@ import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { DriverComponent } from './driver/driver.component';
+import { AdminComponent } from './admin/admin.component';
 import { IsLocationPipe } from './pipes/is-location.pipe';
 
 // This is the material toolbar import and associated icon import
@@ -55,6 +56,7 @@ import { RouteEffects } from './store/effects/route.effects';
     NavbarComponent,
     ProfileComponent,
     DriverComponent,
+    AdminComponent,
     IsLocationPipe
   ],
   imports: [
