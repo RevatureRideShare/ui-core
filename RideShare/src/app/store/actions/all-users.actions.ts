@@ -1,25 +1,26 @@
-import { Action } from "@ngrx/store";
-import { User } from "../../models/user.model";
+import { Action } from '@ngrx/store';
+import { User } from '../../models/user.model';
+import { HttpResponse } from '@angular/common/http';
 
 /**
  * All the actions types related to the allUsers state
  */
 export enum AllUsersActionTypes {
-  LOAD_ALL_USERS = "[ADMIN] Loading All Users",
-  LOAD_ALL_USERS_SUCCESS = "[ADMIN] Loading All Users Success",
-  LOAD_ALL_USERS_FAIL = "[ADMIN] Loading All User Fail",
-  REGISTER_USER = "[REGISTER] Adding New User",
-  REGISTER_USER_SUCCESS = "[REGISTER] Adding New User Success",
-  REGISTER_USER_FAIL = "[REGISTER] Adding New User Fail",
-  UPDATE_USER = "[ADMIN] Updating User",
-  UPDATE_USER_SUCCESS = "[ADMIN] Updating User Success",
-  UPDATE_USER_FAIL = "[ADMIN] Updating User Fail",
-  LOGIN_USER = "[LOGIN] Login User",
-  LOGIN_USER_SUCCESS = "[LOGIN] Login User Success",
-  LOGIN_USER_FAIL = "[LOGIN] Login User Fail",
-  LOAD_ALL_DRIVERS = "[HOME] Load All Drivers",
-  LOAD_ALL_DRIVERS_SUCCESS = "[HOME] Load All Driver Success",
-  LOAD_ALL_DRIVERS_FAIL = "[HOME] Load All Driver Fail"
+  LOAD_ALL_USERS = '[ADMIN] Loading All Users',
+  LOAD_ALL_USERS_SUCCESS = '[ADMIN] Loading All Users Success',
+  LOAD_ALL_USERS_FAIL = '[ADMIN] Loading All User Fail',
+  REGISTER_USER = '[REGISTER] Adding New User',
+  REGISTER_USER_SUCCESS = '[REGISTER] Adding New User Success',
+  REGISTER_USER_FAIL = '[REGISTER] Adding New User Fail',
+  UPDATE_USER = '[ADMIN] Updating User',
+  UPDATE_USER_SUCCESS = '[ADMIN] Updating User Success',
+  UPDATE_USER_FAIL = '[ADMIN] Updating User Fail',
+  LOGIN_USER = '[LOGIN] Login User',
+  LOGIN_USER_SUCCESS = '[LOGIN] Login User Success',
+  LOGIN_USER_FAIL = '[LOGIN] Login User Fail',
+  LOAD_ALL_DRIVERS = '[HOME] Load All Drivers',
+  LOAD_ALL_DRIVERS_SUCCESS = '[HOME] Load All Driver Success',
+  LOAD_ALL_DRIVERS_FAIL = '[HOME] Load All Driver Fail'
 }
 
 /**
@@ -105,7 +106,10 @@ export class LoginUserAction implements Action {
  */
 export class LoginUserSuccessAction implements Action {
   readonly type = AllUsersActionTypes.LOGIN_USER_SUCCESS;
-  constructor(public payload: User) {}
+  constructor(public payload: HttpResponse<User>) {
+    console.log('all user action, login user success action');
+    console.log(payload);
+  }
 }
 
 /**
@@ -131,7 +135,10 @@ export class RegisterUserAction implements Action {
  */
 export class RegisterUserSuccessAction implements Action {
   readonly type = AllUsersActionTypes.REGISTER_USER_SUCCESS;
-  constructor(public payload: User) {}
+  constructor(public payload: HttpResponse<User>) {
+    console.log('all user reducer, register user success action');
+    console.log(payload);
+  }
 }
 
 /**
