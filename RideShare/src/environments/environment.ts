@@ -5,7 +5,6 @@
 export const environment = {
   production: false,
   loginEndpoint: '/login',
-  registrationgEndpoint: '/registration',
   userEndpoint: '/user',
   driverEndpoint: '/user?role=DRIVER',
   housingLocationEndpoint: '/housing-location',

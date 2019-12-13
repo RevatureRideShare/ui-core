@@ -8,6 +8,7 @@ import { AppRoutingModule, routing } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { RegistrationComponent } from './registration/registration.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -18,7 +19,6 @@ import {
 } from './store/reducers/location.reducers';
 import { AuthenticationReducer } from './store/reducers/authentication.reducers';
 import { HomeComponent } from './home/home.component';
-import { FooterComponent } from './footer/footer.component';
 
 // This is the material toolbar import and associated icon import
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -32,21 +32,26 @@ import {
 } from '@angular/material';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatTableModule } from '@angular/material/table';
 import { TrainingLocationService } from './services/TrainingLocationService/training-location.service';
 import { LocationEffects } from './store/effects/location.effects';
+import { FooterComponent } from './footer/footer.component';
 import { AllUserEffects } from './store/effects/all-user.effects';
 import { RouteEffects } from './store/effects/route.effects';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, FooterComponent],
+  declarations: [
+    AppComponent,
+    RegistrationComponent,
+    HomeComponent,
+    FooterComponent
+  ],
   imports: [
     BrowserModule,
     routing,
     RouterModule,
     AppRoutingModule,
     FormsModule,
+    AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
@@ -56,9 +61,7 @@ import { RouteEffects } from './store/effects/route.effects';
     MatSelectModule,
     MatToolbarModule,
     MatIconModule,
-    MatCheckboxModule,
-    MatTableModule,
-    EffectsModule.forRoot([LocationEffects, AllUserEffects, RouteEffects]),
+    EffectsModule.forRoot([AllUserEffects, LocationEffects, RouteEffects]),
     StoreModule.forRoot({
       allUsers: AllUserReducer,
       allTrainingLocations: AllTrainingReducer,
