@@ -1,6 +1,29 @@
-/* Sets all font on the page to match revature style */
-* {
-  font-family: 'Futura-PT';
+/*
+ * Import Revature font
+*/
+/* Regular font*/
+@font-face {
+  font-family: Futura-PT;
+  src: url('./assets/Futura-PT-Complete/ParaType-Futura-PT-Book.ttf')
+    format('truetype');
+}
+/* Bold font*/
+@font-face {
+  font-family: Futura-PT-Bold;
+  src: url('./assets/Futura-PT-Complete/ParaType-Futura-PT-Bold.ttf')
+    format('truetype');
+}
+/* Italic font */
+@font-face {
+  font-family: Futura-PT-Oblique;
+  src: url('./assets/Futura-PT-Complete/ParaType-Futura-PT-Book-Oblique.ttf')
+    format('truetype');
+}
+/* Bold Italic font */
+@font-face {
+  font-family: Futura-PT-Bold-Oblique;
+  src: url('./assets/Futura-PT-Complete/ParaType-Futura-PT-Bold-Oblique.ttf')
+    format('truetype');
 }
 
 #outer-container {
@@ -52,8 +75,6 @@ body {
   font-size: 15px;
   font-weight: 700;
   width: 40%;
-  position: relative;
-  left: 10%;
 }
 
 .btn:hover,

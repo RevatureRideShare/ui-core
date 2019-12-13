@@ -1,18 +1,24 @@
 import { HouseLocation } from './houselocation.model';
 import { Car } from './car.model';
 
-enum RideStatus {INACTIVE, ACTIVE};
-enum Role {RIDER, DRIVER};
+export enum RideStatus {
+  INACTIVE,
+  ACTIVE
+}
+export enum Role {
+  RIDER,
+  DRIVER
+}
 
 /**
  * class User contains all of the information regarding a user
- * 
+ *
  * Imported by:
  * user-state.model.ts
  * all-users.action.ts
  * all-drivers.action.ts
  */
-export class User{
+export class User {
   /**
    * email: string - contains the user's email
    */
@@ -42,7 +48,7 @@ export class User{
    * role: Role - contains the role status of the user, which is a Role enum
    */
   role: Role;
-  
+
   /**
    * accountStatus: boolean - contains this user's account status, whether is it active or not
    */
@@ -59,16 +65,16 @@ export class User{
   car: Car;
 
   constructor(
-    email: string = "",
-    firstName: string = "",
-    lastName: string = "",
-    phoneNumber: string = "",
+    email: string = '',
+    firstName: string = '',
+    lastName: string = '',
+    phoneNumber: string = '',
     rideStatus: RideStatus = RideStatus.INACTIVE,
     role: Role = Role.RIDER,
     accountStatus: boolean = false,
     houseLocation: HouseLocation = new HouseLocation(),
-    car: Car = new Car(),
-  ){
+    car: Car = new Car()
+  ) {
     this.email = email;
     this.firstName = firstName;
     this.lastName = lastName;

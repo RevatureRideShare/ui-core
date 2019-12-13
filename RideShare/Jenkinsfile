@@ -98,7 +98,6 @@ pipeline {
                 }
             }
         }  
-
           stage("Quality Gate") {     
             steps {
                 echo "check2"
