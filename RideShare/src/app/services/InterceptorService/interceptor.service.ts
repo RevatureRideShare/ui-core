@@ -37,9 +37,6 @@ export class InterceptorService implements HttpInterceptor {
       .pipe(
         first(),
         flatMap(authToken => {
-          console.log('interceptor print token');
-          console.log(authToken);
-
           if (authToken) {
             const newReq = req.clone({
               headers: req.headers.append('Authorization', authToken)
@@ -50,13 +47,6 @@ export class InterceptorService implements HttpInterceptor {
           }
         })
       );
-  }
-
-  async getAuthorizationToken(): Promise<string> {
-    console.log('In getAuthorizationToken');
-    return await this.store
-      .select(store => store['allUsers'].authorization)
-      .toPromise();
   }
 }
 

@@ -18,7 +18,6 @@ import { IUserState } from 'src/app/models/states/user-state.model';
 
 xdescribe('all-user reducer ', () => {
   const initialAppState: IAppState = {
-    authorization: '',
     userState: initialUserState,
     locationState: initialLocationState
   };
