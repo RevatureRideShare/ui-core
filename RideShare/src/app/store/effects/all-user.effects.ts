@@ -45,7 +45,7 @@ export class AllUserEffects {
     ofType<LoginUserAction>(AllUsersActionTypes.LOGIN_USER),
     mergeMap(data =>
       this.loginService.login(data.payload.email, data.payload.password).pipe(
-        map((res: HttpResponse<User>) => new LoginUserSuccessAction(res)),
+        map((res: HttpResponse<any>) => new LoginUserSuccessAction(res)),
         catchError(error => of(new LoginUserFailAction(error)))
       )
     )
@@ -61,7 +61,7 @@ export class AllUserEffects {
       this.registerService
         .registerUser(data.payload.user, data.payload.password)
         .pipe(
-          map((res: HttpResponse<User>) => new RegisterUserSuccessAction(res)),
+          map((res: HttpResponse<any>) => new RegisterUserSuccessAction(res)),
           catchError(error => of(new RegisterUserFailAction(error)))
         )
     )

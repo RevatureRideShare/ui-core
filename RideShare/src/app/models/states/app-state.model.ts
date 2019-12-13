@@ -9,11 +9,6 @@ import { ILocationState } from './location-state.model';
  */
 export interface IAppState{
   /**
-   * authorize: string - contains the JWT for the current session
-   */
-  readonly authorization: string;
-
-  /**
    * userState: IUserState - contains all user-related information for the application
    */
   readonly userState: IUserState;

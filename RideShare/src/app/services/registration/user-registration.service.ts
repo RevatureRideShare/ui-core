@@ -20,8 +20,11 @@ export class UserRegistrationService {
 
   registerUser(user: User, password: string) {
     const url = this.port + this.endpoint;
-    // return this.http.post<User>(url, { user, password });
-    return this.http.post<HttpResponse<User>>(url, user);
+    return this.http.post<HttpResponse<any>>(
+      url,
+      { userDto: user, password: password },
+      { observe: 'response' }
+    );
   }
 
   constructor(private router: Router, private http: HttpClient) {}

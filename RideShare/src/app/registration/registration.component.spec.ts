@@ -11,15 +11,9 @@ describe('RegistrationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        FormsModule,
-        RouterTestingModule,
-        HttpClientModule
-        ],
-      declarations: [ RegistrationComponent,
-      ]
-    })
-    .compileComponents();
+      imports: [FormsModule, RouterTestingModule, HttpClientModule],
+      declarations: [RegistrationComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
