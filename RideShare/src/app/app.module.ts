@@ -19,6 +19,8 @@ import {
 } from './store/reducers/location.reducers';
 import { AuthenticationReducer } from './store/reducers/authentication.reducers';
 import { HomeComponent } from './home/home.component';
+import { FooterComponent } from './footer/footer.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 // This is the material toolbar import and associated icon import
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -34,7 +36,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { TrainingLocationService } from './services/TrainingLocationService/training-location.service';
 import { LocationEffects } from './store/effects/location.effects';
-import { FooterComponent } from './footer/footer.component';
 import { AllUserEffects } from './store/effects/all-user.effects';
 import { RouteEffects } from './store/effects/route.effects';
 
@@ -43,6 +44,7 @@ import { RouteEffects } from './store/effects/route.effects';
     AppComponent,
     RegistrationComponent,
     HomeComponent,
+    NavbarComponent,
     FooterComponent
   ],
   imports: [
@@ -51,7 +53,6 @@ import { RouteEffects } from './store/effects/route.effects';
     RouterModule,
     AppRoutingModule,
     FormsModule,
-    AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
