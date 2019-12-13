@@ -2,13 +2,13 @@ import { HouseLocation } from './houselocation.model';
 import { Car } from './car.model';
 
 export enum RideStatus {
-  INACTIVE,
-  ACTIVE
+  INACTIVE = 'INACTIVE',
+  ACTIVE = 'ACTIVE'
 }
 export enum Role {
-  ADMIN,
-  RIDER,
-  DRIVER
+  ADMIN = 'ADMIN',
+  RIDER = 'RIDER',
+  DRIVER = 'DRIVER'
 }
 
 /**

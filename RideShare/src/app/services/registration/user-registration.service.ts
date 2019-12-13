@@ -20,6 +20,7 @@ export class UserRegistrationService {
 
   registerUser(userDto: User, password: string) {
     const url = this.port + this.endpoint;
+    console.log(userDto);
     return this.http.post(url, { userDto, password });
   }
 

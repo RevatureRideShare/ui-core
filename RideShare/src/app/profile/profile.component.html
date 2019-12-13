@@ -1,3 +1,22 @@
 <app-navbar></app-navbar>
-<mat-checkbox>Active Driver?</mat-checkbox>
+<div id="outer-container">
+  <mat-card class="half">
+    <mat-card-title class="full">Welcome to Your Profile Page</mat-card-title>
+    <mat-card-content *ngIf="currentUser | async as thisUser">
+      <section>
+        <mat-checkbox
+          *ngIf="thisUser[0].role === 'DRIVER'; else rider"
+          [(ngModel)]="active"
+          (ngModelChange)="updateDriverStatus(thisUser[0])"
+          >Active Driver?</mat-checkbox
+        >
+        <ng-template #rider>
+          <h3>
+            We are but passengers here.
+          </h3>
+        </ng-template>
+      </section>
+    </mat-card-content>
+  </mat-card>
+</div>
 <app-footer></app-footer>
