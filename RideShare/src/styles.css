@@ -25,10 +25,6 @@
   src: url('./assets/Futura-PT-Complete/ParaType-Futura-PT-Bold-Oblique.ttf')
     format('truetype');
 }
-/* Sets all font on the page to match revature style */
-/* * {
-  font-family: 'Futura-PT';
-} */
 
 #outer-container {
   background-size: cover;
@@ -79,8 +75,6 @@ body {
   font-size: 15px;
   font-weight: 700;
   width: 40%;
-  /* position: relative; 
-    left: 10%; */
 }
 
 .btn:hover,

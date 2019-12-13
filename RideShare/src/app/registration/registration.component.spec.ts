@@ -36,23 +36,4 @@ describe('RegistrationComponent', () => {
     expect(compiled.querySelector('#password').name).toContain('userPassword');
   });
 
-  /*
-  it('should call onBack method', () => {
-    const compiled = fixture.debugElement.nativeElement.querySelector(
-      '#backtologin'
-    );
-    spyOn(component, 'onBack');
-    compiled.click();
-    expect(component.onBack).toHaveBeenCalled();
-  });
-
-  it('should call onRegister method', () => {
-    const compiled = fixture.debugElement.nativeElement.querySelector(
-      '#register'
-    );
-    spyOn(component, 'onRegister');
-    compiled.click();
-    expect(component.onRegister).toHaveBeenCalled();
-  });
-  */
 });
